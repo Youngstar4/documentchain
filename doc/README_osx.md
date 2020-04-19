@@ -1,6 +1,6 @@
 Deterministic macOS (formerly OS X) Dmg Notes.
 
-Working OS X DMGs are created in Linux by combining a recent clang,
+Working macOS DMGs are created in Linux by combining a recent clang,
 the Apple binutils (ld, ar, etc) and DMG authoring tools.
 
 Apple uses clang extensively for development and has upstreamed the necessary

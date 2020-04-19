@@ -1,20 +1,22 @@
 # start-many Setup Guide
 
+You can also find instructions on [documentchain.org](https://documentchain.org/support/masternodes)
+
 ## Setting up your Wallet
 
 ### Create New Wallet Addresses
 
-1. Open the QT Wallet.
+1. Open the Qt Wallet.
 2. Click the Receive tab.
 3. Fill in the form to request a payment.
-    * Label: mn01
+    * Label: MN1
     * Amount: 5000 (optional)
     * Click *Request payment* button
 5. Click the *Copy Address* button
 
 Create a new wallet address for each Masternode.
 
-Close your QT Wallet.
+Close your Qt Wallet.
 
 ### Send 5000 DMS to New Addresses
 
@@ -22,7 +24,7 @@ Send exactly 5000 DMS to each new address created above.
 
 ### Create New Masternode Private Keys
 
-Open your QT Wallet and go to console (from the menu select `Tools` => `Debug Console`)
+Open your Qt Wallet and go to console (from the menu select `Tools` => `Debug Console`)
 
 Issue the following:
 
@@ -30,11 +32,11 @@ Issue the following:
 
 *Note: A masternode private key will need to be created for each Masternode you run. You should not use the same masternode private key for multiple Masternodes.*
 
-Close your QT Wallet.
+Close your Qt Wallet.
 
 ## <a name="masternodeconf"></a>Create masternode.conf file
 
-Remember... this is local. Make sure your QT is not running.
+Remember... this is local. Make sure your Qt is not running.
 
 Create the `masternode.conf` file in the same directory as your `wallet.dat`.
 
@@ -44,7 +46,7 @@ Copy the masternode private key and correspondig collateral output transaction t
 
 ### Get the collateral output
 
-Open your QT Wallet and go to console (from the menu select `Tools` => `Debug Console`)
+Open your Qt Wallet and go to console (from the menu select `Tools` => `Debug console`)
 
 Issue the following:
 
@@ -64,8 +66,8 @@ alias ipaddress:port masternode_private_key collateral_output collateral_output_
 Example:
 
 ```
-mn01 127.0.0.1:41319 93HaYBVUCYjEMeeH1Y4sBGLALQZE1Yc1K64xiqgX37tGBDQL8Xg 2bcd3c84c84f87eaa86e4e56834c92927a07f9e18718810b92e0d0324456a67c 0
-mn02 127.0.0.2:41319 93WaAb3htPJEV8E9aQcN23Jt97bPex7YvWfgMDTUdWJvzmrMqey aa9f1034d973377a5e733272c3d0eced1de22555ad45d6b24abadff8087948d4 0
+MN1 123.123.123.123:41319 5UFi4AmqjhYGqw1sKMfqjVvXeb57yL3aqw5VdWSG18x2xMAmags 7603c20a05258c208b58b0a0d77603b9fc93d47cfa403035f87f3ce0af814566 1
+MN2 123.123.123.124:41319 5UL1E4xbdX1V5LKAe3g43PVYkYi1ksNUVXW1zamyGXQGeqHq4dk 5d898e78244f3206e0105f421cdb071d95d111a51cd88eb5511fc0dbf4bfd95f 0
 ```
 
 ## Update dms.conf on server
@@ -95,11 +97,11 @@ and comparing with the official explorer at https://explorer.documentchain.org/
 
 Finally... time to start from local.
 
-#### Open up your QT Wallet
+#### Open up your Qt Wallet
 
-From the menu select `Tools` => `Debug Console`
+From the menu select `Tools` => `Debug console`
 
-If you want to review your `masternode.conf` setting before starting Masternodes, issue the following in the Debug Console:
+If you want to review your `masternode.conf` setting before starting Masternodes, issue the following in the Debug console:
 
 ```masternode list-conf```
 

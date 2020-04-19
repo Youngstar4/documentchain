@@ -1,12 +1,12 @@
-Gitian building Mac OS SDK
+Gitian building macOS SDK
 ==========================
 
 On the host machine, register for a free Apple [developer account](https://developer.apple.com/register/), then download the SDK [here](https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_7.3.1/Xcode_7.3.1.dmg).
 
-MacOS host
+macOS host
 --------
 
-Using Mac OS X, you can mount the dmg, and then extract the SDK with:
+Using macOS (OS X), you can mount the dmg, and then extract the SDK with:
 ```
   $ hdiutil attach Xcode_7.3.1.dmg
   $ tar -C /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/ -czf MacOSX10.11.sdk.tar.gz MacOSX10.11.sdk
@@ -19,7 +19,7 @@ diskutil unmount /Volumes/Xcode
 rm Xcode_7.3.1.dmg
 ```
 
-Non-MacOS host:
+Non-macOS host:
 --------
 
 Alternatively, you can use 7zip and SleuthKit to extract the files one by one.

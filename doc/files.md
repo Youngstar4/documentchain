@@ -14,6 +14,7 @@
 * fee_estimates.dat: stores statistics used to estimate minimum transaction fees and priorities required for confirmation
 * mempool.dat: dump of the mempool's transactions
 * governance.dat: stores data for governance obgects
+* lockedcoins.conf: contains permanently locked unspents
 * masternode.conf: contains configuration settings for remote masternodes
 * mncache.dat: stores data for masternode list
 * mnpayments.dat: stores data for masternode payments
