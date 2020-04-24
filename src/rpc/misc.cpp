@@ -1053,18 +1053,27 @@ UniValue getdocumentcount(const JSONRPCRequest& request)
 
 UniValue listdocuments(const JSONRPCRequest& request)
 {
-    if (request.fHelp || request.params.size() > 1)
+    if (request.fHelp || request.params.size() > 2)
         throw std::runtime_error(
-            "listdocuments ( \"filehash\" )\n"
+            "listdocuments ( \"filehash\" verbose )\n"
             "\nList documents archived (requires documentindex to be enabled).\n"
             "If 'filehash' is specified, only documents with this hash are listed.\n"
             "\nArguments:\n"
-            "1. \"filehash\"        (string, optional) The file hash used as filter.\n"
-            "\nResult:\n"
+            "1. \"filehash\"             (string, optional) The file hash used as filter.\n"
+            "2. verbose                (boolean, optional, default=false) true for a json object, false for an array.\n"
+            "\nResult (for verbose=false, suitable for simple listings)\n"
             "{\n"
             "  \"filehash\": \"tx\",       (string) The file hash and the transaction id\n"
             "  ,...\n"
             "}\n"
+            "\nResult (for verbose=true, required for further processing if same hash occurs multiple)\n"
+            "[                         (array of json object)\n"
+            "  {\n"
+            "    \"hash\" : \"hash\",      (string) the file hash \n"
+            "    \"txid\" : \"txid\"       (string) the transaction id \n"
+            "  }\n"
+            "  ,...\n"
+            "]\n"
             "\nExamples:\n"
             + HelpExampleCli("listdocuments", "")
             + HelpExampleRpc("listdocuments", "")
@@ -1073,20 +1082,34 @@ UniValue listdocuments(const JSONRPCRequest& request)
     std::string strHashfilter;
     if (request.params.size() > 0) {
         strHashfilter = request.params[0].get_str();
-        if (strHashfilter.length() != 32)
+        if (!strHashfilter.empty() && (strHashfilter.length() != 32))
             throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, strHashfilter + " is not a file hash");
     }
+
+    bool fVerbose = false;
+    if (request.params.size() > 1)
+        fVerbose = request.params[1].get_bool();
 
     std::vector<std::pair<CDocumentIndexKey, std::string> > documentList;
     if (!GetDocumentList(documentList, strHashfilter))
         throw JSONRPCError(RPC_MISC_ERROR, "Document index not enabled");
 
-    UniValue result(UniValue::VOBJ);
-    for (std::vector<std::pair<CDocumentIndexKey, std::string> >::iterator it = documentList.begin(); it != documentList.end(); it++) {
-        result.push_back(Pair(it->first.fileHash(), it->second));
+    if (!fVerbose) {
+        UniValue result(UniValue::VOBJ);
+        for (std::vector<std::pair<CDocumentIndexKey, std::string> >::iterator it = documentList.begin(); it != documentList.end(); it++)
+            result.push_back(Pair(it->first.fileHash(), it->second));
+        return result;
     }
-
-    return result;
+    else {
+        UniValue results(UniValue::VARR);
+        for (std::vector<std::pair<CDocumentIndexKey, std::string> >::iterator it = documentList.begin(); it != documentList.end(); it++) {
+            UniValue entry(UniValue::VOBJ);
+            entry.push_back(Pair("hash", it->first.fileHash()));
+            entry.push_back(Pair("txid", it->second));
+            results.push_back(entry);
+        }
+        return results;
+    }
 }
 
 UniValue getspentinfo(const JSONRPCRequest& request)
@@ -1216,7 +1239,7 @@ static const CRPCCommand commands[] =
 
     /* Document index */
     { "documentindex",      "getdocumentcount",       &getdocumentcount,       true,  {} },
-    { "documentindex",      "listdocuments",          &listdocuments,          true,  {"filehash"} },
+    { "documentindex",      "listdocuments",          &listdocuments,          true,  {"filehash","verbose"} },
 
     /* Not shown in help */
     { "hidden",             "setmocktime",            &setmocktime,            true,  {"timestamp"}},
