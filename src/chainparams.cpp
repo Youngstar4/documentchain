@@ -144,7 +144,7 @@ public:
         consensus.BIP34Hash = uint256S("0x00000af4a21d6e8daa4026a5eafc7132089a7dbb9d3921b12c4fa39b78c9a010");
         consensus.BIP65Height = 84100;
         consensus.BIP66Height = 84000;
-        consensus.DIP0001Height = 150446; // TODO    
+        consensus.DIP0001Height = 143481; // May 18, 2020
         consensus.powLimit = uint256S("0000ffffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 24 * 60 * 60; // PoW calculation 24 * 60 * 60;  1 day
         consensus.nPowTargetSpacing = 6 * 60; // DMS 6 minutes (initial 4 minutes); Bitcoin 10 minutes; Dash 2.5 minutes
