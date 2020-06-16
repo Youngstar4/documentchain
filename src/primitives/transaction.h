@@ -198,7 +198,7 @@ public:
         return !(a == b);
     }
 
-    bool GetDocument(std::string& docType, std::string& docGuid, std::string& docFilehash, std::string& docAttrhash) const;
+    bool GetDocument(std::string& guid, std::string& indexhash, std::string& filehash, std::string& attrhash) const;
 
     std::string ToString() const;
 };

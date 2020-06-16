@@ -1356,8 +1356,8 @@ CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
     if(nHeight > nMNPIBlock+(nMNPIPeriod* 8)) ret += blockValue /100; // 116000 - 44.0% ~ 2020-01-19
     if(nHeight > nMNPIBlock+(nMNPIPeriod* 9)) ret += blockValue /100; // 123000 - 45.0% ~ 2020-02-19
     if(nHeight > nMNPIBlock+(nMNPIPeriod*10)) ret += blockValue /100; // 130000 - 46.0% ~ 2020-03-20
-    if(nHeight > nMNPIBlock+(nMNPIPeriod*11)) ret += blockValue /100; // 137000 - 47.0% ~ 2020-04
-    if(nHeight > nMNPIBlock+(nMNPIPeriod*12)) ret += blockValue /100; // 144000 - 48.0% ~ 2020-05
+    if(nHeight > nMNPIBlock+(nMNPIPeriod*11)) ret += blockValue /100; // 137000 - 47.0% ~ 2020-04-20
+    if(nHeight > nMNPIBlock+(nMNPIPeriod*12)) ret += blockValue /100; // 144000 - 48.0% ~ 2020-05-21
     if(nHeight > nMNPIBlock+(nMNPIPeriod*13)) ret += blockValue /100; // 151000 - 49.0% ~ 2020-06
     if(nHeight > nMNPIBlock+(nMNPIPeriod*14)) ret += blockValue /100; // 158000 - 50.0% ~ 2020-07
 
@@ -2254,13 +2254,13 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
             {
                 for (size_t j = 0; j < tx.vout.size(); j++) {
                     const CTxOut output = tx.vout[j];
-                    std::string docType;
                     std::string docGuid;
+                    std::string docIndexhash;
                     std::string docFilehash;
                     std::string docAttrhash;
-                    if (output.GetDocument(docType, docGuid, docFilehash, docAttrhash)) {
+                    if (output.GetDocument(docGuid, docIndexhash, docFilehash, docAttrhash)) {
                         fDocumentCount = -1;
-                        documentIndex.push_back(std::make_pair(CDocumentIndexKey(docFilehash, pindex->nHeight, i), txhash.ToString()));
+                        documentIndex.push_back(std::make_pair(CDocumentIndexKey(docIndexhash, pindex->nHeight, i), txhash.ToString()));
                     }
                 }
             }

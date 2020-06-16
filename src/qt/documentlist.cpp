@@ -1,4 +1,4 @@
-// Copyright (c) 2019 Softwarebuero Krekeler
+// Copyright (c) 2019-2020 Softwarebuero Krekeler
 
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -37,8 +37,11 @@
 */
 namespace {
 
-const QString descFileExt = ".desc";
-const double minDocRevFee = 0.1; // DMS
+const double DOC_TRANSACTION_FEE = 0.1; // DMS
+const int DOC_BLOCKCHAIN_VERS = 2;
+const bool DOC_STORE_GUID = false;
+const int DOC_FILEHASH_ALGO = 35; // Secure Hash Algorithm SHA3-512
+const int DOC_ATTRHASH_ALGO = 32; // 32=SHA3-256, -1=don't store
 
 /** frequent terms */
 QString trDocument;
@@ -46,24 +49,42 @@ QString trFileHash;
 QString trGUID;
 QString trAttrHash;
 QString trBlockchain;
+QString trBlockchainVersion;
 QString trDocRev;
 QString trExecute;
 QString trTransID;
 QString trTotalAmount;
 QString trStored;
 
-QString getTextHash(const QString text)
+QCryptographicHash::Algorithm getQtAlgo(int algo)
 {
-    QCryptographicHash crypto(QCryptographicHash::Md5);
+    switch (algo) {
+        case  0: return QCryptographicHash::Md5;
+        case  1: return QCryptographicHash::Sha1;
+        case 21: return QCryptographicHash::Sha224;
+        case 22: return QCryptographicHash::Sha256;
+        case 23: return QCryptographicHash::Sha384;
+        case 25: return QCryptographicHash::Sha512;
+        case 31: return QCryptographicHash::Sha3_224;
+        case 32: return QCryptographicHash::Sha3_256;
+        case 33: return QCryptographicHash::Sha3_384;
+        case 35: return QCryptographicHash::Sha3_512;
+        default: throw std::runtime_error("Invalid algo");
+    }
+}
+
+QString getTextHash(const QString text, int algo)
+{
+    QCryptographicHash crypto(getQtAlgo(algo));
     crypto.addData(text.toUtf8());
     QByteArray hash = crypto.result();
 
     return QString::fromLatin1(hash.toHex()).toUpper();
 }
 
-QString getFileHash(const QString fileName)
+QString getFileHash(const QString fileName, int algo)
 {
-    QCryptographicHash crypto(QCryptographicHash::Md5);
+    QCryptographicHash crypto(getQtAlgo(algo));
     QFile file(fileName);
     file.open(QFile::ReadOnly);
     while(!file.atEnd()){
@@ -89,7 +110,7 @@ Document::Document(const QString docFileName)
     minConfirms = TransactionRecord::RecommendedNumConfirmations;
 
     QFileInfo fileInfo(filename);
-    descfilename = fileInfo.path() + "/desc/" + fileInfo.fileName() + descFileExt;
+    descfilename = fileInfo.path() + "/desc/" + fileInfo.fileName() + ".desc";
 
     // create the description file if not exists
     if (!QFile::exists(descfilename)) {
@@ -99,11 +120,18 @@ Document::Document(const QString docFileName)
 
         QSettings descFile(descfilename, QSettings::IniFormat);
         descFile.beginGroup("docfile");
-        descFile.setValue("GUID", QUuid::createUuid().toString().toUpper());
+        if (DOC_STORE_GUID)
+            descFile.setValue("GUID", QUuid::createUuid().toString().toUpper());
         descFile.setValue("name", fileInfo.fileName());
+        descFile.setValue("indexalgo", 0);
+        descFile.setValue("indexhash", getFileHash(docFileName, 0));
         descFile.setValue("filesize", fileInfo.size());
-        descFile.setValue("filehash", getFileHash(docFileName));
-        descFile.setValue("attrhash", getTextHash(attr));
+        descFile.setValue("filealgo", DOC_FILEHASH_ALGO);
+        descFile.setValue("filehash", getFileHash(docFileName, DOC_FILEHASH_ALGO));
+        if (DOC_ATTRHASH_ALGO > -1) {
+            descFile.setValue("attralgo", DOC_ATTRHASH_ALGO);
+            descFile.setValue("attrhash", getTextHash(attr, DOC_ATTRHASH_ALGO));
+        }
         descFile.endGroup();
 
         descFile.sync();
@@ -120,18 +148,27 @@ void Document::loadDescription()
 {
     QSettings descFile(descfilename, QSettings::IniFormat);
 
+    descFile.beginGroup("blockchain");
+    version = descFile.value("version", 1).toInt(); // not stored in version 1
+    txid = descFile.value("txid", "").toString();
+    savetime = descFile.value("systemtime", "").toDateTime();
+    descFile.endGroup();
+
     descFile.beginGroup("docfile");
     name = descFile.value("name", "").toString();
     guid = descFile.value("GUID", "").toString();
-    filesize = descFile.value("filesize", "").toInt();
-    filehash = descFile.value("filehash", "").toString();
-    attrhash = descFile.value("attrhash", "").toString();
-    descFile.endGroup();
-
-    descFile.beginGroup("blockchain");
-    txid = descFile.value("txid", "").toString();
-    savetime = descFile.value("systemtime", "").toDateTime();
-
+    filesize = descFile.value("filesize", 0).toInt();
+    /* Version 1: only filehash was stored, this corresponds to indexhash in version 2
+       Version 2: stores indexalgo, indexhash, filealgo and filehash */
+    filehash = CDocumentHash(descFile.value("filealgo", 0).toInt(),
+                             descFile.value("filehash", "").toString().toStdString());
+    attrhash = CDocumentHash(descFile.value("attralgo", 0).toInt(),
+                             descFile.value("attrhash", "").toString().toStdString());
+    if (version == 1)
+        indexhash = filehash;
+    else
+        indexhash = CDocumentHash(descFile.value("indexalgo", 0).toInt(),
+                                  descFile.value("indexhash", "").toString().toStdString());
     descFile.endGroup();
 }
 
@@ -143,9 +180,7 @@ QString Document::documentRevision()
     std::string result;
     std::string filtered;
     QString txasm;
-    QString bcguid;
-    QString bcfilehash;
-    QString bcattrhash;
+    CDocument chaindoc;
 
     QString revOk    = "<h2 style=\"color:green\">" + tr("Revision successful") + "</h2>";
     QString revHint  = "<h2 style=\"color:green\">" + tr("Revision with notes") + "</h2>";
@@ -155,7 +190,7 @@ QString Document::documentRevision()
     if (txid.isEmpty())
         return revError + "<p>" + tr("No Transaction stored.") + "</p>";
     
-    if (filehash != getFileHash(filename))
+    if (QString::fromStdString(filehash.hash) != getFileHash(filename, filehash.algo))
         return revError + "<p>" 
             + tr("The current file does not match the locally saved hash. This file has been modified.") + "</p>";
 
@@ -180,104 +215,148 @@ QString Document::documentRevision()
             // {"value": 0.00000000,"valueSat": 0,"n": 1,"scriptPubKey": {"asm": "OP_RETURN 48616c6c6f2057656c74","hex": "6a0a48616c6c6f2057656c74","type": "nulldata"}}
             jvout = jvout.value("scriptPubKey").toObject();
             if (jvout.value("type").toString() == "nulldata") {
-                txasm = jvout.value("asm").toString();
-                if (txasm.toUpper().startsWith("OP_RETURN 444D2400010002")) {
+                txasm = jvout.value("asm").toString().toUpper();
+                if (txasm.startsWith("OP_RETURN 444D24")) {
                     txasm.remove(0, 10);
-                    bcguid = txasm.mid(14, 32).toUpper();
-                    bcfilehash = txasm.mid(46, 32).toUpper();
-                    bcattrhash = txasm.mid(78, 32).toUpper();
+                    chaindoc = CDocument(txasm.toStdString());
+                    if (chaindoc.version != version)
+                        return revError + "<p>Versions do not match.</p>";
                     found = true;
                     break;
                 }
             }
         }
         if (!found)
-            return revError + "<p>" + tr("Transaction not found.") + "</p>";
+            return revError + "<p>" + tr("No document data found in transaction.") + "</p>";
 
         // compare document with data from blockchain
         QString revlog = "";
         QString deviation  = tr("current value \"%1\" differs from value \"%2\" stored in blockchain.");
         QString accordance = tr("matches the blockchain value.");
 
+        bool guidOk     = (chaindoc.guid.empty() || compressGuid(guid).toStdString() == chaindoc.guidcompr);
+        bool filehashOk = (filehash.SameHash(chaindoc.filehash) && indexhash.SameHash(chaindoc.indexhash, (version == 1)));
+        bool attrhashOk = (attrhash.SameHash(chaindoc.attrhash, true));
+
         if (confirmations < minConfirms) {
             revlog.append(revNoConf);
-            revlog.append("<p>" + tr("There are not enough blockchain confirmations available for revision. Please wait a while.") + "</p>");
+            if (filehashOk)
+                revlog.append("<p>" + tr("There are not enough blockchain confirmations available for revision. Please wait a while.") + "</p>");
         }
-        else if (compressGuid(guid) == bcguid && attrhash == bcattrhash && filehash == bcfilehash)
+        else if (guidOk && filehashOk && attrhashOk)
             revlog.append(revOk);
-        else if (filehash == bcfilehash)
+        else if (filehashOk)
             revlog.append(revHint);
         else
             revlog.append(revError);
-
+ 
         revlog.append("<p>");
-        if (compressGuid(guid) == bcguid)
-            revlog.append(QString("<b>%1</b>: <span style=\"color:green\">%2</span><br>").arg(trGUID, accordance));
-        else
-            revlog.append(QString("<b>%1</b>: <span style=\"color:red\">%2</span><br>")
-                         .arg(trGUID, deviation.arg(compressGuid(guid), bcguid)));
-        if (attrhash == bcattrhash)
-            revlog.append(QString("<b>%1</b>: <span style=\"color:green\">%2</span><br>").arg(trAttrHash, accordance));
-        else
-            revlog.append(QString("<b>%1</b>: <span style=\"color:red\">%2</span><br>")
-                         .arg(trAttrHash, deviation.arg(attrhash, bcattrhash)));
-        if (filehash == bcfilehash) {
+        if (!chaindoc.guid.empty()) {
+            if (guidOk)
+                revlog.append(QString("<b>%1</b>: <span style=\"color:green\">%2</span><br>").arg(trGUID, accordance));
+            else
+                revlog.append(QString("<b>%1</b>: <span style=\"color:red\">%2</span><br>")
+                             .arg(trGUID, deviation.arg(compressGuid(guid), QString::fromStdString(chaindoc.guidcompr))));
+        }
+
+        if (!chaindoc.attrhash.hash.empty()) {
+            if (attrhashOk)
+                revlog.append(QString("<b>%1</b>: <span style=\"color:green\">%2</span><br>").arg(trAttrHash, accordance));
+            else
+                revlog.append(QString("<b>%1</b>: <span style=\"color:red\">%2</span><br>")
+                             .arg(trAttrHash, deviation.arg(QString::fromStdString(attrhash.hash), QString::fromStdString(chaindoc.attrhash.hash))));
+        }
+
+        if (chaindoc.version > 1 && !indexhash.hash.empty()) {
+            if (indexhash.SameHash(chaindoc.indexhash))
+                revlog.append(QString("<b>%1</b> (index): <span style=\"color:green\">%2</span><br>").arg(trFileHash, accordance));
+            else
+                revlog.append(QString("<b>%1 (index)</b>: <span style=\"color:red\">%2</span><br>").arg(
+                              trFileHash, deviation.arg(QString::fromStdString(indexhash.hash), QString::fromStdString(chaindoc.indexhash.hash))));
+        }
+
+        if (filehash.SameHash(chaindoc.filehash))
             revlog.append(QString("<b>%1</b>: <span style=\"color:green\">%2</span>").arg(trFileHash, accordance));
+        else
+            revlog.append(QString("<b>%1</b>: <span style=\"color:red\">%2</span>").arg(
+                          trFileHash, deviation.arg(QString::fromStdString(filehash.hash), QString::fromStdString(chaindoc.filehash.hash))));
+        if (filehashOk) {
             if (confirmations >= minConfirms)
                 revlog.append("</p><p>" + tr("The blockchain confirms that %1this document file%2 exists at least since %3 and has not been modified.")
                                             .arg("<a href=\"open\">", "</a>", GUIUtil::dateTimeStr(blocktime)));
         }
-        else
-            revlog.append(QString("<b>%1</b>: <span style=\"color:red\">%2</span>")
-                         .arg(trFileHash, deviation.arg(filehash, bcfilehash)));
+        revlog.append("</p>");
 
-        revlog.append("</p><p><b>" + tr("Blockchain confirmations") 
+        revlog.append("<p><b>" + tr("Blockchain confirmations") 
             + "</b>: " + QString::number(confirmations) 
             + ((confirmations < minConfirms) ? ("/" + QString::number(minConfirms)) : "") + "</p>");
 
         return revlog;
 
     } catch (const std::exception& e) {
-        return revError + "<p>" + QString::fromStdString(e.what()) + "</p>";
+        return revError + "<p>" + tr("Document Revision") + ": " + QString::fromStdString(e.what()) + "</p>";
     } catch (...) {
-        return  revError + "<p>" + tr("Unknown error.") + "</p>";
+        return  revError + "<p>" + tr("Document Revision") + ": " + tr("Unknown error.") + "</p>";
     }
 }
 
 QString Document::getInformationHtml()
 {
+    QString lnguid = guid;
+    if (!lnguid.isEmpty())
+        lnguid = QString("<p><b>%1</b><br>%2</p>").arg(trGUID, lnguid);
+
+    QString lnindex = version > 1 ? QString::fromStdString(indexhash.hash) : "";
+    if (!lnindex.isEmpty())
+        lnindex = QString("<b>%1</b> (index) %2<br>%3<br>").arg(trFileHash, QString::fromStdString(indexhash.AlgoName()), lnindex);
+
+    QString lnattr = QString::fromStdString(attrhash.hash);
+    if (!lnattr.isEmpty())
+        lnattr = QString("</p><p><b>%1</b> %2<br>%3").arg(trAttrHash, QString::fromStdString(attrhash.AlgoName()), lnattr);
+
     return QString("<h1>%1</h1><h2>%9</h2>"
         "<p><a href=\"open\">%2</a> (%3 byte)</p>"
-        "<p><b>%10</b><br>%4</p>"
-        "<p><b>%11</b><br>%5<br>"
-        "<b>%12</b><br>%6</p>"
-        "<h2>%13</h2>"
-        "<p><b>%14</b><br>%7</p>"
-        "<p><b>%15</b><br>%8 (local system time)</p>"
+        "%4"
+        "<p>%17"
+        "<b>%10</b> %15<br>%5"
+        "%6</p>"
+        "<h2>%11</h2>"
+        "<p><b>%12</b><br>%7</p>"
+        "<p><b>%13</b><br>%8 (local system time), %14 %16</p>"
         ).arg(
-        name, filename, QString::number(filesize), guid, filehash, attrhash, txid,
-        GUIUtil::dateTimeStr(savetime)  // %8
+        name/*1*/, filename/*2*/, QString::number(filesize)/*3*/, lnguid/*4*/, QString::fromStdString(filehash.hash)/*5*/,
+        lnattr/*6*/, txid/*7*/, GUIUtil::dateTimeStr(savetime)/*8*/
         ).arg(
-        trDocument, trGUID, trFileHash, trAttrHash, trBlockchain, trTransID, trStored);
+        trDocument/*9*/, trFileHash/*10*/, trBlockchain/*11*/, trTransID/*12*/, trStored/*13*/, trBlockchainVersion/*14*/
+        ).arg(
+        QString::fromStdString(filehash.AlgoName())/*15*/, QString::number(version)/*16*/,
+        lnindex/*17*/ );
 }
 
 /** we are using RPC functions to create the transaction
  * developer can use this as template in there document management system
  */
-QString Document::writeToBlockchain(const QString &comprguid, const QString &filehash, const QString &attrhash)
+QString Document::writeToBlockchain(const std::string &comprguid, const std::string &indexhash,
+                                    const std::string &filehash, const std::string &attrhash)
 {
     std::string result;
     std::string filtered;
     std::string changetx = "";
+    std::string txid = "";
     double tmpamount;
     double usedamount = -1;
     double mininput = INT_MAX; 
-    QString txid = "";
-    int vout = -1; 
+    int vout = -1;
 
     // 1. validate params
-    if ( comprguid.length() != 32 || filehash.length() != 32 || attrhash.length() != 32 ) {
-        throw std::runtime_error("Invalid document description.");
+    switch (DOC_BLOCKCHAIN_VERS) {
+        case 1 : if ( comprguid.length() != 32 || filehash.length() != 32 || attrhash.length() != 32 )
+                     throw std::runtime_error("Invalid document description.");
+                 break;
+        case 2 : if ( filehash.length() < 32 || indexhash.length() < 32 )
+                     throw std::runtime_error("Invalid document description.");
+                 break;
+        default: throw std::runtime_error("Invalid blockchain version");
     }
 
     // 2. searching the lowest input to pay the fee
@@ -290,15 +369,15 @@ QString Document::writeToBlockchain(const QString &comprguid, const QString &fil
         tmpamount = jobj.value("amount").toDouble();
         if(jobj.value("spendable").toBool()
         && tmpamount <= 55  // max input is just a safety value to avoid loss of change
-        && tmpamount >= minDocRevFee
+        && tmpamount >= DOC_TRANSACTION_FEE
         && tmpamount <  mininput) {
-            txid = jobj.value("txid").toString();
+            txid = jobj.value("txid").toString().toStdString();
             vout = jobj.value("vout").toInt();
             usedamount = tmpamount;
             mininput = tmpamount;
         }
     }
-    if (txid.isEmpty()) {
+    if (txid.empty()) {
         throw std::runtime_error(
            "No matching credit (input) found. At least one input with a credit "
            "between 0.1 and 55 coins and 6 confirmation required.");
@@ -306,24 +385,46 @@ QString Document::writeToBlockchain(const QString &comprguid, const QString &fil
 
     // 3. calc change amount and get address
     // RPC: Post('{"jsonrpc":"1.0","id":"YourAppName","method":"getrawchangeaddress"}');
-    double change = usedamount - minDocRevFee;
-    if (change > minDocRevFee / 100) {  // lower change goes to miner, or us IsDust / GetDustThreshold
+    double change = usedamount - DOC_TRANSACTION_FEE;
+    if (change > DOC_TRANSACTION_FEE / 100) {  // lower change goes to miner, or us IsDust / GetDustThreshold
         RPCConsole::RPCExecuteCommandLine(result, "getrawchangeaddress", &filtered);
         changetx = strprintf("\\\"%s\\\":%f, ", result, change);
     }
 
     // 4. format document revision hex data 
+    // https://github.com/Krekeler/documentchain/blob/master/dms-docs/document-revision-data.md
+    std::string docrevdata;
+    // 4a. Blockchain Version 0001, fixed order of 128 bit hash values
     //  0..5  : "444D24" = 'DM$', the magic chars for document revision
     //  6..9  : "0001"   = blockchain data version
-    // 10..13 : "04D2"   = app-defined typ/version (OM DMS uses "0001", DMS Core "0002", use another ID)
+    // 10..13 : "04D2"   = app-defined type/version (OM DMS uses "0001" and "0003", DMS Core "0002", Web Wallet "0004", use another ID above "1000")
     // 14..45 : document GUID without {} and -
     // 46..77 : file hash
     // 78..109: attribute hash
     // 110..  : (optional) encoded document attributes like number, name, receiptdate
-    std::string docrevdata = "444D2400010002" 
-                           + comprguid.toStdString()
-                           + filehash.toStdString()
-                           + attrhash.toStdString();
+    if (DOC_BLOCKCHAIN_VERS == 1) {
+        docrevdata = "444D2400010002" 
+                   + comprguid
+                   + filehash
+                   + attrhash;
+    }
+    // 4b. Blockchain Version 0002, any combination of individual hash values
+    else if (DOC_BLOCKCHAIN_VERS == 2) {
+        docrevdata = "444D2400020002";
+        docrevdata += "F000" + indexhash;
+        if (!comprguid.empty())
+            docrevdata += "0000" + comprguid;
+        if (!filehash.empty())
+            docrevdata += std::string("F0") + (DOC_FILEHASH_ALGO < 10 ? "0" : "") +
+                          std::to_string(DOC_FILEHASH_ALGO) + filehash;
+        if (!attrhash.empty())
+            docrevdata += std::string("A0") + (DOC_ATTRHASH_ALGO < 10 ? "0" : "") +
+                          std::to_string(DOC_ATTRHASH_ALGO) + attrhash;
+    }
+    // 4c. not implemented
+    else {
+        throw std::runtime_error("Invalid blockchain version");
+    }
 
     // 5. create raw transaction
     // RPC: Post('{"jsonrpc":"1.0","id":"YourAppName","method":"createrawtransaction","params":'
@@ -331,7 +432,7 @@ QString Document::writeToBlockchain(const QString &comprguid, const QString &fil
     //         %1=txid, %2=vout, %3=changetx, 4=docrevdata
     std::string command = strprintf(
         "createrawtransaction \"[{\\\"txid\\\":\\\"%s\\\",\\\"vout\\\":%d}]\" \"{%s\\\"data\\\":\\\"%s\\\"}\"",
-        txid.toStdString(), vout, changetx, docrevdata);
+        txid, vout, changetx, docrevdata);
     RPCConsole::RPCExecuteCommandLine(result, command, &filtered);
 
     // 6. sign raw transaction
@@ -371,6 +472,7 @@ DocumentList::DocumentList(const PlatformStyle *_platformStyle, QWidget *parent)
     trGUID = tr("GUID");
     trAttrHash = tr("Attribute hash");
     trBlockchain = tr("Blockchain");
+    trBlockchainVersion = tr("Blockchain version");
     trDocRev = tr("Document Revision");
     trExecute = tr("Execute");
     trTransID = tr("Transaction ID");
@@ -519,14 +621,15 @@ QString DocumentList::addFile(const QString srcName)
     }
     descFile.endGroup();
     descFile.beginGroup("docfile");
-    QString comprguid = compressGuid(descFile.value("GUID", "").toString());
-    QString filehash = descFile.value("filehash", "").toString();
-    QString attrhash = descFile.value("attrhash", "").toString();
+    std::string comprguid = compressGuid(descFile.value("GUID", "").toString()).toStdString();
+    std::string indexhash = descFile.value("indexhash", "").toString().toStdString();
+    std::string filehash  = descFile.value("filehash", "").toString().toStdString();
+    std::string attrhash  = descFile.value("attrhash", "").toString().toStdString();
     descFile.endGroup();
 
     // store document information in blockchain
     try {
-        txid = doc.writeToBlockchain(comprguid, filehash, attrhash);
+        txid = doc.writeToBlockchain(comprguid, indexhash, filehash, attrhash);
     } catch (const std::exception& e) {
         QMessageBox::critical(NULL, tr("RPC Error"), QString::fromStdString(e.what()));
         txid = "";
@@ -535,7 +638,7 @@ QString DocumentList::addFile(const QString srcName)
         txid = "";
     }
 
-    // delete document file if it has not been saved in blockchain
+    // delete document file copy if it has not been saved in blockchain
     if (txid.isEmpty()) {
         QFile::remove(doc.filename);
         QFile::remove(doc.descfilename);
@@ -544,6 +647,7 @@ QString DocumentList::addFile(const QString srcName)
 
     // add blockchain info to description file
     descFile.beginGroup("blockchain");
+    descFile.setValue("version", DOC_BLOCKCHAIN_VERS);
     descFile.setValue("txid", txid);
     descFile.setValue("systemtime", QDateTime::currentDateTime());
     descFile.endGroup();
@@ -559,7 +663,7 @@ QString DocumentList::addFiles(const QStringList srcFiles)
 
     QString lastAddedFile;
 
-    double dlgSumFee = minDocRevFee * srcFiles.count();
+    double dlgSumFee = DOC_TRANSACTION_FEE * srcFiles.count();
     QString dlgDocName = srcFiles.count() == 1 ? GUIUtil::extractFileName(srcFiles.at(0)) : tr("%1 document files").arg(srcFiles.count());
 
     /** request unlock if wallet is locked or unlocked for mixing only

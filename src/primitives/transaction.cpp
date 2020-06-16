@@ -9,6 +9,7 @@
 #include "hash.h"
 #include "tinyformat.h"
 #include "utilstrencodings.h"
+#include "primitives/document.h"
 
 std::string COutPoint::ToString() const
 {
@@ -56,26 +57,22 @@ CTxOut::CTxOut(const CAmount& nValueIn, CScript scriptPubKeyIn)
     nRounds = -10;
 }
 
-bool CTxOut::GetDocument(std::string& docType, std::string& docGuid, std::string& docFilehash, std::string& docAttrhash) const
+bool CTxOut::GetDocument(std::string& guid, std::string& indexhash, std::string& filehash, std::string& attrhash) const
 {
     if (scriptPubKey[0] != OP_RETURN)
         return false;
 
-    std::string rawDocument = HexStr(scriptPubKey.begin(), scriptPubKey.end());
-    /* 6a37444d240001000297ffa0e6b0f045f39069ae377062d719f3e88a7c013bd4e33fa5e7a72595d0cefef6a9f48f7c433b00716471585e60a3 */
-    std::transform(rawDocument.begin(), rawDocument.end(), rawDocument.begin(), ::toupper);
+    std::string rawDocument = HexStr(scriptPubKey.begin() + 2, scriptPubKey.end());
 
-    if (rawDocument.length() < 82) // up to file hash
-        return false;
-    if (rawDocument.substr(4, 6) != "444D24")
+    if (rawDocument.substr(0, 6) != "444d24")
         return false;
 
-    docType = rawDocument.substr(14, 4);
-    docGuid = strprintf("{%s-%s-%s-%s-%s}", rawDocument.substr(18, 8), rawDocument.substr(26, 4), 
-                 rawDocument.substr(30, 4), rawDocument.substr(34, 4), rawDocument.substr(38, 12));
-    docFilehash = rawDocument.substr(50, 32);
-    docAttrhash = rawDocument.substr(82, 32);
-    return true;
+    CDocument document(rawDocument);
+    guid = document.guid;
+    filehash = document.filehash.hash;
+    attrhash = document.attrhash.hash;
+
+    return document.isvalid;
 }
 
 std::string CTxOut::ToString() const

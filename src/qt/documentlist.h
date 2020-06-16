@@ -8,6 +8,7 @@
 
 #include "platformstyle.h"
 #include "walletmodel.h"
+#include "primitives/document.h"
 
 #include <QDateTime>
 #include <QStringListModel>
@@ -29,15 +30,18 @@ public:
     QString name;
     QString filename;
     QString descfilename;
+    int version;
 
     void loadDescription();
     QString documentRevision();
     QString getInformationHtml();
-    QString writeToBlockchain(const QString &comprguid, const QString &filehash, const QString &attrhash);
+    QString writeToBlockchain(const std::string &comprguid, const std::string &indexhash,
+                              const std::string &filehash, const std::string &attrhash);
 private:
     QString guid;
-    QString filehash;
-    QString attrhash;
+    CDocumentHash indexhash;
+    CDocumentHash filehash;
+    CDocumentHash attrhash;
     QString txid;
     int filesize;
 
