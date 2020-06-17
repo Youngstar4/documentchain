@@ -747,7 +747,7 @@ void DocumentList::on_textBrowserRevision_anchorClicked(const QUrl &arg1)
 
 void DocumentList::on_listViewDocuments_doubleClicked(const QModelIndex &index)
 {
-    GUIUtil::openDocumentFile(getFileName(index, true));
+    documentRevision(selectedFileName(true));
 }
 
 void DocumentList::on_pushButtonAddFile_clicked()
