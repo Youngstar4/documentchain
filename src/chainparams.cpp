@@ -392,7 +392,7 @@ public:
 
         fMiningRequiresPeers = false;
         fDefaultConsistencyChecks = false;
-        fRequireStandard = false;
+        fRequireStandard = true;
         fMineBlocksOnDemand = false;
         fAllowMultipleAddressesFromGroup = false;
         fAllowMultiplePorts = false;
@@ -571,22 +571,22 @@ public:
         consensus.nMasternodePaymentsStartBlock = 240;
         consensus.nMasternodePaymentsIncreaseBlock = 350;
         consensus.nMasternodePaymentsIncreasePeriod = 10;
-        consensus.nInstantSendConfirmationsRequired = 2;
+        consensus.nInstantSendConfirmationsRequired = 6;
         consensus.nInstantSendKeepLock = 6;
-        consensus.nBudgetPaymentsStartBlock = 1000;
-        consensus.nBudgetPaymentsCycleBlocks = 50;
-        consensus.nBudgetPaymentsWindowBlocks = 10;
-        consensus.nSuperblockStartBlock = 1500;
+        consensus.nBudgetPaymentsStartBlock = 100000000;
+        consensus.nBudgetPaymentsCycleBlocks = 7200;
+        consensus.nBudgetPaymentsWindowBlocks = 100;
+        consensus.nSuperblockStartBlock = 100000000;
         consensus.nSuperblockStartHash = uint256(); // do not check this on regtest
-        consensus.nSuperblockCycle = 10;
+        consensus.nSuperblockCycle = 7200;
         consensus.nGovernanceMinQuorum = 1;
         consensus.nGovernanceFilterElements = 100;
         consensus.nMasternodeMinimumConfirmations = 1;
-        consensus.BIP34Height = 100000000; // BIP34 has not activated on regtest (far in the future so block v1 are not rejected in tests)
+        consensus.BIP34Height = 0;
         consensus.BIP34Hash = uint256();
-        consensus.BIP65Height = 1351; // BIP65 activated on regtest (Used in rpc activation tests)
-        consensus.BIP66Height = 1251; // BIP66 activated on regtest (Used in rpc activation tests)
-        consensus.DIP0001Height = 2000;
+        consensus.BIP65Height = 16;
+        consensus.BIP66Height = 11;
+        consensus.DIP0001Height = 21;
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 1
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Dash: 1 day
         consensus.nPowTargetSpacing = 6 * 60;
@@ -636,14 +636,14 @@ public:
 
         fMiningRequiresPeers = false;
         fDefaultConsistencyChecks = true;
-        fRequireStandard = true;  // in Dash=false;  Harald: we use fRequireStandard=true in regtest to test document transaction
+        fRequireStandard = true;
         fMineBlocksOnDemand = true;
         fAllowMultipleAddressesFromGroup = true;
         fAllowMultiplePorts = true;
 
         nFulfilledRequestExpireTime = 5*60; // fulfilled requests expire in 5 minutes
 
-        strSporkAddress = "DJ7YjNsc8TYHetDbwsxeNZTzyQzQPKCaxW"; // TODO is Dummy only  
+        strSporkAddress = "yecpvHeE8vaxpV11C5mLnc3968sdb2jNC6";
         checkpointData = (CCheckpointData){
             boost::assign::map_list_of
             ( 0, uint256S("0x500f24a842f7b81dfa1d11d46f37b819812ae1f745b45c86f28249c1c669d5dc"))
