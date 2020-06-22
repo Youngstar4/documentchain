@@ -56,7 +56,7 @@ Followed by one or more hash values with four-digit prefix:
 | ---------- | ---------- | ----------- | ----------- |
 | 0 | 0 | 1 | Type: 0=compressed GUID, F=file hash, A=attribute hash , B=owner hash |
 | 1 | 1 | 1 | App-defined char 0..F |
-| 2 | 2 | 2 | Algorithm, i.e. 22 |
+| 2 | 3 | 2 | Algorithm (see below), i.e. 22 |
 | 4 | .. | 32-128 | Hex encoding hash |
 
 ##### Algorithm
@@ -71,7 +71,7 @@ Followed by one or more hash values with four-digit prefix:
 * 33=SHA3-384
 * 35=SHA3-512
 
-<sup>1)</sup> These hashes are not considered collision proof and should only be used together with longer hashes. [BSI](https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr02102/index_htm.html).
+<sup>1)</sup> These hashes are not considered collision proof and should only be used together with longer hashes. See [BSI](https://www.bsi.bund.de/EN/Publications/TechnicalGuidelines/tr02102/tr02102_node.html).
 
 #### App Defined Data Type
 

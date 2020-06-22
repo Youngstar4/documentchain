@@ -63,12 +63,22 @@ bool CTxOut::GetDocument(std::string& guid, std::string& indexhash, std::string&
         return false;
 
     std::string rawDocument = HexStr(scriptPubKey.begin() + 2, scriptPubKey.end());
+    /*
+    revision v2, BIP34 disabled: rawDocument = "444d24..."
+    revision v2, BIP34 enabled : rawDocument = "7d444d24..."
+    The longer data in revision v2 contains the OP_PUSHDATA1 etc, skip it
+    Alternative: rawDocument = ScriptToAsmStr(scriptPubKey) = "OP_RETURN 444d24..."
+    */
+    size_t pos = rawDocument.find("444d24");
+    if (pos > 0)
+        rawDocument = rawDocument.substr(pos, std::string::npos);
 
     if (rawDocument.substr(0, 6) != "444d24")
         return false;
 
     CDocument document(rawDocument);
     guid = document.guid;
+    indexhash = document.indexhash.hash;
     filehash = document.filehash.hash;
     attrhash = document.attrhash.hash;
 
