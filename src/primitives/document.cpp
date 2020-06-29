@@ -70,6 +70,8 @@ CDocument::CDocument(std::string rawDoc)
         filehash = CDocumentHash(0, rawDocument.substr(46, 32));
         indexhash = filehash;
         attrhash = CDocumentHash(0, rawDocument.substr(78, 32));
+        if (rawDocument.length() == 142)
+            ownerhash = CDocumentHash(0, rawDocument.substr(110, 32));
     }
     else if (sVersion == "0002") {
         version = 2;
@@ -98,9 +100,7 @@ CDocument::CDocument(std::string rawDoc)
                     attrhash = CDocumentHash(halgo, hash);
                     break;
                 case 'B':
-                    throw("Not implemented");
-                default :
-                    throw("Invalid hash type");
+                    ownerhash = CDocumentHash(halgo, hash);
             }
         }
     }
@@ -120,6 +120,7 @@ void CDocument::SetNull()
     indexhash.SetNull();
     filehash.SetNull();
     attrhash.SetNull();
+    ownerhash.SetNull();
 }
 
 int CDocument::HashHexLength(int algo)

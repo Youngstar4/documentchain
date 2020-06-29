@@ -36,6 +36,7 @@ public:
     CDocumentHash indexhash;
     CDocumentHash filehash;
     CDocumentHash attrhash;
+    CDocumentHash ownerhash;
 
     CDocument();
     CDocument(std::string rawDoc);

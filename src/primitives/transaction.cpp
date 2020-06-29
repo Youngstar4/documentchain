@@ -76,13 +76,18 @@ bool CTxOut::GetDocument(std::string& guid, std::string& indexhash, std::string&
     if (rawDocument.substr(0, 6) != "444d24")
         return false;
 
-    CDocument document(rawDocument);
-    guid = document.guid;
-    indexhash = document.indexhash.hash;
-    filehash = document.filehash.hash;
-    attrhash = document.attrhash.hash;
-
-    return document.isvalid;
+    try { // incompatible or (maliciously) wrong data can cause an exception
+        CDocument document(rawDocument);
+        if (document.isvalid) {
+            guid = document.guid;
+            indexhash = document.indexhash.hash;
+            filehash = document.filehash.hash;
+            attrhash = document.attrhash.hash;
+        }
+        return document.isvalid;
+    } catch (...) {
+        return false;
+    }
 }
 
 std::string CTxOut::ToString() const
