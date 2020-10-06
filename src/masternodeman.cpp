@@ -1629,7 +1629,15 @@ bool CMasternodeMan::IsSentinelPingActive()
 {
     LOCK(cs);
     // Check if any masternodes have voted recently, otherwise return false
+    /*
     return (GetTime() - nLastSentinelPingTime) <= MASTERNODE_SENTINEL_PING_MAX_SECONDS;
+
+    As long as SPORK_14_REQUIRE_SENTINEL is not activated, this leads to the masternode 
+    status SENTNEL_PING_EXPIRED, although the nodes are still paid.
+    Result becomes true as soon as at least one masternode responds to the sentinal ping.
+    v0.12.16.0, disabled for now:
+    */
+    return false;
 }
 
 bool CMasternodeMan::AddGovernanceVote(const COutPoint& outpoint, uint256 nGovernanceObjectHash)
