@@ -159,17 +159,17 @@ public:
 
         // Deployment of BIP68, BIP112, and BIP113.
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1486252800; // Dash: Feb 5th, 2017
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1517788800; // Dash: Feb 5th, 2018
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1604923200; // Nov 9th, 2020
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1609761600; // Jan 4th, 2021
 
-        // Deployment of DIP0001
+        // Deployment of DIP0001, Documentchain: active since block 143481
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].bit = 1;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nStartTime = 1589536800; // May 15th, 2020
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nTimeout = 1592215200; // Jun 15th, 2020
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nWindowSize = 283;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nThreshold = 254; // 80% of 283
 
-        // Deployment of BIP147
+        // Deployment of BIP147,  Documentchain: active since block 12096
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].bit = 2;
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nStartTime = 1524477600; // Dash: Apr 23th, 2018
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nTimeout = 1556013600; // Dash: Apr 23th, 2019
