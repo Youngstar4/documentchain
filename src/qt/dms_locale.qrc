@@ -14,6 +14,7 @@
         <file alias="ru">locale/dms_ru.qm</file>
         <file alias="sk">locale/dms_sk.qm</file>
         <file alias="sv">locale/dms_sv.qm</file>
+        <file alias="tr">locale/dms_tr.qm</file>
         <file alias="vi">locale/dms_vi.qm</file>
         <file alias="zh_CN">locale/dms_zh_CN.qm</file>
         <file alias="zh_TW">locale/dms_zh_TW.qm</file>
