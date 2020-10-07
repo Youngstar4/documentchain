@@ -307,7 +307,7 @@
     </message>
     <message>
         <source>&amp;Mining...</source>
-        <translation>&amp;Mining...</translation>
+        <translation>Minin&amp;g...</translation>
     </message>
     <message>
         <source>Generate coins</source>
@@ -370,7 +370,7 @@
     </message>
     <message>
         <source>&amp;About %1</source>
-        <translation>Über %1</translation>
+        <translation>&amp;Über %1</translation>
     </message>
     <message>
         <source>Modify configuration options for %1</source>
@@ -3127,6 +3127,10 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Geb&amp;ühren vom Betrag abziehen</translation>
     </message>
     <message>
+        <source>Use available balance</source>
+        <translation>Benutze verfügbaren Betrag</translation>
+    </message>
+    <message>
         <source>Message:</source>
         <translation>Nachricht:</translation>
     </message>
@@ -5410,7 +5414,7 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>&amp;Add File...</source>
-        <translation>&amp;Hinzufügen...</translation>
+        <translation>H&amp;inzufügen...</translation>
     </message>
     <message>
         <source>&amp;Open</source>
