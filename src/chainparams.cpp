@@ -177,10 +177,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nThreshold = 3226; // 80% of 4032
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000000000001c0fca849bf"); // = 1.928.384.235.967 total work, block 135808
+        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000032f04770142"); // = 3.500.473.254.210 total work, block 175594
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x00000025868ef0958009ba542ded2faf5242cd835445ca6c5556eff5a19161ab"); // 135808
+        consensus.defaultAssumeValid = uint256S("0x0000000ee3871b495f8f26714200b50dbe56fb48c9bde4a9b1a4b72ba5793c1c"); // 175594
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -268,11 +268,15 @@ public:
             (120004, uint256S("0x00000031fd82d41fa6fda29a405a55162304822be9b03beed79e47f25d3f3296")) // 2020-Feb-06
             (127991, uint256S("0x00000042ec60e4badf5e3288b1dbb8da2a27af4b88b6ec299e7149586784ccfd")) // 2020-Mar-12
             (135808, uint256S("0x00000025868ef0958009ba542ded2faf5242cd835445ca6c5556eff5a19161ab")) // 2020-Apr-15
+            (144997, uint256S("0x00000074c2b1520d116c447d2cf6170951642fc50487b300074d76952fc20a4d")) // 2020-May-25
+            (154972, uint256S("0x00000053c7c6c55129d6e9c9477ddcdbd351847d748ff77eff13dbc44bde58d4")) // 2020-Jul-08
+            (165993, uint256S("0x000000391480ecb91edb3bc72ed1a206c6640c7c8927c244536e0bc90c43b51f")) // 2020-Aug-25
+            (175594, uint256S("0x0000000ee3871b495f8f26714200b50dbe56fb48c9bde4a9b1a4b72ba5793c1c")) // 2020-Oct-06
         };
 
         chainTxData = ChainTxData{
-            1586930538, // * UNIX timestamp of last known number of transactions
-            205946,     // * total number of transactions between genesis and that timestamp
+            1601994910, // * UNIX timestamp of last known number of transactions
+            295331,     // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the UpdateTip debug.log lines)
             0.04        // * estimated number of transactions per second after that timestamp
         };
@@ -339,10 +343,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nThreshold = 8; // 80% of 10 MN
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000000000566f4ad8"); // = 1450134232, block 140464
+        consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000000000000008e4b3670"); // = 2.387.293.808, block 183038
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x00000174ee13b777c20a7aa6aef53650f0e42777788ec2c00e36a76658dfc6f6"); // 140464
+        consensus.defaultAssumeValid = uint256S("0x0000265f61ad4c3c7841f177c56d9616ea1f2b0ed795271139760028e8c2bd82"); // 183038
 
         pchMessageStart[0] = 0xce;  // same as Dash Testnet
         pchMessageStart[1] = 0x44;  // D
@@ -420,10 +424,13 @@ public:
             (130004, uint256S("0x00004646f1ca07c4dc563368ac427c930fc22d2e1f7b689eddbbdf5c2026e97a"))
             (137044, uint256S("0x000090f59b07ccd5285bd79dd9a4190cd23cd6efd3d0b7b1c4069e9ce9897c12"))
             (140464, uint256S("0x00000174ee13b777c20a7aa6aef53650f0e42777788ec2c00e36a76658dfc6f6"))
+            (160000, uint256S("0x0002f859981fb98abbde73b1574a0e3c05676185de4c0c385c23392ba1703cf2")) // 2020-Jul-03
+            (174000, uint256S("0x0002beb9fd3c0207b45f5825811b7a847cd043b8c1222f64e7dd172e201a6bf5")) // 2020-Aug-30
+            (183038, uint256S("0x0000265f61ad4c3c7841f177c56d9616ea1f2b0ed795271139760028e8c2bd82")) // 2020-Oct-06            
         };
         chainTxData = ChainTxData{        
-            1586930531, // * UNIX timestamp of last known number of transactions
-            142227,     // * total number of transactions between genesis and that timestamp
+            1601997461, // * UNIX timestamp of last known number of transactions
+            185643,     // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the UpdateTip debug.log lines)
             0.003       // * estimated number of transactions per second after that timestamp
         };

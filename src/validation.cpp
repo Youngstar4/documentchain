@@ -1358,8 +1358,8 @@ CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
     if(nHeight > nMNPIBlock+(nMNPIPeriod*10)) ret += blockValue /100; // 130000 - 46.0% ~ 2020-03-20
     if(nHeight > nMNPIBlock+(nMNPIPeriod*11)) ret += blockValue /100; // 137000 - 47.0% ~ 2020-04-20
     if(nHeight > nMNPIBlock+(nMNPIPeriod*12)) ret += blockValue /100; // 144000 - 48.0% ~ 2020-05-21
-    if(nHeight > nMNPIBlock+(nMNPIPeriod*13)) ret += blockValue /100; // 151000 - 49.0% ~ 2020-06
-    if(nHeight > nMNPIBlock+(nMNPIPeriod*14)) ret += blockValue /100; // 158000 - 50.0% ~ 2020-07
+    if(nHeight > nMNPIBlock+(nMNPIPeriod*13)) ret += blockValue /100; // 151000 - 49.0% ~ 2020-06-20
+    if(nHeight > nMNPIBlock+(nMNPIPeriod*14)) ret += blockValue /100; // 158000 - 50.0% ~ 2020-07-21
 
     return ret;
 }
