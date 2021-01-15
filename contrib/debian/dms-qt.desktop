@@ -1,14 +1,14 @@
 [Desktop Entry]
 Version=1.0
-Name=Dash Core
-Comment=Dash P2P Cryptocurrency
-Comment[de]=Verbinde mit dem Dash peer-to-peer Netzwerk
-Comment[fr]=Dash, monnaie virtuelle cryptographique pair à pair
-Comment[tr]=Dash, eşten eşe kriptografik sanal para birimi
-Exec=dash-qt %u
+Name=DMS Core
+Comment=DMS P2P Cryptocurrency
+Comment[de]=Verbinde mit dem DMS peer-to-peer Netzwerk
+Comment[fr]=DMS, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=DMS, eşten eşe kriptografik sanal para birimi
+Exec=dms-qt %u
 Terminal=false
 Type=Application
-Icon=dash128
-MimeType=x-scheme-handler/dash;
+Icon=dms128
+MimeType=x-scheme-handler/dms;
 Categories=Office;Finance;
-StartupWMClass=Dash-qt
+StartupWMClass=DMS-qt
