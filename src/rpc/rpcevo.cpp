@@ -1,4 +1,5 @@
 // Copyright (c) 2018-2020 The Dash Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -338,7 +339,7 @@ void protx_register_fund_help(CWallet* const pwallet)
             "\nResult:\n"
             "\"txid\"                        (string) The transaction id.\n"
             "\nExamples:\n"
-            + HelpExampleCli("protx", "register_fund \"XrVhS9LogauRJGJu2sHuryjhpuex4RNPSb\" \"1.2.3.4:1234\" \"Xt9AMWaYSz7tR7Uo7gzXA3m4QmeWgrR3rr\" \"93746e8731c57f87f79b3620a7982924e2931717d49540a85864bd543de11c43fb868fd63e501a1db37e19ed59ae6db4\" \"Xt9AMWaYSz7tR7Uo7gzXA3m4QmeWgrR3rr\" 0 \"XrVhS9LogauRJGJu2sHuryjhpuex4RNPSb\"")
+            + HelpExampleCli("protx", "register_fund \"DFUYcHStR4dWGX7pEYYFWj7dTAz5onDsvh\" \"1.2.3.4:1234\" \"D5ugcfpWFBRF8jryUMoSyvU2vYeXsyYWkc\" \"93746e8731c57f87f79b3620a7982924e2931717d49540a85864bd543de11c43fb868fd63e501a1db37e19ed59ae6db4\" \"DQWKJoAhwprJqjJxc4uc5dJJkG1tmFPmoZ\" 0 \"D9WixB3H8yHuJoyQAgF2SwdtHiTkD2nkmU\"")
     );
 }
 
@@ -363,7 +364,7 @@ void protx_register_help(CWallet* const pwallet)
             "\nResult:\n"
             "\"txid\"                        (string) The transaction id.\n"
             "\nExamples:\n"
-            + HelpExampleCli("protx", "register \"0123456701234567012345670123456701234567012345670123456701234567\" 0 \"1.2.3.4:1234\" \"Xt9AMWaYSz7tR7Uo7gzXA3m4QmeWgrR3rr\" \"93746e8731c57f87f79b3620a7982924e2931717d49540a85864bd543de11c43fb868fd63e501a1db37e19ed59ae6db4\" \"Xt9AMWaYSz7tR7Uo7gzXA3m4QmeWgrR3rr\" 0 \"XrVhS9LogauRJGJu2sHuryjhpuex4RNPSb\"")
+            + HelpExampleCli("protx", "register \"0123456701234567012345670123456701234567012345670123456701234567\" 0 \"1.2.3.4:1234\" \"D5ugcfpWFBRF8jryUMoSyvU2vYeXsyYWkc\" \"93746e8731c57f87f79b3620a7982924e2931717d49540a85864bd543de11c43fb868fd63e501a1db37e19ed59ae6db4\" \"DQWKJoAhwprJqjJxc4uc5dJJkG1tmFPmoZ\" 0 \"D9WixB3H8yHuJoyQAgF2SwdtHiTkD2nkmU\"")
     );
 }
 
@@ -392,7 +393,7 @@ void protx_register_prepare_help()
             "                              the collateral key.\n"
             "}\n"
             "\nExamples:\n"
-            + HelpExampleCli("protx", "register_prepare \"0123456701234567012345670123456701234567012345670123456701234567\" 0 \"1.2.3.4:1234\" \"Xt9AMWaYSz7tR7Uo7gzXA3m4QmeWgrR3rr\" \"93746e8731c57f87f79b3620a7982924e2931717d49540a85864bd543de11c43fb868fd63e501a1db37e19ed59ae6db4\" \"Xt9AMWaYSz7tR7Uo7gzXA3m4QmeWgrR3rr\" 0 \"XrVhS9LogauRJGJu2sHuryjhpuex4RNPSb\"")
+            + HelpExampleCli("protx", "register_prepare \"0123456701234567012345670123456701234567012345670123456701234567\" 0 \"1.2.3.4:1234\" \"D5ugcfpWFBRF8jryUMoSyvU2vYeXsyYWkc\" \"93746e8731c57f87f79b3620a7982924e2931717d49540a85864bd543de11c43fb868fd63e501a1db37e19ed59ae6db4\" \"DQWKJoAhwprJqjJxc4uc5dJJkG1tmFPmoZ\" 0 \"D9WixB3H8yHuJoyQAgF2SwdtHiTkD2nkmU\"")
     );
 }
 
@@ -721,7 +722,7 @@ void protx_update_registrar_help(CWallet* const pwallet)
             "\nResult:\n"
             "\"txid\"                        (string) The transaction id.\n"
             "\nExamples:\n"
-            + HelpExampleCli("protx", "update_registrar \"0123456701234567012345670123456701234567012345670123456701234567\" \"982eb34b7c7f614f29e5c665bc3605f1beeef85e3395ca12d3be49d2868ecfea5566f11cedfad30c51b2403f2ad95b67\" \"XwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwG\"")
+            + HelpExampleCli("protx", "update_registrar \"0123456701234567012345670123456701234567012345670123456701234567\" \"982eb34b7c7f614f29e5c665bc3605f1beeef85e3395ca12d3be49d2868ecfea5566f11cedfad30c51b2403f2ad95b67\" \"DFUYcHStR4dWGX7pEYYFWj7dTAz5onDsvh\"")
     );
 }
 
