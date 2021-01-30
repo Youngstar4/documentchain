@@ -20,10 +20,10 @@ static const int INIT_PROTO_VERSION = 209;
 static const int GETHEADERS_VERSION = 70077;
 
 //! disconnect from peers older than this proto version
-static const int MIN_PEER_PROTO_VERSION = 70213;
+static const int MIN_PEER_PROTO_VERSION = 70210; // allow 0.12.x nodes, TODOv16 set to 70213 (dash default) once most nodes are updated to v16
 
 //! minimum proto version of masternode to accept in DKGs
-static const int MIN_MASTERNODE_PROTO_VERSION = 70218;
+static const int MIN_MASTERNODE_PROTO_VERSION = 70210;  // allow 0.12.x nodes, TODOv16 set to 70218 (dash default) once most nodes are updated to v16
 
 //! nTime field added to CAddress, starting with this version;
 //! if possible, avoid requesting addresses nodes older than this
