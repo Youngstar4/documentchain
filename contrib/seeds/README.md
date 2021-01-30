@@ -18,3 +18,12 @@ that the list is as expected.
 Ubuntu:
 
     sudo apt-get install python3-dnspython
+
+## Current usage
+Compilation computer, ~/documentchain/contrib/seeds$
+cp nodes_main.txt ori.txt
+vi nodes_main.txt
+python3 generate-seeds.py ./
+Code computer: copy result to chainparamsseeds.h
+rm nodes_main.txt
+mv ori.txt nodes_main.txt
