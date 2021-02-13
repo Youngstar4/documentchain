@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DASH_QUORUMS_UTILS_H
-#define DASH_QUORUMS_UTILS_H
+#ifndef DMS_QUORUMS_UTILS_H
+#define DMS_QUORUMS_UTILS_H
 
 #include "consensus/params.h"
 
@@ -25,4 +25,4 @@ public:
 
 }
 
-#endif//DASH_QUORUMS_UTILS_H
+#endif//DMS_QUORUMS_UTILS_H

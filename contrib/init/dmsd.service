@@ -1,15 +1,15 @@
 [Unit]
-Description=Dash's distributed currency daemon
+Description=DMS's distributed currency daemon
 After=network.target
 
 [Service]
-User=dashcore
-Group=dashcore
+User=dmscore
+Group=dmscore
 
 Type=forking
-PIDFile=/var/lib/dashd/dashd.pid
-ExecStart=/usr/bin/dashd -daemon -pid=/var/lib/dashd/dashd.pid \
--conf=/etc/dashcore/dash.conf -datadir=/var/lib/dashd -disablewallet
+PIDFile=/var/lib/dmsd/dmsd.pid
+ExecStart=/usr/bin/dmsd -daemon -pid=/var/lib/dmsd/dmsd.pid \
+-conf=/etc/dmscore/dms.conf -datadir=/var/lib/dmsd -disablewallet
 
 Restart=always
 PrivateTmp=true

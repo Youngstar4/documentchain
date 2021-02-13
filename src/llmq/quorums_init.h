@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DASH_QUORUMS_INIT_H
-#define DASH_QUORUMS_INIT_H
+#ifndef DMS_QUORUMS_INIT_H
+#define DMS_QUORUMS_INIT_H
 
 class CEvoDB;
 
@@ -15,4 +15,4 @@ void DestroyLLMQSystem();
 
 }
 
-#endif //DASH_QUORUMS_INIT_H
+#endif //DMS_QUORUMS_INIT_H

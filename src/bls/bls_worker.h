@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DASH_CRYPTO_BLS_WORKER_H
-#define DASH_CRYPTO_BLS_WORKER_H
+#ifndef DMS_CRYPTO_BLS_WORKER_H
+#define DMS_CRYPTO_BLS_WORKER_H
 
 #include "bls.h"
 
@@ -201,4 +201,4 @@ private:
     }
 };
 
-#endif //DASH_CRYPTO_BLS_WORKER_H
+#endif //DMS_CRYPTO_BLS_WORKER_H
