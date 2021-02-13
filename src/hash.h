@@ -1,6 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -263,11 +264,51 @@ public:
     }
 };
 
+/* Yescrypt test */
+extern "C" void yescrypt_hash(const char *input, char *output);
+
+class CHashWriterYescrypt: public CHashWriter
+{
+private:
+    std::vector<unsigned char> buf;
+
+public:
+
+    CHashWriterYescrypt(int nTypeIn, int nVersionIn) : CHashWriter(nTypeIn, nVersionIn) {}
+
+    void write(const char *pch, size_t size) {
+        buf.insert(buf.end(), pch, pch + size);
+    }
+
+    uint256 GetHash() {
+        uint256 result;
+        assert(buf.size() == 80);
+        yescrypt_hash((const char*)buf.data(), (char*)&result);
+        return result;
+    }
+
+    template<typename T>
+    CHashWriterYescrypt& operator<<(const T& obj) {
+        // Serialize to this stream
+        ::Serialize(*this, obj);
+        return (*this);
+    }
+};
+
 /** Compute the 256-bit hash of an object's serialization. */
 template<typename T>
 uint256 SerializeHash(const T& obj, int nType=SER_GETHASH, int nVersion=PROTOCOL_VERSION)
 {
     CHashWriter ss(nType, nVersion);
+    ss << obj;
+    return ss.GetHash();
+}
+
+/* Yescrypt test */
+template<typename T>
+uint256 SerializeHashYescrypt(const T& obj, int nType=SER_GETHASH, int nVersion=PROTOCOL_VERSION)
+{
+    CHashWriterYescrypt ss(nType, nVersion);
     ss << obj;
     return ss.GetHash();
 }
