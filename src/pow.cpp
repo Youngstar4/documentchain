@@ -1,5 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,6 +14,7 @@
 
 #include <math.h>
 
+/* Dash (not used in DMS):
 unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const Consensus::Params& params) {
     const CBlockIndex *BlockLastSolved = pindexLast;
     const CBlockIndex *BlockReading = pindexLast;
@@ -78,11 +80,25 @@ unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const Conse
 
     return bnNew.GetCompact();
 }
+*/
 
 unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params) {
-    /* current difficulty formula, dms - DarkGravity v3, written by Evan Duffield - evan@dash.org */
+    /* current difficulty formula, dash/dms - DarkGravity v3, written by Evan Duffield - evan@dash.org */
     const arith_uint256 bnPowLimit = UintToArith256(params.powLimit);
     int64_t nPastBlocks = 24;
+    int64_t nPowTargetSpacing;
+
+    if (pindexLast->nHeight + 1 >= params.nPowNTSHeight) {
+        nPowTargetSpacing = params.nPowTargetSpacing; // normal block interval
+    }
+    else {
+        if (Params().NetworkIDString() == CBaseChainParams::MAIN)
+            nPowTargetSpacing = 4*60; // 4min 0..4793 
+        else if (Params().NetworkIDString() == CBaseChainParams::TESTNET)
+            nPowTargetSpacing = 30;   // fast testnet 0..95936
+        else
+            nPowTargetSpacing = params.nPowTargetSpacing;
+    }
 
     // make sure we have at least (nPastBlocks + 1) blocks, otherwise just return powLimit
     if (!pindexLast || pindexLast->nHeight < nPastBlocks) {
@@ -94,8 +110,8 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
         if (pblock->GetBlockTime() > pindexLast->GetBlockTime() + 2 * 60 * 60) {
             return bnPowLimit.GetCompact();
         }
-        // recent block is more than 10 minutes old
-        if (pblock->GetBlockTime() > pindexLast->GetBlockTime() + params.nPowTargetSpacing * 4) {
+        // recent block is more than 24 minutes old
+        if (pblock->GetBlockTime() > pindexLast->GetBlockTime() + nPowTargetSpacing * 4) {
             arith_uint256 bnNew = arith_uint256().SetCompact(pindexLast->nBits) * 10;
             if (bnNew > bnPowLimit) {
                 bnNew = bnPowLimit;
@@ -126,7 +142,7 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
 
     int64_t nActualTimespan = pindexLast->GetBlockTime() - pindex->GetBlockTime();
     // NOTE: is this accurate? nActualTimespan counts it for (nPastBlocks - 1) blocks only...
-    int64_t nTargetTimespan = nPastBlocks * params.nPowTargetSpacing;
+    int64_t nTargetTimespan = nPastBlocks * nPowTargetSpacing;
 
     if (nActualTimespan < nTargetTimespan/3)
         nActualTimespan = nTargetTimespan/3;
@@ -144,6 +160,7 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
     return bnNew.GetCompact();
 }
 
+/* Dash (not used in DMS):
 unsigned int GetNextWorkRequiredBTC(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
 {
     unsigned int nProofOfWorkLimit = UintToArith256(params.powLimit).GetCompact();
@@ -182,15 +199,12 @@ unsigned int GetNextWorkRequiredBTC(const CBlockIndex* pindexLast, const CBlockH
 
    return CalculateNextWorkRequired(pindexLast, pindexFirst->GetBlockTime(), params);
 }
+*/
 
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
 {
-    // this is only active on devnets
-    if (pindexLast->nHeight < params.nMinimumDifficultyBlocks) {
-        unsigned int nProofOfWorkLimit = UintToArith256(params.powLimit).GetCompact();
-        return nProofOfWorkLimit;
-    }
-
+    return DarkGravityWave(pindexLast, pblock, params);
+    /* Dash (not used in DMS):
     // Most recent algo first
     if (pindexLast->nHeight + 1 >= params.nPowDGWHeight) {
         return DarkGravityWave(pindexLast, pblock, params);
@@ -201,6 +215,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     else {
         return GetNextWorkRequiredBTC(pindexLast, pblock, params);
     }
+    */
 }
 
 // for DIFF_BTC only!

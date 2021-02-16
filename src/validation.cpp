@@ -1,6 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -820,6 +821,7 @@ bool AcceptToMemoryPoolWorker(CTxMemPool& pool, CValidationState& state, const C
             return state.DoS(0, false, REJECT_INSUFFICIENTFEE, "insufficient priority");
         }
 
+        /* Documentchain: limitfreerelay removed, Allow document info to be stored in main net
         // Continuously rate-limit free (really, very-low-fee) transactions
         // This mitigates 'penny-flooding' -- sending thousands of free transactions just to
         // be annoying or make others' transactions take longer to confirm.
@@ -842,6 +844,7 @@ bool AcceptToMemoryPoolWorker(CTxMemPool& pool, CValidationState& state, const C
             LogPrint("mempool", "Rate limit dFreeCount: %g => %g\n", dFreeCount, dFreeCount+nSize);
             dFreeCount += nSize;
         }
+		*/
 
         if (nAbsurdFee && nFees > nAbsurdFee)
             return state.Invalid(false,
@@ -1147,53 +1150,37 @@ NOTE:   unlike bitcoin we are using PREVIOUS block height here,
 */
 CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params& consensusParams, bool fSuperblockPartOnly)
 {
-    double dDiff;
-    CAmount nSubsidyBase;
+    // in v0.12.x we had passed the current height "nHeight" as parameter (commit e5f2b79)
+    // but it is easier to adjust this here, we are closer to the dash code
+    int nHeight = nPrevHeight + 1;
 
-    if (nPrevHeight <= 4500 && Params().NetworkIDString() == CBaseChainParams::MAIN) {
-        /* a bug which caused diff to not be correctly calculated */
-        dDiff = (double)0x0000ffff / (double)(nPrevBits & 0x00ffffff);
-    } else {
-        dDiff = ConvertBitsToDouble(nPrevBits);
-    }
+    // 10 blocks/hour, 240/day, 7200/month, 87600/year
+    int nDec = consensusParams.nSubsidyDecreaseStart; // mainnet: 44001
+    int nReward;
 
-    if (nPrevHeight < 5465) {
-        // Early ages...
-        // 1111/((x+1)^2)
-        nSubsidyBase = (1111.0 / (pow((dDiff+1.0),2.0)));
-        if(nSubsidyBase > 500) nSubsidyBase = 500;
-        else if(nSubsidyBase < 1) nSubsidyBase = 1;
-    } else if (nPrevHeight < 17000 || (dDiff <= 75 && nPrevHeight < 24000)) {
-        // CPU mining era
-        // 11111/(((x+51)/6)^2)
-        nSubsidyBase = (11111.0 / (pow((dDiff+51.0)/6.0,2.0)));
-        if(nSubsidyBase > 500) nSubsidyBase = 500;
-        else if(nSubsidyBase < 25) nSubsidyBase = 25;
-    } else {
-        // GPU/ASIC mining era
-        // 2222222/(((x+2600)/9)^2)
-        nSubsidyBase = (2222222.0 / (pow((dDiff+2600.0)/9.0,2.0)));
-        if(nSubsidyBase > 25) nSubsidyBase = 25;
-        else if(nSubsidyBase < 5) nSubsidyBase = 5;
-    }
+    if      (nHeight < nDec)          { nReward = 50; }  // 2 200 000 /  6 month
+    else if (nHeight < nDec +  44000) { nReward = 40; }  // 1 760 000 /  6 month
+    else if (nHeight < nDec +  88000) { nReward = 30; }  // 1 320 000 /  6 month
+    else if (nHeight < nDec + 132000) { nReward = 20; }  //   840 000 /  6 month
+    else if (nHeight < nDec + 306000) { nReward = 15; }  // 2 610 000 /  2 years
+    else if (nHeight < nDec + 744000) { nReward = 10; }  // 4 380 000 /  5 years
+    else if (nHeight < nDec +1182000) { nReward =  5; }  // 2 190 000 /  5 years
+    else if (nHeight < nDec +2058000) { nReward =  3; }  // 2 628 000 / 10 years 
+    else if (nHeight < nDec +2934000) { nReward =  2; }  // 1 752 000 / 10 years 
+    else if (nHeight < nDec +4254000) { nReward =  1; }  // 1 320 000 / 15 years 
+    else                        { nReward =  0; }; // reward = fee only
+                                             // sum: 21 000 000 / 49 years  
 
-    // LogPrintf("height %u diff %4.2f reward %d\n", nPrevHeight, dDiff, nSubsidyBase);
-    CAmount nSubsidy = nSubsidyBase * COIN;
+    CAmount nSubsidy = nReward * COIN;
+    return nSubsidy;
 
-    // yearly decline of production by ~7.1% per year, projected ~18M coins max by year 2050+.
-    for (int i = consensusParams.nSubsidyHalvingInterval; i <= nPrevHeight; i += consensusParams.nSubsidyHalvingInterval) {
-        nSubsidy -= nSubsidy/14;
-    }
-
-    // this is only active on devnets
-    if (nPrevHeight < consensusParams.nHighSubsidyBlocks) {
-        nSubsidy *= consensusParams.nHighSubsidyFactor;
-    }
-
-    // Hard fork to reduce the block reward by 10 extra percent (allowing budget/superblocks)
+    // reduce the block reward by 10 extra percent (allowing budget/superblocks)
+	// DMS does not use superblocks (consensus.nSuperblockStartBlock is set to >1000 years ), 
+	// but the code is not removed yet because it could be of interest for other purposes.
+	/* uncomment for budget/superblocks:
     CAmount nSuperblockPart = (nPrevHeight > consensusParams.nBudgetPaymentsStartBlock) ? nSubsidy/10 : 0;
-
     return fSuperblockPartOnly ? nSuperblockPart : nSubsidy - nSuperblockPart;
+	*/
 }
 
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
@@ -1203,16 +1190,22 @@ CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
     int nMNPIBlock = Params().GetConsensus().nMasternodePaymentsIncreaseBlock;
     int nMNPIPeriod = Params().GetConsensus().nMasternodePaymentsIncreasePeriod;
 
-                                                                      // mainnet:
-    if(nHeight > nMNPIBlock)                  ret += blockValue / 20; // 158000 - 25.0% - 2014-10-24
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 1)) ret += blockValue / 20; // 175280 - 30.0% - 2014-11-25
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 2)) ret += blockValue / 20; // 192560 - 35.0% - 2014-12-26
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 3)) ret += blockValue / 40; // 209840 - 37.5% - 2015-01-26
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 4)) ret += blockValue / 40; // 227120 - 40.0% - 2015-02-27
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 5)) ret += blockValue / 40; // 244400 - 42.5% - 2015-03-30
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 6)) ret += blockValue / 40; // 261680 - 45.0% - 2015-05-01
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 7)) ret += blockValue / 40; // 278960 - 47.5% - 2015-06-01
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 9)) ret += blockValue / 40; // 313520 - 50.0% - 2015-08-03
+                                                                      //                  DMS mainnet:
+    if(nHeight > nMNPIBlock)                  ret += blockValue / 20; //  60000 - 25.0% - 2019-05-19
+    if(nHeight > nMNPIBlock+(nMNPIPeriod* 1)) ret += blockValue / 20; //  67000 - 30.0% - 2019-06-18
+    if(nHeight > nMNPIBlock+(nMNPIPeriod* 2)) ret += blockValue / 20; //  74000 - 35.0% ~ 2019-07-19
+    if(nHeight > nMNPIBlock+(nMNPIPeriod* 3)) ret += blockValue / 40; //  81000 - 37.5% ~ 2019-08-19
+    if(nHeight > nMNPIBlock+(nMNPIPeriod* 4)) ret += blockValue / 40; //  88000 - 40.0% ~ 2019-09-18
+    if(nHeight > nMNPIBlock+(nMNPIPeriod* 5)) ret += blockValue /100; //  95000 - 41.0% ~ 2019-10-19
+    if(nHeight > nMNPIBlock+(nMNPIPeriod* 6)) ret += blockValue /100; // 102000 - 42.0% ~ 2019-11-19
+    if(nHeight > nMNPIBlock+(nMNPIPeriod* 7)) ret += blockValue /100; // 109000 - 43.0% ~ 2019-12-19
+    if(nHeight > nMNPIBlock+(nMNPIPeriod* 8)) ret += blockValue /100; // 116000 - 44.0% ~ 2020-01-19
+    if(nHeight > nMNPIBlock+(nMNPIPeriod* 9)) ret += blockValue /100; // 123000 - 45.0% ~ 2020-02-19
+    if(nHeight > nMNPIBlock+(nMNPIPeriod*10)) ret += blockValue /100; // 130000 - 46.0% ~ 2020-03-20
+    if(nHeight > nMNPIBlock+(nMNPIPeriod*11)) ret += blockValue /100; // 137000 - 47.0% ~ 2020-04-20
+    if(nHeight > nMNPIBlock+(nMNPIPeriod*12)) ret += blockValue /100; // 144000 - 48.0% ~ 2020-05-21
+    if(nHeight > nMNPIBlock+(nMNPIPeriod*13)) ret += blockValue /100; // 151000 - 49.0% ~ 2020-06-20
+    if(nHeight > nMNPIBlock+(nMNPIPeriod*14)) ret += blockValue /100; // 158000 - 50.0% ~ 2020-07-21
 
     return ret;
 }
@@ -2017,7 +2010,7 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
         }
     }
 
-    /// DMS: Check superblock start
+    /// Dash: Check superblock start
 
     // make sure old budget is the real one
     if (pindex->nHeight == chainparams.GetConsensus().nSuperblockStartBlock &&
@@ -2026,7 +2019,7 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
             return state.DoS(100, error("ConnectBlock(): invalid superblock start"),
                              REJECT_INVALID, "bad-sb-start");
 
-    /// END DMS
+    /// END Dash
 
     // BIP16 didn't become active until Apr 1 2012
     int64_t nBIP16SwitchTime = 1333238400;
@@ -3337,6 +3330,7 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
 {
     const int nHeight = pindexPrev == NULL ? 0 : pindexPrev->nHeight + 1;
     // Check proof of work
+	/*  Dash specific, not used in DMS
     if(Params().NetworkIDString() == CBaseChainParams::MAIN && nHeight <= 68589){
         // architecture issues with DGW v1 and v2)
         unsigned int nBitsNext = GetNextWorkRequired(pindexPrev, &block, consensusParams);
@@ -3350,6 +3344,9 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
         if (block.nBits != GetNextWorkRequired(pindexPrev, &block, consensusParams))
             return state.DoS(100, false, REJECT_INVALID, "bad-diffbits", false, strprintf("incorrect proof of work at %d", nHeight));
     }
+	*/
+    if (block.nBits != GetNextWorkRequired(pindexPrev, &block, consensusParams))
+        return state.DoS(100, false, REJECT_INVALID, "bad-diffbits", false, strprintf("incorrect proof of work at %d", nHeight));
 
     // Check timestamp against prev
     if (block.GetBlockTime() <= pindexPrev->GetMedianTimePast())
