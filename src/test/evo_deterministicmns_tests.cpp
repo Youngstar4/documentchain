@@ -1,4 +1,5 @@
 // Copyright (c) 2018 The Dash Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -100,7 +101,7 @@ static CMutableTransaction CreateProRegTx(SimpleUTXOMap& utxos, int port, const 
     operatorKeyRet.MakeNewKey();
 
     CAmount change;
-    auto inputs = SelectUTXOs(utxos, 1000 * COIN, change);
+    auto inputs = SelectUTXOs(utxos, 5000 * COIN, change);
 
     CProRegTx proTx;
     proTx.collateralOutpoint.n = 0;
@@ -113,7 +114,7 @@ static CMutableTransaction CreateProRegTx(SimpleUTXOMap& utxos, int port, const 
     CMutableTransaction tx;
     tx.nVersion = 3;
     tx.nType = TRANSACTION_PROVIDER_REGISTER;
-    FundTransaction(tx, utxos, scriptPayout, 1000 * COIN, coinbaseKey);
+    FundTransaction(tx, utxos, scriptPayout, 5000 * COIN, coinbaseKey);
     proTx.inputsHash = CalcTxInputsHash(tx);
     SetTxPayload(tx, proTx);
     SignTransaction(tx, coinbaseKey);
@@ -324,14 +325,14 @@ BOOST_FIXTURE_TEST_CASE(dip3_protx, TestChainDIP3Setup)
     }
 
     // test ProUpServTx
-    auto tx = CreateProUpServTx(utxos, dmnHashes[0], operatorKeys[dmnHashes[0]], 1000, CScript(), coinbaseKey);
+    auto tx = CreateProUpServTx(utxos, dmnHashes[0], operatorKeys[dmnHashes[0]], 5000, CScript(), coinbaseKey);
     CreateAndProcessBlock({tx}, coinbaseKey);
     deterministicMNManager->UpdatedBlockTip(chainActive.Tip());
     BOOST_ASSERT(chainActive.Height() == nHeight + 1);
     nHeight++;
 
     auto dmn = deterministicMNManager->GetListAtChainTip().GetMN(dmnHashes[0]);
-    BOOST_ASSERT(dmn != nullptr && dmn->pdmnState->addr.GetPort() == 1000);
+    BOOST_ASSERT(dmn != nullptr && dmn->pdmnState->addr.GetPort() == 5000);
 
     // test ProUpRevTx
     tx = CreateProUpRevTx(utxos, dmnHashes[0], operatorKeys[dmnHashes[0]], coinbaseKey);
