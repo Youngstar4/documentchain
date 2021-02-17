@@ -13,6 +13,7 @@
 
 #include "primitives/transaction.h"
 #include "init.h"
+#include "guiconstants.h"
 #include "policy/policy.h"
 #include "protocol.h"
 #include "script/script.h"
@@ -938,6 +939,19 @@ QString getThemeName()
         return theme;
     }
     return QString("light");  
+}
+
+bool isHighresTheme()
+{
+    QSettings settings;
+    QString theme = settings.value("theme", "").toString();
+    return (theme.endsWith("-hires"));
+}
+
+// themed statusbar icon size
+int getIconSize()
+{
+    return isHighresTheme() ? STATUSBAR_ICONSIZE_HIRES : STATUSBAR_ICONSIZE;
 }
 
 // Open CSS when configured
