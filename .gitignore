@@ -2,6 +2,8 @@
 *.sublime-workspace
 todo.txt
 reset-files.bash
+Thumbs.db
+.DS_Store
 
 *.tar.gz
 

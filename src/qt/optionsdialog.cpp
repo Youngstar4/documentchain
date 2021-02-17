@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -94,11 +95,6 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     /* Theme selector */
     ui->theme->addItem(QString("DMS-light"), QVariant("light"));
     ui->theme->addItem(QString("DMS-light-hires"), QVariant("light-hires"));
-    ui->theme->addItem(QString("DMS-light-retro"), QVariant("light-retro"));
-    ui->theme->addItem(QString("DMS-light-hires-retro"), QVariant("light-hires-retro"));
-    ui->theme->addItem(QString("DMS-blue"), QVariant("drkblue"));
-    ui->theme->addItem(QString("DMS-Crownium"), QVariant("crownium"));
-    ui->theme->addItem(QString("DMS-traditional"), QVariant("trad"));
     
     /* Language selector */
     QDir translations(":translations");
