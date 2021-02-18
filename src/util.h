@@ -1,6 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -53,6 +54,11 @@ static const bool DEFAULT_LOGIPS         = false;
 static const bool DEFAULT_LOGTIMESTAMPS  = true;
 static const bool DEFAULT_LOGTHREADNAMES = false;
 
+#ifdef __linux__
+static const int THREAD_PRIORITY_LOWEST = 19;
+static const int THREAD_PRIORITY_NORMAL = 0;
+#endif
+
 /** Signals for translation. */
 class CTranslationInterface
 {
@@ -88,6 +94,7 @@ inline std::string _(const char* psz)
 
 void SetupEnvironment();
 bool SetupNetworking();
+void SetThreadPriority(int nPriority);
 
 /** Return true if log accepts specified category */
 bool LogAcceptCategory(const char* category);

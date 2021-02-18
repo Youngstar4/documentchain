@@ -1,5 +1,6 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -136,6 +137,8 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
 {
     ui->setupUi(this);
     QString theme = GUIUtil::getThemeName();
+
+    ui->labelMiningInfo->setVisible(false);
 
     // Recent transactions
     ui->listTransactions->setItemDelegate(txdelegate);
@@ -335,6 +338,12 @@ void OverviewPage::showOutOfSyncWarning(bool fShow)
     ui->labelWalletStatus->setVisible(fShow);
     ui->labelPrivateSendSyncStatus->setVisible(fShow);
     ui->labelTransactionsStatus->setVisible(fShow);
+}
+
+void OverviewPage::showMiningInfo(const bool bVisible, const QString &strText)
+{
+    ui->labelMiningInfo->setVisible(bVisible);
+    ui->labelMiningInfo->setText(strText);
 }
 
 void OverviewPage::updatePrivateSendProgress()
