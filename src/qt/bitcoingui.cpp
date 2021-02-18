@@ -47,6 +47,7 @@
 #include <QApplication>
 #include <QDateTime>
 #include <QDesktopWidget>
+#include <QDesktopServices>
 #include <QInputDialog>
 #include <QDragEnterEvent>
 #include <QListWidget>
@@ -121,6 +122,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *_platformStyle, const NetworkStyle *
     startMiningAction(0),
     openRPCConsoleAction(0),
     openAction(0),
+    openSupportWebsiteAction(0),
     showHelpMessageAction(0),
     showPrivateSendHelpAction(0),
     trayIcon(0),
@@ -424,16 +426,8 @@ void BitcoinGUI::createActions()
     verifyMessageAction = new QAction(QIcon(":/icons/" + theme + "/transaction_0"), tr("&Verify message..."), this);
     verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified DMS addresses"));
 
-    openInfoAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("&Information"), this);
-    openInfoAction->setStatusTip(tr("Show diagnostic information"));
     openRPCConsoleAction = new QAction(QIcon(":/icons/" + theme + "/debugwindow"), tr("&Debug console"), this);
     openRPCConsoleAction->setStatusTip(tr("Open debugging console"));
-    openGraphAction = new QAction(QIcon(":/icons/" + theme + "/connect_4"), tr("&Network Monitor"), this);
-    openGraphAction->setStatusTip(tr("Show network monitor"));
-    openPeersAction = new QAction(QIcon(":/icons/" + theme + "/connect_4"), tr("&Peers list"), this);
-    openPeersAction->setStatusTip(tr("Show peers info"));
-    openRepairAction = new QAction(QIcon(":/icons/" + theme + "/options"), tr("Wallet &Repair"), this);
-    openRepairAction->setStatusTip(tr("Show wallet repair options"));
     startMiningAction = new QAction(QIcon(":/icons/" + theme + "/mining"), tr("&Mining..."), this);
     startMiningAction->setStatusTip(tr("Generate coins"));
     openConfEditorAction = new QAction(QIcon(":/icons/" + theme + "/edit"), tr("Open Wallet &Configuration File"), this);
@@ -443,11 +437,7 @@ void BitcoinGUI::createActions()
     showBackupsAction = new QAction(QIcon(":/icons/" + theme + "/browse"), tr("Show Automatic &Backups"), this);
     showBackupsAction->setStatusTip(tr("Show automatically created wallet backups"));
     // initially disable the debug window and mining menu items
-    openInfoAction->setEnabled(false);
     openRPCConsoleAction->setEnabled(false);
-    openGraphAction->setEnabled(false);
-    openPeersAction->setEnabled(false);
-    openRepairAction->setEnabled(false);
     if (Params().MiningRequiresPeers())
         startMiningAction->setEnabled(false);
 
@@ -458,6 +448,10 @@ void BitcoinGUI::createActions()
 
     openAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_DirOpenIcon), tr("Open &URI..."), this);
     openAction->setStatusTip(tr("Open a dms: URI or payment request"));
+
+    openSupportWebsiteAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_MessageBoxQuestion), tr("&Support Website"), this);
+    openSupportWebsiteAction->setMenuRole(QAction::NoRole);
+    openSupportWebsiteAction->setStatusTip(tr("Open the %1 support website").arg(tr(PACKAGE_NAME)));
 
     showHelpMessageAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("&Command-line options"), this);
     showHelpMessageAction->setMenuRole(QAction::NoRole);
@@ -472,15 +466,11 @@ void BitcoinGUI::createActions()
     connect(aboutQtAction, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
     connect(optionsAction, SIGNAL(triggered()), this, SLOT(optionsClicked()));
     connect(toggleHideAction, SIGNAL(triggered()), this, SLOT(toggleHidden()));
+    connect(openSupportWebsiteAction, SIGNAL(triggered()), this, SLOT(openSupportWebsiteClicked()));
     connect(showHelpMessageAction, SIGNAL(triggered()), this, SLOT(showHelpMessageClicked()));
     connect(showPrivateSendHelpAction, SIGNAL(triggered()), this, SLOT(showPrivateSendHelpClicked()));
 
-    // Jump directly to tabs in RPC-console
-    connect(openInfoAction, SIGNAL(triggered()), this, SLOT(showInfo()));
     connect(openRPCConsoleAction, SIGNAL(triggered()), this, SLOT(showConsole()));
-    connect(openGraphAction, SIGNAL(triggered()), this, SLOT(showGraph()));
-    connect(openPeersAction, SIGNAL(triggered()), this, SLOT(showPeers()));
-    connect(openRepairAction, SIGNAL(triggered()), this, SLOT(showRepair()));
     connect(startMiningAction, SIGNAL(triggered()), this, SLOT(setMiningUI()));
 
     // Open configs and backup folder from menu
@@ -556,11 +546,7 @@ void BitcoinGUI::createMenuBar()
     if(walletFrame)
     {
         QMenu *tools = appMenuBar->addMenu(tr("&Tools"));
-        tools->addAction(openInfoAction);
         tools->addAction(openRPCConsoleAction);
-        tools->addAction(openGraphAction);
-        tools->addAction(openPeersAction);
-        tools->addAction(openRepairAction);
         tools->addAction(startMiningAction);
         tools->addSeparator();
         tools->addAction(openConfEditorAction);
@@ -569,6 +555,7 @@ void BitcoinGUI::createMenuBar()
     }
 
     QMenu *help = appMenuBar->addMenu(tr("&Help"));
+    help->addAction(openSupportWebsiteAction);
     help->addAction(showHelpMessageAction);
     help->addAction(showPrivateSendHelpAction);
     help->addSeparator();
@@ -772,11 +759,7 @@ void BitcoinGUI::createIconMenu(QMenu *pmenu)
     pmenu->addAction(verifyMessageAction);
     pmenu->addSeparator();
     pmenu->addAction(optionsAction);
-    pmenu->addAction(openInfoAction);
     pmenu->addAction(openRPCConsoleAction);
-    pmenu->addAction(openGraphAction);
-    pmenu->addAction(openPeersAction);
-    pmenu->addAction(openRepairAction);
     pmenu->addSeparator();
     pmenu->addAction(openConfEditorAction);
     pmenu->addSeparator();
@@ -870,6 +853,12 @@ void BitcoinGUI::showMNConfEditor()
 void BitcoinGUI::showBackups()
 {
     GUIUtil::showBackups();
+}
+
+void BitcoinGUI::openSupportWebsiteClicked()
+{
+    QString supporturl = tr("https://documentchain.org/start-now/#howto");
+    QDesktopServices::openUrl(supporturl);
 }
 
 void BitcoinGUI::showHelpMessageClicked()
@@ -1260,11 +1249,7 @@ void BitcoinGUI::closeEvent(QCloseEvent *event)
 void BitcoinGUI::showEvent(QShowEvent *event)
 {
     // enable the debug window when the main window shows up
-    openInfoAction->setEnabled(true);
     openRPCConsoleAction->setEnabled(true);
-    openGraphAction->setEnabled(true);
-    openPeersAction->setEnabled(true);
-    openRepairAction->setEnabled(true);
     aboutAction->setEnabled(true);
     optionsAction->setEnabled(true);
 }
@@ -1511,6 +1496,7 @@ void BitcoinGUI::showProgress(const QString &title, int nProgress)
     if (nProgress == 0)
     {
         progressDialog = new QProgressDialog(title, "", 0, 100);
+        progressDialog->setStyleSheet(GUIUtil::loadStyleSheet());
         progressDialog->setWindowModality(Qt::ApplicationModal);
         progressDialog->setMinimumDuration(0);
         progressDialog->setCancelButton(0);
