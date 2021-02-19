@@ -1,6 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -103,6 +104,17 @@ public:
     {
         s.read((char*)data, sizeof(data));
     }
+};
+
+/** 128-bit opaque blob, used for document index key.
+ * @note This type is called uint160 for historical reasons only. It is an opaque
+ * blob of 128 bits and has no integer operations.
+ */
+class uint128 : public base_blob<128> {
+public:
+    uint128() {}
+    uint128(const base_blob<128>& b) : base_blob<128>(b) {}
+    explicit uint128(const std::vector<unsigned char>& vch) : base_blob<128>(vch) {}
 };
 
 /** 160-bit opaque blob.

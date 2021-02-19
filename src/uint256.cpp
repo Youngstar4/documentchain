@@ -1,5 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -66,6 +67,13 @@ std::string base_blob<BITS>::ToString() const
 {
     return (GetHex());
 }
+
+// Explicit instantiations for base_blob<128>
+template base_blob<128>::base_blob(const std::vector<unsigned char>&);
+template std::string base_blob<128>::GetHex() const;
+template std::string base_blob<128>::ToString() const;
+template void base_blob<128>::SetHex(const char*);
+template void base_blob<128>::SetHex(const std::string&);
 
 // Explicit instantiations for base_blob<160>
 template base_blob<160>::base_blob(const std::vector<unsigned char>&);

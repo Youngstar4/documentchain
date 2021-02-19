@@ -1,5 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -207,6 +208,8 @@ public:
     {
         return !(a == b);
     }
+
+    bool GetDocument(std::string& guid, std::string& indexhash, std::string& filehash, std::string& attrhash) const;
 
     std::string ToString() const;
 };

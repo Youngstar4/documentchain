@@ -1,5 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,6 +9,7 @@
 #include "hash.h"
 #include "tinyformat.h"
 #include "utilstrencodings.h"
+#include "primitives/document.h"
 
 std::string COutPoint::ToString() const
 {
@@ -53,6 +55,39 @@ CTxOut::CTxOut(const CAmount& nValueIn, CScript scriptPubKeyIn, int nRoundsIn)
     nValue = nValueIn;
     scriptPubKey = scriptPubKeyIn;
     nRounds = nRoundsIn;
+}
+
+bool CTxOut::GetDocument(std::string& guid, std::string& indexhash, std::string& filehash, std::string& attrhash) const
+{
+    if (scriptPubKey[0] != OP_RETURN)
+        return false;
+
+    std::string rawDocument = HexStr(scriptPubKey.begin() + 2, scriptPubKey.end());
+    /*
+    revision v2, BIP34 disabled: rawDocument = "444d24..."
+    revision v2, BIP34 enabled : rawDocument = "7d444d24..."
+    The longer data in revision v2 contains the OP_PUSHDATA1 etc, skip it
+    Alternative: rawDocument = ScriptToAsmStr(scriptPubKey) = "OP_RETURN 444d24..."
+    */
+    size_t pos = rawDocument.find("444d24");
+    if (pos > 0)
+        rawDocument = rawDocument.substr(pos, std::string::npos);
+
+    if (rawDocument.substr(0, 6) != "444d24")
+        return false;
+
+    try { // incompatible or (maliciously) wrong data can cause an exception
+        CDocument document(rawDocument);
+        if (document.isvalid) {
+            guid = document.guid;
+            indexhash = document.indexhash.hash;
+            filehash = document.filehash.hash;
+            attrhash = document.attrhash.hash;
+        }
+        return document.isvalid;
+    } catch (...) {
+        return false;
+    }
 }
 
 std::string CTxOut::ToString() const
