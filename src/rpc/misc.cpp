@@ -1,6 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -124,8 +125,8 @@ UniValue debug(const JSONRPCRequest& request)
             "dms|privatesend|instantsend|masternode|spork|keepass|mnpayments|gobject )\n"
             "Change debug category on the fly. Specify single category or use '+' to specify many.\n"
             "\nExamples:\n"
-            + HelpExampleCli("debug", "dms")
-            + HelpExampleRpc("debug", "dms+net")
+            + HelpExampleCli("debug", "rpc")
+            + HelpExampleRpc("debug", "rpc+net")
         );
 
     std::string strMode = request.params[0].get_str();
@@ -1150,9 +1151,9 @@ static const CRPCCommand commands[] =
     { "addressindex",       "getaddresstxids",        &getaddresstxids,        false, {"addresses"} },
     { "addressindex",       "getaddressbalance",      &getaddressbalance,      false, {"addresses"} },
 
-    /* DMS features */
-    { "dms",               "mnsync",                 &mnsync,                 true,  {} },
-    { "dms",               "spork",                  &spork,                  true,  {"value"} },
+    /* Dash features */
+    { "dash",               "mnsync",                 &mnsync,                 true,  {} },
+    { "dash",               "spork",                  &spork,                  true,  {"value"} },
 
     /* Not shown in help */
     { "hidden",             "setmocktime",            &setmocktime,            true,  {"timestamp"}},
