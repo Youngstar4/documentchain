@@ -32,6 +32,20 @@
 #endif //HAVE_CONFIG_H
 
 /**
+ Release code names 
+  1. Alice  0.12.9   26 Aug 2018
+  2. Bob    0.12.10  13 Nov 2018
+  3. Carol  0.12.11   4 Jan 2019
+  4. Dave   0.12.12  15 Apr 2019
+  5. Erin   0.12.13  16 Aug 2019
+  6. Faythe 0.12.14  29 Nov 2019
+  7. Grace  0.12.15  17 Apr 2020
+  8. Heidi  0.12.16   8 Oct 2020
+  9. Ivan   0.13.3   Mar 2021
+*/
+#define RELEASE_CODE_NAME "Ivan"
+
+/**
  * Converts the parameter X to a string after macro replacement on X has been performed.
  * Don't merge these into one macro!
  */

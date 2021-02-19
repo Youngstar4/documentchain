@@ -12,6 +12,7 @@
 
 #include "bitcoinunits.h"
 #include "clientmodel.h"
+#include "clientversion.h"
 #include "guiconstants.h"
 #include "guiutil.h"
 #include "miner.h"
@@ -151,6 +152,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *_platformStyle, const NetworkStyle *
     } else {
         windowTitle += tr("Node");
     }
+    windowTitle += " \"" RELEASE_CODE_NAME "\"";
     QString userWindowTitle = QString::fromStdString(GetArg("-windowtitle", ""));
     if(!userWindowTitle.isEmpty()) windowTitle += " - " + userWindowTitle;
     windowTitle += " " + networkStyle->getTitleAddText();
