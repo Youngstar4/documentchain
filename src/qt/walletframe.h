@@ -68,6 +68,8 @@ public Q_SLOTS:
     void gotoOverviewPage();
     /** Switch to history (transactions) page */
     void gotoHistoryPage();
+    /** Switch to document page */
+    void gotoDocumentPage(const QStringList newFiles = QStringList());
     /** Switch to masternode page */
     void gotoMasternodePage();
     /** Switch to receive coins page */

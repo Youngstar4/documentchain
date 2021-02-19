@@ -130,6 +130,16 @@ void WalletFrame::gotoHistoryPage()
         i.value()->gotoHistoryPage();
 }
 
+void WalletFrame::gotoDocumentPage(const QStringList newFiles)
+{
+    QMap<QString, WalletView*>::const_iterator i;
+    bool filesSend = false;
+    for (i = mapWalletViews.constBegin(); i != mapWalletViews.constEnd(); ++i) {
+        i.value()->gotoDocumentPage(!filesSend ? newFiles : QStringList());
+        filesSend = true;
+    }
+}
+
 void WalletFrame::gotoMasternodePage()
 {
     QMap<QString, WalletView*>::const_iterator i;

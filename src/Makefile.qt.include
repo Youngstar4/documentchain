@@ -35,6 +35,7 @@ QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
   qt/forms/askpassphrasedialog.ui \
   qt/forms/coincontroldialog.ui \
+  qt/forms/documentlist.ui \
   qt/forms/editaddressdialog.ui \
   qt/forms/helpmessagedialog.ui \
   qt/forms/intro.ui \
@@ -65,6 +66,7 @@ QT_MOC_CPP = \
   qt/moc_coincontroldialog.cpp \
   qt/moc_coincontroltreewidget.cpp \
   qt/moc_csvmodelwriter.cpp \
+  qt/moc_documentlist.cpp \
   qt/moc_editaddressdialog.cpp \
   qt/moc_guiutil.cpp \
   qt/moc_intro.cpp \
@@ -134,6 +136,7 @@ BITCOIN_QT_H = \
   qt/coincontroldialog.h \
   qt/coincontroltreewidget.h \
   qt/csvmodelwriter.h \
+  qt/documentlist.h \
   qt/editaddressdialog.h \
   qt/guiconstants.h \
   qt/guiutil.h \
@@ -199,6 +202,7 @@ RES_ICONS = \
   qt/res/icons/light/connect3_16.png \
   qt/res/icons/light/connect4_16.png \
   qt/res/icons/light/debugwindow.png \
+  qt/res/icons/light/document.png \
   qt/res/icons/light/drkblue_editpaste.png \
   qt/res/icons/light/drkblue_address-book.png \
   qt/res/icons/light/drkblue_editcopy.png \
@@ -274,6 +278,7 @@ BITCOIN_QT_WALLET_CPP = \
   qt/askpassphrasedialog.cpp \
   qt/coincontroldialog.cpp \
   qt/coincontroltreewidget.cpp \
+  qt/documentlist.cpp \
   qt/editaddressdialog.cpp \
   qt/masternodelist.cpp \
   qt/openuridialog.cpp \

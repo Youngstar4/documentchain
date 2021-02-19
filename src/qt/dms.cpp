@@ -1,5 +1,6 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -533,13 +534,15 @@ void BitcoinApplication::initializeResult(int retval)
 
 #ifdef ENABLE_WALLET
         // Now that initialization/startup is done, process any command-line
-        // dms: URIs or payment requests:
+        // dms: document import and URIs or payment requests:
         connect(paymentServer, SIGNAL(receivedPaymentRequest(SendCoinsRecipient)),
                          window, SLOT(handlePaymentRequest(SendCoinsRecipient)));
         connect(window, SIGNAL(receivedURI(QString)),
                          paymentServer, SLOT(handleURIOrFile(QString)));
         connect(paymentServer, SIGNAL(message(QString,QString,unsigned int)),
                          window, SLOT(message(QString,QString,unsigned int)));
+        connect(window, SIGNAL(receivedFile(QStringList)), window, 
+                         SLOT(gotoDocumentPage(QStringList)), Qt::QueuedConnection);
         QTimer::singleShot(100, paymentServer, SLOT(uiReady()));
 #endif
     } else {

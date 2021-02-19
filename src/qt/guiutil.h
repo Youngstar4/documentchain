@@ -75,6 +75,8 @@ namespace GUIUtil
 
     void setClipboard(const QString& str);
 
+    QString getOSDocumentsDir();
+
     /** Get save filename, mimics QFileDialog::getSaveFileName, except that it appends a default suffix
         when no suffix is provided by the user.
 
@@ -112,14 +114,20 @@ namespace GUIUtil
     // Determine whether a widget is hidden behind other windows
     bool isObscured(QWidget *w);
 
+    // Open file with the associated application
+    void openDocumentFile(const QString fileName);
+
+    // get file name from full path
+    QString extractFileName(const QString fullFilePath);
+
     // Open debug.log
     void openDebugLogfile();
-	
+
     // Open dms.conf
-    void openConfigfile();	
+    void openConfigfile();
 
     // Open masternode.conf
-    void openMNConfigfile();	
+    void openMNConfigfile();
 
     // Browse backup folder
     void showBackups();

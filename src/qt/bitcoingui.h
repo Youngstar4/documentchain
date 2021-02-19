@@ -32,6 +32,7 @@ class WalletFrame;
 class WalletModel;
 class HelpMessageDialog;
 class ModalOverlay;
+class DocumentList;
 class MasternodeList;
 
 class CWallet;
@@ -98,6 +99,7 @@ private:
     QMenuBar *appMenuBar;
     QAction *overviewAction;
     QAction *historyAction;
+    QAction *documentAction;
     QAction *masternodeAction;
     QAction *quitAction;
     QAction *sendCoinsAction;
@@ -170,8 +172,10 @@ private:
 
 
 Q_SIGNALS:
-    /** Signal raised when a URI was entered or dragged to the GUI */
+    /** Signal raised when a URI was entered */
     void receivedURI(const QString &uri);
+    /** Signal raised when a file was dragged to the GUI */
+    void receivedFile(const QStringList &files);
     /** Restart handling */
     void requestedRestart(QStringList args);
 
@@ -224,6 +228,8 @@ private Q_SLOTS:
     void gotoOverviewPage();
     /** Switch to history (transactions) page */
     void gotoHistoryPage();
+    /** Switch to document page */
+    void gotoDocumentPage(const QStringList newFiles = QStringList());
     /** Switch to masternode page */
     void gotoMasternodePage();
     /** Switch to receive coins page */

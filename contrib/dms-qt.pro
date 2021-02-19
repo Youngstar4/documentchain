@@ -4,6 +4,7 @@ FORMS += \
     ../src/qt/forms/askpassphrasedialog.ui \
     ../src/qt/forms/coincontroldialog.ui \
     ../src/qt/forms/debugwindow.ui \
+    ../src/qt/forms/documentlist.ui \
     ../src/qt/forms/editaddressdialog.ui \
     ../src/qt/forms/helpmessagedialog.ui \
     ../src/qt/forms/intro.ui \

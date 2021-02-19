@@ -27,6 +27,7 @@
 #include "utilitydialog.h"
 
 #ifdef ENABLE_WALLET
+#include "documentlist.h"
 #include "walletframe.h"
 #include "walletmodel.h"
 #endif // ENABLE_WALLET
@@ -103,6 +104,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *_platformStyle, const NetworkStyle *
     appMenuBar(0),
     overviewAction(0),
     historyAction(0),
+    documentAction(0),
     masternodeAction(0),
     quitAction(0),
     sendCoinsAction(0),
@@ -362,6 +364,17 @@ void BitcoinGUI::createActions()
 #endif
     tabGroup->addAction(historyAction);
 
+    documentAction = new QAction(QIcon(":/icons/" + theme + "/document"), tr("&Documents"), this);
+    documentAction->setStatusTip(tr("Document Revision"));
+    documentAction->setToolTip(documentAction->statusTip());
+    documentAction->setCheckable(true);
+#ifdef Q_OS_MAC
+    documentAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_5));
+#else
+    documentAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
+#endif
+    tabGroup->addAction(documentAction);
+
 #ifdef ENABLE_WALLET
     QSettings settings;
     if (!fLiteMode && settings.value("fShowMasternodesTab").toBool()) {
@@ -370,9 +383,9 @@ void BitcoinGUI::createActions()
         masternodeAction->setToolTip(masternodeAction->statusTip());
         masternodeAction->setCheckable(true);
 #ifdef Q_OS_MAC
-        masternodeAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_5));
+        masternodeAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_6));
 #else
-        masternodeAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
+        masternodeAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
 #endif
         tabGroup->addAction(masternodeAction);
         connect(masternodeAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
@@ -393,6 +406,8 @@ void BitcoinGUI::createActions()
     connect(receiveCoinsMenuAction, SIGNAL(triggered()), this, SLOT(gotoReceiveCoinsPage()));
     connect(historyAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(historyAction, SIGNAL(triggered()), this, SLOT(gotoHistoryPage()));
+    connect(documentAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    connect(documentAction, SIGNAL(triggered()), this, SLOT(gotoDocumentPage()));
 #endif // ENABLE_WALLET
 
     quitAction = new QAction(QIcon(":/icons/" + theme + "/quit"), tr("E&xit"), this);
@@ -576,6 +591,7 @@ void BitcoinGUI::createToolBars()
         toolbar->addAction(sendCoinsAction);
         toolbar->addAction(receiveCoinsAction);
         toolbar->addAction(historyAction);
+        toolbar->addAction(documentAction);
         QSettings settings;
         if (!fLiteMode && settings.value("fShowMasternodesTab").toBool() && masternodeAction)
         {
@@ -725,6 +741,7 @@ void BitcoinGUI::setWalletActionsEnabled(bool enabled)
     receiveCoinsAction->setEnabled(enabled);
     receiveCoinsMenuAction->setEnabled(enabled);
     historyAction->setEnabled(enabled);
+    documentAction->setEnabled(enabled);
     QSettings settings;
     if (!fLiteMode && settings.value("fShowMasternodesTab").toBool() && masternodeAction) {
         masternodeAction->setEnabled(enabled);
@@ -897,6 +914,14 @@ void BitcoinGUI::gotoHistoryPage()
 {
     historyAction->setChecked(true);
     if (walletFrame) walletFrame->gotoHistoryPage();
+}
+
+void BitcoinGUI::gotoDocumentPage(const QStringList newFiles)
+{
+    if (!documentAction->isChecked())
+        documentAction->setChecked(true);
+    if (walletFrame)
+        walletFrame->gotoDocumentPage(newFiles);
 }
 
 void BitcoinGUI::gotoMasternodePage()
@@ -1283,10 +1308,14 @@ void BitcoinGUI::dropEvent(QDropEvent *event)
 {
     if(event->mimeData()->hasUrls())
     {
-        Q_FOREACH(const QUrl &uri, event->mimeData()->urls())
+        QStringList files;
+        Q_FOREACH(const QUrl &uri, event->mimeData()->urls()) 
         {
-            Q_EMIT receivedURI(uri.toString());
+            files.append(uri.toLocalFile());
         }
+        /** we are using a Qt::QueuedConnection so that the sending
+            app is not blocked while the files are being processed */
+        Q_EMIT receivedFile(files);
     }
     event->acceptProposedAction();
 }
