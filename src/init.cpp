@@ -87,6 +87,7 @@
 #include <boost/algorithm/string/split.hpp>
 #include <boost/bind.hpp>
 #include <boost/filesystem.hpp>
+#include <boost/filesystem/fstream.hpp>
 #include <boost/function.hpp>
 #include <boost/interprocess/sync/file_lock.hpp>
 #include <boost/thread.hpp>
@@ -575,7 +576,7 @@ std::string HelpMessage(HelpMessageMode mode)
         strUsage += HelpMessageOpt("-logtimemicros", strprintf("Add microsecond precision to debug timestamps (default: %u)", DEFAULT_LOGTIMEMICROS));
         strUsage += HelpMessageOpt("-logthreadnames", strprintf("Add thread names to debug messages (default: %u)", DEFAULT_LOGTHREADNAMES));
         strUsage += HelpMessageOpt("-mocktime=<n>", "Replace actual time with <n> seconds since epoch (default: 0)");
-        strUsage += HelpMessageOpt("-limitfreerelay=<n>", strprintf("Continuously rate-limit free transactions to <n>*1000 bytes per minute (default: %u)", DEFAULT_LIMITFREERELAY));
+      //strUsage += HelpMessageOpt("-limitfreerelay=<n>", strprintf("Continuously rate-limit free transactions to <n>*1000 bytes per minute (default: %u)", DEFAULT_LIMITFREERELAY));
         strUsage += HelpMessageOpt("-relaypriority", strprintf("Require high priority for relaying free or low-fee transactions (default: %u)", DEFAULT_RELAYPRIORITY));
         strUsage += HelpMessageOpt("-maxsigcachesize=<n>", strprintf("Limit size of signature cache to <n> MiB (default: %u)", DEFAULT_MAX_SIG_CACHE_SIZE));
         strUsage += HelpMessageOpt("-maxtipage=<n>", strprintf("Maximum tip age in seconds to consider node in initial block download (default: %u)", DEFAULT_MAX_TIP_AGE));
@@ -669,10 +670,10 @@ std::string LicenseInfo()
            strprintf(_("The source code is available from %s."),
                URL_SOURCE_CODE) +
            "\n\n" +
-		   "Publisher/Impressum:\n" + /* as a company in the EU, we have to provide legal information */
-		   "Softwarebüro Krekeler, Friedrich-Engels-Str. 45, 15712 Königs Wusterhausen, Germany\n" +
-		   "Phone +49 3375 203631, Fax +49 3375 203622, mail@dms.cash, VAT ID/USt-IdNr. DE136377489\n" +
-		   "Verantwortlicher i. S. d. § 55 Abs: 2 RStV: Harald Krekeler (Anschrift s. o.)\n" +
+           "Publisher/Impressum:\n" + /* as a company in the EU, we have to provide legal information */
+           "Softwarebüro Krekeler, Friedrich-Engels-Str. 45, 15712 Königs Wusterhausen, Germany\n" +
+           "Phone +49 3375 203631, Fax +49 3375 203622, mail@dms.cash, VAT ID/USt-IdNr. DE136377489\n" +
+           "Verantwortlicher i. S. d. § 55 Abs: 2 RStV: Harald Krekeler (Anschrift s. o.)\n" +
             "\n" +
            _("This is experimental software.") + "\n" +
            strprintf(_("Distributed under the MIT software license, see the accompanying file %s or %s"), "COPYING", "<https://opensource.org/licenses/MIT>") + "\n" +
@@ -2012,6 +2013,35 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
             pwalletMain->LockCoin(outpoint);
             LogPrintf("  %s %s - locked successfully\n", mne.getTxHash(), mne.getOutputIndex());
         }
+    }
+
+    LogPrintf("Using locked coins file %s\n", GetLockedCoinsConfFile().string());
+
+    if (pwalletMain && boost::filesystem::exists(GetLockedCoinsConfFile().string())) {
+        LOCK(pwalletMain->cs_wallet);
+        LogPrintf("Locking custom locked coins:\n");
+        int lclinenumber = 1;
+        uint256 lcTxHash;
+        boost::filesystem::path pathLockedCoinsConfFile = GetLockedCoinsConfFile();
+        boost::filesystem::ifstream streamConfig(pathLockedCoinsConfFile);
+
+        if (streamConfig.good()) {
+            for(std::string line; std::getline(streamConfig, line); lclinenumber++) {
+                if(line.empty()) continue;
+                std::istringstream iss(line);
+                std::string lcTxHashStr, lcOutputIndex;
+                if (!(iss >> lcTxHashStr >> lcOutputIndex)) continue;
+                lcTxHash.SetHex(lcTxHashStr);
+                COutPoint outpoint = COutPoint(lcTxHash, (uint32_t)atoi(lcOutputIndex));
+                if(pwalletMain->IsMine(CTxIn(outpoint)) != ISMINE_SPENDABLE) {
+                    LogPrintf("  %s %s - IS NOT SPENDABLE, was not locked\n", lcTxHashStr, lcOutputIndex);
+                    continue;
+                }
+                pwalletMain->LockCoin(outpoint);
+                LogPrintf("  %s %s - locked successfully\n", lcTxHashStr, lcOutputIndex);
+            }
+        }
+        streamConfig.close();
     }
 
     // ********************************************************* Step 11b: setup PrivateSend

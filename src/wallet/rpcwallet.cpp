@@ -1,6 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -25,6 +26,7 @@
 #include <stdint.h>
 
 #include <boost/assign/list_of.hpp>
+#include <boost/filesystem/fstream.hpp>
 
 #include <univalue.h>
 
@@ -2319,7 +2321,8 @@ UniValue listlockunspent(const JSONRPCRequest& request)
             "[\n"
             "  {\n"
             "    \"txid\" : \"transactionid\",     (string) The transaction id locked\n"
-            "    \"vout\" : n                      (numeric) The vout value\n"
+            "    \"vout\" : n,                   (numeric) The vout value\n"
+            "    \"permanent\" : true|false      (boolean) true, if unspent is locked permanently\n"
             "  }\n"
             "  ,...\n"
             "]\n"
@@ -2343,11 +2346,27 @@ UniValue listlockunspent(const JSONRPCRequest& request)
 
     UniValue ret(UniValue::VARR);
 
+    std::string lockedperm = "";
+    if (boost::filesystem::exists(GetLockedCoinsConfFile().string())) {
+        boost::filesystem::path pathLockedCoinsConfFile = GetLockedCoinsConfFile();
+        boost::filesystem::ifstream streamConfig(pathLockedCoinsConfFile);
+        if (streamConfig.good()) {
+            std::string line;
+            while (!streamConfig.eof()) {
+                getline(streamConfig, line);
+                lockedperm += line + ' ';
+            }
+        }
+        streamConfig.close();
+    }
+
     BOOST_FOREACH(COutPoint &outpt, vOutpts) {
         UniValue o(UniValue::VOBJ);
 
-        o.push_back(Pair("txid", outpt.hash.GetHex()));
+        std::string hex = outpt.hash.GetHex();
+        o.push_back(Pair("txid", hex));
         o.push_back(Pair("vout", (int)outpt.n));
+        o.push_back(Pair("permanent", (bool)(lockedperm.find(hex) != std::string::npos)));
         ret.push_back(o);
     }
 

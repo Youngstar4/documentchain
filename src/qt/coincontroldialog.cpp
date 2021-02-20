@@ -1,5 +1,6 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -35,6 +36,8 @@
 #include <QString>
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
+#include <QFile>
+#include <QTextStream>
 
 QList<CAmount> CoinControlDialog::payAmounts;
 CCoinControl* CoinControlDialog::coinControl = new CCoinControl();
@@ -64,6 +67,7 @@ CoinControlDialog::CoinControlDialog(const PlatformStyle *_platformStyle, QWidge
     QAction *copyAmountAction = new QAction(tr("Copy amount"), this);
              copyTransactionHashAction = new QAction(tr("Copy transaction ID"), this);  // we need to enable/disable this
              lockAction = new QAction(tr("Lock unspent"), this);                        // we need to enable/disable this
+             lockPermanentAction = new QAction(tr("Lock permanently"), this);           // we need to enable/disable this
              unlockAction = new QAction(tr("Unlock unspent"), this);                    // we need to enable/disable this
 
     // context menu
@@ -74,6 +78,7 @@ CoinControlDialog::CoinControlDialog(const PlatformStyle *_platformStyle, QWidge
     contextMenu->addAction(copyTransactionHashAction);
     contextMenu->addSeparator();
     contextMenu->addAction(lockAction);
+    contextMenu->addAction(lockPermanentAction);
     contextMenu->addAction(unlockAction);
 
     // context menu signals
@@ -83,6 +88,7 @@ CoinControlDialog::CoinControlDialog(const PlatformStyle *_platformStyle, QWidge
     connect(copyAmountAction, SIGNAL(triggered()), this, SLOT(copyAmount()));
     connect(copyTransactionHashAction, SIGNAL(triggered()), this, SLOT(copyTransactionHash()));
     connect(lockAction, SIGNAL(triggered()), this, SLOT(lockCoin()));
+    connect(lockPermanentAction, SIGNAL(triggered()), this, SLOT(lockCoin()));
     connect(unlockAction, SIGNAL(triggered()), this, SLOT(unlockCoin()));
 
     // clipboard actions
@@ -260,11 +266,13 @@ void CoinControlDialog::showMenu(const QPoint &point)
             if (model->isLockedCoin(uint256S(item->text(COLUMN_TXHASH).toStdString()), item->text(COLUMN_VOUT_INDEX).toUInt()))
             {
                 lockAction->setEnabled(false);
+                lockPermanentAction->setEnabled(false);
                 unlockAction->setEnabled(true);
             }
             else
             {
                 lockAction->setEnabled(true);
+                lockPermanentAction->setEnabled(true);
                 unlockAction->setEnabled(false);
             }
         }
@@ -272,6 +280,7 @@ void CoinControlDialog::showMenu(const QPoint &point)
         {
             copyTransactionHashAction->setEnabled(false);
             lockAction->setEnabled(false);
+            lockPermanentAction->setEnabled(false);
             unlockAction->setEnabled(false);
         }
 
@@ -322,6 +331,17 @@ void CoinControlDialog::lockCoin()
     contextMenuItem->setDisabled(true);
     contextMenuItem->setIcon(COLUMN_CHECKBOX, QIcon(":/icons/" + theme + "/lock_closed"));
     updateLabelLocked();
+
+    QObject* act = sender();
+    if (act == lockPermanentAction) {
+        QString unspent = contextMenuItem->text(COLUMN_TXHASH) + " " + contextMenuItem->text(COLUMN_VOUT_INDEX);
+        QFile fileLockedCoins(QString::fromStdString(GetLockedCoinsConfFile().string()));
+        if (fileLockedCoins.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append)) {
+            QTextStream txtstream(&fileLockedCoins);
+            txtstream << unspent + "\n";
+            fileLockedCoins.close();
+        }
+    }
 }
 
 // context menu action: unlock coin
@@ -332,6 +352,25 @@ void CoinControlDialog::unlockCoin()
     contextMenuItem->setDisabled(false);
     contextMenuItem->setIcon(COLUMN_CHECKBOX, QIcon());
     updateLabelLocked();
+
+    QString filename = QString::fromStdString(GetLockedCoinsConfFile().string());
+    if (QFile::exists(filename)) {
+        QFile fileLockedCoins(filename);
+        if (fileLockedCoins.open(QIODevice::ReadWrite | QIODevice::Text)) {
+            QString unspent = contextMenuItem->text(COLUMN_TXHASH) + " " + contextMenuItem->text(COLUMN_VOUT_INDEX);
+            QString line;
+            QString dest;
+            QTextStream txtstream(&fileLockedCoins);
+            while(!txtstream.atEnd()) {
+                line = txtstream.readLine();
+                if (line != unspent)
+                    dest.append(line + "\n");
+            }
+            fileLockedCoins.resize(0);
+            txtstream << dest;
+            fileLockedCoins.close();
+        }
+    }
 }
 
 // copy label "Quantity" to clipboard
