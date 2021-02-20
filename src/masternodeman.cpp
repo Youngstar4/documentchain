@@ -1,4 +1,5 @@
 // Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -1947,7 +1948,7 @@ void CMasternodeMan::WarnMasternodeDaemonUpdates()
     }
 
     // Warn only when at least half of known masternodes already updated
-    if (nUpdatedMasternodes < size() / 2)
+    if ( (nUpdatedMasternodes == 0) || (nUpdatedMasternodes < size() / 2) )
         return;
 
     std::string strWarning;
@@ -1961,7 +1962,7 @@ void CMasternodeMan::WarnMasternodeDaemonUpdates()
     }
 
     // notify GetWarnings(), called by Qt and the JSON-RPC code to warn the user
-    SetMiscWarning(strWarning);
+    SetMiscWarning(strWarning, "<a href=\"https://github.com/Krekeler/documentchain/releases\">&raquo; github.com</a>");
     // trigger GUI update
     uiInterface.NotifyAlertChanged(SerializeHash(strWarning), CT_NEW);
     // trigger cmd-line notification
