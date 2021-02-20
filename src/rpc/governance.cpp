@@ -1170,9 +1170,10 @@ UniValue getgovernanceinfo(const JSONRPCRequest& request)
             "  \"masternodewatchdogmaxseconds\": xxxxx,  (numeric) sentinel watchdog expiration time in seconds (DEPRECATED)\n"
             "  \"sentinelpingmaxseconds\": xxxxx,        (numeric) sentinel ping expiration time in seconds\n"
             "  \"proposalfee\": xxx.xx,                  (numeric) the collateral transaction fee which must be paid to create a proposal in " + CURRENCY_UNIT + "\n"
+            /*
             "  \"superblockcycle\": xxxxx,               (numeric) the number of blocks between superblocks\n"
             "  \"lastsuperblock\": xxxxx,                (numeric) the block number of the last superblock\n"
-            "  \"nextsuperblock\": xxxxx,                (numeric) the block number of the next superblock\n"
+            "  \"nextsuperblock\": xxxxx,                (numeric) the block number of the next superblock\n" */
             "}\n"
             "\nExamples:\n"
             + HelpExampleCli("getgovernanceinfo", "")
@@ -1192,9 +1193,10 @@ UniValue getgovernanceinfo(const JSONRPCRequest& request)
     obj.push_back(Pair("masternodewatchdogmaxseconds", MASTERNODE_SENTINEL_PING_MAX_SECONDS));
     obj.push_back(Pair("sentinelpingmaxseconds", MASTERNODE_SENTINEL_PING_MAX_SECONDS));
     obj.push_back(Pair("proposalfee", ValueFromAmount(GOVERNANCE_PROPOSAL_FEE_TX)));
+    /* DMS does not use superblocks (see params.h struct Params)
     obj.push_back(Pair("superblockcycle", Params().GetConsensus().nSuperblockCycle));
     obj.push_back(Pair("lastsuperblock", nLastSuperblock));
-    obj.push_back(Pair("nextsuperblock", nNextSuperblock));
+    obj.push_back(Pair("nextsuperblock", nNextSuperblock)); */
 
     return obj;
 }
@@ -1231,7 +1233,7 @@ static const CRPCCommand commands[] =
   //  --------------------- ------------------------  -----------------------  ------ ----------
     /* Dash features */
     { "dash",               "getgovernanceinfo",      &getgovernanceinfo,      true,  {} },
-    { "dash",               "getsuperblockbudget",    &getsuperblockbudget,    true,  {"index"} },
+  //{ "dash",               "getsuperblockbudget",    &getsuperblockbudget,    true,  {"index"} },
     { "dash",               "gobject",                &gobject,                true,  {} },
     { "dash",               "voteraw",                &voteraw,                true,  {} },
 

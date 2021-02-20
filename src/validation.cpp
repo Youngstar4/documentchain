@@ -846,7 +846,7 @@ bool AcceptToMemoryPoolWorker(CTxMemPool& pool, CValidationState& state, const C
             LogPrint("mempool", "Rate limit dFreeCount: %g => %g\n", dFreeCount, dFreeCount+nSize);
             dFreeCount += nSize;
         }
-		*/
+        */
 
         if (nAbsurdFee && nFees > nAbsurdFee)
             return state.Invalid(false,
@@ -1196,12 +1196,12 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     return nSubsidy;
 
     // reduce the block reward by 10 extra percent (allowing budget/superblocks)
-	// DMS does not use superblocks (consensus.nSuperblockStartBlock is set to >1000 years ), 
-	// but the code is not removed yet because it could be of interest for other purposes.
-	/* uncomment for budget/superblocks:
+    // DMS does not use superblocks (consensus.nSuperblockStartBlock is set to >1000 years ), 
+    // but the code is not removed yet because it could be of interest for other purposes.
+    /* uncomment for budget/superblocks:
     CAmount nSuperblockPart = (nPrevHeight > consensusParams.nBudgetPaymentsStartBlock) ? nSubsidy/10 : 0;
     return fSuperblockPartOnly ? nSuperblockPart : nSubsidy - nSuperblockPart;
-	*/
+    */
 }
 
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
@@ -3373,7 +3373,7 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
 {
     const int nHeight = pindexPrev == NULL ? 0 : pindexPrev->nHeight + 1;
     // Check proof of work
-	/*  Dash specific, not used in DMS
+    /*  Dash specific, not used in DMS
     if(Params().NetworkIDString() == CBaseChainParams::MAIN && nHeight <= 68589){
         // architecture issues with DGW v1 and v2)
         unsigned int nBitsNext = GetNextWorkRequired(pindexPrev, &block, consensusParams);
@@ -3387,7 +3387,7 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
         if (block.nBits != GetNextWorkRequired(pindexPrev, &block, consensusParams))
             return state.DoS(100, false, REJECT_INVALID, "bad-diffbits", false, strprintf("incorrect proof of work at %d", nHeight));
     }
-	*/
+    */
     if (block.nBits != GetNextWorkRequired(pindexPrev, &block, consensusParams))
         return state.DoS(100, false, REJECT_INVALID, "bad-diffbits", false, strprintf("incorrect proof of work at %d", nHeight));
 
