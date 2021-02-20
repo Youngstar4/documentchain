@@ -176,6 +176,41 @@ UniValue getaccountaddress(const JSONRPCRequest& request)
     return ret;
 }
 
+UniValue getencryptionstatus(const JSONRPCRequest& request)
+{
+    if (!EnsureWalletIsAvailable(request.fHelp))
+        return NullUniValue;
+
+    if (request.fHelp || request.params.size() != 0)
+        throw std::runtime_error(
+            "getencryptionstatus\n"
+            "\nReturns the encryption status of the wallet.\n"
+            "\nResult:\n"
+            "\"status\"    (string) Current status: \"unencrypted\", \"locked\", \"unlockedformixingonly\" or \"unlocked\"\n"
+            "\nExamples:\n"
+            + HelpExampleCli("getencryptionstatus", "")
+            + HelpExampleRpc("getencryptionstatus", "")
+       );
+
+    LOCK2(cs_main, pwalletMain->cs_wallet);
+
+    if(!pwalletMain->IsCrypted())
+    {
+        return "unencrypted";
+    }
+    else if(pwalletMain->IsLocked(true))
+    {
+        return "locked";
+    }
+    else if (pwalletMain->IsLocked())
+    {
+        return "unlockedformixingonly";
+    }
+    else
+    {
+        return "unlocked";
+    }
+}
 
 UniValue getrawchangeaddress(const JSONRPCRequest& request)
 {
@@ -1818,7 +1853,7 @@ UniValue gettransaction(const JSONRPCRequest& request)
             "      \"fee\": x.xxx,                     (numeric) The amount of the fee in " + CURRENCY_UNIT + ". This is negative and only available for the \n"
             "                                           'send' category of transactions.\n"
             "      \"abandoned\": xxx                  (bool) 'true' if the transaction has been abandoned (inputs are respendable). Only available for the \n"
-            "                                           'send' category of transactions.\n"			
+            "                                           'send' category of transactions.\n"
             "    }\n"
             "    ,...\n"
             "  ],\n"
@@ -2893,6 +2928,7 @@ static const CRPCCommand commands[] =
     { "wallet",             "getaccount",               &getaccount,               true,   {"address"} },
     { "wallet",             "getaddressesbyaccount",    &getaddressesbyaccount,    true,   {"account"} },
     { "wallet",             "getbalance",               &getbalance,               false,  {"account","minconf","addlocked","include_watchonly"} },
+    { "wallet",             "getencryptionstatus",      &getencryptionstatus,      true,   {} },
     { "wallet",             "getnewaddress",            &getnewaddress,            true,   {"account"} },
     { "wallet",             "getrawchangeaddress",      &getrawchangeaddress,      true,   {} },
     { "wallet",             "getreceivedbyaccount",     &getreceivedbyaccount,     false,  {"account","minconf","addlocked"} },
