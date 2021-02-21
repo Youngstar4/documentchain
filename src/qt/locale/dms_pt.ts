@@ -306,6 +306,10 @@
         <translation>Sair da aplicação</translation>
     </message>
     <message>
+        <source>&amp;About DMS Core</source>
+        <translation>&amp;Acerca do DMS Core</translation>
+    </message>
+    <message>
         <source>Show information about DMS Core</source>
         <translation>Exibe informações sobre DMS Core</translation>
     </message>
@@ -814,8 +818,8 @@
         <translation>Este texto fica vermelho se qualquer destinatário receber uma quantidade menor que que o dust.</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 duff(s) per input.</source>
-        <translation>Pode variar +/- %1 duff(s) por entrada.</translation>
+        <source>Can vary +/- %1 docz per input.</source>
+        <translation>Pode variar +/- %1 docz por entrada.</translation>
     </message>
     <message>
         <source>(no label)</source>

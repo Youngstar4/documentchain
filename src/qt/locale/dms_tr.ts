@@ -290,6 +290,53 @@
         <translation>İşlem geçmişine gözat</translation>
     </message>
     <message>
+        <source>&amp;Documents</source>
+        <translation>&amp;Belgeler</translation>
+    </message>
+    <message>
+        <source>Document Revision</source>
+        <translation>Belge Revizyonu</translation>
+    </message>
+    <message>
+        <source>&amp;Support Website</source>
+        <translation>&amp;Websitesi Destek</translation>
+    </message>
+    <message>
+        <source>Open the %1 support website</source>
+        <translation>%1 Websitesi Desteğini Açın</translation>
+    </message>
+    <message>
+        <source>&amp;Mining...</source>
+        <translation>&amp;Madencilik...</translation>
+    </message>
+    <message>
+        <source>Generate coins</source>
+        <translation>Madeni Para Üretme</translation>
+    </message>
+    <message>
+        <source>Please wait.</source>
+        <translation>Lütfen Bekleyin.</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Unlimited Mining&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Sınırsız Madencilik&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Weak &lt;b&gt;Mining&lt;/b&gt;</source>
+        <translation>Güçsüz &lt;b&gt;Madencilik&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Mining is not active.&lt;br&gt;Click here to generate Coins.</source>
+        <translation>Madencilik aktif değil.&lt;br&gt;Madeni para üretmek için buraya tıklayın.</translation>
+    </message>
+    <message numerus="yes">
+        <source>&lt;b&gt;Mining&lt;/b&gt; on %n Thread(s)</source>
+        <translation>
+            <numerusform>&lt;b&gt;Madencilik&lt;/b&gt; üzerinde %n Konu</numerusform>
+            <numerusform>&lt;b&gt;Madencilik&lt;/b&gt; üzerinde %n Konu</numerusform>
+        </translation>
+    </message>
+    <message>
         <source>&amp;Masternodes</source>
         <translation>&amp;Ana düğümler</translation>
     </message>
@@ -519,7 +566,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Documentchain network</source>
-        <translation><numerusform>DMS ağına %n aktif bağlantı</numerusform><numerusform>DMS ağına %n aktif bağlantı</numerusform></translation>
+        <translation><numerusform>Documentchain ağına %n aktif bağlantı</numerusform><numerusform>Documentchain ağına %n aktif bağlantı</numerusform></translation>
     </message>
     <message>
         <source>Network activity disabled</source>
@@ -762,6 +809,10 @@
         <translation>Harcanmamışı kilitle</translation>
     </message>
     <message>
+        <source>Lock permanently</source>
+        <translation>Kalıcı olarak kilitle</translation>
+    </message>
+    <message>
         <source>Unlock unspent</source>
         <translation>Harcanmamışın kilidini aç</translation>
     </message>
@@ -814,8 +865,8 @@
         <translation>Eğer herhangi bir alıcı mevcut toz eşiğinden daha düşük bir tutar alırsa bu etiket kırmızıya dönüşür.</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 duff(s) per input.</source>
-        <translation>Girdi başına +/- %1 duff değişebilir.</translation>
+        <source>Can vary +/- %1 docz per input.</source>
+        <translation>Girdi başına +/- %1 docz değişebilir.</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1029,8 +1080,8 @@
         <translation>Ana Düğümlerim</translation>
     </message>
     <message>
-        <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your masternode should be running but you still do not see "ENABLED" in "Status" field.</source>
-        <translation>Not: Yerel cüzdanınızdaki ana düğüm durumları biraz yanlış olabilir.&lt;br /&gt;Eğer ana düğümünüz çalışıyor durumda olmalı ama "Durum" alanında "ETKİN" olarak görünmüyorsa&lt;br /&gt;her zaman cüzdanın ek bilgiyi eşleştirmesini bekleyip başka bir düğümü kontrol edin.</translation>
+        <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect. Always wait for wallet to sync additional data and then double check from &lt;a href=&quot;https://documentchain.org/explorer/?search=masternodelist&quot;&gt;another node&lt;/a&gt; if your masternode should be running but you still do not see &quot;ENABLED&quot; in &quot;Status&quot; field.&lt;br /&gt;Operating a Masternode requires 5,000 DMS as collateral, see also &lt;a href=&quot;https://documentchain.org/support/masternodes/&quot;&gt;instructions&lt;/a&gt; and &lt;a href=&quot;https://documentchain.org/news/shared-masternodes/&quot;&gt;shared masternodes&lt;/a&gt;.</source>
+        <translation>Not: Yerel cüzdanınızdaki ana düğüm durumları biraz yanlış olabilir.&lt;br /&gt;Eğer ana düğümünüz çalışıyor durumda olmalı ama "Durum" alanında "ETKİN" olarak görünmüyorsa&lt;br /&gt;her zaman cüzdanın ek bilgiyi eşleştirmesini bekleyip başka bir düğümü &lt;a href=&quot;https://documentchain.org/explorer/?search=masternodelist&quot;&gt;kontrol&lt;/a&gt; edin.&lt;br /&gt;Bir Ana Düğüm işletmek, teminat olarak 5.000 DMS gerektirir, ayrıca &lt;a href=&quot;https://documentchain.org/support/masternodes/&quot;&gt;talimatlar&lt;/a&gt; ve &lt;a href=&quot;https://documentchain.org/news/shared-masternodes/&quot;&gt;paylaşılan ana mod&lt;/a&gt; a bakın.</translation>
     </message>
     <message>
         <source>Alias</source>
@@ -2814,11 +2865,11 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>If the custom fee is set to 1000 docz and the transaction is only 250 bytes, then "per kilobyte" only pays 250 docz in fee,&lt;br /&gt;while "at least" pays 1000 docz. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Eğer özel ücret 1000 duff olarak belirlendiyse ve işlem sadece 250 bayt ise "kilobayt başına" ücret olarak sadece 250 duff ödersiniz,&lt;br /&gt;bu da "en az" 1000 duff öder. Bir kilobayttan büyük işlemler için ikisi de kilobayt başına ödeme yapar.</translation>
+        <translation>Eğer özel ücret 1000 docz olarak belirlendiyse ve işlem sadece 250 bayt ise "kilobayt başına" ücret olarak sadece 250 docz ödersiniz,&lt;br /&gt;bu da "en az" 1000 docz öder. Bir kilobayttan büyük işlemler için ikisi de kilobayt başına ödeme yapar.</translation>
     </message>
     <message>
         <source>If the custom fee is set to 1000 docz and the transaction is only 250 bytes, then "per kilobyte" only pays 250 docz in fee,&lt;br /&gt;while "total at least" pays 1000 docz. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Eğer özel ücret 1000 duff olarak belirlendiyse ve işlem sadece 250 bayt ise "kilobayt başına" ücret olarak sadece 250 duff ödersiniz,&lt;br /&gt;bu da "toplam en az" 1000 duff öder. Bir kilobayttan büyük işlemler için ikisi de kilobayt başına ödeme yapar.</translation>
+        <translation>Eğer özel ücret 1000 docz olarak belirlendiyse ve işlem sadece 250 bayt ise "kilobayt başına" ücret olarak sadece 250 docz ödersiniz,&lt;br /&gt;bu da "toplam en az" 1000 docz öder. Bir kilobayttan büyük işlemler için ikisi de kilobayt başına ödeme yapar.</translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for dms transactions than the network can process.</source>
@@ -3084,7 +3135,11 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Ücreti tutardan düş</translation>
     </message>
     <message>
-        <source>Message:</source>
+        <source>Use available balance</source>
+        <translation>Mevcut bakiyeyi kullan</translation>
+    </message>
+    <message>
+         <source>Message:</source>
         <translation>Mesaj:</translation>
     </message>
     <message>
@@ -3560,6 +3615,10 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Gönderildiği adres</translation>
     </message>
     <message>
+        <source>Document Revision</source>
+        <translation>Belge Revizyonu</translation>
+    </message>
+    <message>
         <source>Payment to yourself</source>
         <translation>Kendinize ödeme</translation>
     </message>
@@ -3677,6 +3736,10 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>Sent to</source>
         <translation>Gönderildiği adres</translation>
+    </message>
+    <message>
+        <source>Document Revision</source>
+        <translation>Belge Revizyonu</translation>
     </message>
     <message>
         <source>PrivateSend</source>
@@ -5440,6 +5503,180 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>Zapping all transactions from wallet...</source>
         <translation>Cüzdandaki tüm muameleler kaldırılıyor...</translation>
+    </message>
+</context>
+<context>
+    <name>DocumentList</name>
+    <message>
+        <source>Document Revision</source>
+        <translation>Belge Revizyonu</translation>
+    </message>
+    <message>
+        <source>&amp;Add File...</source>
+        <translation>Dosya Ekle...</translation>
+    </message>
+    <message>
+        <source>&amp;Open</source>
+        <translation>Aç</translation>
+    </message>
+    <message>
+        <source>&amp;Revision</source>
+        <translation>Revizyon</translation>
+    </message>
+    <message>
+        <source>Select file(s) to append</source>
+        <translation>Eklenecek dosya(ları) seç</translation>
+    </message>
+    <message>
+        <source>All Files (*.*)</source>
+        <translation>Tüm Dosyalar (*.*)</translation>
+    </message>
+    <message>
+        <source>Document</source>
+        <translation>Belge</translation>
+    </message>
+    <message>
+        <source>File hash</source>
+        <translation>Sağlama Dosyası</translation>
+    </message>
+    <message>
+        <source>GUID</source>
+        <translation>GUID</translation>
+    </message>
+    <message>
+        <source>Attribute hash</source>
+        <translation>Öz nitelik sağlama</translation>
+    </message>
+    <message>
+        <source>Blockchain</source>
+        <translation>Blockchain</translation>
+    </message>
+    <message>
+        <source>Document Revision</source>
+        <translation>Belge Revizyonu</translation>
+    </message>
+    <message>
+        <source>Execute</source>
+        <translation>Yürütme</translation>
+    </message>
+    <message>
+        <source>Transaction ID</source>
+        <translation>İşlem ID&apos;si</translation>
+    </message>
+    <message>
+        <source>Total Amount</source>
+        <translation>Toplam Miktar</translation>
+    </message>
+    <message>
+        <source>Stored</source>
+        <translation>Saklanmış</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to send?</source>
+        <translation>Göndermek istediğinizden emin misiniz?</translation>
+    </message>
+    <message>
+        <source>Store document information</source>
+        <translation>Belge bilgilerini saklayın</translation>
+    </message>
+    <message>
+        <source>is paid as transaction fee.</source>
+        <translation>işlem ücreti olarak ödenir.</translation>
+    </message>
+    <message>
+        <source>Send Document</source>
+        <translation>Belge Gönder</translation>
+    </message>
+    <message>
+        <source>File exists</source>
+        <translation>Dosya var</translation>
+    </message>
+    <message>
+        <source>New file name</source>
+        <translation>Yeni dosya adı</translation>
+    </message>
+    <message>
+        <source>%1 document files</source>
+        <translation>%1 belge dosyası</translation>
+    </message>
+</context>
+<context>
+    <name>Document</name>
+    <message>
+        <source>Revision successful</source>
+        <translation>Düzeltme başarılı</translation>
+    </message>
+    <message>
+        <source>Revision with notes</source>
+        <translation>Notlar ile Revizyon</translation>
+    </message>
+    <message>
+        <source>Revision is not possible yet</source>
+        <translation>Revizyon henüz mümkün değil</translation>
+    </message>
+    <message>
+        <source>Revision failed</source>
+        <translation>Revizyon başarısız oldu</translation>
+    </message>
+    <message>
+        <source>No Transaction stored.</source>
+        <translation>Kaydedilen İşlem yok.</translation>
+    </message>
+    <message>
+        <source>The current file does not match the locally saved hash. This file has been modified.</source>
+        <translation>Mevcut dosya Lokal olarak kaydedilen hash ile eşleşmiyor. Bu dosya değiştirildi.</translation>
+    </message>
+    <message>
+        <source>Transaction not found.</source>
+        <translation>İşlem bulunamadı.</translation>
+    </message>
+    <message>
+        <source>current value \"%1\" differs from value \"%2\" stored in blockchain.</source>
+        <translation>Mevcut değer \"%1\" değerden farklı \"%2\" blok zinzirinde saklandı.</translation>
+    </message>
+    <message>
+        <source>matches the blockchain value.</source>
+        <translation>blok zinciri değeri ile eşleşir.</translation>
+    </message>
+    <message>
+        <source>There are not enough blockchain confirmations available for revision. Please wait a while.</source>
+        <translation>Revizyon için yeterli blok zinciri onayı yok. Lütfen biraz bekleyin.</translation>
+    </message>
+    <message>
+        <source>Rejected</source>
+        <translation>Reddedildi</translation>
+    </message>
+    <message>
+        <source>This file information has already been stored in Documentchain.</source>
+        <translation>Bu dosya bilgisi zaten Documentchain'de saklandı.</translation>
+    </message>
+    <message>
+        <source>Invalid document description.</source>
+        <translation>Geçersiz belge açıklaması.</translation>
+    </message>
+    <message>
+        <source>Signing</source>
+        <translation>İmzalama</translation>
+    </message>
+    <message>
+        <source>Could not sign transaction.</source>
+        <translation>İşlem imzalanamadı.</translation>
+    </message>
+    <message>
+        <source>RPC Error</source>
+        <translation>RPC Hatası</translation>
+    </message>
+    <message>
+        <source>Unknown error.</source>
+        <translation>Bilinmeyen hata.</translation>
+    </message>
+    <message>
+        <source>Blockchain confirmations</source>
+        <translation>Blok zinciri onayları</translation>
+    </message>
+    <message>
+        <source>The blockchain confirms that %1this document file%2 exists at least since %3 and has not been modified.</source>
+        <translation>Blockchain, %1bu belge dosyasının%2 en az %3 tarihinden beri var olduğunu ve değiştirilmediğini onaylar.</translation>
     </message>
 </context>
 </TS>
