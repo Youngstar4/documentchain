@@ -315,7 +315,7 @@
     </message>
     <message>
         <source>Please wait.</source>
-        <translation>Bitte warten.</translation>
+        <translation>Please wait.</translation>
     </message>
     <message>
         <source>&lt;b&gt;Unlimited Mining&lt;/b&gt;</source>
@@ -565,7 +565,7 @@
         <translation>Välilehtipalkki</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to DMS network</source>
+        <source>%n active connection(s) to Documentchain network</source>
         <translation><numerusform>%n aktiivinen yhteys DMS verkkoon</numerusform><numerusform>%n aktiivista yhteyttä DMS verkkoon</numerusform></translation>
     </message>
     <message>
@@ -845,7 +845,7 @@
         <translation>Vaihda "Lista tilaan" käyttääksesi tätä toimintoa.</translation>
     </message>
     <message>
-        <source>Non-anonymized input selected. &lt;b&gt;PrivateSend will be disabled.&lt;/b&gt;&lt;br&gt;&lt;br&gt;If you still want to use PrivateSend, please deselect all non-nonymized inputs first and then check PrivateSend checkbox again.</source>
+        <source>Non-anonymized input selected. &lt;b&gt;PrivateSend will be disabled.&lt;/b&gt;&lt;br&gt;&lt;br&gt;If you still want to use PrivateSend, please deselect all non-anonymized inputs first and then check the PrivateSend checkbox again.</source>
         <translation>Ei anonyymeja syötteitä valittu. &lt;b&gt;PrivateSend poistetaan käytöstä.&lt;/b&gt;&lt;br&gt;&lt;br&gt;Jos silti haluat käyttää PrivateSend:iä, poista ei anonyymit valinnat ensin ja valitse uudelleen PrivateSend optio.</translation>
     </message>
     <message>
@@ -883,73 +883,6 @@
     <message>
         <source>n/a</source>
         <translation>e/s</translation>
-    </message>
-</context>
-<context>
-    <name>DarksendConfig</name>
-    <message>
-        <source>Configure PrivateSend</source>
-        <translation>PrivateSend Asetukset</translation>
-    </message>
-    <message>
-        <source>Basic Privacy</source>
-        <translation>Perustason Yksityisyys</translation>
-    </message>
-    <message>
-        <source>High Privacy</source>
-        <translation>Korkean tason Yksityisyys</translation>
-    </message>
-    <message>
-        <source>Maximum Privacy</source>
-        <translation>Maksimaalinen Yksityisyys</translation>
-    </message>
-    <message>
-        <source>Please select a privacy level.</source>
-        <translation>Valitse yksityisyyden taso.</translation>
-    </message>
-    <message>
-        <source>Use 2 separate masternodes to mix funds up to 1000 DMS</source>
-        <translation>Käytä 2 erillistä masternodea sekoittaaksesi varoja</translation>
-    </message>
-    <message>
-        <source>Use 8 separate masternodes to mix funds up to 1000 DMS</source>
-        <translation>Käytä 8 erillistä masternodea sekoittaaksesi varoja</translation>
-    </message>
-    <message>
-        <source>Use 16 separate masternodes</source>
-        <translation>Käytä 16 erillistä masternodea</translation>
-    </message>
-    <message>
-        <source>This option is the quickest and will cost about ~0.025 DMS to anonymize 1000 DMS</source>
-        <translation>Tämä vaihtoehto on nopein ja maksaa noin ~0.025 DMS kun anonymisoidaan 1000 DMS</translation>
-    </message>
-    <message>
-        <source>This option is moderately fast and will cost about 0.05 DMS to anonymize 1000 DMS</source>
-        <translation>Tämä vaihtoehto on keskinopea ja maksaa noin ~0.05 DMS kun anonymisoidaan 1000 DMS</translation>
-    </message>
-    <message>
-        <source>0.1 DMS per 1000 DMS you anonymize.</source>
-        <translation>0.1 DMS maksu per 1000 DMS jonka anonymisoit.</translation>
-    </message>
-    <message>
-        <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
-        <translation>Tämä vaihtoehto on hitain ja kaikkein anonyymi. Suurimman yksityisyyden käyttö maksaa</translation>
-    </message>
-    <message>
-        <source>PrivateSend Configuration</source>
-        <translation>PrivateSend Asetukset</translation>
-    </message>
-    <message>
-        <source>PrivateSend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening DMS's configuration screen.</source>
-        <translation>PrivateSend on asetettu perusasetuksiin (%1 and 2 kierrosta). Voit muuttaa asetuksia milloin vain DMS asetuksista.</translation>
-    </message>
-    <message>
-        <source>PrivateSend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening DMS's configuration screen.</source>
-        <translation>PrivateSend on asetettu korkean tason asetuksiin (%1 and 8 kierrosta). Voit muuttaa asetuksia milloin vain DMS asetuksista.</translation>
-    </message>
-    <message>
-        <source>PrivateSend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening DMS's configuration screen.</source>
-        <translation>PrivateSend on asetettu maksimitason asetuksiin (%1 and 16 kierrosta). Voit muuttaa asetuksia milloin vain DMS asetuksista.</translation>
     </message>
 </context>
 <context>
@@ -1089,8 +1022,8 @@
         <translation>PrivateSend tietoja</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the DMS in your wallet is comprised of different &quot;inputs&quot; which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type=&quot;1&quot;&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.01 DMS, 0.1 DMS, 1 DMS and 10 DMS -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called &quot;masternodes.&quot; These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know &quot;who&quot; you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users&apos; wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it&apos;s called a &quot;round.&quot; Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these &quot;change addresses.&quot; Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more info see &lt;a href=&quot;https://documentchain.org/redirect/wallet/PrivateSend-en&quot;&gt;Support page&lt;/a&gt;         </source>
-        <translation>&lt;h3&gt;PrivateSend perusteet&lt;/h3&gt; PrivateSend tarjoaa yksityisyyden hämärtämällä varojesi alkuperäisen osoitteen. Kaikki DMS:it lompakossasi muodostuvat erillisistä "syötteistä", joita voit ajatella erillisinä kolikkoina.&lt;br&gt; PrivateSend käyttää innovatiivista prosessia sekoittaakseen lompakkosi syötteet kahden muun ihmisen syötteisiin, siirtämättä varoja pois lompakostasi. Varojesi kontrolli pysyy aina sinulla.&lt;hr&gt; &lt;b&gt; PrivateSend prosessi toimii seuraavasti:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend aloittaa pilkkomalla siirtotapahtumiesi syötteet pienemmiksi standardi arvoiksi. Nämä arvot ovat 0.01 DMS, 0.1 DMS, 1 DMS ja 10 DMS.&lt;/li&gt; &lt;li&gt;Sitten lompakkosi lähettää pyynnön verkon palvelimille, joita kutsutaan "masternode:iksi". Masternodet saavat tiedon että haluat sekoittaa pilkottuja standardi arvoja. Mitään tunnistetietoja ei lähetetä masternode:ille, ne eivät koskaan tiedä "kuka" olet.&lt;/li&gt; &lt;li&gt;Kun 2 muuta käyttäjää ilmoittaa että he haluavat myös sekoittaa varoja, alkaa sekoitus-sessio. Masternodet sekoittavat standardi arvot ja ilmoittavat kaikille 3:lle käyttäjän lompakoille että maksavat sekoitetut arvot takaisin itselleen. Lompakkosi maksaa nuo sekoitetut arvot suoraan itselleen, mutta eri osoitteeseen (vaihto-osoite).&lt;/li&gt; &lt;li&gt;Jotta varojesi alkuperäinen lähde hämärretään, lompakkosi suorittaa tämän prosessin useita kertoja kaikilla standardi arvoilla. Aina kun prosessi on valmis, sitä kutsutaan "kierrokseksi". Jokainen PrivateSend kierros tekee eksponentiaalisesti vaikeammaksi löytää varojesi alkuperäisen osoitteen.&lt;/li&gt; &lt;li&gt;Tämä sekoitusprosessi tapahtuu taustalla ilman käyttäjän toimenpiteitä. Kun haluat myöhemmin tehdä anonyymin varojen siirron, on varasi valmiiksi sekoitettu (anonymisoitu). Erillistä sekoitusta/odotusta ei tarvita.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;TÄRKEÄÄ:&lt;/b&gt; Lompakkosi sisältää vain 1000 "vaihto-osoitetta". Aina kun sekoitustapahtuma tehdään, max 9 osoitetta käytetään. Tämä tarkoittaa sitä että nuo 1000 osoitetta kestää noin 100 sekoitustapahtumaa. Kun 900 osoitetta on käytetty, lompakkosi täytyy tehdä lisää osoitteita. Se voi tehdä niitä vain jos automaattinen varmistus on käytössä.&lt;br&gt; Tästä seuraa että jos varmistus ei ole käytössä, myös PrivateSend on pois käytöstä. &lt;hr&gt;Lisätietoja &lt;a href=&quot;https://documentchain.org/redirect/wallet/PrivateSend-fi&quot;&gt;tukisivu&lt;/a&gt;         </translation>
+        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the DMS in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 DMS, 0.01 DMS, 0.1 DMS, 1 DMS and 10 DMS -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a href="https://docs.dash.org/en/latest/wallets/dmscore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
+        <translation>&lt;h3&gt;PrivateSend perusteet&lt;/h3&gt; PrivateSend tarjoaa yksityisyyden hämärtämällä varojesi alkuperäisen osoitteen. Kaikki DMS:it lompakossasi muodostuvat erillisistä "syötteistä", joita voit ajatella erillisinä kolikkoina.&lt;br&gt; PrivateSend käyttää innovatiivista prosessia sekoittaakseen lompakkosi syötteet kahden muun ihmisen syötteisiin, siirtämättä varoja pois lompakostasi. Varojesi kontrolli pysyy aina sinulla.&lt;hr&gt; &lt;b&gt; PrivateSend prosessi toimii seuraavasti:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend aloittaa pilkkomalla siirtotapahtumiesi syötteet pienemmiksi standardi arvoiksi. Nämä arvot ovat 0.001 DMS, 0.01 DMS, 0.1 DMS, 1 DMS ja 10 DMS.&lt;/li&gt; &lt;li&gt;Sitten lompakkosi lähettää pyynnön verkon palvelimille, joita kutsutaan "masternode:iksi". Masternodet saavat tiedon että haluat sekoittaa pilkottuja standardi arvoja. Mitään tunnistetietoja ei lähetetä masternode:ille, ne eivät koskaan tiedä "kuka" olet.&lt;/li&gt; &lt;li&gt;Kun 2 muuta käyttäjää ilmoittaa että he haluavat myös sekoittaa varoja, alkaa sekoitus-sessio. Masternodet sekoittavat standardi arvot ja ilmoittavat kaikille 3:lle käyttäjän lompakoille että maksavat sekoitetut arvot takaisin itselleen. Lompakkosi maksaa nuo sekoitetut arvot suoraan itselleen, mutta eri osoitteeseen (vaihto-osoite).&lt;/li&gt; &lt;li&gt;Jotta varojesi alkuperäinen lähde hämärretään, lompakkosi suorittaa tämän prosessin useita kertoja kaikilla standardi arvoilla. Aina kun prosessi on valmis, sitä kutsutaan "kierrokseksi". Jokainen PrivateSend kierros tekee eksponentiaalisesti vaikeammaksi löytää varojesi alkuperäisen osoitteen.&lt;/li&gt; &lt;li&gt;Tämä sekoitusprosessi tapahtuu taustalla ilman käyttäjän toimenpiteitä. Kun haluat myöhemmin tehdä anonyymin varojen siirron, on varasi valmiiksi sekoitettu eli anonymisoitu. Erillistä sekoitusta/odotusta ei tarvita.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;TÄRKEÄÄ:&lt;/b&gt; Lompakkosi sisältää vain 1000 "vaihto-osoitetta". Aina kun sekoitustapahtuma tehdään, max 9 osoitetta käytetään. Tämä tarkoittaa sitä että nuo 1000 osoitetta kestää noin 100 sekoitustapahtumaa. Kun 900 osoitetta on käytetty, lompakkosi täytyy tehdä lisää osoitteita. Se voi tehdä niitä vain jos automaattinen varmistus on käytössä.&lt;br&gt; Tästä seuraa että jos varmistus ei ole käytössä, myös PrivateSend on pois käytöstä. &lt;hr&gt;Katso lisätietoja &lt;a href="https://docs.dash.org/en/latest/wallets/dmscore/privatesend-instantsend.html"&gt;PrivateSend dokumentaatiosta&lt;/a&gt;.</translation>
     </message>
 </context>
 <context>
@@ -1148,7 +1081,7 @@
     </message>
     <message>
         <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect. Always wait for wallet to sync additional data and then double check from &lt;a href=&quot;https://documentchain.org/explorer/?search=masternodelist&quot;&gt;another node&lt;/a&gt; if your masternode should be running but you still do not see &quot;ENABLED&quot; in &quot;Status&quot; field.&lt;br /&gt;Operating a Masternode requires 5,000 DMS as collateral, see also &lt;a href=&quot;https://documentchain.org/support/masternodes/&quot;&gt;instructions&lt;/a&gt; and &lt;a href=&quot;https://documentchain.org/news/shared-masternodes/&quot;&gt;shared masternodes&lt;/a&gt;.</source>
-        <translation>Huom: Masternoden status paikallisessa lompakossa saattaa olla väärä. Odota että lompakko on synkronoinut lisätiedot ja tarkista sitten toisesta nodesta jos nodesi pitäisi olla käynnissä mutta et näe silti "KÄYTÖSSÄ" "Tila" kentässä.&lt;br /&gt;Operating a Masternode requires 5,000 DMS as collateral, see also &lt;a href=&quot;https://documentchain.org/support/masternodes/&quot;&gt;instructions&lt;/a&gt; and &lt;a href=&quot;https://documentchain.org/news/shared-masternodes/&quot;&gt;shared masternodes&lt;/a&gt;.</translation>
+        <translation>Huom: Masternoden status paikallisessa lompakossa saattaa olla väärä.&lt;br /&gt;Odota että lompakko on synkronoinut lisätiedot ja tarkista sitten toisesta nodesta&lt;br /&gt;jos nodesi pitäisi olla käynnissä mutta et näe silti "KÄYTÖSSÄ" "Tila" kentässä.</translation>
     </message>
     <message>
         <source>Alias</source>
@@ -1227,8 +1160,76 @@
         <translation>Solmuja Yht:</translation>
     </message>
     <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: This list represents the legacy and non-deterministic masternode list. It is only active as long as DIP3 has not been fully activated. After SPORK15 activation, this list will be empty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Huomio: Tämä lista edustaa perinteistä ja ei-determinististä masternode listaa. Tämä on näkyvissä ainoastaan niin kauan kun DIP3 on aktivoimatta. Kun SPORK15 on aktivoitu, tämä lista on tyhjä.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>DIP3 Masternodes</source>
+        <translation>DIP3 Masternodet</translation>
+    </message>
+    <message>
+        <source>PoSe Score</source>
+        <translation>PoSe Pisteet</translation>
+    </message>
+    <message>
+        <source>Registered</source>
+        <translation>Rekisteröity</translation>
+    </message>
+    <message>
+        <source>Last Paid</source>
+        <translation>Viimeisin Maksu</translation>
+    </message>
+    <message>
+        <source>Next Payment</source>
+        <translation>Seuraava Maksu</translation>
+    </message>
+    <message>
+        <source>Operator Reward</source>
+        <translation>Operaattorin Palkkio</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: This list is not active yet and only for informational purposes. The network is still running in compatibility mode, which means that the non-deterministic masternode list is still active. Only after SPORK15 activation, this list will become the active one. Also, the values in the payment related fields are not used at the moment, but still updated for every block. Please ignore this until SPORK15 activation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Huomio: Tämä lista ei ole vielä käytössä ja on näkyvissä vain informatiivisesti. Verkko on vielä yhteensopivuus tilassa, mikä tarkoittaa että ei-deterministinen masternodelista on vielä käytössä. Vasta kun SPORK15 on aktiivinen, tämä lista tulee käyttöön. Myös arvot maksuihin liittyvissä kentissä eivät ole vielä käytössä, mutta päivittyvät silti jokaisen uuden lohkon kohdalla. Älä huomioi tätä ennen kuin SPORK15 on aktivoitu.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
         <source>Start alias</source>
         <translation>Käynnistä alias</translation>
+    </message>
+    <message>
+        <source>Copy ProTx Hash</source>
+        <translation>Kopioi ProTx Tarkiste</translation>
+    </message>
+    <message>
+        <source>Copy Collateral Outpoint</source>
+        <translation>Kopioi Vakuus Lähtöpiste</translation>
+    </message>
+    <message>
+        <source>ENABLED</source>
+        <translation>KÄYTÖSSÄ</translation>
+    </message>
+    <message>
+        <source>POSE_BANNED</source>
+        <translation>POSE_BANNED</translation>
+    </message>
+    <message>
+        <source>UNKNOWN</source>
+        <translation>TUNTEMATON</translation>
+    </message>
+    <message>
+        <source>to %1</source>
+        <translation>-&gt; %1</translation>
+    </message>
+    <message>
+        <source>to UNKNOWN</source>
+        <translation>-&gt; TUNTEMATON</translation>
+    </message>
+    <message>
+        <source>but not claimed</source>
+        <translation>mutta ei lunastettu</translation>
+    </message>
+    <message>
+        <source>NONE</source>
+        <translation>EI MITÄÄN</translation>
     </message>
     <message>
         <source>Confirm masternode start</source>
@@ -1294,6 +1295,10 @@
         <source>Sentinel</source>
         <translation>Sentinel</translation>
     </message>
+    <message>
+        <source>Additional information for DIP3 Masternode %1</source>
+        <translation>Masternode DIP3 lisätietoja %1</translation>
+    </message>
 </context>
 <context>
     <name>ModalOverlay</name>
@@ -1302,7 +1307,7 @@
         <translation>Lomake</translation>
     </message>
     <message>
-        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the DMS network, as detailed below.</source>
+        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Documentchain network, as detailed below.</source>
         <translation>Viimeisimmät siirtotapahtumat eivät välttämättä ole vielä näkyvissä, ja siksi lompakon saldo voi olla väärin. Saldo korjaantuu oikeaksi kun lompakon synkronointi DMS verkkoon on valmis.</translation>
     </message>
     <message>
@@ -1460,7 +1465,7 @@
         <translation>Salli sisään tulevat yhteydet</translation>
     </message>
     <message>
-        <source>Connect to the DMS network through a SOCKS5 proxy.</source>
+        <source>Connect to the Documentchain network through a SOCKS5 proxy.</source>
         <translation>Kytkeydy DMS verkkoon käyttäen SOCKS5 proxy:a.</translation>
     </message>
     <message>
@@ -1473,7 +1478,7 @@
     </message>
     <message>
         <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items.&lt;br/&gt;%s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
-        <translation>Ulkopuoliset URL-osoitteet (esim. lohkoselain) jotka esiintyvät tapahtumat-välilehdellä valikossa.&lt;br/&gt;%s URL osoitteessa korvataan siirtotunnuksella. Useampi URL osoite on eroteltu pystyviivalla |.</translation>
+        <translation>Ulkopuoliset URL-osoitteet (esim. lohkoselain) jotka esiintyvät tapahtumat-välilehdellä valikossa.&lt;br/&gt;%s URL osoitteessa korvataan siirtotunnuksen tarkisteella. Useampi URL osoite on eroteltu pystyviivalla |.</translation>
     </message>
     <message>
         <source>Expert</source>
@@ -1498,6 +1503,14 @@
     <message>
         <source>Enable coin &amp;control features</source>
         <translation>Ota käytöön &amp;kolikkokontrolli ominaisuudet</translation>
+    </message>
+    <message>
+        <source>Show system popups for PrivateSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
+        <translation>Näytä järjestelmän ponnahdusikkunat PrivateSend sekoituksen siirtotapahtumista&lt;br/&gt;aivan kuin kaikista muistakin siirtotapahtumista.</translation>
+    </message>
+    <message>
+        <source>Show popups for PrivateSend transactions</source>
+        <translation>Näytä PrivateSend siirtotapahtumien ponnahdusikkunat</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
@@ -1548,7 +1561,7 @@
         <translation>Tor</translation>
     </message>
     <message>
-        <source>Connect to the DMS network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <source>Connect to the Documentchain network through a separate SOCKS5 proxy for Tor hidden services.</source>
         <translation>Kytkeydy DMS verkkoon käyttäen erillistä SOCKS5 proxy:a Tor piilopalveluihin.</translation>
     </message>
     <message>
@@ -1673,7 +1686,7 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Lomake</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DMS network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Documentchain network after a connection is established, but this process has not completed yet.</source>
         <translation>Näytetyt tiedot eivät välttämättä ole ajan tasalla.&lt;br&gt;Lompakkosi synkronoituu automaattisesti DMS verkkoon kun&lt;br&gt;yhteys on muodostettu, mutta tämä prosessi ei vielä ole valmis.</translation>
     </message>
     <message>
@@ -1882,7 +1895,7 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>Note: You can turn this message off in options.</source>
-        <translation>Huom: Voit kytkeä tämän viestin pois asetuksissa.</translation>
+        <translation>Huom: Voit kytkeä tämän viestin pois päältä asetuksissa.</translation>
     </message>
     <message>
         <source>WARNING! Something went wrong on automatic backup</source>
@@ -1913,10 +1926,6 @@ https://www.transifex.com/projects/p/dash/</translation>
 </source>
         <translation>Viimeisin PrivateSend viesti:
 </translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>e/s</translation>
     </message>
     <message>
         <source>PrivateSend was successfully reset.</source>
@@ -2586,7 +2595,7 @@ Näillä toiminnoilla voit korjata korruptoituneen lohkoketjun tai puuttuvat/van
         <translation>&amp;Uudelleen käytä vastaanottavaa osoitetta (ei suositella)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DMS network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Documentchain network.</source>
         <translation>Valinnainen viesti liitettäväksi maksupyyntöön, joka näytetään kun pyyntö on avattu.&lt;br&gt;Huomio: Viestiä ei lähetetä maksun mukana DMS verkkoon.</translation>
     </message>
     <message>
@@ -2598,7 +2607,7 @@ Näillä toiminnoilla voit korjata korruptoituneen lohkoketjun tai puuttuvat/van
         <translation>Valinnainen nimi liitetään uuteen vastaanottavaan osoitteeseen.</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the DMS network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Documentchain network.</source>
         <translation>Valinnainen viesti liitettäväksi maksupyyntöön, joka näytetään kun pyyntö on avattu.&lt;br&gt;Huomio: Viestiä ei lähetetä maksun mukana DMS verkkoon.</translation>
     </message>
     <message>
@@ -3134,8 +3143,8 @@ Näillä toiminnoilla voit korjata korruptoituneen lohkoketjun tai puuttuvat/van
         <translation>Viesti:</translation>
     </message>
     <message>
-        <source>A message that was attached to the dms: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the network.</source>
-        <translation>Viesti joka liitettiin dms: URI joka talletetaan siirtotapahtuman kanssa viitteeksi sinulle. Huomio: Tätä viestiä ei lähetetä verkkoon.</translation>
+        <source>A message that was attached to the dms: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Documentchain network.</source>
+        <translation>Viesti joka liitettiin DMS: URI joka talletetaan siirtotapahtuman kanssa viitteeksi sinulle. Huomio: Tätä viestiä ei lähetetä DMS verkkoon.</translation>
     </message>
     <message>
         <source>This is an unauthenticated payment request.</source>
@@ -3666,6 +3675,10 @@ Näillä toiminnoilla voit korjata korruptoituneen lohkoketjun tai puuttuvat/van
         <translation>Käytetäänkö vai ei lue-vain osoitetta tässä tapahtumassa.</translation>
     </message>
     <message>
+        <source>Whether or not this transaction was locked by InstantSend.</source>
+        <translation>Onko vai ei tämä siirtotapahtuma InstantSend lukittu.</translation>
+    </message>
+    <message>
         <source>User-defined intent/purpose of the transaction.</source>
         <translation>Käyttäjän määrittämä siirtotapahtuman käyttötarkoitus.</translation>
     </message>
@@ -3679,6 +3692,14 @@ Näillä toiminnoilla voit korjata korruptoituneen lohkoketjun tai puuttuvat/van
     <message>
         <source>All</source>
         <translation>Kaikki</translation>
+    </message>
+    <message>
+        <source>Locked by InstantSend</source>
+        <translation>InstantSend lukittu</translation>
+    </message>
+    <message>
+        <source>Not locked by InstantSend</source>
+        <translation>Ei ole InstantSend lukittu</translation>
     </message>
     <message>
         <source>Today</source>
@@ -4108,6 +4129,14 @@ Näillä toiminnoilla voit korjata korruptoituneen lohkoketjun tai puuttuvat/van
         <translation>Poista kaikki lompakon siirtotapahtumat ja palauta vain nuo osat lohkoketjusta -rescan valinnan avulla käynnistyksessä</translation>
     </message>
     <message>
+        <source>Enable publish raw transactions of attempted InstantSend double spend in &lt;address&gt;</source>
+        <translation>Ota käyttöön julkaise raaka siirtotapahtuma kaksoiskäytön yrityksessä InstantSend osoitteessa &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish transaction hashes of attempted InstantSend double spend in &lt;address&gt;</source>
+        <translation>Ota käyttöön julkaise siirtotapahtuman tarkisteet kaksoiskäytön yrityksessä InstantSend osoitteessa &lt;address&gt;</translation>
+    </message>
+    <message>
         <source>Error loading %s: You can't enable HD on a already existing non-HD wallet</source>
         <translation>Virhe latauksessa %s: Et voi ottaa käyttöön HD:tä jo olemassa olevassa ei-HD lompakossa</translation>
     </message>
@@ -4152,6 +4181,14 @@ Näillä toiminnoilla voit korjata korruptoituneen lohkoketjun tai puuttuvat/van
         <translation>Tulosta debuggaustieto (oletus: %u, tarjottava &lt;category&gt; on valinnainen)</translation>
     </message>
     <message>
+        <source>Overrides minimum spork signers to change spork value. Only useful for regtest and devnet. Using this on mainnet or testnet will ban you.</source>
+        <translation>Ohittaa vähimmäis spork allekirjoittajat jotka vaihtavat spork arvoja. Käyttökelpoinen vain regtest tai devnet. Jos käytät tätä pääverkossa tai testiverkossa, joudut estolistalle, eli bannataan.</translation>
+    </message>
+    <message>
+        <source>Use N separate masternodes in parallel to mix funds (%u-%u, default: %u)</source>
+        <translation>Käytä N erillistä masternodea yhtäaikaiseen varojen sekoitukseen (%u-%u, oletus: %u)</translation>
+    </message>
+    <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
         <translation>Käytä erillistä SOCKS5 proxya tavoittaaksesi peers:it Tor piilotetun palvelun kautta (oletus: %s)</translation>
     </message>
@@ -4170,6 +4207,10 @@ Näillä toiminnoilla voit korjata korruptoituneen lohkoketjun tai puuttuvat/van
     <message>
         <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
         <translation>Sinun tulee uudelleen rakentaa tietokanta käyttäen -reindex-chainstate vaihtaen -txindex</translation>
+    </message>
+    <message>
+        <source>You should specify a masternodeblsprivkey in the configuration. Please see documentation for help.</source>
+        <translation>Sinun täytyy määritellä masternodeblsprivkey asetustiedostoon. Katso lisätietoja dokumentaatiosta.</translation>
     </message>
     <message>
         <source>(default: %s)</source>
@@ -4217,7 +4258,7 @@ Näillä toiminnoilla voit korjata korruptoituneen lohkoketjun tai puuttuvat/van
     </message>
     <message>
         <source>Failed to load governance cache from</source>
-        <translation>Budjetti välimuistin lataaminen epäonnistui</translation>
+        <translation>Hallinnon välimuistin lataaminen epäonnistui</translation>
     </message>
     <message>
         <source>Failed to load masternode cache from</source>
@@ -4282,6 +4323,14 @@ Näillä toiminnoilla voit korjata korruptoituneen lohkoketjun tai puuttuvat/van
     <message>
         <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s' (must be at least %s)</source>
         <translation>Virheellinen määrä -maxtxfee=&lt;amount&gt;: '%s' (oltava vähintään %s)</translation>
+    </message>
+    <message>
+        <source>Invalid masternodeblsprivkey. Please see documenation.</source>
+        <translation>Virheellinen masternodeblsprivkey. Katso lisätietoja dokumentaatiosta.</translation>
+    </message>
+    <message>
+        <source>Invalid minimum number of spork signers specified with -minsporkkeys</source>
+        <translation>Virheellinen minimi määrä spork allekirjoittajia määritelty -minsporkkeys</translation>
     </message>
     <message>
         <source>Keypool ran out, please call keypoolrefill first</source>
@@ -4384,6 +4433,10 @@ Näillä toiminnoilla voit korjata korruptoituneen lohkoketjun tai puuttuvat/van
         <translation>Aseta avainvarannon koko &lt;n&gt; (oletus: %u)</translation>
     </message>
     <message>
+        <source>Set the masternode BLS private key</source>
+        <translation>Aseta masternoden BLS yksityisavain</translation>
+    </message>
+    <message>
         <source>Set the number of threads to service RPC calls (default: %d)</source>
         <translation>Aseta säikeiden lukumäärä RPC kutsuille (oletus: %d)</translation>
     </message>
@@ -4446,6 +4499,10 @@ Näillä toiminnoilla voit korjata korruptoituneen lohkoketjun tai puuttuvat/van
     <message>
         <source>Too many %f denominations, removing.</source>
         <translation>Liian monta %f denominointia, poistetaan.</translation>
+    </message>
+    <message>
+        <source>Too many %f denominations, skipping.</source>
+        <translation>Liian monta %f denominointia, ohitetaan.</translation>
     </message>
     <message>
         <source>Tor control port password (default: empty)</source>
@@ -4541,7 +4598,11 @@ Näillä toiminnoilla voit korjata korruptoituneen lohkoketjun tai puuttuvat/van
     </message>
     <message>
         <source>Disable all DMS specific functionality (Masternodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</source>
-        <translation>Kytke pois käytöstä kaikki DMS:in erityistoiminnot (Masternodet, PrivateSend, InstantSend, Budjetointi) (0-1, oletus: %u)</translation>
+        <translation>Kytke pois käytöstä kaikki DMS:in erityistoiminnot (Masternodet, PrivateSend, InstantSend, Hallinto) (0-1, oletus: %u)</translation>
+    </message>
+    <message>
+        <source>%s file contains all private keys from this wallet. Do not share it with anyone!</source>
+        <translation>%s tiedosto sisältää kaikki yksityisavaimet tähän lompakkoon. Älä luovuta sitä kenellekkän!</translation>
     </message>
     <message>
         <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
@@ -4566,6 +4627,10 @@ Näillä toiminnoilla voit korjata korruptoituneen lohkoketjun tai puuttuvat/van
     <message>
         <source>Execute command when a wallet InstantSend transaction is successfully locked (%s in cmd is replaced by TxID)</source>
         <translation>Suorita käsky kun lompakon InstantSend siirtotapahtuma on hyväksytysti lukittu (%s cmd on korvattu TxID:llä)</translation>
+    </message>
+    <message>
+        <source>Extra transactions to keep in memory for compact block reconstructions (default: %u)</source>
+        <translation>Ekstra siirtotapahtumat pidetään muistivarannossa kompaktia lohkon rekonstruktiota varten (oletus: %u)</translation>
     </message>
     <message>
         <source>Failed to create backup, file already exists! This could happen if you restarted wallet in less than 60 seconds. You can continue if you are ok with this.</source>
@@ -4649,6 +4714,10 @@ Näillä toiminnoilla voit korjata korruptoituneen lohkoketjun tai puuttuvat/van
 Vähennä uakommenttien määrää tai kokoa.</translation>
     </message>
     <message>
+        <source>Transaction index can't be disabled in full mode. Either start with -litemode command line switch or enable transaction index.</source>
+        <translation>Siirtotapahtumaindeksiä ei voi poistaa käytöstä normaalitilassa. Joko käynnistä -litemode komentorivin valinnalla tai ota käyttöön siirtotapahtumaindeksi.</translation>
+    </message>
+    <message>
         <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
         <translation>Yrittää pitää ulos menevän liikenteen alle annetun tavoitteen (MiB per 24h), 0 = ei rajaa (oletus: %d)</translation>
     </message>
@@ -4679,6 +4748,10 @@ Vähennä uakommenttien määrää tai kokoa.</translation>
     <message>
         <source>Warning: Unknown block versions being mined! It's possible unknown rules are in effect</source>
         <translation>Varoitus: Tuntemattomia lohkoversioita louhitaan! On mahdollista että tuntemattomia sääntöjä on käytössä</translation>
+    </message>
+    <message>
+        <source>You are starting in lite mode, all DMS-specific functionality is disabled.</source>
+        <translation>Olet käynnistämässä lite tilassa, kaikki DMS-toiminnot ovat pois käytöstä.</translation>
     </message>
     <message>
         <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
@@ -4725,6 +4798,14 @@ Vähennä uakommenttien määrää tai kokoa.</translation>
         <translation>Ota käyttöön julkaise tarkistelohko osoitteessa &lt;address&gt;</translation>
     </message>
     <message>
+        <source>Enable publish hash of governance objects (like proposals) in &lt;address&gt;</source>
+        <translation>Ota käyttöön julkaise hallinnon objektien tarkiste (esim ehdotus) &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish hash of governance votes in &lt;address&gt;</source>
+        <translation>Ota käyttöön julkaise hallinnon äänten tarkiste &lt;address&gt;</translation>
+    </message>
+    <message>
         <source>Enable publish hash transaction (locked via InstantSend) in &lt;address&gt;</source>
         <translation>Ota käyttöön julkaise siirtotapahtuman tarkiste (lukittu InstantSend kautta) osoitteessa &lt;address&gt;</translation>
     </message>
@@ -4745,10 +4826,6 @@ Vähennä uakommenttien määrää tai kokoa.</translation>
         <translation>Ota käyttöön julkaise raaka siirtotapahtuma osoitteessa &lt;address&gt;</translation>
     </message>
     <message>
-        <source>Enable transaction replacement in the memory pool (default: %u)</source>
-        <translation>Ota käyttöön siirtotapahtuman korvaaminen muistivarannossa (oletus: %u)</translation>
-    </message>
-    <message>
         <source>Error: A fatal internal error occurred, see debug.log for details</source>
         <translation>Virhe: Vakava sisäinen virhe, katso debug.log lisätietoja</translation>
     </message>
@@ -4763,6 +4840,14 @@ Vähennä uakommenttien määrää tai kokoa.</translation>
     <message>
         <source>Failed to delete backup, error: %s</source>
         <translation>Varmistuksen poisto epäonnistui, virhe: %s</translation>
+    </message>
+    <message>
+        <source>Failed to load InstantSend data cache from</source>
+        <translation>InstantSend välimuistin lataaminen epäonnistui</translation>
+    </message>
+    <message>
+        <source>Failed to load sporks cache from</source>
+        <translation>Spork välimuistin lataaminen epäonnistui</translation>
     </message>
     <message>
         <source>Failed to parse host:port string</source>
@@ -4801,6 +4886,10 @@ Vähennä uakommenttien määrää tai kokoa.</translation>
         <translation>Rivi: %d</translation>
     </message>
     <message>
+        <source>Loading InstantSend data cache...</source>
+        <translation>Ladataan InstantSend välimuistia...</translation>
+    </message>
+    <message>
         <source>Loading addresses...</source>
         <translation>Ladataan osoitteita...</translation>
     </message>
@@ -4810,7 +4899,11 @@ Vähennä uakommenttien määrää tai kokoa.</translation>
     </message>
     <message>
         <source>Loading governance cache...</source>
-        <translation>Ladataan budjetti välimuistia...</translation>
+        <translation>Ladataan hallinnon välimuistia...</translation>
+    </message>
+    <message>
+        <source>Loading sporks cache...</source>
+        <translation>Ladataan spork välimuistia...</translation>
     </message>
     <message>
         <source>Loading wallet... (%3.2f %%)</source>
@@ -4830,7 +4923,7 @@ Vähennä uakommenttien määrää tai kokoa.</translation>
     </message>
     <message>
         <source>Masternode cache is empty, skipping payments and governance cache...</source>
-        <translation>Masternode välimuisti on tyhjä, ohitetaan maksujen ja budjetin välimuisti...</translation>
+        <translation>Masternode välimuisti on tyhjä, ohitetaan maksujen ja hallinnon välimuisti...</translation>
     </message>
     <message>
         <source>Masternode options:</source>
@@ -4953,6 +5046,10 @@ Vähennä uakommenttien määrää tai kokoa.</translation>
         <translation>Lähetyksessä tulee olla ainakin yksi vastaanottaja</translation>
     </message>
     <message>
+        <source>Transaction too large</source>
+        <translation>Siirtotapahtuma on liian iso</translation>
+    </message>
+    <message>
         <source>Trying to connect...</source>
         <translation>Yritetään kytkeytyä...</translation>
     </message>
@@ -4973,6 +5070,10 @@ Vähennä uakommenttien määrää tai kokoa.</translation>
         <translation>Lompakon debug ja testausvalinnat:</translation>
     </message>
     <message>
+        <source>Wallet is not initialized</source>
+        <translation>Lompakko ei ole alustettu</translation>
+    </message>
+    <message>
         <source>Wallet needed to be rewritten: restart %s to complete</source>
         <translation>Lompakko tarvitsee uudelleenkirjoittaa: käynnistä %s uudelleen</translation>
     </message>
@@ -4987,6 +5088,10 @@ Vähennä uakommenttien määrää tai kokoa.</translation>
     <message>
         <source>Whether to operate in a blocks only mode (default: %u)</source>
         <translation>Käytä vain lohkoja moodia (default: %u)</translation>
+    </message>
+    <message>
+        <source>You can not start a masternode in lite mode.</source>
+        <translation>Et voi käynnistää masternodea lite tilassa.</translation>
     </message>
     <message>
         <source>ZeroMQ notification options:</source>
@@ -5075,10 +5180,6 @@ Vähennä uakommenttien määrää tai kokoa.</translation>
     <message>
         <source>Set lowest fee rate (in %s/kB) for transactions to be included in block creation. (default: %s)</source>
         <translation>Aseta lohkon luonnissa lisättävien siirtojen vähimmäispalkkion suhde (%s/kt) (oletus: %s)</translation>
-    </message>
-    <message>
-        <source>Show N confirmations for a successfully locked transaction (%u-%u, default: %u)</source>
-        <translation>Näytä N vahvistusta onnistuneesti lukitulle siirtotapahtumalle (%u-%u, oletus: %u)</translation>
     </message>
     <message>
         <source>This is the transaction fee you may pay when fee estimates are not available.</source>
@@ -5302,7 +5403,7 @@ Vähennä uakommenttien määrää tai kokoa.</translation>
     </message>
     <message>
         <source>Synchronizing governance objects...</source>
-        <translation>Ladataan budjetti objekteja...</translation>
+        <translation>Ladataan hallinnon objekteja...</translation>
     </message>
     <message>
         <source>Synchronizing masternode payments...</source>

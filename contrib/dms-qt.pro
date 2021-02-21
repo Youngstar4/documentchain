@@ -3,7 +3,6 @@ FORMS += \
     ../src/qt/forms/addressbookpage.ui \
     ../src/qt/forms/askpassphrasedialog.ui \
     ../src/qt/forms/coincontroldialog.ui \
-    ../src/qt/forms/darksendconfig.ui \
     ../src/qt/forms/debugwindow.ui \
     ../src/qt/forms/documentlist.ui \
     ../src/qt/forms/editaddressdialog.ui \

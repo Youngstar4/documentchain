@@ -287,7 +287,7 @@
     </message>
     <message>
         <source>&amp;Documents</source>
-        <translation>&amp;Documents</translation>
+        <translation>&amp;Документы</translation>
     </message>
     <message>
         <source>Document Revision</source>
@@ -426,7 +426,7 @@
     </message>
     <message>
         <source>&amp;Verify message...</source>
-        <translation>П&amp;роверить сообщение...</translation>
+        <translation>&amp;Проверить сообщение...</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified DMS addresses</source>
@@ -561,7 +561,7 @@
         <translation>Панель вкладок</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to DMS network</source>
+        <source>%n active connection(s) to Documentchain network</source>
         <translation><numerusform>%n активное соединение с сетью DMS</numerusform><numerusform>%n активных соединения с сетью DMS</numerusform><numerusform>%n активных соединений с сетью DMS</numerusform><numerusform>%n активных соединений с сетью DMS</numerusform></translation>
     </message>
     <message>
@@ -805,10 +805,6 @@
         <translation>Заблокировать непотраченное</translation>
     </message>
     <message>
-        <source>Lock permanently</source>
-        <translation>Зафиксировать навсегда</translation>
-    </message>
-    <message>
         <source>Unlock unspent</source>
         <translation>Разблокировать непотраченное</translation>
     </message>
@@ -841,8 +837,8 @@
         <translation>Пожалуйста, переключитесь в режим списка для использования этой функции.</translation>
     </message>
     <message>
-        <source>Non-anonymized input selected. &lt;b&gt;PrivateSend will be disabled.&lt;/b&gt;&lt;br&gt;&lt;br&gt;If you still want to use PrivateSend, please deselect all non-nonymized inputs first and then check PrivateSend checkbox again.</source>
-        <translation>Выбраны неанонимизированные средства. &lt;b&gt;PrivateSend будет отключен.&lt;/b&gt;&lt;br&gt;&lt;br&gt;Если Вы все-таки хотите использовать PrivateSend, пожалуйста, снимите выделение с со всех неанонимизированных средств и заново поставьте галочку напротив PrivateSend.</translation>
+        <source>Non-anonymized input selected. &lt;b&gt;PrivateSend will be disabled.&lt;/b&gt;&lt;br&gt;&lt;br&gt;If you still want to use PrivateSend, please deselect all non-anonymized inputs first and then check the PrivateSend checkbox again.</source>
+        <translation>Выбраны неанонимизированные средства. &lt;b&gt;PrivateSend будет отключен.&lt;/b&gt;&lt;br&gt;&lt;br&gt;Если Вы все-таки хотите использовать PrivateSend, пожалуйста, снимите выделение со всех неанонимизированных средств и заново поставьте галочку напротив PrivateSend.</translation>
     </message>
     <message>
         <source>(%1 locked)</source>
@@ -879,73 +875,6 @@
     <message>
         <source>n/a</source>
         <translation>н/д</translation>
-    </message>
-</context>
-<context>
-    <name>DarksendConfig</name>
-    <message>
-        <source>Configure PrivateSend</source>
-        <translation>Настройте PrivateSend</translation>
-    </message>
-    <message>
-        <source>Basic Privacy</source>
-        <translation>Обычная приватность</translation>
-    </message>
-    <message>
-        <source>High Privacy</source>
-        <translation>Высокая приватность</translation>
-    </message>
-    <message>
-        <source>Maximum Privacy</source>
-        <translation>Максимальная приватность</translation>
-    </message>
-    <message>
-        <source>Please select a privacy level.</source>
-        <translation>Пожалуйста, выберите уровень приватности.</translation>
-    </message>
-    <message>
-        <source>Use 2 separate masternodes to mix funds up to 1000 DMS</source>
-        <translation>Использовать 2 отдельные мастерноды для перемешивания до 1000 DMS</translation>
-    </message>
-    <message>
-        <source>Use 8 separate masternodes to mix funds up to 1000 DMS</source>
-        <translation>Использовать 8 отдельных мастернод для перемешивания до 1000 DMS</translation>
-    </message>
-    <message>
-        <source>Use 16 separate masternodes</source>
-        <translation>Использовать 16 отдельных мастернод</translation>
-    </message>
-    <message>
-        <source>This option is the quickest and will cost about ~0.025 DMS to anonymize 1000 DMS</source>
-        <translation>Это самый быстрый вариант, анонимизация 1000 DMS будет стоить вам примерно 0.025 DMS</translation>
-    </message>
-    <message>
-        <source>This option is moderately fast and will cost about 0.05 DMS to anonymize 1000 DMS</source>
-        <translation>Это относительно быстрый вариант, анонимизация 1000 DMS будет стоить вам примерно 0.05 DMS</translation>
-    </message>
-    <message>
-        <source>0.1 DMS per 1000 DMS you anonymize.</source>
-        <translation>0.1 DMS за каждые анонимизированные 1000 DMS.</translation>
-    </message>
-    <message>
-        <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
-        <translation>Этот самый медленный и безопасный вариант. Анонимизация будет стоить</translation>
-    </message>
-    <message>
-        <source>PrivateSend Configuration</source>
-        <translation>Настройки PrivateSend</translation>
-    </message>
-    <message>
-        <source>PrivateSend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening DMS's configuration screen.</source>
-        <translation>PrivateSend успешно установлен в режим базовой приватности (%1 и 2 раунда). Вы можете изменить это в любое время, используя окно настроек.</translation>
-    </message>
-    <message>
-        <source>PrivateSend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening DMS's configuration screen.</source>
-        <translation>PrivateSend успешно установлен в режим высокой приватности (%1 и 8 раундов). Вы можете изменить это в любое время, используя окно настроек.</translation>
-    </message>
-    <message>
-        <source>PrivateSend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening DMS's configuration screen.</source>
-        <translation>PrivateSend успешно установлен в режим максимальной приватности (%1 и 16 раундов). Вы можете изменить это в любое время, используя окно настроек.</translation>
     </message>
 </context>
 <context>
@@ -1085,8 +1014,8 @@
         <translation>Информация о PrivateSend</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the DMS in your wallet is comprised of different &quot;inputs&quot; which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type=&quot;1&quot;&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.01 DMS, 0.1 DMS, 1 DMS and 10 DMS -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called &quot;masternodes.&quot; These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know &quot;who&quot; you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users&apos; wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it&apos;s called a &quot;round.&quot; Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these &quot;change addresses.&quot; Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more info see &lt;a href=&quot;https://documentchain.org/redirect/wallet/PrivateSend-en&quot;&gt;Support page&lt;/a&gt;         </source>
-        <translation>&lt;h3&gt;Основы PrivateSend&lt;/h3&gt;PrivateSend позволяет Вам получить настоящую финансовую конфиденциальность за счет скрытия источников Ваших средств. Все DMS в  Вашем кошельке состоят из различных ""входов", Вы можете думать о них как об отдельных монетах.&lt;br&gt;PrivateSend использует инновационный процесс для перемешивания Ваших входов со входами еще двоих человек, но при этом Ваши монеты никогда не покидают Ваш кошелек. Вы сохраняете контроль над Вашими деньгами на протяжении всего времени.&lt;hr&gt; &lt;b&gt;PrivateSend работает так:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend начинается с разбиения Ваших входов транзакций на стандартные номиналы. Такими номиналами являются 0.01 DMS, 0.1 DMS, 1 DMS и 10 DMS -- что-то вроде купюр, которыми вы пользуетесь каждый день.&lt;/li&gt; &lt;li&gt;Ваш кошелек затем отправляет запросы к особым образом настроенным сетевым узлам, называемым "мастернодами". Эти мастерноды знают только то, что Вы хотите перемешать определенные номиналы. Никакой идентифицирующей информации мастернодам не отправляется, так что они не знают "кто" Вы конкретно.&lt;/li&gt; &lt;li&gt;Сессия перемешивания начинается тогда, когда еще двое человек отправляют схожее сообщение, подтверждающее, что они хотят перемешать точно такой же номинал. Мастернода перемешивает входы и просит кошельки всех пользователей осуществить платежи по ним. Ваш кошелек осуществляет выплату самому себе, но на другой адрес (тоже из вашего кошелька).&lt;/li&gt; &lt;li&gt;Для скрытия Ваших средств кошелек должен повторить этот процесс несколько раз с каждым номиналом. Каждый раз, когда такой процесс завершается, называется "раундом". С каждым раундом PrivateSend становится экспоненциально сложнее определить откуда поступили средства.&lt;/li&gt; &lt;li&gt;Процесс перемешивания выполняется в фоне, без участия пользователя. Когда Вы захотите провести транзакцию, средства уже будут анонимизированы. Дополнительно ждать не требуется.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;ВАЖНО:&lt;/b&gt; Ваш кошелек содержит 1000 адресов. Каждое перемешивание использует до 9 из этих адресов. Это означает, что 1000 адресов хватит примерно на 100 перемешиваний. Когда 900 адресов будут уже использованы, Ваш кошелек должен создать новые адреса. Однако, он может сделать это, только если у Вас включены автоматические резервные копии.&lt;br&gt;Соответственно, пользователям с отключенным резервным копированием PrivateSend не доступен. &lt;hr&gt;Дополнительная информация доступна по ссылке &lt;a href=&quot;https://documentchain.org/redirect/wallet/PrivateSend-ru&quot;&gt;страница поддержки&lt;/a&gt;         </translation>
+        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the DMS in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 DMS, 0.01 DMS, 0.1 DMS, 1 DMS and 10 DMS -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a href="https://docs.dash.org/en/latest/wallets/dmscore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
+        <translation>&lt;h3&gt;Основы PrivateSend&lt;/h3&gt;PrivateSend позволяет Вам получить настоящую финансовую конфиденциальность за счет скрытия источников Ваших средств. Все DMS в  Вашем кошельке состоят из различных "входов", Вы можете думать о них как об отдельных монетах.&lt;br&gt;PrivateSend использует инновационный процесс для перемешивания Ваших входов со входами еще двоих человек, но при этом Ваши монеты никогда не покидают Ваш кошелек. Вы сохраняете контроль над Вашими деньгами на протяжении всего времени.&lt;hr&gt; &lt;b&gt;PrivateSend работает так:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend начинается с разбиения Ваших входов транзакций на стандартные номиналы. Такими номиналами являются 0.001 DMS, 0.01 DMS, 0.1 DMS, 1 DMS и 10 DMS -- что-то вроде купюр, которыми вы пользуетесь каждый день.&lt;/li&gt; &lt;li&gt;Ваш кошелек затем отправляет запросы к особым образом настроенным сетевым узлам, называемым "мастернодами". Эти мастерноды знают только то, что Вы хотите перемешать определенные номиналы. Никакой идентифицирующей информации мастернодам не отправляется, так что они не знают "кто" Вы конкретно.&lt;/li&gt; &lt;li&gt;Сессия перемешивания начинается тогда, когда еще двое человек отправляют схожее сообщение, подтверждающее, что они хотят перемешать точно такой же номинал. Мастернода перемешивает входы и просит кошельки всех пользователей осуществить платежи по ним. Ваш кошелек осуществляет выплату самому себе, но на другой адрес (тоже из вашего кошелька).&lt;/li&gt; &lt;li&gt;Для скрытия Ваших средств кошелек должен повторить этот процесс несколько раз с каждым номиналом. Каждый раз, когда такой процесс завершается, называется "раундом". С каждым раундом PrivateSend становится экспоненциально сложнее определить откуда поступили средства.&lt;/li&gt; &lt;li&gt;Процесс перемешивания выполняется в фоне, без участия пользователя. Когда Вы захотите провести транзакцию, средства уже будут анонимизированы. Дополнительно ждать не требуется.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;ВАЖНО:&lt;/b&gt; Ваш кошелек содержит 1000 адресов. Каждое перемешивание использует до 9 из этих адресов. Это означает, что 1000 адресов хватит примерно на 100 перемешиваний. Когда 900 адресов будут уже использованы, Ваш кошелек должен создать новые адреса. Однако, он может сделать это, только если у Вас включены автоматические резервные копии.&lt;br&gt;Соответственно, пользователям с отключенным резервным копированием PrivateSend не доступен. &lt;hr&gt;Дополнительная информация доступна в &lt;a href="https://dashpay.atlassian.net/wiki/display/DOC/PrivateSend"&gt;документации по PrivateSend&lt;/a&gt;         </translation>
     </message>
 </context>
 <context>
@@ -1143,8 +1072,8 @@
         <translation>Мои мастерноды</translation>
     </message>
     <message>
-        <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect. Always wait for wallet to sync additional data and then double check from &lt;a href=&quot;https://documentchain.org/explorer/?search=masternodelist&quot;&gt;another node&lt;/a&gt; if your masternode should be running but you still do not see &quot;ENABLED&quot; in &quot;Status&quot; field.&lt;br /&gt;Operating a Masternode requires 5,000 DMS as collateral, see also &lt;a href=&quot;https://documentchain.org/support/masternodes/&quot;&gt;instructions&lt;/a&gt; and &lt;a href=&quot;https://documentchain.org/news/shared-masternodes/&quot;&gt;shared masternodes&lt;/a&gt;.</source>
-        <translation>Примечание: Статус Ваших мастернод в локальном кошельке может быть не совсем корректным. Всегда дожидайтесь окончания синхронизации дополнительных данных и перепроверяйте с другой ноды, если Ваша ьастернода должна быть активна, но Вы ее статус все равно не отображается как "ENABLED".&lt;br /&gt;Operating a Masternode requires 5,000 DMS as collateral, see also &lt;a href=&quot;https://documentchain.org/support/masternodes/&quot;&gt;instructions&lt;/a&gt; and &lt;a href=&quot;https://documentchain.org/news/shared-masternodes/&quot;&gt;shared masternodes&lt;/a&gt;.</translation>
+        <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your masternode should be running but you still do not see "ENABLED" in "Status" field.</source>
+        <translation>Примечание: Статус Ваших мастернод в локальном кошельке может быть не совсем корректным.&lt;br /&gt;Всегда дожидайтесь окончания синхронизации дополнительных данных и перепроверяйте с другой ноды,&lt;br /&gt;если Ваша мастернода должна быть активна, но ее статус все равно не отображается как "ENABLED".&lt;br /&gt;Operating a Masternode requires 5,000 DMS as collateral, see also &lt;a href=&quot;https://documentchain.org/support/masternodes/&quot;&gt;instructions&lt;/a&gt; and &lt;a href=&quot;https://documentchain.org/news/shared-masternodes/&quot;&gt;shared masternodes&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>Alias</source>
@@ -1223,8 +1152,76 @@
         <translation>Количество узлов:</translation>
     </message>
     <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: This list represents the legacy and non-deterministic masternode list. It is only active as long as DIP3 has not been fully activated. After SPORK15 activation, this list will be empty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Примечание: Этот список показывает старые недетерминированные мастерноды. Он будет активным до тех пор, пока DIP3 не будет полностью активирован. После активации SPORK15 этот список будет обнулен.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>DIP3 Masternodes</source>
+        <translation>DIP3 мастерноды</translation>
+    </message>
+    <message>
+        <source>PoSe Score</source>
+        <translation>PoSe штраф</translation>
+    </message>
+    <message>
+        <source>Registered</source>
+        <translation>Зарегистрирована</translation>
+    </message>
+    <message>
+        <source>Last Paid</source>
+        <translation>Последний платеж</translation>
+    </message>
+    <message>
+        <source>Next Payment</source>
+        <translation>Следующий платеж</translation>
+    </message>
+    <message>
+        <source>Operator Reward</source>
+        <translation>Награда оператора</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: This list is not active yet and only for informational purposes. The network is still running in compatibility mode, which means that the non-deterministic masternode list is still active. Only after SPORK15 activation, this list will become the active one. Also, the values in the payment related fields are not used at the moment, but still updated for every block. Please ignore this until SPORK15 activation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Примечание: Этот список еще не активен и пока что служит только для информационных целей. Сеть все еще работает в режиме совместимости, что означает, что старый список недетерминированных мастернод все еще активен. Этот список станет активным только после активации SPORK15. Также обратите внимание, что хотя значения в платежных полях и обновляются с каждым новым блоком, но на данный момент они не используются. Пожалуйста, игнорируйте их до активации SPORK15.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
         <source>Start alias</source>
         <translation>Запуск по имени</translation>
+    </message>
+    <message>
+        <source>Copy ProTx Hash</source>
+        <translation>Скопировать хэш ProTx</translation>
+    </message>
+    <message>
+        <source>Copy Collateral Outpoint</source>
+        <translation>Скопировать залоговый выход</translation>
+    </message>
+    <message>
+        <source>ENABLED</source>
+        <translation>ENABLED</translation>
+    </message>
+    <message>
+        <source>POSE_BANNED</source>
+        <translation>POSE_BANNED</translation>
+    </message>
+    <message>
+        <source>UNKNOWN</source>
+        <translation>UNKNOWN</translation>
+    </message>
+    <message>
+        <source>to %1</source>
+        <translation>на %1</translation>
+    </message>
+    <message>
+        <source>to UNKNOWN</source>
+        <translation>на UNKNOWN</translation>
+    </message>
+    <message>
+        <source>but not claimed</source>
+        <translation>, но не затребовано</translation>
+    </message>
+    <message>
+        <source>NONE</source>
+        <translation>NONE</translation>
     </message>
     <message>
         <source>Confirm masternode start</source>
@@ -1290,6 +1287,10 @@
         <source>Sentinel</source>
         <translation>Sentinel</translation>
     </message>
+    <message>
+        <source>Additional information for DIP3 Masternode %1</source>
+        <translation>Дополнительная информация для DIP3 мастерноды %1</translation>
+    </message>
 </context>
 <context>
     <name>ModalOverlay</name>
@@ -1298,7 +1299,7 @@
         <translation>Форма</translation>
     </message>
     <message>
-        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the DMS network, as detailed below.</source>
+        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Documentchain network, as detailed below.</source>
         <translation>Последние транзакции пока что могут быть не видны и поэтому ваш баланс может отображаться некорректно. Информация будет корректироваться по мере синхронизации с сетью DMS, подробности о ходе синхронизации представлены ниже.</translation>
     </message>
     <message>
@@ -1456,7 +1457,7 @@
         <translation>Принимать входящие подключения</translation>
     </message>
     <message>
-        <source>Connect to the DMS network through a SOCKS5 proxy.</source>
+        <source>Connect to the Documentchain network through a SOCKS5 proxy.</source>
         <translation>Подключаться к сети DMS через прокси SOCKS5.</translation>
     </message>
     <message>
@@ -1494,6 +1495,14 @@
     <message>
         <source>Enable coin &amp;control features</source>
         <translation>Включить функции &amp;контроля монет</translation>
+    </message>
+    <message>
+        <source>Show system popups for PrivateSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
+        <translation>Показывать всплывающие уведомления для транзакций перемешивания PrivateSend&lt;br/&gt;также как для всех остальных типов транзакций.</translation>
+    </message>
+    <message>
+        <source>Show popups for PrivateSend transactions</source>
+        <translation>Показывать всплывающие уведомления для транзакций PrivateSend</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
@@ -1544,7 +1553,7 @@
         <translation>Tor</translation>
     </message>
     <message>
-        <source>Connect to the DMS network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <source>Connect to the Documentchain network through a separate SOCKS5 proxy for Tor hidden services.</source>
         <translation>Подключаться к сети DMS через отдельный прокси SOCKS5 для скрытых сервисов Tor.</translation>
     </message>
     <message>
@@ -1669,7 +1678,7 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Форма</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DMS network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Documentchain network after a connection is established, but this process has not completed yet.</source>
         <translation>Отображаемая информация может быть устаревшей. Ваш кошелёк автоматически синхронизируется с сетью DMS после подключения, но этот процесс пока не завершён.</translation>
     </message>
     <message>
@@ -1909,10 +1918,6 @@ https://www.transifex.com/projects/p/dash/</translation>
 </source>
         <translation>Последнее сообщение PrivateSend:
 </translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>Н/Д</translation>
     </message>
     <message>
         <source>PrivateSend was successfully reset.</source>
@@ -2578,7 +2583,7 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>&amp;Повторно использовать существующий адрес получения (не рекомендуется)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DMS network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Documentchain network.</source>
         <translation>Необязательное сообщение для запроса платежа, которое будет показано при открытии запроса. Обратите внимание: сообщение не будет отправлено вместе с платежом через сеть DMS.</translation>
     </message>
     <message>
@@ -2590,7 +2595,7 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Необязательная метка для нового адреса получения.</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the DMS network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Documentchain network.</source>
         <translation>Необязательное сообщение для запроса платежа, которое будет показано при открытии запроса.&lt;br&gt;Обратите внимание: сообщение не будет отправлено вместе с платежом через сеть DMS.</translation>
     </message>
     <message>
@@ -3122,12 +3127,16 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>&amp;Вычесть комиссию из суммы</translation>
     </message>
     <message>
+        <source>Use available balance</source>
+        <translation>Использовать доступный баланс</translation>
+    </message>
+    <message>
         <source>Message:</source>
         <translation>Сообщение:</translation>
     </message>
     <message>
-        <source>A message that was attached to the dms: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the network.</source>
-        <translation>К dms: URI было прикреплено сообщение, которое будет сохранено вместе с транзакцией для вашего сведения. Обратите внимание: сообщение не будет отправлено через сеть.</translation>
+        <source>A message that was attached to the dms: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Documentchain network.</source>
+        <translation>К dms: URI было прикреплено сообщение, которое будет сохранено вместе с транзакцией для вашего сведения. Обратите внимание: сообщение не будет отправлено через сеть DMS.</translation>
     </message>
     <message>
         <source>This is an unauthenticated payment request.</source>
@@ -3658,6 +3667,10 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Участвовал ли адрес для просмотра в этой транзакции.</translation>
     </message>
     <message>
+        <source>Whether or not this transaction was locked by InstantSend.</source>
+        <translation>Была ли данная транзакция заблокирована с помощью InstantSend.</translation>
+    </message>
+    <message>
         <source>User-defined intent/purpose of the transaction.</source>
         <translation>Определенное пользователем назначение транзакции.</translation>
     </message>
@@ -3671,6 +3684,14 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>All</source>
         <translation>Все</translation>
+    </message>
+    <message>
+        <source>Locked by InstantSend</source>
+        <translation>Заблокировано с помощью InstantSend</translation>
+    </message>
+    <message>
+        <source>Not locked by InstantSend</source>
+        <translation>Не заблокировано с помощью InstantSend</translation>
     </message>
     <message>
         <source>Today</source>
@@ -4100,6 +4121,14 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Удалить все трансакции из кошелька и при рестарте с помощью -rescan восстановить только те, которые есть в цепочке блоков</translation>
     </message>
     <message>
+        <source>Enable publish raw transactions of attempted InstantSend double spend in &lt;address&gt;</source>
+        <translation>Включить публикацию кода транзакции при попытке двойной траты другой транзакции, заблокированной через InstantSend, на &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish transaction hashes of attempted InstantSend double spend in &lt;address&gt;</source>
+        <translation>Включить публикацию хэша транзакции при попытке двойной траты другой транзакции, заблокированной через InstantSend, на &lt;address&gt;</translation>
+    </message>
+    <message>
         <source>Error loading %s: You can't enable HD on a already existing non-HD wallet</source>
         <translation>Ошибка загрузки %s: Вы не можете включить HD режим для существующего не-HD кошелька</translation>
     </message>
@@ -4144,6 +4173,14 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Вывод отладочной информации (по умолчанию: %u, указание &lt;category&gt; необязательно)</translation>
     </message>
     <message>
+        <source>Overrides minimum spork signers to change spork value. Only useful for regtest and devnet. Using this on mainnet or testnet will ban you.</source>
+        <translation>Установить новый минимум количества подписантов спорков. Полезно только для regtest и devnet. Использование этого параметра на mainnet или testnet приведет к блокировке.</translation>
+    </message>
+    <message>
+        <source>Use N separate masternodes in parallel to mix funds (%u-%u, default: %u)</source>
+        <translation>Использовать N отдельных мастернод для параллельного перемешивания средств (%u-%u, по умолчанию: %u)</translation>
+    </message>
+    <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
         <translation>Использовать отдельный SOCKS5 прокси для подключения к участникам через скрытые сервисы Tor (по умолчанию: %s)</translation>
     </message>
@@ -4162,6 +4199,10 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
         <translation>Вам необходимо пересобрать базы данных с помощью -reindex-chainstate, чтобы изменить -txindex</translation>
+    </message>
+    <message>
+        <source>You should specify a masternodeblsprivkey in the configuration. Please see documentation for help.</source>
+        <translation>Необходимо указать masternodeblsprivkey в кофигурации. Пожалуйста, ознакомьтесь с документацией.</translation>
     </message>
     <message>
         <source>(default: %s)</source>
@@ -4213,11 +4254,11 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>Failed to load masternode cache from</source>
-        <translation>Ошибка загрузка кэша мастернод из</translation>
+        <translation>Ошибка загрузки кэша мастернод из</translation>
     </message>
     <message>
         <source>Failed to load masternode payments cache from</source>
-        <translation>Ошибка загрузка кэша выплат мастернодам из</translation>
+        <translation>Ошибка загрузки кэша выплат мастернодам из</translation>
     </message>
     <message>
         <source>Found enough users, signing ( waiting %s )</source>
@@ -4274,6 +4315,14 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s' (must be at least %s)</source>
         <translation>Неверная сумма в параметре -paytxfee=&lt;amount&gt;: '%s' (должна быть минимум %s)</translation>
+    </message>
+    <message>
+        <source>Invalid masternodeblsprivkey. Please see documenation.</source>
+        <translation>Некорректный masternodeblsprivkey. Пожалуйста, ознакомьтесь с документацией.</translation>
+    </message>
+    <message>
+        <source>Invalid minimum number of spork signers specified with -minsporkkeys</source>
+        <translation>Некорректное минимальное количество подписантов спорков, указанное в -minsporkkeys</translation>
     </message>
     <message>
         <source>Keypool ran out, please call keypoolrefill first</source>
@@ -4376,6 +4425,10 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Установить размер пула ключей в &lt;n&gt; (по умолчанию: %u)</translation>
     </message>
     <message>
+        <source>Set the masternode BLS private key</source>
+        <translation>Установить закрытый BLS ключ мастерноды</translation>
+    </message>
+    <message>
         <source>Set the number of threads to service RPC calls (default: %d)</source>
         <translation>Задать число потоков выполнения запросов RPC (по умолчанию: %d)</translation>
     </message>
@@ -4438,6 +4491,10 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>Too many %f denominations, removing.</source>
         <translation>Слишком много номиналов %f, удаляем.</translation>
+    </message>
+    <message>
+        <source>Too many %f denominations, skipping.</source>
+        <translation>Слишком много номиналов %f, пропускаем.</translation>
     </message>
     <message>
         <source>Tor control port password (default: empty)</source>
@@ -4536,6 +4593,10 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Отключить всю функциональность, относящуюся к DMS (Мастерноды, PrivateSend, InstantSend, Governance) (0-1, по умолчанию: %u)</translation>
     </message>
     <message>
+        <source>%s file contains all private keys from this wallet. Do not share it with anyone!</source>
+        <translation>%s файл содержит в себе все закрытые ключи для этого кошелька. Никому его не показывайте!</translation>
+    </message>
+    <message>
         <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
         <translation>Определить свой IP (по умолчанию: 1 при прослушивании и если не используется -externalip или -proxy)</translation>
     </message>
@@ -4558,6 +4619,10 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>Execute command when a wallet InstantSend transaction is successfully locked (%s in cmd is replaced by TxID)</source>
         <translation>Выполнить команду, когда транзакция InstantSend успешно заблокирована (%s в команде заменяется на TxID)</translation>
+    </message>
+    <message>
+        <source>Extra transactions to keep in memory for compact block reconstructions (default: %u)</source>
+        <translation>Количество дополнительных транзакций, которые нужно держать в памяти для реконструкции компактных блоков (по умолчанию: %u)</translation>
     </message>
     <message>
         <source>Failed to create backup, file already exists! This could happen if you restarted wallet in less than 60 seconds. You can continue if you are ok with this.</source>
@@ -4640,6 +4705,10 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Длина строки сетевой версии (%i) превышает максимально допустимую (%i). Уменьшите количество или размер строк uacomment.</translation>
     </message>
     <message>
+        <source>Transaction index can't be disabled in full mode. Either start with -litemode command line switch or enable transaction index.</source>
+        <translation>Индексирование транзакций нельзя отключить в полном режиме. Либо запустите кошелек с опцией -litemode, либо включите индексирование транзакций.</translation>
+    </message>
+    <message>
         <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
         <translation>Пытаться ограничить исходящий трафик в пределах установленного лимита (в МБ за 24ч), 0 = не ограничивать (по умолчанию: %d)</translation>
     </message>
@@ -4670,6 +4739,10 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>Warning: Unknown block versions being mined! It's possible unknown rules are in effect</source>
         <translation>Внимание: создаются блоки неизвестной версии! Возможно активированы неизвестные правила</translation>
+    </message>
+    <message>
+        <source>You are starting in lite mode, all DMS-specific functionality is disabled.</source>
+        <translation>Вы запускаете кошелек в облегченном режиме, все специфичные для DMS функции отключены.</translation>
     </message>
     <message>
         <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
@@ -4716,6 +4789,14 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Включить публикацию хэша блока на &lt;address&gt;</translation>
     </message>
     <message>
+        <source>Enable publish hash of governance objects (like proposals) in &lt;address&gt;</source>
+        <translation>Включить публикацию хэша объектов управления (таких как бюджетные предложения) на &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish hash of governance votes in &lt;address&gt;</source>
+        <translation>Включить публикацию хэша голосов за объекты управления на &lt;address&gt;</translation>
+    </message>
+    <message>
         <source>Enable publish hash transaction (locked via InstantSend) in &lt;address&gt;</source>
         <translation>Включить публикацию хэша транзакции (заблокированной через InstantSend) на &lt;address&gt;</translation>
     </message>
@@ -4736,10 +4817,6 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Включить публикацию кода транзакции на &lt;address&gt;</translation>
     </message>
     <message>
-        <source>Enable transaction replacement in the memory pool (default: %u)</source>
-        <translation>Разрешить подмену транзакций в пуле памяти (по умолчанию: %u)</translation>
-    </message>
-    <message>
         <source>Error: A fatal internal error occurred, see debug.log for details</source>
         <translation>Ошибка: Произошла критическая ошибка, подробности смотрите в файле debug.log</translation>
     </message>
@@ -4754,6 +4831,14 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>Failed to delete backup, error: %s</source>
         <translation>Не удалось удалить резервную копию, ошибка: %s</translation>
+    </message>
+    <message>
+        <source>Failed to load InstantSend data cache from</source>
+        <translation>Ошибка загрузки кэша InstantSend из</translation>
+    </message>
+    <message>
+        <source>Failed to load sporks cache from</source>
+        <translation>Ошибка загрузки кэша спорков из</translation>
     </message>
     <message>
         <source>Failed to parse host:port string</source>
@@ -4792,6 +4877,10 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Строка: %d</translation>
     </message>
     <message>
+        <source>Loading InstantSend data cache...</source>
+        <translation>Загрузка кэша InstantSend...</translation>
+    </message>
+    <message>
         <source>Loading addresses...</source>
         <translation>Загрузка адресов...</translation>
     </message>
@@ -4802,6 +4891,10 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>Loading governance cache...</source>
         <translation>Загрузка кэша управления...</translation>
+    </message>
+    <message>
+        <source>Loading sporks cache...</source>
+        <translation>Загрузка кэша спорков...</translation>
     </message>
     <message>
         <source>Loading wallet... (%3.2f %%)</source>
@@ -4944,6 +5037,10 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>У транзакции должен быть хотя бы один получатель</translation>
     </message>
     <message>
+        <source>Transaction too large</source>
+        <translation>Транзакция слишком большая</translation>
+    </message>
+    <message>
         <source>Trying to connect...</source>
         <translation>Попытка соединения...</translation>
     </message>
@@ -4964,6 +5061,10 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Параметры отладки/тестирования кошелька:</translation>
     </message>
     <message>
+        <source>Wallet is not initialized</source>
+        <translation>Кошелек не инициализирован</translation>
+    </message>
+    <message>
         <source>Wallet needed to be rewritten: restart %s to complete</source>
         <translation>Необходимо перезаписать кошелёк: перезапустите %s для завершения операции</translation>
     </message>
@@ -4978,6 +5079,10 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>Whether to operate in a blocks only mode (default: %u)</source>
         <translation>Работать в режиме обработки только блоков (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>You can not start a masternode in lite mode.</source>
+        <translation>Вы не можете запустить мастерноду в облегченном режиме.</translation>
     </message>
     <message>
         <source>ZeroMQ notification options:</source>
@@ -5066,10 +5171,6 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>Set lowest fee rate (in %s/kB) for transactions to be included in block creation. (default: %s)</source>
         <translation>Установить минимальную комиссию (в %s/kB) для добавления транзакций в блок (по умолчанию: %s)</translation>
-    </message>
-    <message>
-        <source>Show N confirmations for a successfully locked transaction (%u-%u, default: %u)</source>
-        <translation>Показывать N подтверждений для успешно заблокированной транзакции (%u-%u, по умолчанию: %u)</translation>
     </message>
     <message>
         <source>This is the transaction fee you may pay when fee estimates are not available.</source>

@@ -1,6 +1,5 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
-// Copyright (c) 2018-2019 The Documentchain developers
-
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -171,6 +170,7 @@ private:
     void setMining(int nThreads);
 #endif // ENABLE_WALLET
 
+
 Q_SIGNALS:
     /** Signal raised when a URI was entered */
     void receivedURI(const QString &uri);
@@ -203,7 +203,7 @@ public Q_SLOTS:
 #ifdef ENABLE_WALLET
     /** Set the mining status as shown in the UI. **/
     void setMiningStatus();
-	
+
     /** Set the hd-enabled status as shown in the UI.
      @param[in] status            current hd enabled status
      @see WalletModel::EncryptionStatus
@@ -268,8 +268,8 @@ private Q_SLOTS:
     /** Show folder with wallet backups in default file browser */
     void showBackups();
 
-	/** Open support website */
-	void openSupportWebsiteClicked();
+    /** Open support website */
+    void openSupportWebsiteClicked();
     /** Show help message dialog */
     void showHelpMessageClicked();
     /** Show PrivateSend help message dialog */

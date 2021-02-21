@@ -1,7 +1,6 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2018-2020 The Documentchain developers
-
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -155,7 +154,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *_platformStyle, const NetworkStyle *
     } else {
         windowTitle += tr("Node");
     }
-	windowTitle += " \"" RELEASE_CODE_NAME "\"";
+    windowTitle += " \"" RELEASE_CODE_NAME "\"";
     QString userWindowTitle = QString::fromStdString(GetArg("-windowtitle", ""));
     if(!userWindowTitle.isEmpty()) windowTitle += " - " + userWindowTitle;
     windowTitle += " " + networkStyle->getTitleAddText();
@@ -277,7 +276,6 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *_platformStyle, const NetworkStyle *
 
     // store app path in setting, useful for DMS software under windows
     GUIUtil::saveAppPath();
-
 #ifdef ENABLE_WALLET
     if(enableWallet) {
         connect(walletFrame, SIGNAL(requestedSyncWarningInfo()), this, SLOT(showModalOverlay()));
@@ -488,6 +486,7 @@ void BitcoinGUI::createActions()
     connect(openSupportWebsiteAction, SIGNAL(triggered()), this, SLOT(openSupportWebsiteClicked()));
     connect(showHelpMessageAction, SIGNAL(triggered()), this, SLOT(showHelpMessageClicked()));
     connect(showPrivateSendHelpAction, SIGNAL(triggered()), this, SLOT(showPrivateSendHelpClicked()));
+
     connect(openRPCConsoleAction, SIGNAL(triggered()), this, SLOT(showConsole()));
     connect(startMiningAction, SIGNAL(triggered()), this, SLOT(setMiningUI()));
 
@@ -780,6 +779,7 @@ void BitcoinGUI::createIconMenu(QMenu *pmenu)
     pmenu->addSeparator();
     pmenu->addAction(optionsAction);
     pmenu->addAction(openRPCConsoleAction);
+    pmenu->addSeparator();
     pmenu->addAction(openConfEditorAction);
     pmenu->addSeparator();
     pmenu->addAction(startMiningAction);
@@ -876,8 +876,7 @@ void BitcoinGUI::showBackups()
 
 void BitcoinGUI::openSupportWebsiteClicked()
 {
-    QString supporturl = QString::fromStdString("https://documentchain.org/redirect/wallet/openSupportWebsite-")
-                       + GUIUtil::getLangTerritory();
+    QString supporturl = tr("https://documentchain.org/start-now/#howto");
     QDesktopServices::openUrl(supporturl);
 }
 
@@ -973,7 +972,7 @@ void BitcoinGUI::updateNetworkState()
     }
 
     if (clientModel->getNetworkActive()) {
-        labelConnectionsIcon->setToolTip(tr("%n active connection(s) to DMS network", "", count));
+        labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Documentchain network", "", count));
     } else {
         labelConnectionsIcon->setToolTip(tr("Network activity disabled"));
         icon = ":/icons/" + theme + "/network_disabled";
@@ -1053,7 +1052,8 @@ void BitcoinGUI::setNumBlocks(int count, const QDateTime& blockDate, double nVer
     tooltip = tr("Processed %n block(s) of transaction history.", "", count);
 
     // Set icon state: spinning if catching up, tick otherwise
-    QString theme = GUIUtil::getThemeName().remove("-hires");
+    QString theme = GUIUtil::getThemeName();
+    int iconSize = GUIUtil::getIconSize();
 
 #ifdef ENABLE_WALLET
     if (walletFrame)
@@ -1084,10 +1084,9 @@ void BitcoinGUI::setNumBlocks(int count, const QDateTime& blockDate, double nVer
         tooltip = tr("Catching up...") + QString("<br>") + tooltip;
         if(count != prevBlocks)
         {
-            int iconSize = GUIUtil::getIconSize();
             labelBlocksIcon->setPixmap(platformStyle->SingleColorIcon(QString(
                 ":/movies/spinner-%1").arg(spinnerFrame, 3, 10, QChar('0')))
-                .pixmap(iconSize,iconSize));
+                .pixmap(iconSize, iconSize));
             spinnerFrame = (spinnerFrame + 1) % SPINNER_FRAMES;
         }
         prevBlocks = count;
@@ -1130,8 +1129,7 @@ void BitcoinGUI::setAdditionalDataSyncProgress(double nSyncProgress)
     QString tooltip;
 
     // Set icon state: spinning if catching up, tick otherwise
-    QString theme = GUIUtil::getThemeName().remove("-hires");
-    int iconSize = GUIUtil::getIconSize();
+    QString theme = GUIUtil::getThemeName();
 
     QString strSyncStatus;
     tooltip = tr("Up to date") + QString(".<br>") + tooltip;
@@ -1145,7 +1143,7 @@ void BitcoinGUI::setAdditionalDataSyncProgress(double nSyncProgress)
         progressBarLabel->setVisible(false);
         progressBar->setVisible(false);
         startMiningAction->setEnabled(true);
-        labelBlocksIcon->setPixmap(QIcon(":/icons/" + theme + "/synced").pixmap(iconSize, iconSize));
+        labelBlocksIcon->setPixmap(QIcon(":/icons/" + theme + "/synced").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
         QSettings settings;
         int genproc = settings.value("nGenProc", 0).toInt();
         if (genproc != 0)
@@ -1154,7 +1152,7 @@ void BitcoinGUI::setAdditionalDataSyncProgress(double nSyncProgress)
 
         labelBlocksIcon->setPixmap(platformStyle->SingleColorIcon(QString(
             ":/movies/spinner-%1").arg(spinnerFrame, 3, 10, QChar('0')))
-            .pixmap(iconSize, iconSize));
+            .pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
         spinnerFrame = (spinnerFrame + 1) % SPINNER_FRAMES;
 
         progressBar->setFormat(tr("Synchronizing additional data: %p%"));
@@ -1277,7 +1275,7 @@ void BitcoinGUI::closeEvent(QCloseEvent *event)
 
 void BitcoinGUI::showEvent(QShowEvent *event)
 {
-    // enable the actions when the main window shows up
+    // enable the debug window when the main window shows up
     openRPCConsoleAction->setEnabled(true);
     aboutAction->setEnabled(true);
     optionsAction->setEnabled(true);
@@ -1316,7 +1314,7 @@ void BitcoinGUI::dropEvent(QDropEvent *event)
             files.append(uri.toLocalFile());
         }
         /** we are using a Qt::QueuedConnection so that the sending
-            app is not blocked while the files are being processed  */
+            app is not blocked while the files are being processed */
         Q_EMIT receivedFile(files);
     }
     event->acceptProposedAction();
@@ -1382,7 +1380,6 @@ void BitcoinGUI::setMiningStatus()
     int nThreads = 0;
     QString strHashrate;
     QString strMining;
-  //QString mininginfo = "<br>Network: " + GetNetworkHashPS(120, -1) + " H/s";
 
     if ( (Params().MiningRequiresPeers()) && (!masternodeSync.IsSynced()) ) 
     {

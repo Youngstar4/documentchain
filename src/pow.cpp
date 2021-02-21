@@ -1,7 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2019 The Dash Core developers
-// Copyright (c) 2018-2019 The Documentchain developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -84,7 +83,7 @@ unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const Conse
 */
 
 unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params) {
-    /* current difficulty formula, dash - DarkGravity v3, written by Evan Duffield - evan@dash.org */
+    /* current difficulty formula, dash/dms - DarkGravity v3, written by Evan Duffield - evan@dash.org */
     const arith_uint256 bnPowLimit = UintToArith256(params.powLimit);
     int64_t nPastBlocks = 24;
     int64_t nPowTargetSpacing;
@@ -98,7 +97,7 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
         else if (Params().NetworkIDString() == CBaseChainParams::TESTNET)
             nPowTargetSpacing = 30;   // fast testnet 0..95936
         else
-            params.nPowTargetSpacing;
+            nPowTargetSpacing = params.nPowTargetSpacing;
     }
 
     // make sure we have at least (nPastBlocks + 1) blocks, otherwise just return powLimit
@@ -198,7 +197,7 @@ unsigned int GetNextWorkRequiredBTC(const CBlockIndex* pindexLast, const CBlockH
     const CBlockIndex* pindexFirst = pindexLast->GetAncestor(nHeightFirst);
     assert(pindexFirst);
 
-    return CalculateNextWorkRequired(pindexLast, pindexFirst->GetBlockTime(), params);
+   return CalculateNextWorkRequired(pindexLast, pindexFirst->GetBlockTime(), params);
 }
 */
 

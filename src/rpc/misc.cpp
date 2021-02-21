@@ -1,8 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2018-2020 The Documentchain developers
-
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -126,8 +125,8 @@ UniValue debug(const JSONRPCRequest& request)
             "dms|privatesend|instantsend|masternode|spork|keepass|mnpayments|gobject )\n"
             "Change debug category on the fly. Specify single category or use '+' to specify many.\n"
             "\nExamples:\n"
-            + HelpExampleCli("debug", "dms")
-            + HelpExampleRpc("debug", "dms+net")
+            + HelpExampleCli("debug", "rpc")
+            + HelpExampleRpc("debug", "rpc+net")
         );
 
     std::string strMode = request.params[0].get_str();
@@ -466,9 +465,9 @@ UniValue createmultisig(const JSONRPCRequest& request)
 
             "\nExamples:\n"
             "\nCreate a multisig address from 2 addresses\n"
-            + HelpExampleCli("createmultisig", "2 \"[\\\"DFUYcHStR4dWGX7pEYYFWj7dTAz5onDsvh\\\",\\\"D5ugcfpWFBRF8jryUMoSyvU2vYeXsyYWkc\\\"]\"") +
+            + HelpExampleCli("createmultisig", "2 \"[\\\"Xt4qk9uKvQYAonVGSZNXqxeDmtjaEWgfrs\\\",\\\"XoSoWQkpgLpppPoyyzbUFh1fq2RBvW6UK1\\\"]\"") +
             "\nAs a json rpc call\n"
-            + HelpExampleRpc("createmultisig", "2, \"[\\\"DFUYcHStR4dWGX7pEYYFWj7dTAz5onDsvh\\\",\\\"D5ugcfpWFBRF8jryUMoSyvU2vYeXsyYWkc\\\"]\"")
+            + HelpExampleRpc("createmultisig", "2, \"[\\\"Xt4qk9uKvQYAonVGSZNXqxeDmtjaEWgfrs\\\",\\\"XoSoWQkpgLpppPoyyzbUFh1fq2RBvW6UK1\\\"]\"")
         ;
         throw std::runtime_error(msg);
     }
@@ -501,11 +500,11 @@ UniValue verifymessage(const JSONRPCRequest& request)
             "\nUnlock the wallet for 30 seconds\n"
             + HelpExampleCli("walletpassphrase", "\"mypassphrase\" 30") +
             "\nCreate the signature\n"
-            + HelpExampleCli("signmessage", "\"DFUYcHStR4dWGX7pEYYFWj7dTAz5onDsvh\" \"my message\"") +
+            + HelpExampleCli("signmessage", "\"XwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwG\" \"my message\"") +
             "\nVerify the signature\n"
-            + HelpExampleCli("verifymessage", "\"DFUYcHStR4dWGX7pEYYFWj7dTAz5onDsvh\" \"signature\" \"my message\"") +
+            + HelpExampleCli("verifymessage", "\"XwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwG\" \"signature\" \"my message\"") +
             "\nAs json rpc\n"
-            + HelpExampleRpc("verifymessage", "\"DFUYcHStR4dWGX7pEYYFWj7dTAz5onDsvh\", \"signature\", \"my message\"")
+            + HelpExampleRpc("verifymessage", "\"XwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwG\", \"signature\", \"my message\"")
         );
 
     LOCK(cs_main);
@@ -554,7 +553,7 @@ UniValue signmessagewithprivkey(const JSONRPCRequest& request)
             "\nCreate the signature\n"
             + HelpExampleCli("signmessagewithprivkey", "\"privkey\" \"my message\"") +
             "\nVerify the signature\n"
-            + HelpExampleCli("verifymessage", "\"DFUYcHStR4dWGX7pEYYFWj7dTAz5onDsvh\" \"signature\" \"my message\"") +
+            + HelpExampleCli("verifymessage", "\"XwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwG\" \"signature\" \"my message\"") +
             "\nAs json rpc\n"
             + HelpExampleRpc("signmessagewithprivkey", "\"privkey\", \"my message\"")
         );
@@ -1234,8 +1233,8 @@ static const CRPCCommand commands[] =
     { "addressindex",       "getaddressbalance",      &getaddressbalance,      false, {"addresses"} },
 
     /* Dash features */
-    { "masternode",         "mnsync",                 &mnsync,                 true,  {} },
-    { "masternode",         "spork",                  &spork,                  true,  {"value"} },
+    { "dash",               "mnsync",                 &mnsync,                 true,  {} },
+    { "dash",               "spork",                  &spork,                  true,  {"value"} },
 
     /* Document index */
     { "documentindex",      "getdocumentcount",       &getdocumentcount,       true,  {} },

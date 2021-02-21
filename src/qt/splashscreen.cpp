@@ -1,7 +1,5 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2018 The Documentchain developers
-
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -46,19 +44,19 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
     int titleCopyrightVSpace    = 30;
 
     // define text to place
-    QString titleText       = tr(PACKAGE_NAME);
-    QString versionText     = QString(tr("Version %1")).arg(QString::fromStdString(FormatFullVersion()) + " \"" + RELEASE_CODE_NAME + "\"");
+    QString titleText       = tr(PACKAGE_NAME) + " \"" + RELEASE_CODE_NAME + "\"";
+    QString versionText     = QString(tr("Version %1")).arg(QString::fromStdString(FormatFullVersion()));
     QString copyrightText   = QString::fromUtf8(CopyrightHolders("\xc2\xA9", 2014, COPYRIGHT_YEAR).c_str());
     QString titleAddText    = networkStyle->getTitleAddText();
     // networkstyle.cpp can't (yet) read themes, so we do it here to get the correct Splash-screen
     QString theme = GUIUtil::getThemeName().remove("-hires");
     QString splashScreenPath = ":/images/" + theme + "/splash";
     if(GetBoolArg("-regtest", false))
-        splashScreenPath = ":/images/" + theme + "/splash_testnet";
+        splashScreenPath = ":/images/" + theme  + "/splash_testnet";
     if(GetBoolArg("-testnet", false))
-        splashScreenPath = ":/images/" + theme + "/splash_testnet";
+        splashScreenPath = ":/images/" + theme  + "/splash_testnet";
     if(IsArgSet("-devnet"))
-        splashScreenPath = ":/images/" + theme + "/splash_testnet";
+        splashScreenPath = ":/images/" + theme  + "/splash_testnet";
 
     QString font = QApplication::font().toString();
 
@@ -71,12 +69,11 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
     // check font size and drawing with
     pixPaint.setFont(QFont(font, 28));
     QFontMetrics fm = pixPaint.fontMetrics();
-
     int titleTextHeight = fm.height();
     float fontFactor = 42.0 / titleTextHeight; // (96dpi height / current height) * 0.933
 
     pixPaint.setFont(QFont(font, 28*fontFactor));
-    pixPaint.drawText(paddingLeft,paddingTop, titleText);
+    pixPaint.drawText(paddingLeft,paddingTop,titleText);
 
     pixPaint.setFont(QFont(font, 15*fontFactor));
     pixPaint.drawText(paddingLeft,paddingTop+titleVersionVSpace,versionText);

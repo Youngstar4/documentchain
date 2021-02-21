@@ -1,11 +1,10 @@
-TODO
 # Linearize
-Construct a linear, no-fork, best version of the Documentchain. The scripts
+Construct a linear, no-fork, best version of the DMS blockchain. The scripts
 run using Python 3 but are compatible with Python 2.
 
 ## Step 0: Install dms_hash
 
-https://github.com/dashpay/dash_hash
+https://github.com/Krekeler/documentchain_hash
 
 ## Step 1: Download hash list
 
@@ -16,7 +15,7 @@ Required configuration file settings for linearize-hashes:
 
 Optional config file setting for linearize-hashes:
 * RPC: `host`  (Default: `127.0.0.1`)
-* RPC: `port`  (Default: `9998`)
+* RPC: `port`  (Default: `41320`)
 * Blockchain: `min_height`, `max_height`
 * `rev_hash_bytes`: If true, the written block hash list will be
 byte-reversed. (In other words, the hash returned by getblockhash will have its
@@ -42,7 +41,7 @@ will be printed.
 * `file_timestamp`: Set each file's last-accessed and last-modified times,
 respectively, to the current time and to the timestamp of the most recent block
 written to the script's blockchain.
-* `genesis`: The hash of the genesis block in the blockchain. (default is '00000ffd590b1485b3caadc19b22e6379c733355108f107a430458cdf3407ab6', mainnet)
+* `genesis`: The hash of the genesis block in the blockchain. (default is '00000af4a21d6e8daa4026a5eafc7132089a7dbb9d3921b12c4fa39b78c9a010', mainnet)
 * `input`: dmsd blocks/ directory containing blkNNNNN.dat
 * `hashlist`: text file containing list of block hashes created by
 linearize-hashes.py.

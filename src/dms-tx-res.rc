@@ -16,7 +16,17 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
+<<<<<<< HEAD:src/dmsd-res.rc
             VALUE "CompanyName",        "Krekeler"
+            VALUE "FileDescription",    "dmsd (Documentchain node with a JSON-RPC server)"
+            VALUE "FileVersion",        VER_FILEVERSION_STR
+            VALUE "InternalName",       "dmsd"
+            VALUE "LegalCopyright",     COPYRIGHT_STR
+            VALUE "LegalTrademarks1",   "Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
+            VALUE "OriginalFilename",   "dmsd.exe"
+            VALUE "ProductName",        "dmsd"
+=======
+            VALUE "CompanyName",        "Softwarebuero Krekeler"
             VALUE "FileDescription",    "dms-tx (CLI DMS transaction editor utility)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "dms-tx"
@@ -24,6 +34,7 @@ BEGIN
             VALUE "LegalTrademarks1",   "Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
             VALUE "OriginalFilename",   "dms-tx.exe"
             VALUE "ProductName",        "dms-tx"
+>>>>>>> v0.13.x:src/dms-tx-res.rc
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
-// Copyright (c) 2018-2019 The Documentchain developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -122,18 +122,18 @@ namespace GUIUtil
 
     // Open debug.log
     void openDebugLogfile();
-	
+
     // Open dms.conf
-    void openConfigfile();	
+    void openConfigfile();
 
     // Open masternode.conf
-    void openMNConfigfile();	
+    void openMNConfigfile();
 
     // Browse backup folder
     void showBackups();
 
     // Replace invalid default fonts with known good ones
-    void SubstituteFonts();
+    void SubstituteFonts(const QString& language);
 
     /** Qt event filter that intercepts ToolTipChange events, and replaces the tooltip with a rich text
       representation if needed. This assures that Qt can word-wrap long tooltip messages.
@@ -209,18 +209,15 @@ namespace GUIUtil
     /** Load global CSS theme */
     QString loadStyleSheet();
 
-    /** GUI Language like 'en_US', 'en' or 'de_DE' */
-    QString getLangTerritory();
-
     /** Return name of current CSS theme */
     QString getThemeName();
-    
-    /** high resolution theme */
+
+    // high resolution theme
     bool isHighresTheme();
 
-    /** themed statusbar icon size */
+    // themed statusbar icon size
     int getIconSize();
-
+    
     /* Convert QString to OS specific boost path through UTF-8 */
     boost::filesystem::path qstringToBoostPath(const QString &path);
 

@@ -1,5 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -23,7 +24,7 @@ class CWallet;
 
 namespace Consensus { struct Params; };
 
-static const bool DEFAULT_GENERATE = false;    // solo mining in wallet "setgenerate"
+static const bool DEFAULT_GENERATE = false; // solo mining in wallet "setgenerate"
 static const int DEFAULT_GENERATE_THREADS = 1;
 
 static const bool DEFAULT_PRINTPRIORITY = false;
@@ -35,6 +36,9 @@ struct CBlockTemplate
     CBlock block;
     std::vector<CAmount> vTxFees;
     std::vector<int64_t> vTxSigOps;
+    uint32_t nPrevBits; // nBits of previous block (for subsidy calculation)
+    std::vector<CTxOut> voutMasternodePayments; // masternode payment
+    std::vector<CTxOut> voutSuperblockPayments; // superblock payment
 };
 
 /** Run the solo mining threads */

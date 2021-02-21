@@ -176,7 +176,7 @@
         <translation>Plånbok krypterad</translation>
     </message>
     <message>
-        <source>DMS will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your DMS from being stolen by malware infecting your computer.</source>
+        <source>DMS will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your dmss from being stolen by malware infecting your computer.</source>
         <translation>DMS kommer nu att färdigställa krypteringsprocessen. Kom ihåg att krypteringen av din plånbok inte kan skydda dig helt och hållet från att dina DMS stjäls av skadeprogram som har infekterat din dator.</translation>
     </message>
     <message>
@@ -253,62 +253,11 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and dms: URIs)</source>
-        <translation>Begär betalningar (genererar QR-koder och dms:-URI:s)</translation>
+        <translation>Begär betalningar (genererar QR-koder och DMS:-URI:s)</translation>
     </message>
     <message>
         <source>&amp;Transactions</source>
         <translation>&amp;Transaktioner</translation>
-    </message>
-    <message>
-        <source>&amp;Documents</source>
-        <translation>&amp;Documents</translation>
-    </message>
-    <message>
-        <source>Document Revision</source>
-        <translation>Document Revision</translation>
-    </message>
-    <message>
-        <source>&amp;Support Website</source>
-        <translation>&amp;Support Website</translation>
-    </message>
-    <message>
-        <source>Open the %1 support website</source>
-        <translation>Open the %1 support website</translation>
-    </message>
-    <message>
-        <source>&amp;Mining...</source>
-        <translation>&amp;Mining...</translation>
-    </message>
-    <message>
-        <source>Generate coins</source>
-        <translation>Generate coins</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Unlimited Mining&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Unlimited Mining&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>Weak &lt;b&gt;Mining&lt;/b&gt;</source>
-        <translation>Weak &lt;b&gt;Mining&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>Mining is not active.&lt;br&gt;Click here to generate Coins.</source>
-        <translation>Mining is not active.&lt;br&gt;Click here to generate Coins.</translation>
-    </message>
-    <message numerus="yes">
-        <source>&lt;b&gt;Mining&lt;/b&gt; on %n Thread(s)</source>
-        <translation>
-            <numerusform>&lt;b&gt;Mining&lt;/b&gt; on %n Thread</numerusform>
-            <numerusform>&lt;b&gt;Mining&lt;/b&gt; on %n Threads</numerusform>
-        </translation>
-    </message>
-    <message>
-        <source>&amp;Masternodes</source>
-        <translation>&amp;Masternodes</translation>
-    </message>
-    <message>
-        <source>Browse masternodes</source>
-        <translation>Browse masternodes</translation>
     </message>
     <message>
         <source>Browse transaction history</source>
@@ -1233,7 +1182,7 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Formulär</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DMS network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Documentchain network after a connection is established, but this process has not completed yet.</source>
         <translation>Den visade informationen kan vara utdaterad. Din plånbok synkroniseras automatiskt med DMS-nätverket efter att en anslutning har etablerats men denna process har ännu inte slutförts.</translation>
     </message>
     <message>
@@ -1487,7 +1436,7 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>Open the DMS debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Öppna DMS avsökningsloggfil från den nuvarande datakatalogen. Detta kan ta ett par sekunder för stora loggfiler.</translation>
+        <translation>Öppna DMSs avsökningsloggfil från den nuvarande datakatalogen. Detta kan ta ett par sekunder för stora loggfiler.</translation>
     </message>
     <message>
         <source>&amp;Open</source>
@@ -1559,7 +1508,7 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>Welcome to the DMS RPC console.</source>
-        <translation>Välkommen till DMS RPC-konsol.</translation>
+        <translation>Välkommen till DMSs RPC-konsol.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1593,7 +1542,7 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Åt&amp;eranvänd en befintlig mottagaradress (rekommenderas inte)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DMS network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Documentchain network.</source>
         <translation>Ett valfritt meddelande att bifoga betalningsbegärandet vilket kommer att visas när begärandet öppnas. Observera: Meddelandet kommer inte att skickas med betalningen över DMS-nätverket.</translation>
     </message>
     <message>
@@ -2009,8 +1958,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Meddelande:</translation>
     </message>
     <message>
-        <source>A message that was attached to the dms: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the network.</source>
-        <translation>Ett meddelande som bifogades till dms: URI vilket kommer att lagras med transaktionen så att du vet. Observera: Meddelandet kommer inte att skickas över nätverket.</translation>
+        <source>A message that was attached to the dms: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Documentchain network.</source>
+        <translation>Ett meddelande som bifogades till DMS: URI vilket kommer att lagras med transaktionen så att du vet. Observera: Meddelandet kommer inte att skickas över DMS-nätverket.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
@@ -2191,7 +2140,7 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Bitcoin Core-utvecklarna</translation>
     </message>
     <message>
-        <source>The DMS Core developers</source>
+        <source>The Dash Core developers</source>
         <translation>DMS Core-utvecklarna</translation>
     </message>
     <message>
@@ -2443,10 +2392,6 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Skickad till</translation>
     </message>
     <message>
-        <source>Document Revision</source>
-        <translation>Document Revision</translation>
-    </message>
-    <message>
         <source>Payment to yourself</source>
         <translation>Betalning till dig själv</translation>
     </message>
@@ -2536,10 +2481,6 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>Sent to</source>
         <translation>Skickad till</translation>
-    </message>
-    <message>
-        <source>Document Revision</source>
-        <translation>Document Revision</translation>
     </message>
     <message>
         <source>Darksent</source>
@@ -3311,179 +3252,6 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>wallet.dat corrupt, salvage failed</source>
         <translation>wallet.dat är korrumperad, räddning misslyckades</translation>
-    </message>
-</context>
-<context>
-    <name>DocumentList</name>
-    <message>
-        <location filename="../forms/documentlist.ui"/>
-        <source>Document Revision</source>
-        <translation>Document Revision</translation>
-    </message>
-    <message>
-        <source>&amp;Open</source>
-        <translation>&amp;Open</translation>
-    </message>
-    <message>
-        <source>&amp;Revision</source>
-        <translation>&amp;Revision</translation>
-    </message>
-    <message>
-        <location filename="../documentlist.cpp"/>
-        <source>Select file(s) to append</source>
-        <translation>Select file(s) to append</translation>
-    </message>
-    <message>
-        <source>All Files (*.*)</source>
-        <translation>All Files (*.*)</translation>
-    </message>
-    <message>
-        <source>Document</source>
-        <translation>Document</translation>
-    </message>
-    <message>
-        <source>File hash</source>
-        <translation>File hash</translation>
-    </message>
-    <message>
-        <source>GUID</source>
-        <translation>GUID</translation>
-    </message>
-    <message>
-        <source>Attribute hash</source>
-        <translation>Attribute hash</translation>
-    </message>
-    <message>
-        <source>Blockchain</source>
-        <translation>Blockchain</translation>
-    </message>
-    <message>
-        <source>Document Revision</source>
-        <translation>Document Revision</translation>
-    </message>
-    <message>
-        <source>Execute</source>
-        <translation>Execute</translation>
-    </message>
-    <message>
-        <source>Transaction ID</source>
-        <translation>Transaction ID</translation>
-    </message>
-    <message>
-        <source>Total Amount</source>
-        <translation>Total Amount</translation>
-    </message>
-    <message>
-        <source>Stored</source>
-        <translation>Stored</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to send?</source>
-        <translation>Are you sure you want to send?</translation>
-    </message>
-    <message>
-        <source>Store document information</source>
-        <translation>Store document information</translation>
-    </message>
-    <message>
-        <source>is paid as transaction fee.</source>
-        <translation>is paid as transaction fee.</translation>
-    </message>
-    <message>
-        <source>Send Document</source>
-        <translation>Send Document</translation>
-    </message>
-    <message>
-        <source>File exists</source>
-        <translation>File exists</translation>
-    </message>
-    <message>
-        <source>New file name</source>
-        <translation>New file name</translation>
-    </message>
-    <message>
-        <source>%1 document files</source>
-        <translation>%1 document files</translation>
-    </message>
-</context>
-<context>
-    <name>Document</name>
-    <message>
-        <location filename="../documentlist.cpp"/>
-        <source>Revision successful</source>
-        <translation>Revision successful</translation>
-    </message>
-    <message>
-        <source>Revision with notes</source>
-        <translation>Revision with notes</translation>
-    </message>
-    <message>
-        <source>Revision is not possible yet</source>
-        <translation>Revision is not possible yet</translation>
-    </message>
-    <message>
-        <source>Revision failed</source>
-        <translation>Revision failed</translation>
-    </message>
-    <message>
-        <source>No Transaction stored.</source>
-        <translation>No Transaction stored.</translation>
-    </message>
-    <message>
-        <source>The current file does not match the locally saved hash. This file has been modified.</source>
-        <translation>The current file does not match the locally saved hash. This file has been modified.</translation>
-    </message>
-    <message>
-        <source>Transaction not found.</source>
-        <translation>Transaction not found.</translation>
-    </message>
-    <message>
-        <source>current value \"%1\" differs from value \"%2\" stored in blockchain.</source>
-        <translation>current value \"%1\" differs from value \"%2\" stored in blockchain.</translation>
-    </message>
-    <message>
-        <source>matches the blockchain value.</source>
-        <translation>matches the blockchain value.</translation>
-    </message>
-    <message>
-        <source>There are not enough blockchain confirmations available for revision. Please wait a while.</source>
-        <translation>There are not enough blockchain confirmations available for revision. Please wait a while.</translation>
-    </message>
-    <message>
-        <source>Rejected</source>
-        <translation>Rejected</translation>
-    </message>
-    <message>
-        <source>This file information has already been stored in Documentchain.</source>
-        <translation>This file information has already been stored in Documentchain.</translation>
-    </message>
-    <message>
-        <source>Invalid document description.</source>
-        <translation>Invalid document description.</translation>
-    </message>
-    <message>
-        <source>Signing</source>
-        <translation>Signing</translation>
-    </message>
-    <message>
-        <source>Could not sign transaction.</source>
-        <translation>Could not sign transaction.</translation>
-    </message>
-    <message>
-        <source>RPC Error</source>
-        <translation>RPC Error</translation>
-    </message>
-    <message>
-        <source>Unknown error.</source>
-        <translation>Unknown error.</translation>
-    </message>
-    <message>
-        <source>Blockchain confirmations</source>
-        <translation>Blockchain confirmations</translation>
-    </message>
-    <message>
-        <source>The blockchain confirms that %1this document file%2 exists at least since %3 and has not been modified.</source>
-        <translation>The blockchain confirms that %1this document file%2 exists at least since %3 and has not been modified.</translation>
     </message>
 </context>
 </TS>

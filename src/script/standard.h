@@ -1,5 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -27,7 +28,12 @@ public:
     CScriptID(const uint160& in) : uint160(in) {}
 };
 
-static const unsigned int MAX_OP_RETURN_RELAY = 800; // Harald: store document info      ; Dash: 83; //!< bytes (+1 for OP_RETURN, +2 for the pushdata opcodes)
+/**
+ * Default setting for nMaxDatacarrierBytes. 797 bytes of document data, +1 for OP_RETURN,
+ * +2 for the pushdata opcodes.
+ */
+static const unsigned int MAX_OP_RETURN_RELAY = 800;
+
 extern bool fAcceptDatacarrier;
 extern unsigned nMaxDatacarrierBytes;
 

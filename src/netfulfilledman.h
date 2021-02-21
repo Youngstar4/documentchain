@@ -46,6 +46,8 @@ public:
     void Clear();
 
     std::string ToString() const;
+
+    void DoMaintenance();
 };
 
 #endif

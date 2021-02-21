@@ -1,8 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2018-2019 The Documentchain developers
-
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -30,6 +29,13 @@
 #include "masternode-sync.h"
 #include "validationinterface.h"
 
+#include "evo/specialtx.h"
+#include "evo/cbtx.h"
+#include "evo/simplifiedmns.h"
+#include "evo/deterministicmns.h"
+
+#include "llmq/quorums_blockprocessor.h"
+
 #include <algorithm>
 #include <boost/thread.hpp>
 #include <boost/tuple/tuple.hpp>
@@ -38,7 +44,7 @@
 
 //////////////////////////////////////////////////////////////////////////////
 //
-// DMS Miner
+// DMSMiner
 //
 
 //
@@ -128,10 +134,13 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
     pblocktemplate->vTxSigOps.push_back(-1); // updated at end
 
     LOCK2(cs_main, mempool.cs);
+
+    bool fDIP0003Active_context = VersionBitsState(chainActive.Tip(), chainparams.GetConsensus(), Consensus::DEPLOYMENT_DIP0003, versionbitscache) == THRESHOLD_ACTIVE;
+
     CBlockIndex* pindexPrev = chainActive.Tip();
     nHeight = pindexPrev->nHeight + 1;
 
-    pblock->nVersion = ComputeBlockVersion(pindexPrev, chainparams.GetConsensus());
+    pblock->nVersion = ComputeBlockVersion(pindexPrev, chainparams.GetConsensus(), chainparams.BIP9CheckMasternodesUpgraded());
     // -regtest only: allow overriding block.nVersion with
     // -blockversion=N to test forking scenarios
     if (chainparams.MineBlocksOnDemand())
@@ -143,6 +152,19 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
     nLockTimeCutoff = (STANDARD_LOCKTIME_VERIFY_FLAGS & LOCKTIME_MEDIAN_TIME_PAST)
                        ? nMedianTimePast
                        : pblock->GetBlockTime();
+
+    if (fDIP0003Active_context) {
+        for (auto& p : Params().GetConsensus().llmqs) {
+            CTransactionRef qcTx;
+            if (llmq::quorumBlockProcessor->GetMinableCommitmentTx(p.first, nHeight, qcTx)) {
+                pblock->vtx.emplace_back(qcTx);
+                pblocktemplate->vTxFees.emplace_back(0);
+                pblocktemplate->vTxSigOps.emplace_back(0);
+                nBlockSize += qcTx->GetTotalSize();
+                ++nBlockTx;
+            }
+        }
+    }
 
     addPriorityTxs();
 
@@ -163,18 +185,36 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
     coinbaseTx.vout.resize(1);
     coinbaseTx.vout[0].scriptPubKey = scriptPubKeyIn;
 
-    // NOTE: unlike in Dash, we need to pass CURRENT block height here (like Bitcoin)
-    CAmount blockReward = nFees + GetBlockSubsidy(pindexPrev->nBits, nHeight, Params().GetConsensus());
+    // NOTE: unlike in bitcoin, we need to pass PREVIOUS block height here
+    CAmount blockReward = nFees + GetBlockSubsidy(pindexPrev->nBits, pindexPrev->nHeight, Params().GetConsensus());
 
     // Compute regular coinbase transaction.
     coinbaseTx.vout[0].nValue = blockReward;
-    coinbaseTx.vin[0].scriptSig = CScript() << nHeight << OP_0;
+
+    if (!fDIP0003Active_context) {
+        coinbaseTx.vin[0].scriptSig = CScript() << nHeight << OP_0;
+    } else {
+        coinbaseTx.vin[0].scriptSig = CScript() << OP_RETURN;
+
+        coinbaseTx.nVersion = 3;
+        coinbaseTx.nType = TRANSACTION_COINBASE;
+
+        CCbTx cbTx;
+        cbTx.nHeight = nHeight;
+
+        CValidationState state;
+        if (!CalcCbTxMerkleRootMNList(*pblock, pindexPrev, cbTx.merkleRootMNList, state)) {
+            throw std::runtime_error(strprintf("%s: CalcSMLMerkleRootForNewBlock failed: %s", __func__, FormatStateMessage(state)));
+        }
+
+        SetTxPayload(coinbaseTx, cbTx);
+    }
 
     // Update coinbase transaction with additional info about masternode and governance payments,
     // get some info back to pass to getblocktemplate
-    FillBlockPayments(coinbaseTx, nHeight, blockReward, pblock->txoutMasternode, pblock->voutSuperblock);
+    FillBlockPayments(coinbaseTx, nHeight, blockReward, pblocktemplate->voutMasternodePayments, pblocktemplate->voutSuperblockPayments);
     // LogPrintf("CreateNewBlock -- nBlockHeight %d blockReward %lld txoutMasternode %s coinbaseTx %s",
-    //             nHeight, blockReward, pblock->txoutMasternode.ToString(), coinbaseTx.ToString());
+    //             nHeight, blockReward, pblocktemplate->txoutsMasternode.ToString(), coinbaseTx.ToString());
 
     pblock->vtx[0] = MakeTransactionRef(std::move(coinbaseTx));
     pblocktemplate->vTxFees[0] = -nFees;
@@ -184,6 +224,7 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
     UpdateTime(pblock, chainparams.GetConsensus(), pindexPrev);
     pblock->nBits          = GetNextWorkRequired(pindexPrev, pblock, chainparams.GetConsensus());
     pblock->nNonce         = 0;
+    pblocktemplate->nPrevBits = pindexPrev->nBits;
     pblocktemplate->vTxSigOps[0] = GetLegacySigOpCount(*pblock->vtx[0]);
 
     CValidationState state;
@@ -595,35 +636,6 @@ void IncrementExtraNonce(CBlock* pblock, const CBlockIndex* pindexPrev, unsigned
 //
 // Internal miner
 //
-// ***TODO*** ScanHash is not yet used in Dash
-//
-// ScanHash scans nonces looking for a hash with at least some zero bits.
-// The nonce is usually preserved between calls, but periodically or if the
-// nonce is 0xffff0000 or above, the block is rebuilt and nNonce starts over at
-// zero.
-//
-//bool static ScanHash(const CBlockHeader *pblock, uint32_t& nNonce, uint256 *phash)
-//{
-//    // Write the first 76 bytes of the block header to a double-SHA256 state.
-//    CHash256 hasher;
-//    CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
-//    ss << *pblock;
-//    assert(ss.size() == 80);
-//    hasher.Write((unsigned char*)&ss[0], 76);
-//    while (true) {
-//        nNonce++;
-//        // Write the last 4 bytes of the block header (the nonce) to a copy of
-//        // the double-SHA256 state, and compute the result.
-//        CHash256(hasher).Write((unsigned char*)&nNonce, 4).Finalize((unsigned char*)phash);
-//        // Return the nonce if the hash has at least some zero bits,
-//        // caller will check if it has enough to reach the target
-//        if (((uint16_t*)phash)[15] == 0)
-//            return true;
-//        // If nothing found after trying for a while, return -1
-//        if ((nNonce & 0xfff) == 0)
-//            return false;
-//    }
-//}
 static bool ProcessBlockFound(const CBlock* pblock, const CChainParams& chainparams)
 {
     LogPrintf("%s\n", pblock->ToString());
@@ -637,7 +649,7 @@ static bool ProcessBlockFound(const CBlock* pblock, const CChainParams& chainpar
     // Inform about the new block
     GetMainSignals().BlockFound(pblock->GetHash());
     // Process this block the same as if we had received it from another node
-	std::shared_ptr<const CBlock> shared_pblock = std::make_shared<const CBlock>(*pblock);
+    std::shared_ptr<const CBlock> shared_pblock = std::make_shared<const CBlock>(*pblock);
     if (!ProcessNewBlock(chainparams, shared_pblock, true, NULL))
         return error("ProcessBlockFound -- ProcessNewBlock() failed, block not accepted");
     return true;
@@ -645,7 +657,6 @@ static bool ProcessBlockFound(const CBlock* pblock, const CChainParams& chainpar
 int64_t nLastHasrateCalc = 0;
 double dTotalHashrate = 0.0; // global
 
-// ***TODO*** that part changed in bitcoin, we are using a mix with old one here for now
 void static BitcoinMiner(const CChainParams& chainparams, CConnman& connman, int nPause)
 {
     LogPrintf("Miner -- started\n");
@@ -677,7 +688,6 @@ void static BitcoinMiner(const CChainParams& chainparams, CConnman& connman, int
             unsigned int nTransactionsUpdatedLast = mempool.GetTransactionsUpdated();
             CBlockIndex* pindexPrev = chainActive.Tip();
             if(!pindexPrev) break;
-//          std::unique_ptr<CBlockTemplate> pblocktemplate(CreateNewBlock(chainparams, coinbaseScript->reserveScript)); https://github.com/dashpay/dash/commit/6a698300ab475461bdb0f6681763db2b197a9ab7#diff-3b00dc330ddf8d051da2dbb77fe052b1
             std::unique_ptr<CBlockTemplate> pblocktemplate(BlockAssembler(chainparams).CreateNewBlock(coinbaseScript->reserveScript));
             if (!pblocktemplate.get())
             {

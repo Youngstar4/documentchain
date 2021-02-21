@@ -1,5 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -65,7 +66,7 @@ std::string GetWarnings(const std::string& strFor)
     if (GetBoolArg("-testsafemode", DEFAULT_TESTSAFEMODE))
         strStatusBar = strRPC = strGUI = "testsafemode enabled";
 
-    // Misc warnings like outdated release, out of disk space and clock is wrong
+    // Misc warnings like outdated releas, out of disk space and clock is wrong
     if (strMiscWarning != "")
     {
         nPriority = 1000;

@@ -10,7 +10,7 @@
 
 /**
  * CBaseChainParams defines the base parameters (shared between dms-cli and dmsd)
- * of a given instance of the DMS system.
+ * of a given instance of the Documentchain system.
  */
 class CBaseChainParams
 {

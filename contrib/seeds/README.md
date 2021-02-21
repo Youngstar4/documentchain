@@ -7,7 +7,7 @@ Be sure to update `MIN_PROTOCOL_VERSION` in `makeseeds.py` to include the curren
 
 The seeds compiled into the release are created from the current masternode list, like this:
 
-    dash-cli masternodelist full > mnlist.json
+    dms-cli masternodelist full > mnlist.json
     python3 makeseeds.py < mnlist.json > nodes_main.txt
     python3 generate-seeds.py . > ../../src/chainparamsseeds.h
 
@@ -17,14 +17,16 @@ Ubuntu:
 
     sudo apt-get install python3-dnspython
 
----
-	
-### Internal notice
+## Current usage
+* Update `MIN_PROTOCOL_VERSION` in `makeseeds.py`
 
-Compilation computer
+Compilation computer, ~/documentchain/contrib/seeds$
 
-	cd ~/documentchain/contrib/seeds
-	vi nodes_main.txt
-	python3 generate-seeds.py ./
+* cp nodes_main.txt ori.txt
+* vi nodes_main.txt
+* python3 generate-seeds.py ./
 
-Code computer: copy result to chainparamsseeds.h, copy node_main.txt
+Code computer: copy result to chainparamsseeds.h
+
+* rm nodes_main.txt
+* mv ori.txt nodes_main.txt

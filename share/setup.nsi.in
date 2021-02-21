@@ -60,7 +60,7 @@ VIAddVersionKey CompanyName "${COMPANY}"
 VIAddVersionKey CompanyWebsite "${URL}"
 VIAddVersionKey FileVersion "${VERSION}"
 VIAddVersionKey FileDescription "Setup"
-VIAddVersionKey LegalCopyright ""
+VIAddVersionKey LegalCopyright "The Documentchain developers"
 InstallDirRegKey HKCU "${REGKEY}" Path
 ShowUninstDetails show
 
@@ -133,7 +133,7 @@ Section -un.post UNSEC0001
     DeleteRegKey /IfEmpty HKCU "${REGKEY}"
     DeleteRegKey HKCR "@PACKAGE_TARNAME@"
     RmDir /REBOOTOK $INSTDIR
-	# if we also want to delete the "DMS-Qt" key:
+    # if we also want to delete the "DMS-Qt" key:
 	; DeleteRegKey HKCU "SOFTWARE\Krekeler\DMS-Qt"
 	; DeleteRegKey /IfEmpty HKCU "SOFTWARE\Krekeler"
 SectionEnd

@@ -1,7 +1,6 @@
 # Copyright (c) 2013-2016 The Bitcoin Core developers
 # Copyright (c) 2014-2018 The Dash Core developers
-# Copyright (c) 2018-2020 The Documentchain developers
-
+# Copyright (c) 2018-2021 The Documentchain developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,6 +9,7 @@ EXTRA_LIBRARIES += qt/libdmsqt.a
 
 # dms qt core #
 QT_TS = \
+  qt/locale/dms_ar.ts \
   qt/locale/dms_bg.ts \
   qt/locale/dms_de.ts \
   qt/locale/dms_en.ts \
@@ -18,15 +18,16 @@ QT_TS = \
   qt/locale/dms_fr.ts \
   qt/locale/dms_it.ts \
   qt/locale/dms_ja.ts \
+  qt/locale/dms_ko.ts \
   qt/locale/dms_nl.ts \
   qt/locale/dms_pl.ts \
   qt/locale/dms_pt.ts \
-  qt/locale/dms_pt_BR.ts \
   qt/locale/dms_ru.ts \
   qt/locale/dms_sk.ts \
   qt/locale/dms_sv.ts \
-  qt/locale/dms_vi.ts \
+  qt/locale/dms_th.ts \
   qt/locale/dms_tr.ts \
+  qt/locale/dms_vi.ts \
   qt/locale/dms_zh_CN.ts \
   qt/locale/dms_zh_TW.ts
 
@@ -34,7 +35,6 @@ QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
   qt/forms/askpassphrasedialog.ui \
   qt/forms/coincontroldialog.ui \
-  qt/forms/darksendconfig.ui \
   qt/forms/documentlist.ui \
   qt/forms/editaddressdialog.ui \
   qt/forms/helpmessagedialog.ui \
@@ -66,7 +66,6 @@ QT_MOC_CPP = \
   qt/moc_coincontroldialog.cpp \
   qt/moc_coincontroltreewidget.cpp \
   qt/moc_csvmodelwriter.cpp \
-  qt/moc_darksendconfig.cpp \
   qt/moc_documentlist.cpp \
   qt/moc_editaddressdialog.cpp \
   qt/moc_guiutil.cpp \
@@ -137,7 +136,6 @@ BITCOIN_QT_H = \
   qt/coincontroldialog.h \
   qt/coincontroltreewidget.h \
   qt/csvmodelwriter.h \
-  qt/darksendconfig.h \
   qt/documentlist.h \
   qt/editaddressdialog.h \
   qt/guiconstants.h \
@@ -217,8 +215,6 @@ RES_ICONS = \
   qt/res/icons/light/eye_minus.png \
   qt/res/icons/light/eye_plus.png \
   qt/res/icons/light/filesave.png \
-  qt/res/icons/light/mining.png \
-  qt/res/icons/light/notmining.png \
   qt/res/icons/light/hd_disabled.png \
   qt/res/icons/light/hd_enabled.png \
   qt/res/icons/light/history.png \
@@ -226,6 +222,8 @@ RES_ICONS = \
   qt/res/icons/light/lock_closed.png \
   qt/res/icons/light/lock_open.png \
   qt/res/icons/light/masternodes.png \
+  qt/res/icons/light/mining.png \
+  qt/res/icons/light/notmining.png \
   qt/res/icons/light/overview.png \
   qt/res/icons/light/quit.png \
   qt/res/icons/light/receive.png \
@@ -281,7 +279,6 @@ BITCOIN_QT_WALLET_CPP = \
   qt/askpassphrasedialog.cpp \
   qt/coincontroldialog.cpp \
   qt/coincontroltreewidget.cpp \
-  qt/darksendconfig.cpp \
   qt/documentlist.cpp \
   qt/editaddressdialog.cpp \
   qt/masternodelist.cpp \
@@ -387,7 +384,7 @@ qt_dms_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 qt_dms_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CONSENSUS) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) \
-  $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
+  $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(BLS_LIBS)
 qt_dms_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 qt_dms_qt_LIBTOOLFLAGS = --tag CXX
 

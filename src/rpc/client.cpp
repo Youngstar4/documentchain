@@ -1,8 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2018 The Documentchain developers
-
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -32,12 +31,14 @@ public:
 static const CRPCConvertParam vRPCConvertParams[] =
 {
     { "setmocktime", 0, "timestamp" },
+#if ENABLE_MINER
     { "generate", 0, "nblocks" },
     { "generate", 1, "maxtries" },
     { "generatetoaddress", 0, "nblocks" },
     { "generatetoaddress", 2, "maxtries" },
     { "setgenerate", 0, "generate" },
     { "setgenerate", 1, "genproclimit" },
+#endif // ENABLE_MINER
     { "getnetworkhashps", 0, "nblocks" },
     { "getnetworkhashps", 1, "height" },
     { "sendtoaddress", 1, "amount" },
@@ -102,7 +103,7 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "listunspent", 1, "maxconf" },
     { "listunspent", 2, "addresses" },
     { "listunspent", 3, "include_unsafe" },
-    { "getblock", 1, "verbose" },
+    { "getblock", 1, "verbosity" },
     { "getblockheader", 1, "verbose" },
     { "getblockheaders", 1, "count" },
     { "getblockheaders", 2, "verbose" },
@@ -144,6 +145,8 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "setban", 3, "absolute" },
     { "setbip69enabled", 0, "enabled" },
     { "setnetworkactive", 0, "state" },
+    { "setprivatesendrounds", 0, "rounds" },
+    { "setprivatesendamount", 0, "amount" },
     { "getmempoolancestors", 1, "verbose" },
     { "getmempooldescendants", 1, "verbose" },
     { "spork", 1, "value" },
@@ -157,6 +160,10 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "getaddressdeltas", 0, "addresses" },
     { "getaddressutxos", 0, "addresses" },
     { "getaddressmempool", 0, "addresses" },
+    { "getspecialtxes", 1, "type" },
+    { "getspecialtxes", 2, "count" },
+    { "getspecialtxes", 3, "skip" },
+    { "getspecialtxes", 4, "verbosity" },
     // Echo with conversion (For testing only)
     { "echojson", 0, "arg0" },
     { "echojson", 1, "arg1" },
