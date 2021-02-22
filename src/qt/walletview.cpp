@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
-// Copyright (c) 2018-2019 The Documentchain developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -17,6 +17,7 @@
 #include "receivecoinsdialog.h"
 #include "sendcoinsdialog.h"
 #include "signverifymessagedialog.h"
+#include "transactionrecord.h"
 #include "transactiontablemodel.h"
 #include "transactionview.h"
 #include "walletmodel.h"
@@ -199,10 +200,19 @@ void WalletView::processNewTransaction(const QModelIndex& parent, int start, int
     if (!ttm || ttm->processingQueuedTransactions())
         return;
 
+    QModelIndex index = ttm->index(start, 0, parent);
+    QSettings settings;
+    if (!settings.value("fShowPrivateSendPopups").toBool()) {
+        QVariant nType = ttm->data(index, TransactionTableModel::TypeRole);
+        if (nType == TransactionRecord::PrivateSendDenominate ||
+            nType == TransactionRecord::PrivateSendCollateralPayment ||
+            nType == TransactionRecord::PrivateSendMakeCollaterals ||
+            nType == TransactionRecord::PrivateSendCreateDenominations) return;
+    }
+
     QString date = ttm->index(start, TransactionTableModel::Date, parent).data().toString();
     qint64 amount = ttm->index(start, TransactionTableModel::Amount, parent).data(Qt::EditRole).toULongLong();
     QString type = ttm->index(start, TransactionTableModel::Type, parent).data().toString();
-    QModelIndex index = ttm->index(start, 0, parent);
     QString address = ttm->data(index, TransactionTableModel::AddressRole).toString();
     QString label = ttm->data(index, TransactionTableModel::LabelRole).toString();
 

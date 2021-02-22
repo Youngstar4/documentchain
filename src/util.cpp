@@ -2,7 +2,6 @@
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
 // Copyright (c) 2018-2020 The Documentchain developers
-
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -14,6 +13,7 @@
 
 #include "support/allocators/secure.h"
 #include "chainparamsbase.h"
+#include "ctpl.h"
 #include "random.h"
 #include "serialize.h"
 #include "sync.h"
@@ -279,8 +279,8 @@ bool LogAcceptCategory(const char* category)
                 const std::vector<std::string>& categories = mapMultiArgs.at("-debug");
                 ptrCategory.reset(new std::set<std::string>(categories.begin(), categories.end()));
                 // thread_specific_ptr automatically deletes the set when the thread ends.
-                // "dash" is a composite category enabling all Dash-related debug output
-                if(ptrCategory->count(std::string("dash"))) {
+                // "dms" is a composite category enabling all DMS/Dash-related debug output
+                if(ptrCategory->count(std::string("dms"))) {
                     ptrCategory->insert(std::string("privatesend"));
                     ptrCategory->insert(std::string("instantsend"));
                     ptrCategory->insert(std::string("masternode"));
@@ -915,6 +915,25 @@ std::string GetThreadName()
     return std::string(name);
 }
 
+void RenameThreadPool(ctpl::thread_pool& tp, const char* baseName)
+{
+    auto cond = std::make_shared<std::condition_variable>();
+    auto mutex = std::make_shared<std::mutex>();
+    std::atomic<int> doneCnt(0);
+    for (size_t i = 0; i < tp.size(); i++) {
+        tp.push([baseName, i, cond, mutex, &doneCnt](int threadId) {
+            RenameThread(strprintf("%s-%d", baseName, i).c_str());
+            doneCnt++;
+            std::unique_lock<std::mutex> l(*mutex);
+            cond->wait(l);
+        });
+    }
+    while (doneCnt != tp.size()) {
+        MilliSleep(10);
+    }
+    cond->notify_all();
+}
+
 void SetupEnvironment()
 {
 #ifdef HAVE_MALLOPT_ARENA_MAX
@@ -986,7 +1005,6 @@ std::string CopyrightHolders(const std::string& strPrefix, unsigned int nStartYe
     if (strprintf(COPYRIGHT_HOLDERS, COPYRIGHT_HOLDERS_SUBSTITUTION).find("Bitcoin Core") == std::string::npos) {
         strCopyrightHolders += "\n" + strPrefix + strprintf(" %u-%u ", 2009, nEndYear) + "The Bitcoin Core developers";
     }
-    return strCopyrightHolders;
     */
     std::string strCopyrightHolders = strprintf("%u 2009-%u ", strPrefix, nEndYear) + "The Bitcoin Core Developers\n"
                                     + strprintf("%u 2014-%u ", strPrefix, nEndYear) + "The Dash Core Developers\n"

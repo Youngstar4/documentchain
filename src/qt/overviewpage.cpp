@@ -1,7 +1,6 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2018 The Documentchain developers
-
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -21,7 +20,6 @@
 #include "walletmodel.h"
 
 #include "instantx.h"
-#include "darksendconfig.h"
 #include "masternode-sync.h"
 #include "privatesend-client.h"
 
@@ -138,7 +136,7 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
     txdelegate(new TxViewDelegate(platformStyle, this))
 {
     ui->setupUi(this);
-    QString theme = GUIUtil::getThemeName().remove("-hires");
+    QString theme = GUIUtil::getThemeName();
 
     ui->labelMiningInfo->setVisible(false);
 
@@ -568,14 +566,14 @@ void OverviewPage::privateSendStatus()
         ui->labelPrivateSendEnabled->setToolTip(strWarning);
     }
 
-    // check darksend status and unlock if needed
+    // check privatesend status and unlock if needed
     if(nBestHeight != privateSendClient.nCachedNumBlocks) {
         // Balance and number of transactions might have changed
         privateSendClient.nCachedNumBlocks = nBestHeight;
         updatePrivateSendProgress();
     }
 
-    QString strStatus = QString(privateSendClient.GetStatus().c_str());
+    QString strStatus = QString(privateSendClient.GetStatuses().c_str());
 
     QString s = tr("Last PrivateSend message:\n") + strStatus;
 
@@ -584,13 +582,7 @@ void OverviewPage::privateSendStatus()
 
     ui->labelPrivateSendLastMessage->setText(s);
 
-    if(privateSendClient.nSessionDenom == 0){
-        ui->labelSubmittedDenom->setText(tr("N/A"));
-    } else {
-        QString strDenom(CPrivateSend::GetDenominationsToString(privateSendClient.nSessionDenom).c_str());
-        ui->labelSubmittedDenom->setText(strDenom);
-    }
-
+    ui->labelSubmittedDenom->setText(QString(privateSendClient.GetSessionDenoms().c_str()));
 }
 
 void OverviewPage::privateSendAuto(){
@@ -653,18 +645,9 @@ void OverviewPage::togglePrivateSend(){
 
     if(!privateSendClient.fEnablePrivateSend){
         ui->togglePrivateSend->setText(tr("Start Mixing"));
-        privateSendClient.UnlockCoins();
+        privateSendClient.ResetPool();
     } else {
         ui->togglePrivateSend->setText(tr("Stop Mixing"));
-
-        /* show darksend configuration if client has defaults set */
-
-        if(privateSendClient.nPrivateSendAmount == 0){
-            DarksendConfig dlg(this);
-            dlg.setModel(walletModel);
-            dlg.exec();
-        }
-
     }
 }
 

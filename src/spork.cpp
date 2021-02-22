@@ -340,8 +340,7 @@ bool CSporkManager::SetSporkAddress(const std::string& strAddress) {
     CKeyID keyid;
     if (!address.IsValid() || !address.GetKeyID(keyid)) {
         LogPrintf("CSporkManager::SetSporkAddress -- Failed to parse spork address\n");
-//        return false;
-		return true;  // TODO
+        return false;
     }
     setSporkPubKeyIDs.insert(keyid);
     return true;
