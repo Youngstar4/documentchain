@@ -54,7 +54,7 @@ static const bool DEFAULT_LOGIPS         = false;
 static const bool DEFAULT_LOGTIMESTAMPS  = true;
 static const bool DEFAULT_LOGTHREADNAMES = false;
 
-#ifdef __linux__
+#if defined(__linux__) || defined(__APPLE__)
 static const int THREAD_PRIORITY_LOWEST = 19;
 static const int THREAD_PRIORITY_NORMAL = 0;
 #endif
