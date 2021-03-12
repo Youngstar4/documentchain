@@ -4,7 +4,7 @@ Gitian Building DMS Core
 In this guide, you will find a brief description of the required steps that has been tested with DMS Core.
 Detailed notes and background information can be found in the instructions for 
 [Bitcoin Core](https://github.com/bitcoin-core/docs/blob/master/gitian-building.md) 
-and [Dash Core](https://github.com/dashpay/dash/blob/master/doc/gitian-building.md).
+and [DMS Core](https://github.com/dashpay/dash/blob/master/doc/gitian-building.md).
 
 Gitian is the deterministic build process that is used to build the DMS
 Core executables. It provides a way to be reasonably sure that the
