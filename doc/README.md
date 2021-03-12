@@ -1,72 +1,41 @@
-Dash Core 0.13.0
+DMS Core
 =====================
 
-This is the official reference wallet for Dash digital currency and comprises the backbone of the Dash peer-to-peer network. You can [download Dash Core](https://www.dash.org/downloads/) or [build it yourself](#building) using the guides below.
+This is the official reference wallet for DMS digital currency and comprises the backbone of the Documentchain peer-to-peer network. You can [download DMS Core](https://github.com/Krekeler/documentchain/releases) or [build it yourself](#building) using the guides below.
 
 Running
 ---------------------
-The following are some helpful notes on how to run Dash on your native platform.
+The following are some helpful notes on how to run DMS on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- `bin/dash-qt` (GUI) or
-- `bin/dashd` (headless)
+- `bin/dms-qt` (GUI) or
+- `bin/dmsd` (headless)
 
 ### Windows
 
-Unpack the files into a directory, and then run dash-qt.exe.
+Run "dmscore-...-setup.exe" or unpack the ZIP file into a directory, and then run dms-qt.exe.
 
-### OS X
+### macOS (formerly OS X)
 
-Drag Dash-Qt to your applications folder, and then run Dash-Qt.
+Open the .dmg file and drag DMS-Qt to your applications folder, and then run DMS-Qt.
 
 ### Need Help?
 
-* See the [Dash documentation](https://docs.dash.org)
-for help and more information.
-* Ask for help on [Dash Nation Discord](http://dashchat.org)
-* Ask for help on the [Dash Forum](https://dash.org/forum)
+* See the [Supportpages](https://documentchain.org/support/) for help and more information
+* DMS is forked from Dash, see [Dash documentation](https://docs.dash.org/en/stable/)
 
 Building
 ---------------------
-The following are developer notes on how to build Dash Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build DMS Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
-- [OS X Build Notes](build-osx.md)
+- [Gitian Building Guide](gitian-building.md)
+- [macOS Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
 - [Windows Build Notes](build-windows.md)
 - [OpenBSD Build Notes](build-openbsd.md)
-- [Gitian Building Guide](gitian-building.md)
-
-Development
----------------------
-The Dash Core repo's [root README](/README.md) contains relevant information on the development process and automated testing.
-
-- [Developer Notes](developer-notes.md)
-- [Release Notes](release-notes.md)
-- [Release Process](release-process.md)
-- Source Code Documentation ***TODO***
-- [Translation Process](translation_process.md)
-- [Translation Strings Policy](translation_strings_policy.md)
-- [Travis CI](travis-ci.md)
-- [Unauthenticated REST Interface](REST-interface.md)
-- [Shared Libraries](shared-libraries.md)
-- [BIPS](bips.md)
-- [Dnsseed Policy](dnsseed-policy.md)
-- [Benchmarking](benchmarking.md)
-
-### Resources
-* Discuss on the [Dash Forum](https://dash.org/forum), in the Development & Technical Discussion board.
-* Discuss on [Dash Nation Discord](http://dashchat.org)
-
-### Miscellaneous
-- [Assets Attribution](assets-attribution.md)
-- [Files](files.md)
-- [Reduce Traffic](reduce-traffic.md)
-- [Tor Support](tor.md)
-- [Init Scripts (systemd/upstart/openrc)](init.md)
-- [ZMQ](zmq.md)
 
 License
 ---------------------

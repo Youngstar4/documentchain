@@ -1,7 +1,7 @@
-Document Data Documentation - 0.12.16
-=====================================
+Document Data Documentation
+===========================
 
-This document describes the structure of the document revision data. This doesn't include any [Protocol Documentation](protocol-documentation.md).
+This document describes the structure of the document revision data. Applies as of DMS Core version 0.12.16
 
 ## Revision Data
 
@@ -80,3 +80,9 @@ Followed by one or more hash values with four-digit prefix:
 * WebAPI on [documentchain.org](https://api.documentchain.org/) uses "0004"
 
 Use another ID for your application. You can reserve your app ID with us.
+
+### Example Code
+
+* [Qt/C++ API Example in DMS Core](../src/qt/documentlist.cpp)
+* [JavaScript API Example](https://github.com/Krekeler/api-example-js)
+* [Delphi API Example](https://github.com/Krekeler/api-example-pas)
