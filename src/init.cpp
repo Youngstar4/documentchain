@@ -1978,7 +1978,9 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
                 return InitError(_("Invalid masternodeblsprivkey. Please see documenation."));
             }
         } else {
-            return InitError(_("You must specify a masternodeblsprivkey in the configuration. Please see documentation for help."));
+            // TODO: https://github.com/dashpay/dash/commit/25222b37866851e224d354f346417a5bf27cf196#diff-b1e19192258d83199d8adaa5ac31f067af98f63554bfdd679bd8e8073815e69d
+            // return InitError(_("You must specify a masternodeblsprivkey in the configuration. Please see documentation for help."));
+            InitWarning(_("You should specify a masternodeblsprivkey in the configuration. Please see documentation for help."));
         }
 
         // init and register activeMasternodeManager
