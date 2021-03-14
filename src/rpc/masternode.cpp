@@ -1,4 +1,5 @@
 // Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -157,6 +158,7 @@ void masternode_list_help()
             "  sentinel       - Print sentinel version of a masternode (can be additionally filtered, exact match)\n"
             "  status         - Print masternode status: PRE_ENABLED / ENABLED / EXPIRED / SENTINEL_PING_EXPIRED / NEW_START_REQUIRED /\n"
             "                   UPDATE_REQUIRED / POSE_BAN / OUTPOINT_SPENT (can be additionally filtered, partial match)\n"
+            "  type           - Print the masternode type \"classic\" or \"deterministic\"\n"
             "  votingaddress  - Print the masternode voting DMS address\n"
         );
 }
@@ -860,7 +862,7 @@ UniValue masternodelist(const JSONRPCRequest& request)
                 strMode != "owneraddress" && strMode != "votingaddress" && strMode != "keyid" &&
                 strMode != "lastseen" && strMode != "lastpaidtime" && strMode != "lastpaidblock" &&
                 strMode != "protocol" && strMode != "payee" && strMode != "pubkey" &&
-                strMode != "rank" && strMode != "sentinel" && strMode != "status"))
+                strMode != "rank" && strMode != "sentinel" && strMode != "status" && strMode != "type"))
     {
         masternode_list_help();
     }
@@ -891,8 +893,12 @@ UniValue masternodelist(const JSONRPCRequest& request)
 
             CScript payeeScript;
             std::string collateralAddressStr = "UNKNOWN";
+            auto dmn = deterministicMNManager->GetListAtChainTip().GetMNByCollateral(mn.outpoint);
+            // temporary info for the DIP0003 transition period
+            // search for "type" if remove this later
+            std::string strMNType = (dmn) ? "deterministic" : "classic";
+
             if (deterministicMNManager->IsDeterministicMNsSporkActive()) {
-                auto dmn = deterministicMNManager->GetListAtChainTip().GetMNByCollateral(mn.outpoint);
                 if (dmn) {
                     payeeScript = dmn->pdmnState->scriptPayout;
                     Coin coin;
@@ -975,7 +981,8 @@ UniValue masternodelist(const JSONRPCRequest& request)
                                (int64_t)(mn.lastPing.sigTime - mn.sigTime) << " " <<
                                mn.GetLastPaidTime() << " " <<
                                mn.GetLastPaidBlock() << " " <<
-                               collateralAddressStr;
+                               collateralAddressStr << " " <<
+                               strMNType;
                 std::string strInfo = streamInfo.str();
                 if (strFilter !="" && strInfo.find(strFilter) == std::string::npos &&
                     strOutpoint.find(strFilter) == std::string::npos) continue;
@@ -994,6 +1001,7 @@ UniValue masternodelist(const JSONRPCRequest& request)
                 objMN.push_back(Pair("owneraddress", CBitcoinAddress(mn.keyIDOwner).ToString()));
                 objMN.push_back(Pair("votingaddress", CBitcoinAddress(mn.keyIDVoting).ToString()));
                 objMN.push_back(Pair("collateraladdress", collateralAddressStr));
+                objMN.push_back(Pair("type", strMNType)); // add at the end for better compatibility
                 obj.push_back(Pair(strOutpoint, objMN));
             } else if (strMode == "keyid") {
                 if (strFilter !="" && strOutpoint.find(strFilter) == std::string::npos) continue;
@@ -1023,6 +1031,10 @@ UniValue masternodelist(const JSONRPCRequest& request)
                 if (strFilter !="" && strStatus.find(strFilter) == std::string::npos &&
                     strOutpoint.find(strFilter) == std::string::npos) continue;
                 obj.push_back(Pair(strOutpoint, strStatus));
+            } else if (strMode == "type") {
+                if (strFilter !="" && strMNType.find(strFilter) == std::string::npos &&
+                    strOutpoint.find(strFilter) == std::string::npos) continue;
+                obj.push_back(Pair(strOutpoint, strMNType));
             } else if (strMode == "votingaddress") {
                 if (strFilter !="" && strOutpoint.find(strFilter) == std::string::npos) continue;
                 obj.push_back(Pair(strOutpoint, CBitcoinAddress(mn.keyIDVoting).ToString()));
