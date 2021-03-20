@@ -18,6 +18,7 @@ Help and Support
 * Document revision https://documentchain.org/support/revision/
 * Masternode setup https://documentchain.org/support/masternodes/
 * Block explorer (coin and documents) https://documentchain.org/explorer/
+* Documentchain Web API https://github.com/Krekeler/api-example-js
 
 License
 ---------------------
@@ -25,11 +26,8 @@ License
 DMS Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see https://opensource.org/licenses/MIT.
 
-Development Process
+Setup and Build Notes
 ---------------------
 
-The `master` branch is meant to be stable. Development is normally done in separate branches.
-[Tags](https://github.com/Krekeler/documentchain/tags) are created to indicate new official,
-stable release versions of DMS Core.
-
-The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
+* [Download last release](https://github.com/Krekeler/documentchain/releases)
+* [Build notes](doc/README.md#Building)
