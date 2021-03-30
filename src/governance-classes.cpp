@@ -753,10 +753,10 @@ bool CSuperblock::IsExpired()
         nExpirationBlocks = Params().GetConsensus().nSuperblockCycle;
         break;
     case SEEN_OBJECT_IS_VALID:
-        nExpirationBlocks = 576;
+        nExpirationBlocks = 240; // Dash: 576
         break;
     default:
-        nExpirationBlocks = 24;
+        nExpirationBlocks = 10;  // Dash: 24
         break;
     }
 

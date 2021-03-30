@@ -450,8 +450,8 @@ public:
 
 class CDeterministicMNManager
 {
-    static const int SNAPSHOT_LIST_PERIOD = 576; // once per day
-    static const int LISTS_CACHE_SIZE = 576;
+    static const int SNAPSHOT_LIST_PERIOD = 240; // once per day, Dash: 576
+    static const int LISTS_CACHE_SIZE = 240;
 
 public:
     CCriticalSection cs;

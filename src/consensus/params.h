@@ -75,8 +75,8 @@ struct LLMQParams {
     // required to negatively influence signing sessions highly correlates to the threshold percentage.
     int threshold;
 
-    // The interval in number blocks for DKGs and the creation of LLMQs. If set to 24 for example, a DKG will start
-    // every 24 blocks, which is approximately once every hour.
+    // The interval in number blocks for DKGs and the creation of LLMQs. If set to 10 for example, a DKG will start
+    // every 10 blocks, which is approximately once every hour.
     int dkgInterval;
 
     // The number of blocks per phase in a DKG session. There are 6 phases plus the mining phase that need to be processed
