@@ -38,6 +38,7 @@ QT_FORMS_UI = \
   qt/forms/documentlist.ui \
   qt/forms/editaddressdialog.ui \
   qt/forms/helpmessagedialog.ui \
+  qt/forms/information.ui \
   qt/forms/intro.ui \
   qt/forms/modaloverlay.ui \
   qt/forms/masternodelist.ui \
@@ -69,6 +70,7 @@ QT_MOC_CPP = \
   qt/moc_documentlist.cpp \
   qt/moc_editaddressdialog.cpp \
   qt/moc_guiutil.cpp \
+  qt/moc_information.cpp \
   qt/moc_intro.cpp \
   qt/moc_macdockiconhandler.cpp \
   qt/moc_macnotificationhandler.cpp \
@@ -140,6 +142,7 @@ BITCOIN_QT_H = \
   qt/editaddressdialog.h \
   qt/guiconstants.h \
   qt/guiutil.h \
+  qt/information.h \
   qt/intro.h \
   qt/macdockiconhandler.h \
   qt/macnotificationhandler.h \
@@ -282,6 +285,7 @@ BITCOIN_QT_WALLET_CPP = \
   qt/documentlist.cpp \
   qt/editaddressdialog.cpp \
   qt/masternodelist.cpp \
+  qt/information.cpp \
   qt/openuridialog.cpp \
   qt/overviewpage.cpp \
   qt/paymentrequestplus.cpp \

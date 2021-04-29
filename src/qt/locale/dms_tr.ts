@@ -5679,4 +5679,32 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Blockchain, %1bu belge dosyasının%2 en az %3 tarihinden beri var olduğunu ve değiştirilmediğini onaylar.</translation>
     </message>
 </context>
+<context>
+    <name>Information</name>
+    <message>
+        <location filename="../information.cpp"/>
+        <source>en/</source>
+        <translation>tr/</translation>
+    </message>
+    <message>
+        <source>Documentchain Information</source>
+        <translation>Documentchain Bilgileri</translation>
+    </message>
+    <message>
+        <source>My Notes</source>
+        <translation>Notlarım</translation>
+    </message>
+    <message>
+        <source>The recent information pages have not yet been loaded from %1</source>
+        <translation>Son bilgi sayfaları henüz %1'den yüklenmedi.</translation>
+    </message>
+    <message>
+        <source>You can find information on the project website at %1</source>
+        <translation>%1 adresindeki proje web sitesinde bilgi bulabilirsiniz.</translation>
+    </message>
+    <message>
+        <source>Here you can enter your own notes...</source>
+        <translation>Burada kendi notlarınızı girebilirsiniz...</translation>
+    </message>
+</context>
 </TS>

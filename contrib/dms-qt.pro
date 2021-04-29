@@ -7,6 +7,7 @@ FORMS += \
     ../src/qt/forms/documentlist.ui \
     ../src/qt/forms/editaddressdialog.ui \
     ../src/qt/forms/helpmessagedialog.ui \
+    ../src/qt/forms/information.ui \
     ../src/qt/forms/intro.ui \
     ../src/qt/forms/masternodelist.ui \
     ../src/qt/forms/qrdialog.ui \

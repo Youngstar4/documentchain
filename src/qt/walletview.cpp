@@ -75,6 +75,7 @@ WalletView::WalletView(const PlatformStyle *_platformStyle, QWidget *parent):
     receiveCoinsPage = new ReceiveCoinsDialog(platformStyle);
     sendCoinsPage = new SendCoinsDialog(platformStyle);
     documentsPage = new DocumentList(platformStyle);
+    informationPage = new Information(platformStyle);
 
     usedSendingAddressesPage = new AddressBookPage(platformStyle, AddressBookPage::ForEditing, AddressBookPage::SendingTab, this);
     usedReceivingAddressesPage = new AddressBookPage(platformStyle, AddressBookPage::ForEditing, AddressBookPage::ReceivingTab, this);
@@ -82,6 +83,7 @@ WalletView::WalletView(const PlatformStyle *_platformStyle, QWidget *parent):
     addWidget(overviewPage);
     addWidget(transactionsPage);
     addWidget(documentsPage);
+    addWidget(informationPage);
     addWidget(receiveCoinsPage);
     addWidget(sendCoinsPage);
 
@@ -143,6 +145,7 @@ void WalletView::setClientModel(ClientModel *_clientModel)
     overviewPage->setClientModel(_clientModel);
     sendCoinsPage->setClientModel(_clientModel);
     documentsPage->setClientModel(_clientModel);
+    informationPage->setClientModel(_clientModel);
     QSettings settings;
     if (!fLiteMode && settings.value("fShowMasternodesTab").toBool()) {
         masternodeListPage->setClientModel(_clientModel);
@@ -156,6 +159,7 @@ void WalletView::setWalletModel(WalletModel *_walletModel)
     // Put transaction list in tabs
     transactionView->setModel(_walletModel);
     documentsPage->setWalletModel(_walletModel);
+    informationPage->setWalletModel(_walletModel);
     overviewPage->setWalletModel(_walletModel);
     QSettings settings;
     if (!fLiteMode && settings.value("fShowMasternodesTab").toBool()) {
@@ -242,6 +246,11 @@ void WalletView::gotoMasternodePage()
     if (!fLiteMode && settings.value("fShowMasternodesTab").toBool()) {
         setCurrentWidget(masternodeListPage);
     }
+}
+
+void WalletView::gotoInformationPage()
+{
+    setCurrentWidget(informationPage);
 }
 
 void WalletView::gotoReceiveCoinsPage()

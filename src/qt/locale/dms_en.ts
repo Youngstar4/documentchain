@@ -554,6 +554,10 @@
         <translation>Show diagnostic information</translation>
     </message>
     <message>
+        <source>Up-to-date information</source>
+        <translation>Up-to-date information</translation>
+    </message>
+    <message>
         <location line="+1"/>
         <source>&amp;Debug console</source>
         <translation>&amp;Debug console</translation>
@@ -7219,6 +7223,34 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>The blockchain confirms that %1this document file%2 exists at least since %3 and has not been modified.</source>
         <translation>The blockchain confirms that %1this document file%2 exists at least since %3 and has not been modified.</translation>
+    </message>
+</context>
+<context>
+    <name>Information</name>
+    <message>
+        <location filename="../information.cpp"/>
+        <source>en/</source>
+        <translation>en/</translation>
+    </message>
+    <message>
+        <source>Documentchain Information</source>
+        <translation>Documentchain Information</translation>
+    </message>
+    <message>
+        <source>My Notes</source>
+        <translation>My Notes</translation>
+    </message>
+    <message>
+        <source>The recent information pages have not yet been loaded from %1</source>
+        <translation>The recent information pages have not yet been loaded from %1</translation>
+    </message>
+    <message>
+        <source>You can find information on the project website at %1</source>
+        <translation>You can find information on the project website at %1</translation>
+    </message>
+    <message>
+        <source>Here you can enter your own notes...</source>
+        <translation>Here you can enter your own notes...</translation>
     </message>
 </context>
 </TS>

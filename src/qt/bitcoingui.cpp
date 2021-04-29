@@ -28,6 +28,7 @@
 
 #ifdef ENABLE_WALLET
 #include "documentlist.h"
+#include "information.h"
 #include "walletframe.h"
 #include "walletmodel.h"
 #endif // ENABLE_WALLET
@@ -105,6 +106,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *_platformStyle, const NetworkStyle *
     overviewAction(0),
     historyAction(0),
     documentAction(0),
+    informationAction(0),
     masternodeAction(0),
     quitAction(0),
     sendCoinsAction(0),
@@ -364,6 +366,7 @@ void BitcoinGUI::createActions()
 #endif
     tabGroup->addAction(historyAction);
 
+#ifdef ENABLE_WALLET
     documentAction = new QAction(QIcon(":/icons/" + theme + "/document"), tr("&Documents"), this);
     documentAction->setStatusTip(tr("Document Revision"));
     documentAction->setToolTip(documentAction->statusTip());
@@ -375,7 +378,6 @@ void BitcoinGUI::createActions()
 #endif
     tabGroup->addAction(documentAction);
 
-#ifdef ENABLE_WALLET
     QSettings settings;
     if (!fLiteMode && settings.value("fShowMasternodesTab").toBool()) {
         masternodeAction = new QAction(QIcon(":/icons/" + theme + "/masternodes"), tr("&Masternodes"), this);
@@ -391,6 +393,17 @@ void BitcoinGUI::createActions()
         connect(masternodeAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
         connect(masternodeAction, SIGNAL(triggered()), this, SLOT(gotoMasternodePage()));
     }
+
+    informationAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("&Information"), this);
+    informationAction->setStatusTip(tr("Up-to-date information"));
+    informationAction->setToolTip(informationAction->statusTip());
+    informationAction->setCheckable(true);
+#ifdef Q_OS_MAC
+    informationAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_7));
+#else
+    informationAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_7));
+#endif
+    tabGroup->addAction(informationAction);
 
     // These showNormalIfMinimized are needed because Send Coins and Receive Coins
     // can be triggered from the tray menu, and need to show the GUI to be useful.
@@ -408,6 +421,8 @@ void BitcoinGUI::createActions()
     connect(historyAction, SIGNAL(triggered()), this, SLOT(gotoHistoryPage()));
     connect(documentAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(documentAction, SIGNAL(triggered()), this, SLOT(gotoDocumentPage()));
+    connect(informationAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    connect(informationAction, SIGNAL(triggered()), this, SLOT(gotoInformationPage()));
 #endif // ENABLE_WALLET
 
     quitAction = new QAction(QIcon(":/icons/" + theme + "/quit"), tr("E&xit"), this);
@@ -597,6 +612,7 @@ void BitcoinGUI::createToolBars()
         {
             toolbar->addAction(masternodeAction);
         }
+        toolbar->addAction(informationAction);
         toolbar->setMovable(false); // remove unused icon in upper left corner
         overviewAction->setChecked(true);
 
@@ -918,10 +934,8 @@ void BitcoinGUI::gotoHistoryPage()
 
 void BitcoinGUI::gotoDocumentPage(const QStringList newFiles)
 {
-    if (!documentAction->isChecked())
-        documentAction->setChecked(true);
-    if (walletFrame)
-        walletFrame->gotoDocumentPage(newFiles);
+    documentAction->setChecked(true);
+    if (walletFrame) walletFrame->gotoDocumentPage(newFiles);
 }
 
 void BitcoinGUI::gotoMasternodePage()
@@ -931,6 +945,12 @@ void BitcoinGUI::gotoMasternodePage()
         masternodeAction->setChecked(true);
         if (walletFrame) walletFrame->gotoMasternodePage();
     }
+}
+
+void BitcoinGUI::gotoInformationPage()
+{
+    informationAction->setChecked(true);
+    if (walletFrame) walletFrame->gotoInformationPage();
 }
 
 void BitcoinGUI::gotoReceiveCoinsPage()

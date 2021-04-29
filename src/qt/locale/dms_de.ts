@@ -445,6 +445,10 @@
         <translation>Diagnoseinformation anzeigen</translation>
     </message>
     <message>
+        <source>Up-to-date information</source>
+        <translation>Aktuelle Informationen</translation>
+    </message>
+    <message>
         <source>&amp;Debug console</source>
         <translation>&amp;Debugkonsole</translation>
     </message>
@@ -5682,6 +5686,34 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>The blockchain confirms that %1this document file%2 exists at least since %3 and has not been modified.</source>
         <translation>Die Blockchain bestätigt, dass %1diese Dokumentdatei%2 seit %3 vorhanden ist und unverändert vorliegt.</translation>
+    </message>
+</context>
+<context>
+    <name>Information</name>
+    <message>
+        <location filename="../information.cpp"/>
+        <source>en/</source>
+        <translation>de/</translation>
+    </message>
+    <message>
+        <source>Documentchain Information</source>
+        <translation>Documentchain-Informationen</translation>
+    </message>
+    <message>
+        <source>My Notes</source>
+        <translation>Meine Notizen</translation>
+    </message>
+    <message>
+        <source>The recent information pages have not yet been loaded from %1</source>
+        <translation>Die aktuellen Informationen wurden noch nicht von %1 geladen.</translation>
+    </message>
+    <message>
+        <source>You can find information on the project website at %1</source>
+        <translation>Sie finden auch auf der Projekt-Webseite %1 weitere Informationen.</translation>
+    </message>
+    <message>
+        <source>Here you can enter your own notes...</source>
+        <translation>Hier können Sie Ihre eigenen Notizen hinterlegen...</translation>
     </message>
 </context>
 </TS>

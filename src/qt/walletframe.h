@@ -72,6 +72,8 @@ public Q_SLOTS:
     void gotoDocumentPage(const QStringList newFiles = QStringList());
     /** Switch to masternode page */
     void gotoMasternodePage();
+    /** Switch to information page */
+    void gotoInformationPage();
     /** Switch to receive coins page */
     void gotoReceiveCoinsPage();
     /** Switch to send coins page */

@@ -8,6 +8,7 @@
 
 #include "amount.h"
 #include "documentlist.h"
+#include "information.h"
 #include "masternodelist.h"
 
 #include <QStackedWidget>
@@ -70,6 +71,7 @@ private:
     AddressBookPage *usedSendingAddressesPage;
     AddressBookPage *usedReceivingAddressesPage;
     DocumentList *documentsPage;
+    Information *informationPage;
     MasternodeList *masternodeListPage;
 
     TransactionView *transactionView;
@@ -87,6 +89,8 @@ public Q_SLOTS:
     void gotoDocumentPage(const QStringList newFiles = QStringList());
     /** Switch to masternode page */
     void gotoMasternodePage();
+    /** Switch to information page */
+    void gotoInformationPage();
     /** Switch to receive coins page */
     void gotoReceiveCoinsPage();
     /** Switch to send coins page */

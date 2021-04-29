@@ -34,6 +34,7 @@ class HelpMessageDialog;
 class ModalOverlay;
 class DocumentList;
 class MasternodeList;
+class Information;
 
 class CWallet;
 
@@ -100,6 +101,7 @@ private:
     QAction *overviewAction;
     QAction *historyAction;
     QAction *documentAction;
+    QAction *informationAction;
     QAction *masternodeAction;
     QAction *quitAction;
     QAction *sendCoinsAction;
@@ -232,6 +234,8 @@ private Q_SLOTS:
     void gotoDocumentPage(const QStringList newFiles = QStringList());
     /** Switch to masternode page */
     void gotoMasternodePage();
+    /** Switch to information page */
+    void gotoInformationPage();
     /** Switch to receive coins page */
     void gotoReceiveCoinsPage();
     /** Switch to send coins page */
