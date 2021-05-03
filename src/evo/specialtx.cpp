@@ -26,6 +26,14 @@ bool CheckSpecialTx(const CTransaction& tx, const CBlockIndex* pindexPrev, CVali
         return state.DoS(10, false, REJECT_INVALID, "bad-tx-type");
     }
 
+    // tmp code for testnet, TODO: remove
+    // testnet had initially used other (incompatible) llmq values
+    if (Params().NetworkIDString() == CBaseChainParams::TESTNET && pindexPrev->nHeight+1 < 228630) {
+        LogPrintf("specialtx.cpp %s -- testnet accept block %d\n", __func__, pindexPrev->nHeight+1);
+        return true;
+    }
+    // end of tmp code
+
     switch (tx.nType) {
     case TRANSACTION_PROVIDER_REGISTER:
         return CheckProRegTx(tx, pindexPrev, state);

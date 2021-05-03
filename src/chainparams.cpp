@@ -108,11 +108,24 @@ static CBlock FindDevNetGenesisBlock(const Consensus::Params& params, const CBlo
 }
 
 // this one is for testing only
+static Consensus::LLMQParams llmq5_60 = {
+        .type = Consensus::LLMQ_5_60,
+        .name = "llmq_5",
+        .size = 5,
+        .minSize = 4,
+        .threshold = 3,
+
+        .dkgInterval = 10, // one DKG per hour
+        .dkgPhaseBlocks = 2,
+        .dkgMiningWindowStart = 10, // dkgPhaseBlocks * 5 = after finalization
+        .dkgMiningWindowEnd = 18,
+};
+// this one is for testing only
 static Consensus::LLMQParams llmq10_60 = {
         .type = Consensus::LLMQ_10_60,
         .name = "llmq_10",
         .size = 10,
-        .minSize = 6,
+        .minSize = 8,
         .threshold = 6,
 
         .dkgInterval = 10, // one DKG per hour
@@ -121,12 +134,12 @@ static Consensus::LLMQParams llmq10_60 = {
         .dkgMiningWindowEnd = 18,
 };
 
-static Consensus::LLMQParams llmq50_60 = {
-        .type = Consensus::LLMQ_50_60,
-        .name = "llmq_50_60",
-        .size = 50,
-        .minSize = 40,
-        .threshold = 30,
+static Consensus::LLMQParams llmq30_60 = {
+        .type = Consensus::LLMQ_30_60,
+        .name = "llmq_30_60",
+        .size = 30,
+        .minSize = 24,
+        .threshold = 18,
 
         .dkgInterval = 10, // one DKG per hour
         .dkgPhaseBlocks = 2,
@@ -134,12 +147,12 @@ static Consensus::LLMQParams llmq50_60 = {
         .dkgMiningWindowEnd = 18,
 };
 
-static Consensus::LLMQParams llmq400_60 = {
-        .type = Consensus::LLMQ_400_60,
-        .name = "llmq_400_51",
-        .size = 400,
-        .minSize = 300,
-        .threshold = 240,
+static Consensus::LLMQParams llmq150_60 = {
+        .type = Consensus::LLMQ_150_60,
+        .name = "llmq_150_60",
+        .size = 150,
+        .minSize = 120,
+        .threshold = 90,
 
         .dkgInterval = 10 * 12, // one DKG every 12 hours
         .dkgPhaseBlocks = 4,
@@ -148,12 +161,12 @@ static Consensus::LLMQParams llmq400_60 = {
 };
 
 // Used for deployment and min-proto-version signalling, so it needs a higher threshold
-static Consensus::LLMQParams llmq400_85 = {
-        .type = Consensus::LLMQ_400_85,
-        .name = "llmq_400_85",
-        .size = 400,
-        .minSize = 350,
-        .threshold = 340,
+static Consensus::LLMQParams llmq150_85 = {
+        .type = Consensus::LLMQ_150_85,
+        .name = "llmq_150_85",
+        .size = 150,
+        .minSize = 135,
+        .threshold = 120,
 
         .dkgInterval = 10 * 24, // one DKG every 24 hours
         .dkgPhaseBlocks = 4,
@@ -293,9 +306,9 @@ public:
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
         // long living quorum params
-        consensus.llmqs[Consensus::LLMQ_50_60] = llmq50_60;
-        consensus.llmqs[Consensus::LLMQ_400_60] = llmq400_60;
-        consensus.llmqs[Consensus::LLMQ_400_85] = llmq400_85;
+        consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60;
+        consensus.llmqs[Consensus::LLMQ_150_60] = llmq150_60;
+        consensus.llmqs[Consensus::LLMQ_150_85] = llmq150_85;
 
         fMiningRequiresPeers = true;
         fDefaultConsistencyChecks = false;
@@ -468,9 +481,9 @@ public:
         nExtCoinType = 1;
 
         // long living quorum params
-        consensus.llmqs[Consensus::LLMQ_50_60] = llmq50_60;
-        consensus.llmqs[Consensus::LLMQ_400_60] = llmq400_60;
-        consensus.llmqs[Consensus::LLMQ_400_85] = llmq400_85;
+        consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60;
+        consensus.llmqs[Consensus::LLMQ_150_60] = llmq150_60;
+        consensus.llmqs[Consensus::LLMQ_150_85] = llmq150_85;
 
         fMiningRequiresPeers = true;
         fDefaultConsistencyChecks = false;
@@ -633,9 +646,9 @@ public:
         nExtCoinType = 1;
 
         // long living quorum params
-        consensus.llmqs[Consensus::LLMQ_50_60] = llmq50_60;
-        consensus.llmqs[Consensus::LLMQ_400_60] = llmq400_60;
-        consensus.llmqs[Consensus::LLMQ_400_85] = llmq400_85;
+        consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60;
+        consensus.llmqs[Consensus::LLMQ_150_60] = llmq150_60;
+        consensus.llmqs[Consensus::LLMQ_150_85] = llmq150_85;
 
         fMiningRequiresPeers = true;
         fDefaultConsistencyChecks = false;
@@ -792,7 +805,7 @@ public:
 
         // long living quorum params
         consensus.llmqs[Consensus::LLMQ_10_60] = llmq10_60;
-        consensus.llmqs[Consensus::LLMQ_50_60] = llmq50_60;
+        consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60;
     }
 
     void UpdateBIP9Parameters(Consensus::DeploymentPos d, int64_t nStartTime, int64_t nTimeout)
