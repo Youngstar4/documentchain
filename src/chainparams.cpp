@@ -225,8 +225,9 @@ public:
 
         // Deployment of BIP68, BIP112, and BIP113.
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1617235200; // Apr 1th, 2021
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1648771200; // Apr 1th, 2022
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1622505600; // Jun 1th, 2021
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1654041600;   // Jun 1th, 2022
+
 
         // Deployment of DIP0001, Documentchain: active since block 143481
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].bit = 1;
@@ -244,8 +245,8 @@ public:
 
         // Deployment of DIP0003
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].bit = 3;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nStartTime = 1619827200; // May 1th, 2021
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nTimeout = 1651363200;   // May 1th, 2022
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nStartTime = 1625097600; // Jul 1th, 2021
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nTimeout = 1656633600;   // Jul 1th, 2022
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nWindowSize = 400;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nThreshold = 320; // 80% of 400
 
