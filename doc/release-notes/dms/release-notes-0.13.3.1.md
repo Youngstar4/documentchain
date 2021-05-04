@@ -1,18 +1,20 @@
-DMS Core version 0.13.3.0 "Ivan", 20 March 2021
+DMS Core version 0.13.3.1 "Ivan", 4 May 2021
 ======================================
 
 Release is available from:
 
-  <https://github.com/Krekeler/documentchain/releases/tag/v0.13.3.0>
+  <https://github.com/Krekeler/documentchain/releases/tag/v0.13.3.1>
 
 ## Most important changes
 * DIP0002 - Special Transactions
 * DIP0003 - Deterministic Masternode List
 * DIP0004 - Simplified Verification of Deterministic Masternode Lists
+* BIP68, BIP112, and BIP113 (CSV)
+* Information and notes page on main form
 
 ## New code base
 
-DMS Core was newly forked from Dash Core 0.13.3.
+DMS Core was newly forked from Dash Core 0.13.3
 See Dash release notes for more news:
 
 * [0.13.0](../dash/release-notes-0.13.0.md)
