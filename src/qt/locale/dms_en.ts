@@ -2039,13 +2039,6 @@
         <translation>The user interface language can be set here. This setting will take effect after restarting %1.</translation>
     </message>
     <message>
-        <location line="+21"/>
-        <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/projects/p/dash/</source>
-        <translation>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/projects/p/dash/</translation>
-    </message>
-    <message>
         <location line="+19"/>
         <source>User Interface Theme:</source>
         <translation>User Interface Theme:</translation>

@@ -1105,12 +1105,6 @@ Adress: %4
         <translation>Användargränssnittspråket kan ställas in här. Denna inställning träder i kraft efter att DMS startats om.</translation>
     </message>
     <message>
-        <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/projects/p/dash/</source>
-        <translation>Fattas språk eller är det en ofullständig översättning? Hjälp till att bidra med översättningar här:
-https://www.transifex.com/projects/p/dash/</translation>
-    </message>
-    <message>
         <source>&amp;Unit to show amounts in:</source>
         <translation>&amp;Enhet att visa mängder i: </translation>
     </message>

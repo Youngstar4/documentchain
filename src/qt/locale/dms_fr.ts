@@ -1605,12 +1605,6 @@
         <translation>La langue de l’interface utilisateur peut être définie ici. Ce réglage sera pris en compte après redémarrage de %1.</translation>
     </message>
     <message>
-        <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/projects/p/dash/</source>
-        <translation>Langage manquant ou traduction incomplète ? Participez aux traductions ici :
-https://www.transifex.com/projects/p/dash/</translation>
-    </message>
-    <message>
         <source>User Interface Theme:</source>
         <translation>Thème d'interface de l'utilisateur :</translation>
     </message>

@@ -1605,12 +1605,6 @@
         <translation>Тук можете да промените езика на потребителския изглед. Настройката ще влезе в сила след рестартиране %1.</translation>
     </message>
     <message>
-        <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/projects/p/dash/</source>
-        <translation>Липсва език или превода е непълен? Можете да помогнете с превода тук:
-https://www.transifex.com/projects/p/dash/</translation>
-    </message>
-    <message>
         <source>User Interface Theme:</source>
         <translation>Изглед на потребителския интерфейс:</translation>
     </message>
