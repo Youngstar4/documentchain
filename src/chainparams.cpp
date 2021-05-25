@@ -611,7 +611,7 @@ public:
         pchMessageStart[2] = 0x4d;  // M
         pchMessageStart[3] = 0x53;  // S
         vAlertPubKey = ParseHex("04c1b8a122864820a9e1c3b1a39263ad8c4b1eec0044dc6097af47cfd071db01f16305896f67d97f5cf69477a68310dc59a80b29f9f3ee9626794c16a88607f4bc");
-        nDefaultPort = 41419;
+        nDefaultPort = 41417;
         nPruneAfterHeight = 1000;
 
         genesis = CreateGenesisBlock(1535270402, 0, 0x207fffff, 1, 10 * COIN);
@@ -662,7 +662,7 @@ public:
         nPoolMaxTransactions = 3;
         nFulfilledRequestExpireTime = 5*60; // fulfilled requests expire in 5 minutes
 
-        vSporkAddresses = {"DJ7YjNsc8TYHetDbwsxeNZTzyQzQPKCaxW"};
+        vSporkAddresses = {"yM55w6nX56JJsa1FnsnReVajKi4SRusDp7"};
         nMinSporkKeys = 1;
         // devnets are started with no blocks and no MN, so we can't check for upgraded MN (as there are none)
         fBIP9CheckMasternodesUpgraded = false;
