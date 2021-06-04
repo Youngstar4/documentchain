@@ -107,7 +107,7 @@ void CActiveDeterministicMasternodeManager::Init()
         return;
     }
 
-    if (Params().NetworkIDString() != CBaseChainParams::REGTEST) {
+    if (Params().RequireRoutableExternalIP()) {
         // Check socket connectivity
         LogPrintf("CActiveDeterministicMasternodeManager::Init -- Checking inbound connection to '%s'\n", activeMasternodeInfo.service.ToString());
         SOCKET hSocket;
@@ -162,7 +162,7 @@ bool CActiveDeterministicMasternodeManager::GetLocalAddress(CService& addrRet)
 {
     // First try to find whatever local address is specified by externalip option
     bool fFoundLocal = GetLocal(addrRet) && CMasternode::IsValidNetAddr(addrRet);
-    if (!fFoundLocal && Params().NetworkIDString() == CBaseChainParams::REGTEST) {
+    if (!fFoundLocal && !Params().RequireRoutableExternalIP()) {
         if (Lookup("127.0.0.1", addrRet, GetListenPort(), false)) {
             fFoundLocal = true;
         }
@@ -197,7 +197,7 @@ void CActiveLegacyMasternodeManager::ManageState(CConnman& connman)
         LogPrint("masternode", "CActiveLegacyMasternodeManager::ManageState -- Not a masternode, returning\n");
         return;
     }
-    if (Params().NetworkIDString() != CBaseChainParams::REGTEST && !masternodeSync.IsBlockchainSynced()) {
+    if (Params().RequireRoutableExternalIP() && !masternodeSync.IsBlockchainSynced()) {
         nState = ACTIVE_MASTERNODE_SYNC_IN_PROCESS;
         LogPrintf("CActiveLegacyMasternodeManager::ManageState -- %s: %s\n", GetStateString(), GetStatus());
         return;
@@ -359,7 +359,7 @@ void CActiveLegacyMasternodeManager::ManageStateInitial(CConnman& connman)
         }
     }
 
-    if (!fFoundLocal && Params().NetworkIDString() == CBaseChainParams::REGTEST) {
+    if (!fFoundLocal && !Params().RequireRoutableExternalIP()) {
         if (Lookup("127.0.0.1", activeMasternodeInfo.service, GetListenPort(), false)) {
             fFoundLocal = true;
         }
@@ -387,7 +387,7 @@ void CActiveLegacyMasternodeManager::ManageStateInitial(CConnman& connman)
         return;
     }
 
-    if (Params().NetworkIDString() != CBaseChainParams::REGTEST) {
+    if (Params().RequireRoutableExternalIP()) {
         // Check socket connectivity
         LogPrintf("CActiveLegacyMasternodeManager::ManageStateInitial -- Checking inbound connection to '%s'\n", activeMasternodeInfo.service.ToString());
         SOCKET hSocket;
