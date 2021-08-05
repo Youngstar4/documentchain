@@ -2,6 +2,7 @@
 #include "ui_masternodelist.h"
 
 #include "activemasternode.h"
+#include "bls/bls.h"
 #include "clientmodel.h"
 #include "clientversion.h"
 #include "guiutil.h"
@@ -11,15 +12,21 @@
 #include "masternodeman.h"
 #include "netbase.h"
 #include "qrdialog.h"
+#include "rpcconsole.h"
 #include "sync.h"
 #include "wallet/wallet.h"
 #include "walletmodel.h"
 
 #include <univalue.h>
 
+#include <QInputDialog>
 #include <QMessageBox>
 #include <QTimer>
 #include <QtGui/QClipboard>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QSettings>
 
 int GetOffsetFromUtc()
 {
@@ -647,6 +654,156 @@ void MasternodeList::on_startMissingButton_clicked()
     }
 
     StartAll("start-missing");
+}
+
+/** Switch masternode to DIP3
+    create missing keys and owner address
+    prepare, sign and send provider registration transaction (ProRegTx)
+    (c) Aug 2021 The Documentchain developers
+    code is needed only for transition period, no need to translate or optimze
+*/
+void MasternodeList::on_convertDIP3Button_clicked()
+{
+    QString mnAlias;
+    QString mnIP;
+    QString addrPayout;
+    {
+        LOCK(cs_mymnlist);
+        QItemSelectionModel* selectionModel = ui->tableWidgetMyMasternodes->selectionModel();
+        QModelIndexList selected = selectionModel->selectedRows();
+        if (selected.count() == 0)
+            return;
+        QModelIndex index = selected.at(0);
+        int nSelectedRow = index.row();
+        mnAlias = ui->tableWidgetMyMasternodes->item(nSelectedRow, 0)->text();
+        mnIP = ui->tableWidgetMyMasternodes->item(nSelectedRow, 1)->text();
+        addrPayout = ui->tableWidgetMyMasternodes->item(nSelectedRow, 6)->text();
+    }
+
+    std::string result;
+    std::string filtered;
+    QJsonDocument jdoc;
+    QJsonObject jobj;
+    QString txCollateral;
+    QString idxCollateral;
+    QString addrOwner;
+    QString blsSecret;
+    QString blsPublic;
+
+    try {
+        // masternodelist
+        RPCConsole::RPCExecuteCommandLine(result, "masternodelist json " + mnIP.toStdString(), &filtered);
+        jdoc = QJsonDocument::fromJson(QByteArray::fromStdString(result));
+        jobj = jdoc.object().begin().value().toObject();
+        // already DIP3?
+        if (jobj.value("type").toString() == "deterministic") {
+            QMessageBox::information(this, "Already done", "This masternode is already a DIP3 node.");
+            return;
+        }
+        // collateral tx id and index
+        txCollateral = jdoc.object().begin().key();
+        idxCollateral = txCollateral.split('-')[1];
+        txCollateral = txCollateral.split('-')[0];
+
+        // tx fee, quick check only, normally a MN has enough inputs from rewards
+        RPCConsole::RPCExecuteCommandLine(result, 
+            "listunspent 6 9999999 \"[\\\"" + addrPayout.toStdString() + "\\\"]\"", 
+            &filtered);
+        QJsonDocument jdoc = QJsonDocument::fromJson(QByteArray::fromStdString(result));
+        QJsonArray jary = jdoc.array();
+        jdoc = QJsonDocument::fromJson(QByteArray::fromStdString(result));
+        if (jdoc.array().count() < 2) {
+            QMessageBox::information(this, "Fee required", 
+                 "The masternode payout address \"" + addrPayout
+               + "\" requires an available balance to pay the transaction fee (~0.01 DMS).");
+            return;
+        }
+
+        if (QMessageBox::question(this, tr("DIP3 Update"), 
+            "Prepare, sign and send Provider Registration Transaction?",
+            QMessageBox::Yes | QMessageBox::Cancel,
+            QMessageBox::Yes) != QMessageBox::Yes) return;
+
+        // DIP3 info is additionally stored in "my-dip3-masternodes.txt"
+        QSettings mymntxt(GUIUtil::boostPathToQString(GetDataDir() / "dip3-masternodes.ini"), QSettings::IniFormat);
+        mymntxt.beginGroup(mnAlias);
+        addrOwner = mymntxt.value("ownerKeyAddr").toString();
+        blsSecret = mymntxt.value("operatorPrivKey").toString();
+        blsPublic = mymntxt.value("operatorPubKey").toString();
+        mymntxt.setValue("ipAndPort", mnIP);
+        mymntxt.setValue("payoutAddress", addrPayout);
+
+        // create owner address
+        if (addrOwner.isEmpty()) {
+            RPCConsole::RPCExecuteCommandLine(result, "getnewaddress \"" + mnAlias.toStdString() + " (owner)\"", &filtered);
+            addrOwner = QString::fromStdString(result);
+            mymntxt.setValue("ownerKeyAddr", addrOwner);
+        }
+        // create bls key pair
+        if (blsSecret.isEmpty()) {
+            CBLSSecretKey blskey;
+            blskey.MakeNewKey();
+            blsSecret = QString::fromStdString(blskey.ToString());
+            blsPublic = QString::fromStdString(blskey.GetPublicKey().ToString());
+            mymntxt.setValue("operatorPrivKey", blsSecret);
+            mymntxt.setValue("operatorPubKey", blsPublic);
+        }
+
+        // unlock wallet
+        WalletModel::UnlockContext ctx(walletModel->requestUnlock());
+        if (!ctx.isValid()) 
+            return;
+
+        // protx register_prepare collateralHash collateralIndex ipAndPort ownerKeyAddr operatorPubKey ownerKeyAddr 0 payoutAddress
+        QString cmd = QString("protx register_prepare %1 %2 %3 %4 %5 %4 0 %6")
+                      .arg(txCollateral)
+                      .arg(idxCollateral)
+                      .arg(mnIP)
+                      .arg(addrOwner)
+                      .arg(blsPublic)
+                      .arg(addrPayout);
+        RPCConsole::RPCExecuteCommandLine(result, cmd.toStdString(), &filtered);
+        jdoc = QJsonDocument::fromJson(QByteArray::fromStdString(result));
+        jobj = jdoc.object();
+        QString tx = jobj.value("tx").toString();
+        QString signMsg = jobj.value("signMessage").toString();
+
+        // signmessage payoutAddress signMessage
+        cmd = QString("signmessage %1 %2").arg(addrPayout).arg(signMsg);
+        RPCConsole::RPCExecuteCommandLine(result, cmd.toStdString(), &filtered);
+
+        // protx register_submit tx sig
+        cmd = QString("protx register_submit %1 %2").arg(tx).arg(QString::fromStdString(result));
+        RPCConsole::RPCExecuteCommandLine(result, cmd.toStdString(), &filtered);
+        QString proregtx = QString::fromStdString(result);
+
+        // store in "my-dip3-masternodes.txt"
+        mymntxt.setValue("proregtx", proregtx);
+        mymntxt.setValue("collateralHash", txCollateral);
+        mymntxt.setValue("collateralIndex", idxCollateral);
+        mymntxt.endGroup();
+
+        // update dms.conf on mn server
+        QInputDialog::getMultiLineText(this, "Action required", 
+            "Update dms.conf on server",
+            QString("Please add the masternodeblsprivkey to the masternodes's dms.conf:\n")
+          + QString("ssh %1 -l (username)\n").arg(mnIP.split(':')[0])
+          + QString("nano .dmscore/dms.conf\n")
+          + QString("Paste the following line into dms.conf:\n")
+          + QString("masternodeblsprivkey=%1\n").arg(blsSecret));
+
+        // done
+        QMessageBox::information(this, "DIP3 Update", 
+            QString("Done. As soon as the provider register transaction is mined, the masternode is marked as DIP3.")
+          + QString("\n\nProRegTx id: %1").arg(proregtx)
+          + QString("\nYour DIP3 data can be found in the text file\n%1").arg(mymntxt.fileName()));
+    }
+    catch (const std::exception& e) {
+      QMessageBox::critical(this, "Error", QString::fromStdString(e.what()));
+    }
+    catch (...) {
+      QMessageBox::critical(this, "Error", "Unknown error");
+    }
 }
 
 void MasternodeList::on_tableWidgetMyMasternodes_itemSelectionChanged()

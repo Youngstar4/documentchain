@@ -169,6 +169,13 @@
               </widget>
              </item>
              <item>
+              <widget class="QPushButton" name="convertDIP3Button">
+               <property name="text">
+                <string>DIP3 Update...</string>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QPushButton" name="UpdateButton">
                <property name="text">
                 <string>&amp;Update status</string>
