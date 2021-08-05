@@ -114,6 +114,7 @@ UniValue getgenerate(const JSONRPCRequest& request)
             "\nReturn if the server is set to generate coins or not. The default is false.\n"
             "It is set with the command line argument -gen (or " + std::string(BITCOIN_CONF_FILENAME) + " setting gen)\n"
             "It can also be set with the setgenerate call.\n"
+            "See the getmininginfo call for detailed mining information.\n"
             "\nResult\n"
             "true|false      (boolean) If the server is set to generate coins or not\n"
             "\nExamples:\n"
@@ -293,16 +294,17 @@ UniValue getmininginfo(const JSONRPCRequest& request)
             "\nReturns a json object containing mining-related information."
             "\nResult:\n"
             "{\n"
-            "  \"blocks\": nnn,             (numeric) The current block\n"
-            "  \"currentblocksize\": nnn,   (numeric) The last block size\n"
-            "  \"currentblocktx\": nnn,     (numeric) The last block transaction\n"
-            "  \"difficulty\": xxx.xxxxx    (numeric) The current difficulty\n"
-            "  \"errors\": \"...\"            (string) Current errors\n"
-            "  \"genproclimit\": n          (numeric) The processor limit for generation. -1 if no generation. (see getgenerate or setgenerate calls)\n"
-            "  \"networkhashps\": nnn,      (numeric) The network hashes per second\n"
-            "  \"pooledtx\": n              (numeric) The size of the mempool\n"
+            "  \"blocks\": n,               (numeric) The current block\n"
+            "  \"currentblocksize\": n,     (numeric) The last block size\n"
+            "  \"currentblocktx\": n,       (numeric) The last block transaction\n"
+            "  \"difficulty\": x.xxx,       (numeric) The current difficulty\n"
+            "  \"errors\": \"...\",           (string) Current errors\n"
+            "  \"genproclimit\": n,         (numeric) The processor limit for generation. -1 if no generation. (see getgenerate or setgenerate calls)\n"
+            "  \"networkhashps\": x.xxx,    (numeric) The network hashes per second\n"
+            "  \"pooledtx\": n,             (numeric) The size of the mempool\n"
             "  \"chain\": \"xxxx\",           (string) current network name as defined in BIP70 (main, test, regtest)\n"
             "  \"generate\": true|false     (boolean) If the generation is on or off (see getgenerate or setgenerate calls)\n"
+            "  \"hashps\": x.xxx,           (numeric) This wallet's hashes per second\n"
             "}\n"
             "\nExamples:\n"
             + HelpExampleCli("getmininginfo", "")
@@ -324,6 +326,7 @@ UniValue getmininginfo(const JSONRPCRequest& request)
     obj.push_back(Pair("chain",            Params().NetworkIDString()));
 #if ENABLE_MINER
     obj.push_back(Pair("generate",         getgenerate(request)));
+    obj.push_back(Pair("hashps",           (double)dTotalHashrate));
 #endif // ENABLE_MINER
     return obj;
 }
