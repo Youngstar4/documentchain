@@ -115,7 +115,7 @@ static Consensus::LLMQParams llmq5_60 = {
         .minSize = 4,
         .threshold = 3,
 
-        .dkgInterval = 10, // one DKG per hour
+        .dkgInterval = 20, // one DKG every 2 hours
         .dkgPhaseBlocks = 2,
         .dkgMiningWindowStart = 10, // dkgPhaseBlocks * 5 = after finalization
         .dkgMiningWindowEnd = 18,
@@ -128,7 +128,7 @@ static Consensus::LLMQParams llmq10_60 = {
         .minSize = 8,
         .threshold = 6,
 
-        .dkgInterval = 10, // one DKG per hour
+        .dkgInterval = 20, // one DKG every 2 hours
         .dkgPhaseBlocks = 2,
         .dkgMiningWindowStart = 10, // dkgPhaseBlocks * 5 = after finalization
         .dkgMiningWindowEnd = 18,
@@ -141,7 +141,7 @@ static Consensus::LLMQParams llmq30_60 = {
         .minSize = 24,
         .threshold = 18,
 
-        .dkgInterval = 10, // one DKG per hour
+        .dkgInterval = 20, // one DKG every 2 hours
         .dkgPhaseBlocks = 2,
         .dkgMiningWindowStart = 10, // dkgPhaseBlocks * 5 = after finalization
         .dkgMiningWindowEnd = 18,
@@ -543,16 +543,16 @@ class CDevNetParams : public CChainParams {
 public:
     CDevNetParams() {
         strNetworkID = "dev";
-        consensus.nSubsidyDecreaseStart = 1001;
-        consensus.nMasternodePaymentsStartBlock = 4010; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
-        consensus.nMasternodePaymentsIncreaseBlock = 4030;
+        consensus.nSubsidyDecreaseStart = 1001;  // 44001
+        consensus.nMasternodePaymentsStartBlock = 2010; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
+        consensus.nMasternodePaymentsIncreaseBlock = 2030;
         consensus.nMasternodePaymentsIncreasePeriod = 10;
-        consensus.nInstantSendConfirmationsRequired = 2;
-        consensus.nInstantSendKeepLock = 6;
-        consensus.nBudgetPaymentsStartBlock = 4100;
-        consensus.nBudgetPaymentsCycleBlocks = 50;
-        consensus.nBudgetPaymentsWindowBlocks = 10;
-        consensus.nSuperblockStartBlock = 4200; // NOTE: Should satisfy nSuperblockStartBlock > nBudgetPeymentsStartBlock
+        consensus.nInstantSendConfirmationsRequired = 6;
+        consensus.nInstantSendKeepLock = 24;
+        consensus.nBudgetPaymentsStartBlock = 100000000;
+        consensus.nBudgetPaymentsCycleBlocks = 7200;
+        consensus.nBudgetPaymentsWindowBlocks = 100;
+        consensus.nSuperblockStartBlock = 100000000;
         consensus.nSuperblockStartHash = uint256(); // do not check this on devnet
         consensus.nSuperblockCycle = 24; // Superblocks can be issued hourly on devnet
         consensus.nGovernanceMinQuorum = 1;
@@ -576,29 +576,29 @@ public:
 
         // Deployment of BIP68, BIP112, and BIP113.
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1506556800; // September 28th, 2017
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1538092800; // September 28th, 2018
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1640253600; // 2021-Dec-23
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1647129600; // 2022-Mar-13
 
         // Deployment of DIP0001
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].bit = 1;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nStartTime = 1505692800; // Sep 18th, 2017
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nTimeout = 1537228800; // Sep 18th, 2018
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nWindowSize = 100;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nThreshold = 50; // 50% of 100
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nStartTime = 1640188800; // 2021-Dec-22
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nTimeout = 1647129600; // 2022-Mar-13
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nWindowSize = 10;
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nThreshold = 8; // 80% of 10
 
         // Deployment of BIP147
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].bit = 2;
-        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nStartTime = 1517792400; // Feb 5th, 2018
-        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nTimeout = 1549328400; // Feb 5th, 2019
-        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nWindowSize = 100;
-        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nThreshold = 50; // 50% of 100
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nStartTime = 1640264400; // 2021-Dec-23
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nTimeout = 1640253600; // 2022-Mar-13
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nWindowSize = 10;
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nThreshold = 8;
 
         // Deployment of DIP0003
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].bit = 3;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nStartTime = 1615593600; // 2021-Mar-13
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nStartTime = 1640275200; // 2021-Dec-23
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nTimeout = 1647129600; // 2022-Mar-13
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nWindowSize = 10;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nThreshold = 5; // 50% of 10
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nThreshold = 8;
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000000000000000000000");
@@ -633,7 +633,7 @@ public:
         vSeeds.clear();
         //vSeeds.push_back(CDNSSeedData("dashevo.org",  "devnet-seed.dashevo.org"));
 
-        // Testnet Dash addresses start with 'y'
+        // Testnet DMS addresses start with 'y' (Dash default)
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
         // Testnet Dash script addresses start with '8' or '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19);
@@ -648,6 +648,7 @@ public:
         nExtCoinType = 1;
 
         // long living quorum params
+        consensus.llmqs[Consensus::LLMQ_10_60] = llmq10_60;
         consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60;
         consensus.llmqs[Consensus::LLMQ_150_60] = llmq150_60;
         consensus.llmqs[Consensus::LLMQ_150_85] = llmq150_85;
@@ -655,6 +656,7 @@ public:
         fMiningRequiresPeers = true;
         fDefaultConsistencyChecks = false;
         fRequireStandard = false;
+        fRequireRoutableExternalIP = false;
         fMineBlocksOnDemand = false;
         fAllowMultipleAddressesFromGroup = true;
         fAllowMultiplePorts = true;
@@ -662,7 +664,7 @@ public:
         nPoolMaxTransactions = 3;
         nFulfilledRequestExpireTime = 5*60; // fulfilled requests expire in 5 minutes
 
-        vSporkAddresses = {"yM55w6nX56JJsa1FnsnReVajKi4SRusDp7"};
+        vSporkAddresses = {"yfX6A4qwkosDaxDPxWTHXG1e3Z62kpkepL"}; // devnet 4
         nMinSporkKeys = 1;
         // devnets are started with no blocks and no MN, so we can't check for upgraded MN (as there are none)
         fBIP9CheckMasternodesUpgraded = false;
