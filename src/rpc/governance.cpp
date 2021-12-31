@@ -1096,9 +1096,10 @@ UniValue getgovernanceinfo(const JSONRPCRequest& request)
             "{\n"
             "  \"governanceminquorum\": xxxxx,           (numeric) the absolute minimum number of votes needed to trigger a governance action\n"
             "  \"proposalfee\": xxx.xx,                  (numeric) the collateral transaction fee which must be paid to create a proposal in " + CURRENCY_UNIT + "\n"
+            /*
             "  \"superblockcycle\": xxxxx,               (numeric) the number of blocks between superblocks\n"
             "  \"lastsuperblock\": xxxxx,                (numeric) the block number of the last superblock\n"
-            "  \"nextsuperblock\": xxxxx,                (numeric) the block number of the next superblock\n"
+            "  \"nextsuperblock\": xxxxx,                (numeric) the block number of the next superblock\n" */
             "}\n"
             "\nExamples:\n"
             + HelpExampleCli("getgovernanceinfo", "")
@@ -1116,9 +1117,10 @@ UniValue getgovernanceinfo(const JSONRPCRequest& request)
     UniValue obj(UniValue::VOBJ);
     obj.pushKV("governanceminquorum", Params().GetConsensus().nGovernanceMinQuorum);
     obj.pushKV("proposalfee", ValueFromAmount(GOVERNANCE_PROPOSAL_FEE_TX));
+    /* DMS does not use superblocks (see params.h struct Params)
     obj.pushKV("superblockcycle", Params().GetConsensus().nSuperblockCycle);
     obj.pushKV("lastsuperblock", nLastSuperblock);
-    obj.pushKV("nextsuperblock", nNextSuperblock);
+    obj.pushKV("nextsuperblock", nNextSuperblock); */
 
     return obj;
 }
@@ -1152,7 +1154,7 @@ static const CRPCCommand commands[] =
   //  --------------------- ------------------------  -----------------------  ----------
     /* Dash features */
     { "dash",               "getgovernanceinfo",      &getgovernanceinfo,      {} },
-    { "dash",               "getsuperblockbudget",    &getsuperblockbudget,    {"index"} },
+  //{ "dash",               "getsuperblockbudget",    &getsuperblockbudget,    {"index"} },
     { "dash",               "gobject",                &gobject,                {} },
     { "dash",               "voteraw",                &voteraw,                {"tx_hash","tx_index","gov_hash","signal","outcome","time","sig"} },
 
