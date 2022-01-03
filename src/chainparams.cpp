@@ -174,8 +174,124 @@ static CBlock FindDevNetGenesisBlock(const CBlock &prevBlock, const CAmount& rew
     assert(false);
 }
 
-/** TODO : llmq **/
+// this one is for testing only
+static Consensus::LLMQParams llmq_test = { // llmq5_60
+        .type = Consensus::LLMQ_TEST,
+        .name = "llmq_test",
+        .size = 5,
+        .minSize = 4,
+        .threshold = 3,
 
+        .dkgInterval = 20, // one DKG every 2 hours
+        .dkgPhaseBlocks = 2,
+        .dkgMiningWindowStart = 10, // dkgPhaseBlocks * 5 = after finalization
+        .dkgMiningWindowEnd = 18,
+        .dkgBadVotesThreshold = 3,
+
+        .signingActiveQuorumCount = 2, // just a few ones to allow easier testing
+
+        .keepOldConnections = 3, // min signingActiveQuorumCount + 1
+        .recoveryMembers = 5,
+};
+// this one is for devnets only
+static Consensus::LLMQParams llmq_devnet = { // llmq10_60
+        .type = Consensus::LLMQ_DEVNET,
+        .name = "llmq_devnet",
+        .size = 10,
+        .minSize = 8,
+        .threshold = 6,
+
+        .dkgInterval = 20, // one DKG every 2 hours
+        .dkgPhaseBlocks = 2,
+        .dkgMiningWindowStart = 10, // dkgPhaseBlocks * 5 = after finalization
+        .dkgMiningWindowEnd = 18,
+        .dkgBadVotesThreshold = 7,
+
+        .signingActiveQuorumCount = 3, // just a few ones to allow easier testing
+
+        .keepOldConnections = 4, // min signingActiveQuorumCount + 1
+        .recoveryMembers = 6,
+};
+
+static Consensus::LLMQParams llmq30_60 = {
+        .type = Consensus::LLMQ_30_60,
+        .name = "llmq_30_60",
+        .size = 30,
+        .minSize = 24,
+        .threshold = 18,
+
+        .dkgInterval = 20, // one DKG every 2 hours
+        .dkgPhaseBlocks = 2,
+        .dkgMiningWindowStart = 10, // dkgPhaseBlocks * 5 = after finalization
+        .dkgMiningWindowEnd = 18,
+        .dkgBadVotesThreshold = 22,
+
+        .signingActiveQuorumCount = 12, // a full day worth of LLMQs
+
+        .keepOldConnections = 13, // min signingActiveQuorumCount + 1
+        .recoveryMembers = 16,
+};
+
+static Consensus::LLMQParams llmq150_60 = {
+        .type = Consensus::LLMQ_150_60,
+        .name = "llmq_150_60",
+        .size = 150,
+        .minSize = 120,
+        .threshold = 90,
+
+        .dkgInterval = 10 * 12, // one DKG every 12 hours
+        .dkgPhaseBlocks = 4,
+        .dkgMiningWindowStart = 20, // dkgPhaseBlocks * 5 = after finalization
+        .dkgMiningWindowEnd = 28,
+        .dkgBadVotesThreshold = 114,
+
+        .signingActiveQuorumCount = 4, // two days worth of LLMQs,
+
+        .keepOldConnections = 5, // min signingActiveQuorumCount + 1
+        .recoveryMembers = 50,
+};
+
+// Used for deployment and min-proto-version signalling, so it needs a higher threshold
+static Consensus::LLMQParams llmq150_85 = {
+        .type = Consensus::LLMQ_150_85,
+        .name = "llmq_150_85",
+        .size = 150,
+        .minSize = 135,
+        .threshold = 120,
+
+        .dkgInterval = 10 * 24, // one DKG every 24 hours
+        .dkgPhaseBlocks = 4,
+        .dkgMiningWindowStart = 20, // dkgPhaseBlocks * 5 = after finalization
+        .dkgMiningWindowEnd = 48, // give it a larger mining window to make sure it is mined
+        .dkgBadVotesThreshold = 114,
+
+        .signingActiveQuorumCount = 4, // four days worth of LLMQs,
+
+        .keepOldConnections = 5, // min signingActiveQuorumCount + 1
+        .recoveryMembers = 50,
+};
+
+// Used for Platform
+static Consensus::LLMQParams llmq100_67 = {
+        .type = Consensus::LLMQ_100_67,
+        .name = "llmq_100_67",
+        .size = 100,
+        .minSize = 80,
+        .threshold = 67,
+
+        .dkgInterval = 20, // one DKG every 2 hours
+        .dkgPhaseBlocks = 2,
+        .dkgMiningWindowStart = 10, // dkgPhaseBlocks * 5 = after finalization
+        .dkgMiningWindowEnd = 18,
+        .dkgBadVotesThreshold = 80,
+
+        .signingActiveQuorumCount = 12, // a full day worth of LLMQs
+
+        .keepOldConnections = 25,
+        .recoveryMembers = 50,
+};
+
+/* Dash v0.17:
 // this one is for testing only
 static Consensus::LLMQParams llmq_test = {
         .type = Consensus::LLMQ_TEST,
@@ -313,7 +429,7 @@ static Consensus::LLMQParams llmq100_67 = {
         .keepOldConnections = 25,
         .recoveryMembers = 50,
 };
-
+*/
 
 /**
  * Main network
@@ -473,7 +589,14 @@ public:
         // fixed seed nodes, use contrib/seeds/generate-seeds.py
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
-        // long living quorum params
+        // long living quorum params in update period v0.13 to v0.17
+      //consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60;
+        consensus.llmqs[Consensus::LLMQ_150_60] = llmq150_60;
+        consensus.llmqs[Consensus::LLMQ_150_85] = llmq150_85;
+        consensus.llmqTypeChainLocks = Consensus::LLMQ_150_60;
+        consensus.llmqTypeInstantSend = Consensus::LLMQ_30_60;
+        consensus.llmqTypePlatform = Consensus::LLMQ_100_67;
+        /* Dash v0.17 long living quorum params
         consensus.llmqs[Consensus::LLMQ_50_60] = llmq50_60;
         consensus.llmqs[Consensus::LLMQ_400_60] = llmq400_60;
         consensus.llmqs[Consensus::LLMQ_400_85] = llmq400_85;
@@ -481,6 +604,7 @@ public:
         consensus.llmqTypeChainLocks = Consensus::LLMQ_400_60;
         consensus.llmqTypeInstantSend = Consensus::LLMQ_50_60;
         consensus.llmqTypePlatform = Consensus::LLMQ_100_67;
+        */
 
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
@@ -683,7 +807,14 @@ public:
         // Testnet DMS BIP44 coin type is '1' (All coin's testnet default)
         nExtCoinType = 1;
 
-        // long living quorum params
+        // long living quorum params in update period v0.13 to v0.17
+        consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60;
+        consensus.llmqs[Consensus::LLMQ_150_60] = llmq150_60;
+        consensus.llmqs[Consensus::LLMQ_150_85] = llmq150_85;
+        consensus.llmqTypeChainLocks = Consensus::LLMQ_150_60;  // or LLMQ_30_60?
+        consensus.llmqTypeInstantSend = Consensus::LLMQ_30_60;
+        consensus.llmqTypePlatform = Consensus::LLMQ_100_67;
+        /* Dash v0.17 long living quorum params
         consensus.llmqs[Consensus::LLMQ_50_60] = llmq50_60;
         consensus.llmqs[Consensus::LLMQ_400_60] = llmq400_60;
         consensus.llmqs[Consensus::LLMQ_400_85] = llmq400_85;
@@ -691,6 +822,7 @@ public:
         consensus.llmqTypeChainLocks = Consensus::LLMQ_50_60;
         consensus.llmqTypeInstantSend = Consensus::LLMQ_50_60;
         consensus.llmqTypePlatform = Consensus::LLMQ_100_67;
+        */
 
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
@@ -883,7 +1015,15 @@ public:
         // Devnet DMS BIP44 coin type is '1' (All coin's testnet default)
         nExtCoinType = 1;
 
-        // long living quorum params
+        // long living quorum params in update period v0.13 to v0.17
+        consensus.llmqs[Consensus::LLMQ_DEVNET] = llmq_devnet; // LLMQ_10_60
+        consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60;
+        consensus.llmqs[Consensus::LLMQ_150_60] = llmq150_60;
+        consensus.llmqs[Consensus::LLMQ_150_85] = llmq150_85;
+        consensus.llmqTypeChainLocks = Consensus::LLMQ_150_60;  // or LLMQ_30_60?
+        consensus.llmqTypeInstantSend = Consensus::LLMQ_30_60;
+        consensus.llmqTypePlatform = Consensus::LLMQ_100_67;
+        /* Dash v0.17 long living quorum params
         consensus.llmqs[Consensus::LLMQ_DEVNET] = llmq_devnet;
         consensus.llmqs[Consensus::LLMQ_50_60] = llmq50_60;
         consensus.llmqs[Consensus::LLMQ_400_60] = llmq400_60;
@@ -892,10 +1032,11 @@ public:
         consensus.llmqTypeChainLocks = Consensus::LLMQ_50_60;
         consensus.llmqTypeInstantSend = Consensus::LLMQ_50_60;
         consensus.llmqTypePlatform = Consensus::LLMQ_100_67;
+        */
 
         fDefaultConsistencyChecks = false;
         fRequireStandard = false;
-        fRequireRoutableExternalIP = true;
+        fRequireRoutableExternalIP = false;
         fMineBlocksOnDemand = false;
         fAllowMultipleAddressesFromGroup = true;
         fAllowMultiplePorts = true;
@@ -1064,10 +1205,19 @@ public:
 
         // long living quorum params
         consensus.llmqs[Consensus::LLMQ_TEST] = llmq_test;
+        consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60;
+        consensus.llmqs[Consensus::LLMQ_150_60] = llmq150_60;
+        consensus.llmqs[Consensus::LLMQ_150_85] = llmq150_85;
+        consensus.llmqTypeChainLocks = Consensus::LLMQ_150_60;
+        consensus.llmqTypeInstantSend = Consensus::LLMQ_30_60;
+        consensus.llmqTypePlatform = Consensus::LLMQ_100_67;
+        /* Dash v0.17 long living quorum params
+        consensus.llmqs[Consensus::LLMQ_TEST] = llmq_test;
         consensus.llmqs[Consensus::LLMQ_TEST_V17] = llmq_test_v17;
         consensus.llmqTypeChainLocks = Consensus::LLMQ_TEST;
         consensus.llmqTypeInstantSend = Consensus::LLMQ_TEST;
         consensus.llmqTypePlatform = Consensus::LLMQ_TEST;
+        */
     }
 };
 

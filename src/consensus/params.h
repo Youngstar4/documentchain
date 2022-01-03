@@ -51,6 +51,16 @@ enum LLMQType : uint8_t
 {
     LLMQ_NONE = 0xff,
 
+    LLMQ_30_60  = 1,
+    LLMQ_150_60 = 2,
+    LLMQ_150_85 = 3,
+    LLMQ_100_67 = 4,
+
+    // for testing only
+    LLMQ_TEST  = 100, // LLMQ_5_60, one every 2 hours. Params might differ when -llmqtestparams is used
+    LLMQ_DEVNET = 101, // LLMQ_10_60, one every 2 hours. Params might differ when -llmqtestparams is used
+
+    /* Dash v0.17
     LLMQ_50_60 = 1, // 50 members, 30 (60%) threshold, one per hour
     LLMQ_400_60 = 2, // 400 members, 240 (60%) threshold, one every 12 hours
     LLMQ_400_85 = 3, // 400 members, 340 (85%) threshold, one every 24 hours
@@ -64,6 +74,7 @@ enum LLMQType : uint8_t
 
     // for testing activation of new quorums only
     LLMQ_TEST_V17 = 102, // 3 members, 2 (66%) threshold, one per hour. Params might differ when -llmqtestparams is used
+    */
 };
 
 // Configures a LLMQ and its DKG
