@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2018-2021 The Documentchain developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -114,6 +114,14 @@ UniValue getinfo(const JSONRPCRequest& request)
     obj.push_back(Pair("relayfee",      ValueFromAmount(::minRelayTxFee.GetFeePerK())));
     obj.push_back(Pair("errors",        GetWarnings("statusbar")));
     return obj;
+}
+
+/**
+ * just a hidden RPC function to allow developers to identify different test versions
+**/
+UniValue devgetinfo(const JSONRPCRequest& request)
+{
+    return "no comment";
 }
 
 UniValue debug(const JSONRPCRequest& request)
@@ -1241,6 +1249,7 @@ static const CRPCCommand commands[] =
     { "documentindex",      "listdocuments",          &listdocuments,          true,  {"filehash","verbose"} },
 
     /* Not shown in help */
+    { "hidden",             "devgetinfo",             &devgetinfo,             true,  {} },
     { "hidden",             "setmocktime",            &setmocktime,            true,  {"timestamp"}},
     { "hidden",             "echo",                   &echo,                   true,  {"arg0","arg1","arg2","arg3","arg4","arg5","arg6","arg7","arg8","arg9"}},
     { "hidden",             "echojson",               &echo,                   true,  {"arg0","arg1","arg2","arg3","arg4","arg5","arg6","arg7","arg8","arg9"}},

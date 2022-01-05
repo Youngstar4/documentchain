@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2018-2021 The Documentchain developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -78,6 +78,10 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "sendfrom", 2, "amount" },
     { "sendfrom", 3, "minconf" },
     { "sendfrom", 4, "addlockconf" },
+    { "devlistspecialtxes", 0, "type" },
+    { "devlistspecialtxes", 1, "startheight" },
+    { "devlistspecialtxes", 2, "blockcount" },
+    { "devlistspecialtxes", 3, "verbosity" },
     { "listtransactions", 1, "count" },
     { "listtransactions", 2, "skip" },
     { "listtransactions", 3, "include_watchonly" },
