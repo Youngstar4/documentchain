@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2018-2021 The Documentchain developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -306,7 +306,10 @@ public:
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
         // long living quorum params
-        consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60;
+        /* TODO : v0.17 activate llmq30_60 on mainet via sport
+           in v0.13 a never used llmq with too short interval 10 was defined
+        consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60; 
+        */
         consensus.llmqs[Consensus::LLMQ_150_60] = llmq150_60;
         consensus.llmqs[Consensus::LLMQ_150_85] = llmq150_85;
 
