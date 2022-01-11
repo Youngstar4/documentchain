@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2018-2021 The Documentchain developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -675,8 +675,6 @@ boost::filesystem::path static StartupShortcutPath()
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
         return GetSpecialFolderPath(CSIDL_STARTUP) / "DMS Core.lnk";
-    if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "DMS Core (testnet).lnk";
     return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("DMS Core (%s).lnk", chain);
 }
 

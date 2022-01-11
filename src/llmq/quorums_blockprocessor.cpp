@@ -1,4 +1,5 @@
 // Copyright (c) 2018 The Dash Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -124,14 +125,6 @@ bool CQuorumBlockProcessor::ProcessBlock(const CBlock& block, const CBlockIndex*
     // allowed, including null commitments.
     for (const auto& p : Params().GetConsensus().llmqs) {
         auto type = p.first;
-
-        // tmp code for testnet, TODO: remove
-        // testnet had initially used other (incompatible) llmq values
-        if (Params().NetworkIDString() == CBaseChainParams::TESTNET && pindex->nHeight < 228630) {
-            LogPrintf("CQuorumBlockProcessor::%s -- testnet accept block %d\n", __func__, pindex->nHeight);
-            return true;
-        }
-        // end of tmp code
 
         // does the currently processed block contain a (possibly null) commitment for the current session?
         bool hasCommitmentInNewBlock = qcs.count(type) != 0;

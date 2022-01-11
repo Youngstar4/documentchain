@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2018-2021 The Documentchain developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -92,12 +92,7 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
         nPowTargetSpacing = params.nPowTargetSpacing; // normal block interval
     }
     else {
-        if (Params().NetworkIDString() == CBaseChainParams::MAIN)
-            nPowTargetSpacing = 4*60; // 4min 0..4793 
-        else if (Params().NetworkIDString() == CBaseChainParams::TESTNET)
-            nPowTargetSpacing = 30;   // fast testnet 0..95936
-        else
-            nPowTargetSpacing = params.nPowTargetSpacing;
+        nPowTargetSpacing = 4*60; // 4min 0..4793 
     }
 
     // make sure we have at least (nPastBlocks + 1) blocks, otherwise just return powLimit
