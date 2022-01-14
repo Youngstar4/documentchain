@@ -434,10 +434,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nThreshold = 7; // 70% of 10
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000000000000000000000");
+        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000000000009df47a"); // block 768
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x000000000000000000000000000000000000000000000000000000000000000");
+        consensus.defaultAssumeValid = uint256S("0x0001a493d1f95c60541d553e8f1b748d48e344a0a2c8c27460196a727555cea8");
 
         pchMessageStart[0] = 0x74;  // t (testnet3 used 0xce)
         pchMessageStart[1] = 0x44;  // D
@@ -465,9 +465,6 @@ public:
             printf("genesis.nTime %d\n", genesis.nTime);
         */
 
-        vFixedSeeds.clear();
-    //  TODO vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
-
         vSeeds.clear();
 
         // Testnet DMS addresses start with 't'
@@ -483,6 +480,8 @@ public:
 
         // Testnet DMS BIP44 coin type is '1' (All coin's testnet default)
         nExtCoinType = 1;
+
+        vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
 
         // long living quorum params
         /* TODO : v0.17 activate llmq30_60 on testnet and later on mainet via sport
@@ -502,18 +501,19 @@ public:
         nPoolMaxTransactions = 3;
         nFulfilledRequestExpireTime = 5*60; // fulfilled requests expire in 5 minutes
 
-        vSporkAddresses = {"tP5Gmot9NxNHYeCExCdjnz3K5MsxHXyH5N"}; // TODO
+        vSporkAddresses = {"tP8UJJGyQ64kLDDHxrP3QYF8xt9ta2myPk"}; // testnet4
         nMinSporkKeys = 1;
         fBIP9CheckMasternodesUpgraded = true;
         consensus.fLLMQAllowDummyCommitments = false;
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (     0, uint256S("0x0006eb6114355f76dd011fb716cdf087a2b4336aa4419d77d915c74e2e679da1"))
+            (     0, uint256S("0x0006eb6114355f76dd011fb716cdf087a2b4336aa4419d77d915c74e2e679da1")) // 2022-Jan-08
+            (   768, uint256S("0x0001a493d1f95c60541d553e8f1b748d48e344a0a2c8c27460196a727555cea8")) // 2022-Jan-13
         };
         chainTxData = ChainTxData{        
-            1641650400, // * UNIX timestamp of last known number of transactions
-            2,          // * total number of transactions between genesis and that timestamp
+            1642072314, // * UNIX timestamp of last known number of transactions
+            815,        // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the UpdateTip debug.log lines)
             0.005       // * estimated number of transactions per second after that timestamp
         };
