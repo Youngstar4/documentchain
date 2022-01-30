@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2018-2021 The Documentchain developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -652,32 +652,18 @@ bool CMasternodeBroadcast::Sign(const CKey& keyCollateralAddress)
 
     sigTime = GetAdjustedTime();
 
-    if (sporkManager.IsSporkActive(SPORK_6_NEW_SIGS)) {
-        uint256 hash = GetSignatureHash();
-
-        if (!CHashSigner::SignHash(hash, keyCollateralAddress, vchSig)) {
-            LogPrintf("CMasternodeBroadcast::Sign -- SignHash() failed\n");
-            return false;
-        }
-
-        if (!CHashSigner::VerifyHash(hash, keyIDCollateralAddress, vchSig, strError)) {
-            LogPrintf("CMasternodeBroadcast::Sign -- VerifyMessage() failed, error: %s\n", strError);
-            return false;
-        }
-    } else {
-        std::string strMessage = addr.ToString(false) + std::to_string(sigTime) +
+    std::string strMessage = addr.ToString(false) + std::to_string(sigTime) +
                         keyIDCollateralAddress.ToString() + legacyKeyIDOperator.ToString() +
                         std::to_string(nProtocolVersion);
 
-        if (!CMessageSigner::SignMessage(strMessage, vchSig, keyCollateralAddress)) {
-            LogPrintf("CMasternodeBroadcast::Sign -- SignMessage() failed\n");
-            return false;
-        }
+    if (!CMessageSigner::SignMessage(strMessage, vchSig, keyCollateralAddress)) {
+        LogPrintf("CMasternodeBroadcast::Sign -- SignMessage() failed\n");
+        return false;
+    }
 
-        if(!CMessageSigner::VerifyMessage(keyIDCollateralAddress, vchSig, strMessage, strError)) {
-            LogPrintf("CMasternodeBroadcast::Sign -- VerifyMessage() failed, error: %s\n", strError);
-            return false;
-        }
+    if(!CMessageSigner::VerifyMessage(keyIDCollateralAddress, vchSig, strMessage, strError)) {
+        LogPrintf("CMasternodeBroadcast::Sign -- VerifyMessage() failed, error: %s\n", strError);
+        return false;
     }
 
     return true;
@@ -688,32 +674,14 @@ bool CMasternodeBroadcast::CheckSignature(int& nDos) const
     std::string strError = "";
     nDos = 0;
 
-    if (sporkManager.IsSporkActive(SPORK_6_NEW_SIGS)) {
-        uint256 hash = GetSignatureHash();
-
-        if (!CHashSigner::VerifyHash(hash, keyIDCollateralAddress, vchSig, strError)) {
-            // maybe it's in old format
-            std::string strMessage = addr.ToString(false) + std::to_string(sigTime) +
-                            keyIDCollateralAddress.ToString() + legacyKeyIDOperator.ToString() +
-                            std::to_string(nProtocolVersion);
-
-            if (!CMessageSigner::VerifyMessage(keyIDCollateralAddress, vchSig, strMessage, strError)){
-                // nope, not in old format either
-                LogPrintf("CMasternodeBroadcast::CheckSignature -- Got bad Masternode announce signature, error: %s\n", strError);
-                nDos = 100;
-                return false;
-            }
-        }
-    } else {
-        std::string strMessage = addr.ToString(false) + std::to_string(sigTime) +
+    std::string strMessage = addr.ToString(false) + std::to_string(sigTime) +
                         keyIDCollateralAddress.ToString() + legacyKeyIDOperator.ToString() +
                         std::to_string(nProtocolVersion);
 
-        if(!CMessageSigner::VerifyMessage(keyIDCollateralAddress, vchSig, strMessage, strError)){
-            LogPrintf("CMasternodeBroadcast::CheckSignature -- Got bad Masternode announce signature, error: %s\n", strError);
-            nDos = 100;
-            return false;
-        }
+    if(!CMessageSigner::VerifyMessage(keyIDCollateralAddress, vchSig, strMessage, strError)){
+        LogPrintf("CMasternodeBroadcast::CheckSignature -- Got bad Masternode announce signature, error: %s\n", strError);
+        nDos = 100;
+        return false;
     }
 
     return true;
@@ -734,20 +702,9 @@ void CMasternodeBroadcast::Relay(CConnman& connman) const
 uint256 CMasternodePing::GetHash() const
 {
     CHashWriter ss(SER_GETHASH, PROTOCOL_VERSION);
-    if (sporkManager.IsSporkActive(SPORK_6_NEW_SIGS)) {
-        // TODO: replace with "return SerializeHash(*this);" after migration to 70209
-        ss << masternodeOutpoint;
-        ss << blockHash;
-        ss << sigTime;
-        ss << fSentinelIsCurrent;
-        ss << nSentinelVersion;
-        ss << nDaemonVersion;
-    } else {
-        // Note: doesn't match serialization
+    ss << masternodeOutpoint << uint8_t{} << 0xffffffff; // adding dummy values here to match old hashing format
+    ss << sigTime;
 
-        ss << masternodeOutpoint << uint8_t{} << 0xffffffff; // adding dummy values here to match old hashing format
-        ss << sigTime;
-    }
     return ss.GetHash();
 }
 
@@ -773,31 +730,17 @@ bool CMasternodePing::Sign(const CKey& keyMasternode, const CKeyID& keyIDOperato
 
     sigTime = GetAdjustedTime();
 
-    if (sporkManager.IsSporkActive(SPORK_6_NEW_SIGS)) {
-        uint256 hash = GetSignatureHash();
+    std::string strMessage = CTxIn(masternodeOutpoint).ToString() + blockHash.ToString() +
+                std::to_string(sigTime);
 
-        if (!CHashSigner::SignHash(hash, keyMasternode, vchSig)) {
-            LogPrintf("CMasternodePing::Sign -- SignHash() failed\n");
-            return false;
-        }
+    if (!CMessageSigner::SignMessage(strMessage, vchSig, keyMasternode)) {
+        LogPrintf("CMasternodePing::Sign -- SignMessage() failed\n");
+        return false;
+    }
 
-        if (!CHashSigner::VerifyHash(hash, keyIDOperator, vchSig, strError)) {
-            LogPrintf("CMasternodePing::Sign -- VerifyHash() failed, error: %s\n", strError);
-            return false;
-        }
-    } else {
-        std::string strMessage = CTxIn(masternodeOutpoint).ToString() + blockHash.ToString() +
-                    std::to_string(sigTime);
-
-        if (!CMessageSigner::SignMessage(strMessage, vchSig, keyMasternode)) {
-            LogPrintf("CMasternodePing::Sign -- SignMessage() failed\n");
-            return false;
-        }
-
-        if(!CMessageSigner::VerifyMessage(keyIDOperator, vchSig, strMessage, strError)) {
-            LogPrintf("CMasternodePing::Sign -- VerifyMessage() failed, error: %s\n", strError);
-            return false;
-        }
+    if(!CMessageSigner::VerifyMessage(keyIDOperator, vchSig, strMessage, strError)) {
+        LogPrintf("CMasternodePing::Sign -- VerifyMessage() failed, error: %s\n", strError);
+        return false;
     }
 
     return true;
@@ -808,28 +751,13 @@ bool CMasternodePing::CheckSignature(CKeyID& keyIDOperator, int &nDos) const
     std::string strError = "";
     nDos = 0;
 
-    if (sporkManager.IsSporkActive(SPORK_6_NEW_SIGS)) {
-        uint256 hash = GetSignatureHash();
+    std::string strMessage = CTxIn(masternodeOutpoint).ToString() + blockHash.ToString() +
+                std::to_string(sigTime);
 
-        if (!CHashSigner::VerifyHash(hash, keyIDOperator, vchSig, strError)) {
-            std::string strMessage = CTxIn(masternodeOutpoint).ToString() + blockHash.ToString() +
-                        std::to_string(sigTime);
-
-            if(!CMessageSigner::VerifyMessage(keyIDOperator, vchSig, strMessage, strError)) {
-                LogPrintf("CMasternodePing::CheckSignature -- Got bad Masternode ping signature, masternode=%s, error: %s\n", masternodeOutpoint.ToStringShort(), strError);
-                nDos = 33;
-                return false;
-            }
-        }
-    } else {
-        std::string strMessage = CTxIn(masternodeOutpoint).ToString() + blockHash.ToString() +
-                    std::to_string(sigTime);
-
-        if (!CMessageSigner::VerifyMessage(keyIDOperator, vchSig, strMessage, strError)) {
-            LogPrintf("CMasternodePing::CheckSignature -- Got bad Masternode ping signature, masternode=%s, error: %s\n", masternodeOutpoint.ToStringShort(), strError);
-            nDos = 33;
-            return false;
-        }
+    if (!CMessageSigner::VerifyMessage(keyIDOperator, vchSig, strMessage, strError)) {
+        LogPrintf("CMasternodePing::CheckSignature -- Got bad Masternode ping signature, masternode=%s, error: %s\n", masternodeOutpoint.ToStringShort(), strError);
+        nDos = 33;
+        return false;
     }
 
     return true;

@@ -1,4 +1,5 @@
 // Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -554,33 +555,18 @@ uint256 CMasternodePaymentVote::GetSignatureHash() const
 bool CMasternodePaymentVote::Sign()
 {
     std::string strError;
-
-    if (sporkManager.IsSporkActive(SPORK_6_NEW_SIGS)) {
-        uint256 hash = GetSignatureHash();
-
-        if(!CHashSigner::SignHash(hash, activeMasternodeInfo.legacyKeyOperator, vchSig)) {
-            LogPrintf("CMasternodePaymentVote::%s -- SignHash() failed\n", __func__);
-            return false;
-        }
-
-        if (!CHashSigner::VerifyHash(hash, activeMasternodeInfo.legacyKeyIDOperator, vchSig, strError)) {
-            LogPrintf("CMasternodePaymentVote::%s -- VerifyHash() failed, error: %s\n", __func__, strError);
-            return false;
-        }
-    } else {
-        std::string strMessage = masternodeOutpoint.ToStringShort() +
+    std::string strMessage = masternodeOutpoint.ToStringShort() +
                     std::to_string(nBlockHeight) +
                     ScriptToAsmStr(payee);
 
-        if(!CMessageSigner::SignMessage(strMessage, vchSig, activeMasternodeInfo.legacyKeyOperator)) {
-            LogPrintf("CMasternodePaymentVote::%s -- SignMessage() failed\n", __func__);
-            return false;
-        }
+    if(!CMessageSigner::SignMessage(strMessage, vchSig, activeMasternodeInfo.legacyKeyOperator)) {
+        LogPrintf("CMasternodePaymentVote::%s -- SignMessage() failed\n", __func__);
+        return false;
+    }
 
-        if(!CMessageSigner::VerifyMessage(activeMasternodeInfo.legacyKeyIDOperator, vchSig, strMessage, strError)) {
-            LogPrintf("CMasternodePaymentVote::%s -- VerifyMessage() failed, error: %s\n", __func__, strError);
-            return false;
-        }
+    if(!CMessageSigner::VerifyMessage(activeMasternodeInfo.legacyKeyIDOperator, vchSig, strMessage, strError)) {
+        LogPrintf("CMasternodePaymentVote::%s -- VerifyMessage() failed, error: %s\n", __func__, strError);
+        return false;
     }
 
     return true;
@@ -1107,41 +1093,19 @@ bool CMasternodePaymentVote::CheckSignature(const CKeyID& keyIDOperator, int nVa
     nDos = 0;
     std::string strError = "";
 
-    if (sporkManager.IsSporkActive(SPORK_6_NEW_SIGS)) {
-        uint256 hash = GetSignatureHash();
-
-        if (!CHashSigner::VerifyHash(hash, keyIDOperator, vchSig, strError)) {
-            // could be a signature in old format
-            std::string strMessage = masternodeOutpoint.ToStringShort() +
-                        std::to_string(nBlockHeight) +
-                        ScriptToAsmStr(payee);
-            if(!CMessageSigner::VerifyMessage(keyIDOperator, vchSig, strMessage, strError)) {
-                // nope, not in old format either
-                // Only ban for future block vote when we are already synced.
-                // Otherwise it could be the case when MN which signed this vote is using another key now
-                // and we have no idea about the old one.
-                if(masternodeSync.IsMasternodeListSynced() && nBlockHeight > nValidationHeight) {
-                    nDos = 20;
-                }
-                return error("CMasternodePaymentVote::CheckSignature -- Got bad Masternode payment signature, masternode=%s, error: %s",
-                            masternodeOutpoint.ToStringShort(), strError);
-            }
-        }
-    } else {
-        std::string strMessage = masternodeOutpoint.ToStringShort() +
+    std::string strMessage = masternodeOutpoint.ToStringShort() +
                     std::to_string(nBlockHeight) +
                     ScriptToAsmStr(payee);
 
-        if (!CMessageSigner::VerifyMessage(keyIDOperator, vchSig, strMessage, strError)) {
-            // Only ban for future block vote when we are already synced.
-            // Otherwise it could be the case when MN which signed this vote is using another key now
-            // and we have no idea about the old one.
-            if(masternodeSync.IsMasternodeListSynced() && nBlockHeight > nValidationHeight) {
-                nDos = 20;
-            }
-            return error("CMasternodePaymentVote::CheckSignature -- Got bad Masternode payment signature, masternode=%s, error: %s",
-                        masternodeOutpoint.ToStringShort(), strError);
+    if (!CMessageSigner::VerifyMessage(keyIDOperator, vchSig, strMessage, strError)) {
+        // Only ban for future block vote when we are already synced.
+        // Otherwise it could be the case when MN which signed this vote is using another key now
+        // and we have no idea about the old one.
+        if(masternodeSync.IsMasternodeListSynced() && nBlockHeight > nValidationHeight) {
+            nDos = 20;
         }
+        return error("CMasternodePaymentVote::CheckSignature -- Got bad Masternode payment signature, masternode=%s, error: %s",
+                        masternodeOutpoint.ToStringShort(), strError);
     }
 
     return true;

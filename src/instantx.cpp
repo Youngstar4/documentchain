@@ -1,4 +1,5 @@
 // Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -1121,18 +1122,6 @@ bool CTxLockVote::CheckSignature() const
             LogPrintf("CTxLockVote::CheckSignature -- VerifyInsecure() failed\n");
             return false;
         }
-    } else if (sporkManager.IsSporkActive(SPORK_6_NEW_SIGS)) {
-        uint256 hash = GetSignatureHash();
-
-        if (!CHashSigner::VerifyHash(hash, infoMn.legacyKeyIDOperator, vchMasternodeSignature, strError)) {
-            // could be a signature in old format
-            std::string strMessage = txHash.ToString() + outpoint.ToStringShort();
-            if (!CMessageSigner::VerifyMessage(infoMn.legacyKeyIDOperator, vchMasternodeSignature, strMessage, strError)) {
-                // nope, not in old format either
-                LogPrintf("CTxLockVote::CheckSignature -- VerifyMessage() failed, error: %s\n", strError);
-                return false;
-            }
-        }
     } else {
         std::string strMessage = txHash.ToString() + outpoint.ToStringShort();
         if (!CMessageSigner::VerifyMessage(infoMn.legacyKeyIDOperator, vchMasternodeSignature, strMessage, strError)) {
@@ -1156,18 +1145,6 @@ bool CTxLockVote::Sign()
             return false;
         }
         sig.GetBuf(vchMasternodeSignature);
-    } else if (sporkManager.IsSporkActive(SPORK_6_NEW_SIGS)) {
-        uint256 hash = GetSignatureHash();
-
-        if (!CHashSigner::SignHash(hash, activeMasternodeInfo.legacyKeyOperator, vchMasternodeSignature)) {
-            LogPrintf("CTxLockVote::Sign -- SignHash() failed\n");
-            return false;
-        }
-
-        if (!CHashSigner::VerifyHash(hash, activeMasternodeInfo.legacyKeyIDOperator, vchMasternodeSignature, strError)) {
-            LogPrintf("CTxLockVote::Sign -- VerifyHash() failed, error: %s\n", strError);
-            return false;
-        }
     } else {
         std::string strMessage = txHash.ToString() + outpoint.ToStringShort();
 

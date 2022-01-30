@@ -1,4 +1,5 @@
 // Copyright (c) 2014-2018 The Dash Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -59,18 +60,6 @@ bool CPrivateSendQueue::Sign()
             return false;
         }
         sig.GetBuf(vchSig);
-    } else if (sporkManager.IsSporkActive(SPORK_6_NEW_SIGS)) {
-        uint256 hash = GetSignatureHash();
-
-        if (!CHashSigner::SignHash(hash, activeMasternodeInfo.legacyKeyOperator, vchSig)) {
-            LogPrintf("CPrivateSendQueue::Sign -- SignHash() failed\n");
-            return false;
-        }
-
-        if (!CHashSigner::VerifyHash(hash, activeMasternodeInfo.legacyKeyIDOperator, vchSig, strError)) {
-            LogPrintf("CPrivateSendQueue::Sign -- VerifyHash() failed, error: %s\n", strError);
-            return false;
-        }
     } else {
         std::string strMessage = CTxIn(masternodeOutpoint).ToString() +
                                  std::to_string(nDenom) +
@@ -101,14 +90,6 @@ bool CPrivateSendQueue::CheckSignature(const CKeyID& keyIDOperator, const CBLSPu
         sig.SetBuf(vchSig);
         if (!sig.IsValid() || !sig.VerifyInsecure(blsPubKey, hash)) {
             LogPrintf("CTxLockVote::CheckSignature -- VerifyInsecure() failed\n");
-            return false;
-        }
-    } else if (sporkManager.IsSporkActive(SPORK_6_NEW_SIGS)) {
-        uint256 hash = GetSignatureHash();
-
-        if (!CHashSigner::VerifyHash(hash, keyIDOperator, vchSig, strError)) {
-            // we don't care about queues with old signature format
-            LogPrintf("CPrivateSendQueue::CheckSignature -- VerifyHash() failed, error: %s\n", strError);
             return false;
         }
     } else {
@@ -155,18 +136,6 @@ bool CPrivateSendBroadcastTx::Sign()
             return false;
         }
         sig.GetBuf(vchSig);
-    } else if (sporkManager.IsSporkActive(SPORK_6_NEW_SIGS)) {
-        uint256 hash = GetSignatureHash();
-
-        if (!CHashSigner::SignHash(hash, activeMasternodeInfo.legacyKeyOperator, vchSig)) {
-            LogPrintf("CPrivateSendBroadcastTx::Sign -- SignHash() failed\n");
-            return false;
-        }
-
-        if (!CHashSigner::VerifyHash(hash, activeMasternodeInfo.legacyKeyIDOperator, vchSig, strError)) {
-            LogPrintf("CPrivateSendBroadcastTx::Sign -- VerifyHash() failed, error: %s\n", strError);
-            return false;
-        }
     } else {
         std::string strMessage = tx->GetHash().ToString() + std::to_string(sigTime);
 
@@ -195,14 +164,6 @@ bool CPrivateSendBroadcastTx::CheckSignature(const CKeyID& keyIDOperator, const 
         sig.SetBuf(vchSig);
         if (!sig.IsValid() || !sig.VerifyInsecure(blsPubKey, hash)) {
             LogPrintf("CTxLockVote::CheckSignature -- VerifyInsecure() failed\n");
-            return false;
-        }
-    } else if (sporkManager.IsSporkActive(SPORK_6_NEW_SIGS)) {
-        uint256 hash = GetSignatureHash();
-
-        if (!CHashSigner::VerifyHash(hash, keyIDOperator, vchSig, strError)) {
-            // we don't care about dstxes with old signature format
-            LogPrintf("CPrivateSendBroadcastTx::CheckSignature -- VerifyHash() failed, error: %s\n", strError);
             return false;
         }
     } else {
