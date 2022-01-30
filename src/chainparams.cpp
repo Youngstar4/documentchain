@@ -306,7 +306,7 @@ public:
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
         // long living quorum params
-        /* TODO : v0.17 activate llmq30_60 on mainet via sport
+        /* TODO : v0.17 activate llmq30_60 on devnet, testnet and later on mainet via spork
            in v0.13 a never used llmq with too short interval 10 was defined
         consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60; 
         */
@@ -484,7 +484,7 @@ public:
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
 
         // long living quorum params
-        /* TODO : v0.17 activate llmq30_60 on testnet and later on mainet via sport
+        /* TODO : v0.17 activate llmq30_60 on devnet, testnet and later on mainet via spork
         consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60;
         */
         consensus.llmqs[Consensus::LLMQ_150_60] = llmq150_60;
@@ -634,7 +634,9 @@ public:
 
         // long living quorum params
         consensus.llmqs[Consensus::LLMQ_10_60] = llmq10_60;
-        consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60;
+        /* TODO : v0.17 activate llmq30_60 on devnet, testnet and later on mainet via spork
+        consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60; TODO
+        */
         consensus.llmqs[Consensus::LLMQ_150_60] = llmq150_60;
         consensus.llmqs[Consensus::LLMQ_150_85] = llmq150_85;
 
