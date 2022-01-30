@@ -394,7 +394,7 @@ public:
         consensus.BIP34Hash = uint256S("0x0006eb6114355f76dd011fb716cdf087a2b4336aa4419d77d915c74e2e679da1");
         consensus.BIP65Height = 200;
         consensus.BIP66Height = 100;
-        consensus.DIP0001Height = 100000000; // TODO
+        consensus.DIP0001Height = 1170;
         consensus.powLimit = uint256S("000fffffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 24 * 60 * 60;
         consensus.nPowTargetSpacing = 6 * 60;
