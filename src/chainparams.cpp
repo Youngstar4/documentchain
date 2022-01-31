@@ -250,10 +250,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nThreshold = 320; // 80% of 400
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000000562b792bb20"); // = 5.921.544.780.576 total work, block 222876
+        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000000720808c67fa"); // = 7.836.177.033.210 total work, block 285118
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x00000003bd8ad5f5f5373342f9c2fddfb33f9e0344eb743521631875b596a20a"); // 222876
+        consensus.defaultAssumeValid = uint256S("0x0000001b4cbf188954151f43361764800381552de60a74a5b016c4a7271ded5d"); // 285118
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -347,7 +347,6 @@ public:
             (110034, uint256S("0x00000025fcd0421225ea0c8d5874b3040a81618c609f2419bce9d339a96faee7")) // 2019-Dec-24
             (120004, uint256S("0x00000031fd82d41fa6fda29a405a55162304822be9b03beed79e47f25d3f3296")) // 2020-Feb-06
             (127991, uint256S("0x00000042ec60e4badf5e3288b1dbb8da2a27af4b88b6ec299e7149586784ccfd")) // 2020-Mar-12
-            (135808, uint256S("0x00000025868ef0958009ba542ded2faf5242cd835445ca6c5556eff5a19161ab")) // 2020-Apr-15
             (144997, uint256S("0x00000074c2b1520d116c447d2cf6170951642fc50487b300074d76952fc20a4d")) // 2020-May-25
             (154972, uint256S("0x00000053c7c6c55129d6e9c9477ddcdbd351847d748ff77eff13dbc44bde58d4")) // 2020-Jul-08
             (165993, uint256S("0x000000391480ecb91edb3bc72ed1a206c6640c7c8927c244536e0bc90c43b51f")) // 2020-Aug-25
@@ -356,11 +355,16 @@ public:
             (199995, uint256S("0x00000009b7ca8806f82b23aa8464967c4f60134941208daa69c320a0c4e98be8")) // 2021-Jan-21
             (212723, uint256S("0x0000000540497ce3a503d7f546f5faafe4c28e0e7a15cd81074416428b57a114")) // 2021-Mar-18
             (222876, uint256S("0x00000003bd8ad5f5f5373342f9c2fddfb33f9e0344eb743521631875b596a20a")) // 2021-May-01
+            (236899, uint256S("0x00000049f886a539748a185696c18f8b42ca5645ab1d38d86b4695a5ef89ea16")) // 2021-Jul-02
+            (251046, uint256S("0x0000006d7b2de3403a029df4937a711095cdc3e7831ae197333ee5f8480c7c46")) // 2021-Sep-02
+            (265970, uint256S("0x0000001370514a152d9e855af18e3fbe6f4f0868082238ceedb185fe6d2d4e31")) // 2021-Nov-06
+            (276994, uint256S("0x0000000b88c21fb493e6664d425eb4edfa64e1c24bf9e8cde1383eb714ab54f6")) // 2021-Dec-25
+            (285118, uint256S("0x0000001b4cbf188954151f43361764800381552de60a74a5b016c4a7271ded5d")) // 2022-Jan-29
         };
 
         chainTxData = ChainTxData{
-            1619902162, // * UNIX timestamp of last known number of transactions
-            387457,     // * total number of transactions between genesis and that timestamp
+            1643467912, // * UNIX timestamp of last known number of transactions
+            515736,     // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the UpdateTip debug.log lines)
             0.04        // * estimated number of transactions per second after that timestamp
         };
@@ -515,7 +519,7 @@ public:
             1642072314, // * UNIX timestamp of last known number of transactions
             815,        // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the UpdateTip debug.log lines)
-            0.005       // * estimated number of transactions per second after that timestamp
+            0.02        // * estimated number of transactions per second after that timestamp
         };
     }
 };
