@@ -1,4 +1,4 @@
-DMS Release Process
+DMS Core Release Process
 ====================
 
 Before every minor and major release:
@@ -49,13 +49,14 @@ Client version
     - Set `CLIENT_VERSION_IS_RELEASE` to `true`
 	- `COPYRIGHT_YEAR`
 	- `RELEASE_CODE_NAME` **A**lice, **B**ob, **C**arol etc.
+- `src/rpc/misc.cpp: devgetinfo` return release
 - `doc/README.md` and `doc/README_windows.txt`
 - `doc/Doxyfile`: `PROJECT_NUMBER` contains the full version
-- `contrib/gitian-descriptors/*.yml`: documentchain-win-0.12
+- `contrib/gitian-descriptors/*.yml`: documentchain-win-0.13
 
 Write release notes. git shortlog helps a lot, for example:
 
-    git shortlog --no-merges v(current version, e.g. 0.12.2)..v(new version, e.g. 0.12.3)
+    git shortlog --no-merges v(current version, e.g. 0.13.3)..v(new version, e.g. 0.13.4)
 
 Generate list of authors:
 
@@ -63,7 +64,7 @@ Generate list of authors:
 
 Tag version (or release candidate) in git
 
-    git tag -s v(new version, e.g. 0.12.3)
+    git tag -s v(new version, e.g. 0.13.4)
 
 ### Setup and perform Gitian builds
 
@@ -73,7 +74,7 @@ Setup Gitian descriptors:
 
     pushd ./documentchain
     export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
-    export VERSION=(new version, e.g. 0.12.3)
+    export VERSION=(new version, e.g. 0.13.4)
     git fetch
     git checkout v${VERSION}
     popd
