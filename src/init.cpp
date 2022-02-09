@@ -1,6 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2021 The Dash Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -672,7 +673,12 @@ std::string LicenseInfo()
                URL_SOURCE_CODE) +
            "\n" +
            "\n" +
-           _("This is experimental software.") + "\n" +
+           "Publisher/Impressum:\n" + /* as a company in the EU, we have to provide legal information */
+           "Softwarebüro Krekeler, Friedrich-Engels-Str. 45, 15712 Königs Wusterhausen, Germany\n" +
+           "Phone +49 3375 203631, Fax +49 3375 203622, mail@documentchain.org, VAT ID/USt-IdNr. DE136377489\n" +
+           "Responsible Person i. t. o. p. r § 18 pars: 2 MStV: Harald Krekeler (Address see above)\n" +
+           "Verantwortlicher i. S. d. § 55 Abs: 2 RStV: Harald Krekeler (Anschrift s. o.)\n" +
+
            strprintf(_("Distributed under the MIT software license, see the accompanying file %s or %s"), "COPYING", "<https://opensource.org/licenses/MIT>") + "\n" +
            "\n" +
            strprintf(_("This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit %s and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard."), "<https://www.openssl.org>") +
