@@ -2,6 +2,7 @@
 # Copyright (c) 2010 ArtForz -- public domain half-a-node
 # Copyright (c) 2012 Jeff Garzik
 # Copyright (c) 2010-2016 The Bitcoin Core developers
+# Copyright (c) 2018-2022 The Documentchain developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """DMS P2P network half-a-node.
@@ -71,10 +72,10 @@ MESSAGEMAP = {
 }
 
 MAGIC_BYTES = {
-    "mainnet": b"\xbf\x0c\x6b\xbd",   # mainnet
-    "testnet3": b"\xce\xe2\xca\xff",  # testnet3
-    "regtest": b"\xfc\xc1\xb7\xdc",   # regtest
-    "devnet": b"\xe2\xca\xff\xce",    # devnet
+    "mainnet": b"\x24\x44\x4d\x53",   # mainnet
+    "testnet4": b"\x74\x44\x4d\x53",  # testnet4
+    "regtest": b"\xfc\x44\x4d\x53",   # regtest
+    "devnet": b"\xce\x44\x4d\x53",    # devnet
 }
 
 class P2PConnection(asyncore.dispatcher):
