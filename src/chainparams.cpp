@@ -913,8 +913,8 @@ public:
 
         // Deployment of BIP147
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].bit = 2;
-        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nStartTime = 1640264400; // 2021-Dec-23
-        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nTimeout = 1640253600; // 2022-Mar-13
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nStartTime = 1640354400; // 2021-Dec-24
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nTimeout = 1647129600; // 2022-Mar-13
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nWindowSize = 10;
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nThresholdStart = 8;
 
@@ -967,13 +967,6 @@ public:
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S("0x500f24a842f7b81dfa1d11d46f37b819812ae1f745b45c86f28249c1c669d5dc"));
         assert(genesis.hashMerkleRoot == uint256S("0xa500729aa7e2874bdb829c2e1ea99ef3542b7c43d426bca2f6720b9a9688308a"));
-		/* temp: create genesis
-            printf("(CDevNetParams)\n");
-            printf("hashMerkleRoot %s\n", genesis.hashMerkleRoot.ToString().c_str());
-            printf("genesis.nBits 0x%x\n", genesis.nBits);
-            printf("hashGenesisBlock %s\n", consensus.hashGenesisBlock.ToString().c_str());
-            printf("genesis.nNonce %d\n", genesis.nNonce);
-		*/
 
         if (!fHelpOnly) {
             devnetGenesis = FindDevNetGenesisBlock(genesis, 50 * COIN);  // TODO : set to 10 in next devnet?
@@ -1000,7 +993,10 @@ public:
 
         // long living quorum params in update period v0.13 to v0.17
         consensus.llmqs[Consensus::LLMQ_DEVNET] = llmq_devnet; // LLMQ_10_60
-        consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60;
+        consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60;    // used in devnet-4, not in devnet-5
+        /* TODO : v0.17 activate llmq30_60 on devnet-5, testnet and later on mainet via spork
+        consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60;    // used in devnet-4, not in devnet-5
+        */
         consensus.llmqs[Consensus::LLMQ_150_60] = llmq150_60;
         consensus.llmqs[Consensus::LLMQ_150_85] = llmq150_85;
         consensus.llmqTypeChainLocks = Consensus::LLMQ_150_60;  // or LLMQ_30_60?
