@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2016 The Bitcoin Core developers
 # Copyright (c) 2014-2021 The Dash Core developers
+# Copyright (c) 2018-2022 The Documentchain developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Helpful routines for regression testing."""
@@ -312,7 +313,7 @@ def initialize_datadir(dirname, n, chain):
     if not os.path.isdir(datadir):
         os.makedirs(datadir)
     # Translate chain name to config name
-    if chain == 'testnet3':
+    if chain == 'testnet4':
         chain_name_conf_arg = 'testnet'
         chain_name_conf_section = 'test'
         chain_name_conf_arg_value = '1'
