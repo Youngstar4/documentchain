@@ -62,6 +62,7 @@ SplashScreen::SplashScreen(interfaces::Node& node, Qt::WindowFlags f, const Netw
     QPixmap pixmapLogo = networkStyle->getSplashImage();
     pixmapLogo.setDevicePixelRatio(scale);
 
+    /* DMS Core has a true color image, the following conversion is only useful for monochrome images
     // Adjust logo color based on the current theme
     QImage imgLogo = pixmapLogo.toImage().convertToFormat(QImage::Format_ARGB32);
     QColor logoColor = GUIUtil::getThemedQColor(GUIUtil::ThemedColor::BLUE);
@@ -72,6 +73,7 @@ SplashScreen::SplashScreen(interfaces::Node& node, Qt::WindowFlags f, const Netw
         }
     }
     pixmapLogo.convertFromImage(imgLogo);
+    */
 
     pixmap = QPixmap(width * scale, height * scale);
     pixmap.setDevicePixelRatio(scale);
