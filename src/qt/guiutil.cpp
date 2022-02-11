@@ -1784,6 +1784,14 @@ void updateButtonGroupShortcuts(QButtonGroup* buttonGroup)
     }
 }
 
+// save app path to settings, used by DMS software on windows
+void saveAppPath()
+{
+    QSettings settings;
+    QString strAppPath = QCoreApplication::applicationFilePath();
+    settings.setValue("strAppPath", QDir::toNativeSeparators(strAppPath));
+}
+
 void setClipboard(const QString& str)
 {
     QApplication::clipboard()->setText(str, QClipboard::Clipboard);
