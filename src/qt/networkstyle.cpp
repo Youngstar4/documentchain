@@ -65,7 +65,7 @@ void NetworkStyle::rotateColors(QImage& img, const int iconColorHueShift, const 
 NetworkStyle::NetworkStyle(const QString &_appName, const int iconColorHueShift, const int iconColorSaturationReduction, const char *_titleAddText):
     appName(_appName),
     titleAddText(qApp->translate("SplashScreen", _titleAddText)),
-    badgeColor(QColor(0, 141, 228)) // default badge color is the original DMS's blue, regardless of the current theme
+    badgeColor(QColor(153, 0, 0)) // default badge color is the original DMS's dark red, regardless of the current theme
 {
     // Allow for separate UI settings for testnets
     QApplication::setApplicationName(appName);
