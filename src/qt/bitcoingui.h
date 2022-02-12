@@ -136,6 +136,7 @@ private:
     QAction *openConfEditorAction;
     QAction *showBackupsAction;
     QAction *openAction;
+    QAction *openSupportWebsiteAction;
     QAction *showHelpMessageAction;
     QAction *showCoinJoinHelpAction;
     QAction *m_wallet_selector_action = nullptr;
@@ -310,6 +311,8 @@ private Q_SLOTS:
     /** Show folder with wallet backups in default file browser */
     void showBackups();
 
+    /** Open support website */
+    void openSupportWebsiteClicked();
     /** Show help message dialog */
     void showHelpMessageClicked();
     /** Show CoinJoin help message dialog */

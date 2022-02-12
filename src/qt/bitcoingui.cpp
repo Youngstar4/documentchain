@@ -44,6 +44,7 @@
 #include <QButtonGroup>
 #include <QComboBox>
 #include <QDateTime>
+#include <QDesktopServices>
 #include <QDesktopWidget>
 #include <QDragEnterEvent>
 #include <QListWidget>
@@ -112,6 +113,7 @@ BitcoinGUI::BitcoinGUI(interfaces::Node& node, const NetworkStyle* networkStyle,
     aboutQtAction(0),
     openRPCConsoleAction(0),
     openAction(0),
+    openSupportWebsiteAction(0),
     showHelpMessageAction(0),
     showCoinJoinHelpAction(0),
     trayIcon(0),
@@ -459,6 +461,10 @@ void BitcoinGUI::createActions()
     openAction = new QAction(tr("Open &URI..."), this);
     openAction->setStatusTip(tr("Open a dms: URI or payment request"));
 
+    openSupportWebsiteAction = new QAction(tr("&Support Website"), this);
+    openSupportWebsiteAction->setMenuRole(QAction::NoRole);
+    openSupportWebsiteAction->setStatusTip(tr("Open the %1 support website").arg(tr(PACKAGE_NAME)));
+
     showHelpMessageAction = new QAction(tr("&Command-line options"), this);
     showHelpMessageAction->setMenuRole(QAction::NoRole);
     showHelpMessageAction->setStatusTip(tr("Show the %1 help message to get a list with possible DMS command-line options").arg(tr(PACKAGE_NAME)));
@@ -472,6 +478,7 @@ void BitcoinGUI::createActions()
     connect(aboutQtAction, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
     connect(optionsAction, SIGNAL(triggered()), this, SLOT(optionsClicked()));
     connect(toggleHideAction, SIGNAL(triggered()), this, SLOT(toggleHidden()));
+    connect(openSupportWebsiteAction, SIGNAL(triggered()), this, SLOT(openSupportWebsiteClicked()));
     connect(showHelpMessageAction, SIGNAL(triggered()), this, SLOT(showHelpMessageClicked()));
     connect(showCoinJoinHelpAction, SIGNAL(triggered()), this, SLOT(showCoinJoinHelpClicked()));
 
@@ -558,6 +565,7 @@ void BitcoinGUI::createMenuBar()
     }
 
     QMenu *help = appMenuBar->addMenu(tr("&Help"));
+    help->addAction(openSupportWebsiteAction);
     help->addAction(showHelpMessageAction);
     help->addAction(showCoinJoinHelpAction);
     help->addSeparator();
@@ -974,6 +982,12 @@ void BitcoinGUI::showConfEditor()
 void BitcoinGUI::showBackups()
 {
     GUIUtil::showBackups();
+}
+
+void BitcoinGUI::openSupportWebsiteClicked()
+{
+    QString supporturl = tr("https://documentchain.org/start-now/#howto");
+    QDesktopServices::openUrl(supporturl);
 }
 
 void BitcoinGUI::showHelpMessageClicked()
