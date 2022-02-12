@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -131,11 +132,7 @@ private:
     QAction *unlockWalletAction;
     QAction *lockWalletAction;
     QAction *aboutQtAction;
-    QAction *openInfoAction;
     QAction *openRPCConsoleAction;
-    QAction *openGraphAction;
-    QAction *openPeersAction;
-    QAction *openRepairAction;
     QAction *openConfEditorAction;
     QAction *showBackupsAction;
     QAction *openAction;
