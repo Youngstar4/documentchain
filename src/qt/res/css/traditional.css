@@ -1,5 +1,6 @@
 /**
 Copyright (c) 2020 The Dash Core developers
+Copyright (c) 2022 The Documentchain developers
 Distributed under the MIT/X11 software license, see the accompanying
 file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,14 +20,14 @@ Loaded in GUIUtil::loadStyleSheet() in guitil.cpp.
 
 # Used colors in traditional.css for commit 44de8a93f2
 
-#00000000
-#222222
-#333
-#fff
-#008de4
-#047ac2
-#a84832
-#ccfafafa
+#00000000  black
+#222222    black 13%
+#333       black 20%
+#fff       white
+#008de4    blue 45%
+#047ac2    blue 39%
+#a84832    red brown
+#ccfafafa  turquoise
 
 </colors>
 */
@@ -66,7 +67,7 @@ QPushButton - Special case, tabbar replacement buttons
     border-bottom: 3px solid red;
     padding-bottom: 5px;
     background-color: #00000000;
-    border-color: #008de4;
+    border-color: #f73131; /* 008de4 light */
 }
 
 /* Debug window buttons */
@@ -112,7 +113,7 @@ QPushButton - Special case, tabbar replacement buttons
     border-radius: 0px;
     border-bottom: 3px solid red;
     background-color: #00000000;
-    border-color: #047ac2;
+    border-color: #b30000; /* 047ac2 dark */
 }
 
 /* Debug window buttons */

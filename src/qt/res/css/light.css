@@ -1,5 +1,6 @@
 /**
 Copyright (c) 2020 The Dash Core developers
+Copyright (c) 2022 The Documentchain developers
 Distributed under the MIT/X11 software license, see the accompanying
 file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,18 +20,18 @@ Loaded in GUIUtil::loadStyleSheet() in guitil.cpp.
 
 # Used colors in light.css for commit 44de8a93f2
 
-#00000000
-#555
-#008de4
-#0f75b5
-#a7a7a7
-#c7c7c7
-#d2d2d2
-#dcdcdc
-#e0e0e0
-#eaeaec
-#f2f2f4
-#ccfafafa
+#00000000  black
+#555       black 33%
+#008de4    blue 45% light  => #990000 dark
+#0f75b5    blue 38% dark   => #f73131 light
+#a7a7a7    black 65%
+#c7c7c7    black 78%
+#d2d2d2    black 82%
+#dcdcdc    black 86%
+#e0e0e0    black 88%
+#eaeaec    black 92%
+#f2f2f4    black 95%
+#ccfafafa  turquoise
 
 </colors>
 */
@@ -76,7 +77,7 @@ QComboBox,
 QPlainTextEdit,
 QLineEdit {
     background-color: #eaeaec;
-    border-color: #008de4;
+    border-color: #990000;
     color: #555;
 }
 
@@ -86,7 +87,7 @@ QComboBox:hover:!focus,
 QPlainTextEdit:hover:!focus,
 QLineEdit:hover:!focus {
     background-color: #eaeaec;
-    border-color: #0f75b5;
+    border-color: #f73131;
 }
 
 
@@ -97,7 +98,7 @@ QComboBox:focus,
 QPlainTextEdit:focus,
 QLineEdit:focus {
     background-color: #d2d2d2;
-    border-color: #0f75b5;
+    border-color: #f73131;
 }
 
 BitcoinAmountField:disabled,
@@ -115,25 +116,25 @@ QAbstractSpinBox
 ******************************************************/
 
 QAbstractSpinBox::up-arrow {
-    image: url(':/images/arrow_up_light');
-}
-QAbstractSpinBox::up-arrow:hover {
     image: url(':/images/arrow_up_dark');
 }
-QAbstractSpinBox::up-arrow:pressed {
+QAbstractSpinBox::up-arrow:hover {
     image: url(':/images/arrow_up_light');
+}
+QAbstractSpinBox::up-arrow:pressed {
+    image: url(':/images/arrow_up_dark');
 }
 QAbstractSpinBox::up-arrow:disabled {
     image: url(':/images/arrow_light_up_normal');
 }
 QAbstractSpinBox::down-arrow {
-    image: url(':/images/arrow_down_light');
-}
-QAbstractSpinBox::down-arrow:hover {
     image: url(':/images/arrow_down_dark');
 }
-QAbstractSpinBox::down-arrow:pressed {
+QAbstractSpinBox::down-arrow:hover {
     image: url(':/images/arrow_down_light');
+}
+QAbstractSpinBox::down-arrow:pressed {
+    image: url(':/images/arrow_down_dark');
 }
 QAbstractSpinBox::down-arrow:disabled {
     image: url(':/images/arrow_light_down_normal');
@@ -170,10 +171,10 @@ QCalendarWidget,
 }
 
 #qt_calendar_prevmonth {
-    qproperty-icon: url(':/images/arrow_left_light');
+    qproperty-icon: url(':/images/arrow_left_dark');
 }
 #qt_calendar_nextmonth {
-    qproperty-icon: url(':/images/arrow_right_light');
+    qproperty-icon: url(':/images/arrow_right_dark');
 }
 
 QCalendarWidget QToolButton {
@@ -251,13 +252,13 @@ QComboBox::item:selected {
 }
 
 QComboBox::down-arrow {
-    image: url(':/images/arrow_down_light') 0 0 0 0 stretch stretch;
-}
-QComboBox::down-arrow:hover {
     image: url(':/images/arrow_down_dark') 0 0 0 0 stretch stretch;
 }
-QComboBox::down-arrow:pressed {
+QComboBox::down-arrow:hover {
     image: url(':/images/arrow_down_light') 0 0 0 0 stretch stretch;
+}
+QComboBox::down-arrow:pressed {
+    image: url(':/images/arrow_down_dark') 0 0 0 0 stretch stretch;
 }
 QComboBox::down-arrow:disabled {
     image: url(':/images/arrow_light_down_normal') 0 0 0 0 stretch stretch;
@@ -277,13 +278,13 @@ QHeaderView
 ******************************************************/
 
 QHeaderView::section { /* Table Header Sections */
-    background-color: #008de4;
+    background-color: #990000;
     border-color: #f2f2f4;
     color: #f2f2f4;
 }
 
 QHeaderView::section:hover { /* Table Header Sections */
-    background-color: #0f75b5;
+    background-color: #f73131;
     color: #f2f2f4;
 }
 
@@ -337,7 +338,7 @@ QProgressBar {
 }
 
 QProgressBar::chunk {
-    background-color: #008de4;
+    background-color: #990000;
 }
 
 /******************************************************
@@ -353,16 +354,16 @@ QPushButton
 ******************************************************/
 
 QPushButton {
-    background-color: #008de4;
+    background-color: #990000;
     color: #f2f2f4;
 }
 
 QPushButton:hover {
-    background-color: #0f75b5;
+    background-color: #f73131;
 }
 
 QPushButton:pressed {
-    background-color: #008de4;
+    background-color: #990000;
 }
 
 QPushButton:disabled {
@@ -464,7 +465,7 @@ QPushButton - Special case, tabbar replacement buttons
 /* Sign/Verify dialog buttons */
 #btnSignMessage,
 #btnVerifyMessage {
-    border-color: #008de4;
+    border-color: #990000;
     color: #a7a7a7;
 }
 
@@ -504,7 +505,7 @@ QPushButton - Special case, tabbar replacement buttons
 /* Sign/Verify dialog buttons */
 #btnSignMessage:hover:!checked,
 #btnVerifyMessage:hover:!checked {
-    border-color: #0f75b5;
+    border-color: #f73131;
     color: #555;
 }
 
@@ -574,10 +575,10 @@ QSlider
 ******************************************************/
 
 QSlider::handle:horizontal {
-	background-color: #008de4;
+	background-color: #990000;
 }
 QSlider::handle:horizontal:hover {
-	background-color: #0f75b5;
+	background-color: #f73131;
 }
 QSlider::sub-page:horizontal {
 	background-color: #c7c7c7;
@@ -647,7 +648,7 @@ QToolBar / QToolButton
 ******************************************************/
 
 QToolBar {
-    background-color: #008de4;
+    background-color: #990000;
 }
 
 QToolBar > QToolButton {
@@ -656,7 +657,7 @@ QToolBar > QToolButton {
 }
 
 QToolBar > QToolButton:hover:!checked {
-    background-color: #0f75b5;
+    background-color: #f73131;
     color: #dcdcdc;
 }
 
@@ -689,31 +690,31 @@ QTreeWidget {
     border-color: #dcdcdc;
 }
 QTreeWidget::branch::closed:has-children {
-    image: url(':/images/arrow_right_light');
-}
-QTreeWidget::branch::closed:has-children:hover {
     image: url(':/images/arrow_right_dark');
 }
+QTreeWidget::branch::closed:has-children:hover {
+    image: url(':/images/arrow_right_light');
+}
 QTreeWidget::branch::open {
-    image: url(':/images/arrow_down_light');
+    image: url(':/images/arrow_down_dark');
 }
 QTreeWidget::branch::open:hover {
-    image: url(':/images/arrow_down_dark');
+    image: url(':/images/arrow_down_light');
 }
 QTreeWidget::indicator:unchecked,
 QTreeWidget::indicator:unchecked:pressed {
-    image: url(':/images/checkbox_normal_light');
+    image: url(':/images/checkbox_normal_dark');
 }
 QTreeWidget::indicator:checked,
 QTreeWidget::indicator:checked:pressed {
-    image: url(':/images/checkbox_checked_light');
+    image: url(':/images/checkbox_checked_dark');
 }
 QTreeWidget::indicator:indeterminate,
 QTreeWidget::indicator:indeterminate:pressed {
-    image: url(':/images/checkbox_partly_checked_light');
+    image: url(':/images/checkbox_partly_checked_dark');
 }
 QTreeWidget::indicator:hover:unchecked {
-    image: url(':/images/checkbox_normal_hover_light');
+    image: url(':/images/checkbox_normal_hover_dark');
 }
 QTreeWidget::indicator:unchecked:disabled {
     image: url(':/images/checkbox_normal_disabled_light');
@@ -1001,52 +1002,52 @@ QScrollBar::sub-line:horizontal:pressed {
 }
 
 QScrollBar:up-arrow {
-    image: url(':/images/arrow_up_light');
-}
-QScrollBar:up-arrow:hover {
     image: url(':/images/arrow_up_dark');
 }
-QScrollBar:up-arrow:pressed {
+QScrollBar:up-arrow:hover {
     image: url(':/images/arrow_up_light');
+}
+QScrollBar:up-arrow:pressed {
+    image: url(':/images/arrow_up_dark');
 }
 QScrollBar:up-arrow:disabled {
     image: url(':/images/arrow_light_up_normal');
 }
 
 QScrollBar:down-arrow {
-    image: url(':/images/arrow_down_light');
-}
-QScrollBar:down-arrow:hover {
     image: url(':/images/arrow_down_dark');
 }
-QScrollBar:down-arrow:pressed {
+QScrollBar:down-arrow:hover {
     image: url(':/images/arrow_down_light');
+}
+QScrollBar:down-arrow:pressed {
+    image: url(':/images/arrow_down_dark');
 }
 QScrollBar:down-arrow:disabled {
     image: url(':/images/arrow_light_down_normal');
 }
 
 QScrollBar:left-arrow {
-    image: url(':/images/arrow_left_light');
-}
-QScrollBar:left-arrow:hover {
     image: url(':/images/arrow_left_dark');
 }
-QScrollBar:left-arrow:pressed {
+QScrollBar:left-arrow:hover {
     image: url(':/images/arrow_left_light');
+}
+QScrollBar:left-arrow:pressed {
+    image: url(':/images/arrow_left_dark');
 }
 QScrollBar:left-arrow:disabled {
     image: url(':/images/arrow_light_left_normal');
 }
 
 QScrollBar:right-arrow {
-    image: url(':/images/arrow_right_light');
-}
-QScrollBar:right-arrow:hover {
     image: url(':/images/arrow_right_dark');
 }
-QScrollBar:right-arrow:pressed {
+QScrollBar:right-arrow:hover {
     image: url(':/images/arrow_right_light');
+}
+QScrollBar:right-arrow:pressed {
+    image: url(':/images/arrow_right_dark');
 }
 QScrollBar:right-arrow:disabled {
     image: url(':/images/arrow_light_right_normal');
