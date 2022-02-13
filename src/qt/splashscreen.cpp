@@ -1,5 +1,6 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2020 The Dash Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -52,9 +53,9 @@ SplashScreen::SplashScreen(interfaces::Node& node, Qt::WindowFlags f, const Netw
     float scale = qApp->devicePixelRatio();
 
     // define text to place
-    QString titleText       = tr(PACKAGE_NAME);
-    QString versionText = QString::fromStdString(FormatFullVersion()).remove(0, 1);
-    QString titleAddText    = networkStyle->getTitleAddText();
+    QString titleText    = QString("%1 \"%2\"").arg(PACKAGE_NAME).arg(RELEASE_CODE_NAME);
+    QString versionText  = QString::fromStdString(FormatFullVersion()).remove(0, 1);
+    QString titleAddText = networkStyle->getTitleAddText();
 
     QFont fontNormal = GUIUtil::getFontNormal();
     QFont fontBold = GUIUtil::getFontBold();
@@ -96,7 +97,7 @@ SplashScreen::SplashScreen(interfaces::Node& node, Qt::WindowFlags f, const Netw
         fontFactor = 0.75;
     }
 
-    fontBold.setPointSize(50 * fontFactor);
+    fontBold.setPointSize(30 * fontFactor);
     pixPaint.setFont(fontBold);
     fm = pixPaint.fontMetrics();
     titleTextWidth  = fm.width(titleText);
