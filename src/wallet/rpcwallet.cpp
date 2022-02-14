@@ -1,6 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2021 The Dash Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -235,6 +236,46 @@ UniValue getaccountaddress(const JSONRPCRequest& request)
     return ret;
 }
 
+
+UniValue getencryptionstatus(const JSONRPCRequest& request)
+{
+    std::shared_ptr<CWallet> const wallet = GetWalletForJSONRPCRequest(request);
+    CWallet* const pwallet = wallet.get();
+
+    if (!EnsureWalletIsAvailable(pwallet, request.fHelp)) {
+        return NullUniValue;
+    }
+
+    if (request.fHelp || request.params.size() != 0)
+        throw std::runtime_error(
+            "getencryptionstatus\n"
+            "\nReturns the encryption status of the wallet.\n"
+            "\nResult:\n"
+            "\"status\"    (string) Current status: \"unencrypted\", \"locked\", \"unlockedformixingonly\" or \"unlocked\"\n"
+            "\nExamples:\n"
+            + HelpExampleCli("getencryptionstatus", "")
+            + HelpExampleRpc("getencryptionstatus", "")
+       );
+
+    LOCK2(cs_main, pwallet->cs_wallet);
+
+    if(!pwallet->IsCrypted())
+    {
+        return "unencrypted";
+    }
+    else if(pwallet->IsLocked(true))
+    {
+        return "locked";
+    }
+    else if (pwallet->IsLocked())
+    {
+        return "unlockedformixingonly";
+    }
+    else
+    {
+        return "unlocked";
+    }
+}
 
 UniValue getrawchangeaddress(const JSONRPCRequest& request)
 {
@@ -4365,6 +4406,7 @@ static const CRPCCommand commands[] =
     { "wallet",             "encryptwallet",                    &encryptwallet,                 {"passphrase"} },
     { "wallet",             "getaddressinfo",                   &getaddressinfo,                {"address"} },
     { "wallet",             "getbalance",                       &getbalance,                    {"account|dummy","minconf","addlocked","include_watchonly"} },
+    { "wallet",             "getencryptionstatus",              &getencryptionstatus,           {} },
     { "wallet",             "getnewaddress",                    &getnewaddress,                 {"label|account"} },
     { "wallet",             "getrawchangeaddress",              &getrawchangeaddress,           {} },
     { "wallet",             "getreceivedbyaddress",             &getreceivedbyaddress,          {"address","minconf","addlocked"} },
