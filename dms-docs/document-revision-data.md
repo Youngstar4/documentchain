@@ -66,12 +66,16 @@ Followed by one or more hash values with four-digit prefix:
 * 22=SHA2-256
 * 23=SHA2-384
 * 25=SHA2-512
-* 31=SHA3-224 <sup>1)</sup>
-* 32=SHA3-256
-* 33=SHA3-384
-* 35=SHA3-512
+* 31=Keccak-224 <sup>1)</sup>
+* 32=Keccak-256
+* 33=Keccak-384
+* 35=Keccak-512
+* 36=SHA3-224 <sup>1)</sup>
+* 37=SHA3-256
+* 38=SHA3-384
+* 39=SHA3-512
 
-<sup>1)</sup> These hashes are not considered collision proof and should only be used together with longer hashes. See [BSI](https://www.bsi.bund.de/EN/Publications/TechnicalGuidelines/tr02102/tr02102_node.html).
+<sup>1)</sup> These hashes are not considered collision proof and should only be used together with longer hashes. See [BSI](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TG02102/BSI-TR-02102-1.html).
 
 #### App Defined Data Type
 
