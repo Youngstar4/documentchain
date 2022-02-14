@@ -143,10 +143,12 @@ namespace GUIUtil
      */
     QList<QModelIndex> getEntryData(QAbstractItemView *view, int column);
 
-    void setClipboard(const QString& str);
+    QString getOSDocumentsDir();
 
     /** Save app path for DMS software **/
     void saveAppPath();
+
+    void setClipboard(const QString& str);
 
     /** Get save filename, mimics QFileDialog::getSaveFileName, except that it appends a default suffix
         when no suffix is provided by the user.
@@ -187,6 +189,12 @@ namespace GUIUtil
 
     // Activate, show and raise the widget
     void bringToFront(QWidget* w);
+
+    // Open file with the associated application
+    void openDocumentFile(const QString fileName);
+
+    // get file name from full path
+    QString extractFileName(const QString fullFilePath);
 
     // Open debug.log
     void openDebugLogfile();

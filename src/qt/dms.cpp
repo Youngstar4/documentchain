@@ -1,5 +1,6 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2021 The Dash Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -521,6 +522,8 @@ void BitcoinApplication::initializeResult(bool success)
                          paymentServer, SLOT(handleURIOrFile(QString)));
         connect(paymentServer, SIGNAL(message(QString,QString,unsigned int)),
                          window, SLOT(message(QString,QString,unsigned int)));
+        connect(window, SIGNAL(receivedFile(QStringList)), window, 
+                         SLOT(gotoDocumentPage(QStringList)), Qt::QueuedConnection);
         QTimer::singleShot(100, paymentServer, SLOT(uiReady()));
 #endif
         pollShutdownTimer->start(200);

@@ -1,5 +1,6 @@
 # Copyright (c) 2013-2016 The Bitcoin Core developers
 # Copyright (c) 2014-2018 The Dash Core developers
+# Copyright (c) 2018-2022 The Documentchain developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -35,6 +36,7 @@ QT_FORMS_UI = \
   qt/forms/appearancewidget.ui \
   qt/forms/askpassphrasedialog.ui \
   qt/forms/coincontroldialog.ui \
+  qt/forms/documentlist.ui \
   qt/forms/editaddressdialog.ui \
   qt/forms/helpmessagedialog.ui \
   qt/forms/intro.ui \
@@ -67,6 +69,7 @@ QT_MOC_CPP = \
   qt/moc_coincontroldialog.cpp \
   qt/moc_coincontroltreewidget.cpp \
   qt/moc_csvmodelwriter.cpp \
+  qt/moc_documentlist.cpp \
   qt/moc_editaddressdialog.cpp \
   qt/moc_guiutil.cpp \
   qt/moc_intro.cpp \
@@ -140,6 +143,7 @@ BITCOIN_QT_H = \
   qt/coincontroldialog.h \
   qt/coincontroltreewidget.h \
   qt/csvmodelwriter.h \
+  qt/documentlist.h \
   qt/editaddressdialog.h \
   qt/guiconstants.h \
   qt/guiutil.h \
@@ -224,6 +228,7 @@ BITCOIN_QT_BASE_CPP = \
   qt/bitcoinunits.cpp \
   qt/clientmodel.cpp \
   qt/csvmodelwriter.cpp \
+  qt/documentlist.cpp \
   qt/guiutil.cpp \
   qt/intro.cpp \
   qt/modaloverlay.cpp \

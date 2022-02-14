@@ -62,6 +62,10 @@ QTreeWidget { /* Base Text Size & Color */
     color: #c7c7c7;
 }
 
+QListView {
+    background-color: #2d2d2e;
+}
+
 QCheckBox:disabled,
 QLabel:disabled,
 QListView:disabled,

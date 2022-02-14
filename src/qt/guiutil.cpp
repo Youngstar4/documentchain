@@ -475,6 +475,15 @@ QList<QModelIndex> getEntryData(QAbstractItemView *view, int column)
     return view->selectionModel()->selectedRows(column);
 }
 
+QString getOSDocumentsDir()
+{
+#if QT_VERSION < 0x050000
+    return QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);
+#else
+    return QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+#endif
+}
+
 QString getSaveFileName(QWidget *parent, const QString &caption, const QString &dir,
     const QString &filter,
     QString *selectedSuffixOut)
@@ -596,6 +605,17 @@ void bringToFront(QWidget* w)
         w->activateWindow();
         w->raise();
     }
+}
+
+void openDocumentFile(const QString fileName)
+{
+    QDesktopServices::openUrl(QUrl::fromLocalFile(fileName));
+}
+
+QString extractFileName(const QString fullFilePath)
+{
+  QFileInfo fileInfo(fullFilePath);
+  return fileInfo.fileName();
 }
 
 void openDebugLogfile()

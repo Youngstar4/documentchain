@@ -20,6 +20,7 @@
 #include <qt/utilitydialog.h>
 
 #ifdef ENABLE_WALLET
+#include <qt/documentlist.h>
 #include <qt/walletframe.h>
 #include <qt/walletmodel.h>
 #include <qt/walletview.h>
@@ -92,6 +93,7 @@ BitcoinGUI::BitcoinGUI(interfaces::Node& node, const NetworkStyle* networkStyle,
     appToolBarLogoAction(0),
     overviewButton(0),
     historyButton(0),
+    documentButton(0),
     masternodeButton(0),
     quitAction(0),
     sendCoinsButton(0),
@@ -613,6 +615,12 @@ void BitcoinGUI::createToolBars()
         coinJoinCoinsButton->setStatusTip(coinJoinCoinsMenuAction->statusTip());
         tabGroup->addButton(coinJoinCoinsButton);
 
+        documentButton = new QToolButton(this);
+        documentButton->setText(tr("&Documents"));
+        documentButton->setStatusTip(tr("Document Revision"));
+        documentButton->setCheckable(true);
+        tabGroup->addButton(documentButton);
+
         QSettings settings;
         if (settings.value("fShowMasternodesTab").toBool()) {
             masternodeButton = new QToolButton(this);
@@ -627,6 +635,7 @@ void BitcoinGUI::createToolBars()
         connect(coinJoinCoinsButton, SIGNAL(clicked()), this, SLOT(gotoCoinJoinCoinsPage()));
         connect(receiveCoinsButton, SIGNAL(clicked()), this, SLOT(gotoReceiveCoinsPage()));
         connect(historyButton, SIGNAL(clicked()), this, SLOT(gotoHistoryPage()));
+        connect(documentButton, SIGNAL(clicked()), this, SLOT(gotoDocumentPage()));
 
         // Give the selected tab button a bolder font.
         connect(tabGroup, SIGNAL(buttonToggled(QAbstractButton *, bool)), this, SLOT(highlightTabButton(QAbstractButton *, bool)));
@@ -1031,6 +1040,12 @@ void BitcoinGUI::gotoHistoryPage()
 {
     historyButton->setChecked(true);
     if (walletFrame) walletFrame->gotoHistoryPage();
+}
+
+void BitcoinGUI::gotoDocumentPage(const QStringList newFiles)
+{
+    documentButton->setChecked(true);
+    if (walletFrame) walletFrame->gotoDocumentPage(newFiles);
 }
 
 void BitcoinGUI::gotoMasternodePage()
@@ -1615,10 +1630,14 @@ void BitcoinGUI::dropEvent(QDropEvent *event)
 {
     if(event->mimeData()->hasUrls())
     {
-        for (const QUrl &uri : event->mimeData()->urls())
+        QStringList files;
+        Q_FOREACH(const QUrl &uri, event->mimeData()->urls()) 
         {
-            Q_EMIT receivedURI(uri.toString());
+            files.append(uri.toLocalFile());
         }
+        /** we are using a Qt::QueuedConnection so that the sending
+            app is not blocked while the files are being processed */
+        Q_EMIT receivedFile(files);
     }
     event->acceptProposedAction();
 }

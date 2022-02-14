@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -74,6 +75,7 @@ WalletView::WalletView(QWidget* parent) :
     receiveCoinsPage = new ReceiveCoinsDialog();
     sendCoinsPage = new SendCoinsDialog();
     coinJoinCoinsPage = new SendCoinsDialog(true);
+    documentsPage = new DocumentList();
 
     usedSendingAddressesPage = new AddressBookPage(AddressBookPage::ForEditing, AddressBookPage::SendingTab, this);
     usedReceivingAddressesPage = new AddressBookPage(AddressBookPage::ForEditing, AddressBookPage::ReceivingTab, this);
@@ -83,6 +85,7 @@ WalletView::WalletView(QWidget* parent) :
     addWidget(receiveCoinsPage);
     addWidget(sendCoinsPage);
     addWidget(coinJoinCoinsPage);
+    addWidget(documentsPage);
 
     QSettings settings;
     if (settings.value("fShowMasternodesTab").toBool()) {
@@ -153,6 +156,7 @@ void WalletView::setClientModel(ClientModel *_clientModel)
     overviewPage->setClientModel(_clientModel);
     sendCoinsPage->setClientModel(_clientModel);
     coinJoinCoinsPage->setClientModel(_clientModel);
+    documentsPage->setClientModel(_clientModel);
     QSettings settings;
     if (settings.value("fShowMasternodesTab").toBool()) {
         masternodeListPage->setClientModel(_clientModel);
@@ -166,6 +170,7 @@ void WalletView::setWalletModel(WalletModel *_walletModel)
     // Put transaction list in tabs
     transactionView->setModel(_walletModel);
     overviewPage->setWalletModel(_walletModel);
+    documentsPage->setWalletModel(_walletModel);
     QSettings settings;
     if (settings.value("fShowMasternodesTab").toBool()) {
         masternodeListPage->setWalletModel(_walletModel);
@@ -237,6 +242,13 @@ void WalletView::gotoOverviewPage()
 void WalletView::gotoHistoryPage()
 {
     setCurrentWidget(transactionsPage);
+}
+
+void WalletView::gotoDocumentPage(const QStringList newFiles)
+{
+    setCurrentWidget(documentsPage);
+    if (newFiles.count() > 0)
+        documentsPage->handleNewFiles(newFiles);
 }
 
 void WalletView::gotoMasternodePage()

@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -6,6 +7,7 @@
 #define BITCOIN_QT_WALLETVIEW_H
 
 #include <amount.h>
+#include <qt/documentlist.h>
 #include <qt/masternodelist.h>
 
 #include <QStackedWidget>
@@ -67,6 +69,7 @@ private:
     SendCoinsDialog* coinJoinCoinsPage;
     AddressBookPage *usedSendingAddressesPage;
     AddressBookPage *usedReceivingAddressesPage;
+    DocumentList *documentsPage;
     MasternodeList *masternodeListPage;
 
     TransactionView *transactionView;
@@ -79,6 +82,8 @@ public Q_SLOTS:
     void gotoOverviewPage();
     /** Switch to history (transactions) page */
     void gotoHistoryPage();
+    /** Switch to documents page */
+    void gotoDocumentPage(const QStringList newFiles = QStringList());
     /** Switch to masternode page */
     void gotoMasternodePage();
     /** Switch to receive coins page */
