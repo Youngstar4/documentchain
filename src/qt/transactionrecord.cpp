@@ -1,5 +1,6 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2021 The Dash Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -213,6 +214,14 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(interfaces::Wal
                     sub.strAddress = EncodeDestination(wtx.txout_address[nOut]);
                     sub.txDest = wtx.txout_address[nOut];
                     sub.updateLabel(wallet);
+                }
+                else if (txout.nValue == 0)
+                {
+                    // Sent Document Revision information to Blockchain
+                    // TODO : document is currently recognized on nValue=0. Use transaction types.
+                    sub.type = TransactionRecord::DocumentRevision;
+                    sub.strAddress = mapValue["to"];
+                  //sub.txDest =  TODO : document GUID or name
                 }
                 else
                 {
