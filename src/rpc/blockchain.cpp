@@ -1,6 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2021 The Dash Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -2221,6 +2222,124 @@ UniValue savemempool(const JSONRPCRequest& request)
     return NullUniValue;
 }
 
+/**
+  DMS Core specific, hidden, list special transactions from block height
+*/
+UniValue devlistspecialtxes(const JSONRPCRequest& request)
+{
+    if (request.fHelp || request.params.size() != 4)
+        throw std::runtime_error(
+            "devlistspecialtxes type startheight blockcount verbosity\n"
+          //"devlistspecialtxes countallquorums\n"
+            "\nExamples:\n"
+            + HelpExampleCli("devlistspecialtxes", "-1 277200 100 3") 
+          //+ HelpExampleCli("devlistspecialtxes", "countallquorums") 
+            + HelpExampleRpc("devlistspecialtxes", "-1 277200 100 3")
+        );
+
+    LOCK(cs_main);
+
+    int nCurrHeight = chainActive.Height();
+    int nHeight = 1;
+    int nTxType;
+    int nCount;
+    int nVerbosity;
+
+    /*
+    if (request.params[0].get_str() == "countallquorums") {
+        nTxType = 6;
+        if (Params().NetworkIDString() == CBaseChainParams::MAIN)
+            nHeight = 237500; // before DIP3
+        else if (Params().NetworkIDString() == CBaseChainParams::TESTNET)
+            nHeight = 6349; // testnet4
+        nCount  = nCurrHeight - nHeight;
+        nVerbosity = 10;
+    }
+    else */ {
+        nTxType = request.params[0].get_int();
+        nCount  = request.params[2].get_int();
+        nVerbosity = request.params[3].get_int();
+        nHeight = request.params[1].get_int();
+        if (nHeight < 0)
+            nHeight = nCurrHeight + nHeight + 1;
+    }
+
+    UniValue result(UniValue::VARR);
+    CBlock block;
+    int i = 0;
+    int nCount1 = 0;
+    int nCount2 = 0;
+    int nCount3 = 0;
+    int nCountN = 0;
+
+    while (i < nCount && nHeight+i < nCurrHeight)
+    {
+        CBlockIndex* pblockindex = chainActive[nHeight+i];
+        if (!ReadBlockFromDisk(block, pblockindex, Params().GetConsensus()))
+            throw JSONRPCError(RPC_INTERNAL_ERROR, "Can't read block from disk");
+
+        for(const auto& tx : block.vtx)
+        {
+            if (tx->nVersion != 3 || tx->nType == TRANSACTION_NORMAL 
+                || (nTxType != -1 && tx->nType != nTxType)
+                || (nVerbosity == 10 && tx->nType != 6)) {
+                    continue;
+            }
+            switch (nVerbosity)
+            {
+                case 0 : result.push_back(tx->GetHash().GetHex()); break;
+                case 1 : result.push_back(EncodeHexTx(*tx)); break;
+                case 2 :
+                    {
+                        UniValue objTx(UniValue::VOBJ);
+                        TxToJSON(*tx, uint256(), objTx);
+                        result.push_back(objTx);
+                        break;
+                    }
+                case 3 :
+                case 4 :
+                case 10:
+                    {
+                        std::string res = strprintf("height %s, type %s", nHeight+i, tx->nType);
+                        if (tx->nType == TRANSACTION_QUORUM_COMMITMENT) {
+                            llmq::CFinalCommitmentTxPayload qcTx;
+                            if (nVerbosity == 10) {
+                                switch ((int)qcTx.commitment.llmqType) {
+                                    case 1 : nCount1++;
+                                             break;
+                                    case 2 : nCount2++;
+                                             break;
+                                    case 3 : nCount3++;
+                                             break;
+                                    default: nCountN++;
+                                }
+                            }
+                            else {
+                                if (GetTxPayload(*tx, qcTx)) {
+                                    res += strprintf(", llmqType %s, validMembersCount %s, signersCount %s, version %s", 
+                                                     (int)qcTx.commitment.llmqType, qcTx.commitment.CountValidMembers(), 
+                                                     qcTx.commitment.CountSigners(), qcTx.commitment.nVersion);
+                                    if (nVerbosity == 4)
+                                        res += strprintf(", quorumHash %s, quorumPublicKey %s", 
+                                                         qcTx.commitment.quorumHash.ToString(), qcTx.commitment.quorumPublicKey.ToString());
+                                }
+                            }
+                        }
+                        result.push_back(res);
+                        break;
+                    }
+                default : throw JSONRPCError(RPC_INTERNAL_ERROR, "Unsupported verbosity");
+            }
+        }
+        i++;
+    }
+
+    if (nVerbosity == 10)
+        return strprintf("total: llmqType 1=%s, llmqType 2=%s, llmqType 3=%s, others=%s", nCount1, nCount2, nCount3, nCountN);
+
+    return result;
+}
+
 static const CRPCCommand commands[] =
 { //  category              name                      actor (function)         argNames
   //  --------------------- ------------------------  -----------------------  ----------
@@ -2253,6 +2372,7 @@ static const CRPCCommand commands[] =
     { "blockchain",         "preciousblock",          &preciousblock,          {"blockhash"} },
 
     /* Not shown in help */
+    { "hidden",             "devlistspecialtxes",     &devlistspecialtxes,     {"type", "startheight", "blockcount", "verbosity"} },
     { "hidden",             "invalidateblock",        &invalidateblock,        {"blockhash"} },
     { "hidden",             "reconsiderblock",        &reconsiderblock,        {"blockhash"} },
     { "hidden",             "waitfornewblock",        &waitfornewblock,        {"timeout"} },
