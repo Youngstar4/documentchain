@@ -1232,6 +1232,15 @@ static UniValue getinfo_deprecated(const JSONRPCRequest& request)
     );
 }
 
+/**
+ * hidden RPC function to allow developers to identify different test versions
+**/
+UniValue devgetinfo(const JSONRPCRequest& request)
+{
+    return "my dev comment";
+  //return FormatVersion(CLIENT_VERSION) + " release";
+}
+
 static const CRPCCommand commands[] =
 { //  category              name                      actor (function)         argNames
   //  --------------------- ------------------------  -----------------------  ----------
@@ -1260,6 +1269,7 @@ static const CRPCCommand commands[] =
     { "documentindex",      "listdocuments",          &listdocuments,          {"filehash","verbose"} },
 
     /* Not shown in help */
+    { "hidden",             "devgetinfo",             &devgetinfo,             {} },
     { "hidden",             "setmocktime",            &setmocktime,            {"timestamp"}},
     { "hidden",             "echo",                   &echo,                   {"arg0","arg1","arg2","arg3","arg4","arg5","arg6","arg7","arg8","arg9"}},
     { "hidden",             "echojson",               &echo,                   {"arg0","arg1","arg2","arg3","arg4","arg5","arg6","arg7","arg8","arg9"}},
