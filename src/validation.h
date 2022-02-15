@@ -122,6 +122,7 @@ static const unsigned int DEFAULT_BYTES_PER_SIGOP = 20;
 static const bool DEFAULT_CHECKPOINTS_ENABLED = true;
 static const bool DEFAULT_TXINDEX = true;
 static const bool DEFAULT_ADDRESSINDEX = false;
+static const bool DEFAULT_DOCUMENTINDEX = false;
 static const bool DEFAULT_TIMESTAMPINDEX = false;
 static const bool DEFAULT_SPENTINDEX = false;
 static const unsigned int DEFAULT_BANSCORE_THRESHOLD = 100;
@@ -415,6 +416,9 @@ bool GetAddressIndex(uint160 addressHash, int type,
                      int start = 0, int end = 0);
 bool GetAddressUnspent(uint160 addressHash, int type,
                        std::vector<std::pair<CAddressUnspentKey, CAddressUnspentValue> > &unspentOutputs);
+bool GetDocumentCount(int &totalCount);
+bool GetDocumentList(std::vector<std::pair<CDocumentIndexKey, std::string> > &documentList,
+                     const std::string& hashFilter = "");
 /** Initializes the script-execution cache */
 void InitScriptExecutionCache();
 

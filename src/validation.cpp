@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2021 The Dash Core developers
-// Copyright (c) 2018-2021 The Documentchain developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -231,6 +231,7 @@ std::atomic_bool fImporting(false);
 std::atomic_bool fReindex(false);
 bool fTxIndex = true;
 bool fAddressIndex = false;
+bool fDocumentIndex = false;
 bool fTimestampIndex = false;
 bool fSpentIndex = false;
 bool fHavePruned = false;
@@ -243,6 +244,7 @@ bool fCheckpointsEnabled = DEFAULT_CHECKPOINTS_ENABLED;
 size_t nCoinCacheUsage = 5000 * 300;
 uint64_t nPruneTarget = 0;
 int64_t nMaxTipAge = DEFAULT_MAX_TIP_AGE;
+int fDocumentCount = -1;
 
 std::atomic<bool> fDIP0001ActiveAtTip{false};
 
@@ -968,6 +970,25 @@ bool GetAddressUnspent(uint160 addressHash, int type,
         return error("unable to get txids for address");
 
     return true;
+}
+
+bool GetDocumentCount(int &totalCount) {
+    if (!fDocumentIndex)
+        return error("document index not enabled");
+
+    if (fDocumentCount < 0)
+        fDocumentCount = pblocktree->ReadDocumentCount();
+
+    totalCount = fDocumentCount;
+    return true;
+}
+
+bool GetDocumentList(std::vector<std::pair<CDocumentIndexKey, std::string> > &documentList,
+                     const std::string& hashFilter) {
+    if (!fDocumentIndex)
+        return error("document index not enabled");
+
+    return pblocktree->ReadDocumentIndex(documentList, hashFilter);
 }
 
 /**
@@ -2157,6 +2178,7 @@ bool CChainState::ConnectBlock(const CBlock& block, CValidationState& state, CBl
     std::vector<std::pair<CAddressIndexKey, CAmount> > addressIndex;
     std::vector<std::pair<CAddressUnspentKey, CAddressUnspentValue> > addressUnspentIndex;
     std::vector<std::pair<CSpentIndexKey, CSpentIndexValue> > spentIndex;
+    std::vector<std::pair<CDocumentIndexKey, std::string> > documentIndex;
 
     std::vector<PrecomputedTransactionData> txdata;
     txdata.reserve(block.vtx.size()); // Required so that pointers to individual PrecomputedTransactionData don't get invalidated
@@ -2244,7 +2266,22 @@ bool CChainState::ConnectBlock(const CBlock& block, CValidationState& state, CBl
 
             }
 
-        }
+            if (fDocumentIndex)
+            {
+                for (size_t j = 0; j < tx.vout.size(); j++) {
+                    const CTxOut output = tx.vout[j];
+                    std::string docGuid;
+                    std::string docIndexhash;
+                    std::string docFilehash;
+                    std::string docAttrhash;
+                    if (output.GetDocument(docGuid, docIndexhash, docFilehash, docAttrhash)) {
+                        fDocumentCount = -1;
+                        documentIndex.push_back(std::make_pair(CDocumentIndexKey(docIndexhash, pindex->nHeight, i), txhash.ToString()));
+                    }
+                }
+            }
+
+        } // if (!tx.IsCoinBase())
 
         // GetTransactionSigOpCount counts 2 types of sigops:
         // * legacy (always)
@@ -2314,7 +2351,7 @@ bool CChainState::ConnectBlock(const CBlock& block, CValidationState& state, CBl
     LogPrint(BCLog::BENCHMARK, "    - Verify %u txins: %.2fms (%.3fms/txin) [%.2fs (%.2fms/blk)]\n", nInputs - 1, MILLI * (nTime4 - nTime2), nInputs <= 1 ? 0 : MILLI * (nTime4 - nTime2) / (nInputs-1), nTimeVerify * MICRO, nTimeVerify * MILLI / nBlocksTotal);
 
 
-    // DMS
+    // Dash
 
     // It's possible that we simply don't have enough data and this could fail
     // (i.e. block itself could be a correct one and we need to store it),
@@ -2322,7 +2359,7 @@ bool CChainState::ConnectBlock(const CBlock& block, CValidationState& state, CBl
     // the peer who sent us this block is missing some data and wasn't able
     // to recognize that block is actually invalid.
 
-    // DMS : CHECK TRANSACTIONS FOR INSTANTSEND
+    // Dash : CHECK TRANSACTIONS FOR INSTANTSEND
 
     if (llmq::RejectConflictingBlocks()) {
         // Require other nodes to comply, send them some data in case they are missing it.
@@ -2340,18 +2377,18 @@ bool CChainState::ConnectBlock(const CBlock& block, CValidationState& state, CBl
                 // The node which relayed this should switch to correct chain.
                 // TODO: relay instantsend data/proof.
                 LOCK(cs_main);
-                return state.DoS(10, error("ConnectBlock(DMS): transaction %s conflicts with transaction lock %s", tx->GetHash().ToString(), conflictLock->txid.ToString()),
+                return state.DoS(10, error("ConnectBlock(Dash): transaction %s conflicts with transaction lock %s", tx->GetHash().ToString(), conflictLock->txid.ToString()),
                                  REJECT_INVALID, "conflict-tx-lock");
             }
         }
     } else if (!fReindex && !fImporting) {
-        LogPrintf("ConnectBlock(DMS): spork is off, skipping transaction locking checks\n");
+        LogPrintf("ConnectBlock(Dash): spork is off, skipping transaction locking checks\n");
     }
 
     int64_t nTime5_1 = GetTimeMicros(); nTimeISFilter += nTime5_1 - nTime4;
     LogPrint(BCLog::BENCHMARK, "      - IS filter: %.2fms [%.2fs (%.2fms/blk)]\n", MILLI * (nTime5_1 - nTime4), nTimeISFilter * MICRO, nTimeISFilter * MILLI / nBlocksTotal);
 
-    // DMS : MODIFIED TO CHECK MASTERNODE PAYMENTS AND SUPERBLOCKS
+    // Dash : MODIFIED TO CHECK MASTERNODE PAYMENTS AND SUPERBLOCKS
 
     // TODO: resync data (both ways?) and try to reprocess this block later.
     CAmount blockReward = nFees + GetBlockSubsidy(pindex->pprev->nBits, pindex->pprev->nHeight, chainparams.GetConsensus());
@@ -2361,14 +2398,14 @@ bool CChainState::ConnectBlock(const CBlock& block, CValidationState& state, CBl
     LogPrint(BCLog::BENCHMARK, "      - GetBlockSubsidy: %.2fms [%.2fs (%.2fms/blk)]\n", MILLI * (nTime5_2 - nTime5_1), nTimeSubsidy * MICRO, nTimeSubsidy * MILLI / nBlocksTotal);
 
     if (!IsBlockValueValid(block, pindex->nHeight, blockReward, strError)) {
-        return state.DoS(0, error("ConnectBlock(DMS): %s", strError), REJECT_INVALID, "bad-cb-amount");
+        return state.DoS(0, error("ConnectBlock(Dash): %s", strError), REJECT_INVALID, "bad-cb-amount");
     }
 
     int64_t nTime5_3 = GetTimeMicros(); nTimeValueValid += nTime5_3 - nTime5_2;
     LogPrint(BCLog::BENCHMARK, "      - IsBlockValueValid: %.2fms [%.2fs (%.2fms/blk)]\n", MILLI * (nTime5_3 - nTime5_2), nTimeValueValid * MICRO, nTimeValueValid * MILLI / nBlocksTotal);
 
     if (!IsBlockPayeeValid(*block.vtx[0], pindex->nHeight, blockReward)) {
-        return state.DoS(0, error("ConnectBlock(DMS): couldn't find masternode or superblock payments"),
+        return state.DoS(0, error("ConnectBlock(Dash): couldn't find masternode or superblock payments"),
                                 REJECT_INVALID, "bad-cb-payee");
     }
 
@@ -2376,9 +2413,9 @@ bool CChainState::ConnectBlock(const CBlock& block, CValidationState& state, CBl
     LogPrint(BCLog::BENCHMARK, "      - IsBlockPayeeValid: %.2fms [%.2fs (%.2fms/blk)]\n", MILLI * (nTime5_4 - nTime5_3), nTimePayeeValid * MICRO, nTimePayeeValid * MILLI / nBlocksTotal);
 
     int64_t nTime5 = GetTimeMicros(); nTimeDMSSpecific += nTime5 - nTime4;
-    LogPrint(BCLog::BENCHMARK, "    - DMS specific: %.2fms [%.2fs (%.2fms/blk)]\n", MILLI * (nTime5 - nTime4), nTimeDMSSpecific * MICRO, nTimeDMSSpecific * MILLI / nBlocksTotal);
+    LogPrint(BCLog::BENCHMARK, "    - Dash specific: %.2fms [%.2fs (%.2fms/blk)]\n", MILLI * (nTime5 - nTime4), nTimeDMSSpecific * MICRO, nTimeDMSSpecific * MILLI / nBlocksTotal);
 
-    // END DMS
+    // END Dash
 
     if (fJustCheck)
         return true;
@@ -2401,6 +2438,12 @@ bool CChainState::ConnectBlock(const CBlock& block, CValidationState& state, CBl
 
         if (!pblocktree->UpdateAddressUnspentIndex(addressUnspentIndex)) {
             return AbortNode(state, "Failed to write address unspent index");
+        }
+    }
+
+    if (fDocumentIndex && !documentIndex.empty()) {
+        if (!pblocktree->WriteDocumentIndex(documentIndex)) {
+            return AbortNode(state, "Failed to write document index");
         }
     }
 
@@ -4401,6 +4444,10 @@ bool static LoadBlockIndexDB(const CChainParams& chainparams) EXCLUSIVE_LOCKS_RE
     pblocktree->ReadFlag("addressindex", fAddressIndex);
     LogPrintf("%s: address index %s\n", __func__, fAddressIndex ? "enabled" : "disabled");
 
+    // Check whether we have an document index
+    pblocktree->ReadFlag("documentindex", fDocumentIndex);
+    LogPrintf("%s: document index %s\n", __func__, fDocumentIndex ? "enabled" : "disabled");
+
     // Check whether we have a timestamp index
     pblocktree->ReadFlag("timestampindex", fTimestampIndex);
     LogPrintf("%s: timestamp index %s\n", __func__, fTimestampIndex ? "enabled" : "disabled");
@@ -4718,6 +4765,10 @@ bool LoadBlockIndex(const CChainParams& chainparams)
         // Use the provided setting for -addressindex in the new database
         fAddressIndex = gArgs.GetBoolArg("-addressindex", DEFAULT_ADDRESSINDEX);
         pblocktree->WriteFlag("addressindex", fAddressIndex);
+
+        // Use the provided setting for -documentindex in the new database
+        fDocumentIndex = gArgs.GetBoolArg("-documentindex", DEFAULT_DOCUMENTINDEX);
+        pblocktree->WriteFlag("documentindex", fDocumentIndex);
 
         // Use the provided setting for -timestampindex in the new database
         fTimestampIndex = gArgs.GetBoolArg("-timestampindex", DEFAULT_TIMESTAMPINDEX);
