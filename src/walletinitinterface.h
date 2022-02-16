@@ -1,4 +1,5 @@
 // Copyright (c) 2017 The Bitcoin Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -31,8 +32,9 @@ public:
     /** Close wallets */
     virtual void Close() const = 0;
 
-    // DMS Specific WalletInitInterface
+    // Dash/DMS Specific WalletInitInterface
     virtual void AutoLockMasternodeCollaterals() const = 0;
+    virtual void LockPermanentlyUnspendables(fs::ifstream& streamConfig) const = 0;;
     virtual void InitCoinJoinSettings() const = 0;
     virtual void InitKeePass() const = 0;
     virtual bool InitAutoBackup() const = 0;

@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2021 The Dash Core developers
-// Copyright (c) 2018-2021 The Documentchain developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -775,6 +775,14 @@ void ClearDatadirCache()
 fs::path GetConfigFile(const std::string& confPath)
 {
     return AbsPathForConfigVal(fs::path(confPath), false);
+}
+
+fs::path GetLockedCoinsConfFile()
+{
+    if (!gArgs.IsArgSet("-lockedcoinsconf"))
+        return GetDataDir() / "lockedcoins.conf";
+
+    return fs::absolute(gArgs.GetArg("-lockedcoinsconf", ""));
 }
 
 void ArgsManager::ReadConfigStream(std::istream& stream)

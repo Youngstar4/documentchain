@@ -1,5 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2017 The Bitcoin Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -52,8 +53,9 @@ public:
     //! Close all wallets.
     void Close() const override;
 
-    // DMS Specific Wallet Init
+    // Dash/DMS Specific Wallet Init
     void AutoLockMasternodeCollaterals() const override;
+    void LockPermanentlyUnspendables(fs::ifstream& streamConfig) const override;
     void InitCoinJoinSettings() const override;
     void InitKeePass() const override;
     bool InitAutoBackup() const override;
@@ -455,6 +457,13 @@ void WalletInit::AutoLockMasternodeCollaterals() const
     // we can't do this before DIP3 is fully initialized
     for (const auto pwallet : GetWallets()) {
         pwallet->AutoLockMasternodeCollaterals();
+    }
+}
+
+void WalletInit::LockPermanentlyUnspendables(fs::ifstream& streamConfig) const
+{
+    for (const auto pwallet : GetWallets()) {
+        pwallet->LockPermanentlyUnspendables(streamConfig);
     }
 }
 

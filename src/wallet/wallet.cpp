@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2021 The Dash Core developers
-// Copyright (c) 2018-2021 The Documentchain developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -4116,6 +4116,32 @@ void CWallet::AutoLockMasternodeCollaterals()
                 if (deterministicMNManager->IsProTxWithCollateral(pair.second.tx, i) || mnList.HasMNByCollateral(COutPoint(pair.first, i))) {
                     LockCoin(COutPoint(pair.first, i));
                 }
+            }
+        }
+    }
+}
+
+// Lock permanently locked inputs on startup
+void CWallet::LockPermanentlyUnspendables(fs::ifstream& streamConfig)
+{
+    LOCK2(cs_main, cs_wallet);
+    for (const auto& pair : mapWallet) {
+        if (streamConfig.good()) {
+            int lclinenumber = 1;
+            uint256 lcTxHash;
+            for (std::string line; std::getline(streamConfig, line); lclinenumber++) {
+                if (line.empty()) continue;
+                std::istringstream iss(line);
+                std::string lcTxHashStr, lcOutputIndex;
+                if (!(iss >> lcTxHashStr >> lcOutputIndex)) continue;
+                lcTxHash.SetHex(lcTxHashStr);
+                COutPoint outpoint = COutPoint(lcTxHash, (uint32_t)atoi(lcOutputIndex));
+                if (IsMine(CTxIn(outpoint)) != ISMINE_SPENDABLE) {
+                    LogPrintf("  %s %s - IS NOT SPENDABLE, was not locked\n", lcTxHashStr, lcOutputIndex);
+                    continue;
+                }
+                LockCoin(outpoint);
+                LogPrintf("  %s %s - locked successfully\n", lcTxHashStr, lcOutputIndex);
             }
         }
     }

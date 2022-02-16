@@ -115,8 +115,9 @@ public:
     void Stop() const override {}
     void Close() const override {}
 
-    // DMS Specific WalletInitInterface InitCoinJoinSettings
+    // Dash/DMS Specific WalletInitInterface InitCoinJoinSettings
     void AutoLockMasternodeCollaterals() const override {}
+    void LockPermanentlyUnspendables(fs::ifstream& streamConfig) const override {}
     void InitCoinJoinSettings() const override {}
     void InitKeePass() const override {}
     bool InitAutoBackup() const override {return true;}
@@ -2200,6 +2201,16 @@ bool AppInitMain()
         return false;
     }
 
+    if (fs::exists(GetLockedCoinsConfFile())) {
+        LogPrintf("Using locked coins file %s\n", GetLockedCoinsConfFile().string());
+        fs::path pathLockedCoinsConfFile = GetLockedCoinsConfFile();
+        fs::ifstream streamConfig(pathLockedCoinsConfFile);
+        if (streamConfig.good()) {
+            g_wallet_init_interface.LockPermanentlyUnspendables(streamConfig); 
+        }
+        streamConfig.close();
+    }
+
     // ********************************************************* Step 10a: Prepare Masternode related stuff
     fMasternodeMode = false;
     std::string strMasterNodeBLSPrivKey = gArgs.GetArg("-masternodeblsprivkey", "");
@@ -2292,7 +2303,7 @@ bool AppInitMain()
         }
     }
 
-    // ********************************************************* Step 10c: schedule DMS-specific tasks
+    // ********************************************************* Step 10c: schedule Dash-specific tasks
 
     scheduler.scheduleEvery(std::bind(&CNetFulfilledRequestManager::DoMaintenance, std::ref(netfulfilledman)), 60 * 1000);
     scheduler.scheduleEvery(std::bind(&CMasternodeSync::DoMaintenance, std::ref(masternodeSync), std::ref(*g_connman)), 1 * 1000);

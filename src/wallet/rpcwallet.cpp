@@ -2902,8 +2902,8 @@ UniValue listlockunspent(const JSONRPCRequest& request)
     if (request.fHelp || request.params.size() > 0)
         throw std::runtime_error(
             "listlockunspent\n"
-            "\nReturns list of temporarily unspendable outputs.\n"
-            "See the lockunspent call to lock and unlock transactions for spending.\n"
+            "\nReturns list of temporarily and permanently unspendable outputs.\n"
+            "See the lockunspent call to temporarily lock and unlock transactions for spending.\n"
             "\nResult:\n"
             "[\n"
             "  {\n"
