@@ -315,6 +315,13 @@ void WalletView::showOutOfSyncWarning(bool fShow)
     overviewPage->showOutOfSyncWarning(fShow);
 }
 
+#if ENABLE_MINER
+void WalletView::showMiningInfo(const bool bVisible, const QString &strText)
+{
+    overviewPage->showMiningInfo(bVisible,strText);
+}
+#endif // ENABLE_MINER
+
 void WalletView::updateEncryptionStatus()
 {
     Q_EMIT encryptionStatusChanged();

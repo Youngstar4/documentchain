@@ -251,6 +251,9 @@ void PrepareShutdown()
     bool fRPCInWarmup = RPCIsInWarmup(&statusmessage);
 
     g_wallet_init_interface.Flush();
+#if ENABLE_MINER
+    GenerateBitcoins(false, 0, Params(), *g_connman);
+#endif // ENABLE_MINER
     StopMapPort();
 
     // Because these depend on each-other, we make sure that neither can be
@@ -591,6 +594,10 @@ void SetupServerArgs()
         "If <category> is not supplied or if <category> = 1, output all debugging information. <category> can be: " + ListLogCategories() + ".", false, OptionsCategory::DEBUG_TEST);
     gArgs.AddArg("-debugexclude=<category>", strprintf("Exclude debugging information for a category. Can be used in conjunction with -debug=1 to output debug logs for all categories except one or more specified categories."), false, OptionsCategory::DEBUG_TEST);
     gArgs.AddArg("-disablegovernance", strprintf("Disable governance validation (0-1, default: %u)", 0), false, OptionsCategory::DEBUG_TEST);
+#if ENABLE_MINER
+    gArgs.AddArg("-gen", strprintf("Generate coins (default: %u)", DEFAULT_GENERATE), false, OptionsCategory::BLOCK_CREATION);
+    gArgs.AddArg("-genproclimit=<n>", strprintf("Set the number of threads for coin generation if enabled (-1 = all cores, default: %d)", DEFAULT_GENERATE_THREADS), false, OptionsCategory::BLOCK_CREATION);
+#endif // ENABLE_MINER
     gArgs.AddArg("-help-debug", "Show all debugging options (usage: --help -help-debug)", false, OptionsCategory::DEBUG_TEST);
     gArgs.AddArg("-highsubsidyblocks=<n>", strprintf("The number of blocks with a higher than normal subsidy to mine at the start of a devnet (default: %u)", devnetConsensus.nHighSubsidyBlocks), false, OptionsCategory::DEBUG_TEST);
     gArgs.AddArg("-highsubsidyfactor=<n>", strprintf("The factor to multiply the normal block subsidy by while in the highsubsidyblocks window of a devnet (default: %u)", devnetConsensus.nHighSubsidyFactor), false, OptionsCategory::DEBUG_TEST);
@@ -2463,6 +2470,12 @@ bool AppInitMain()
     if (!connman.Start(scheduler, connOptions)) {
         return false;
     }
+
+#if ENABLE_MINER
+    // Generate coins in the background, solo mining in wallet
+    GenerateBitcoins(gArgs.GetBoolArg("-gen", DEFAULT_GENERATE), 
+                     gArgs.GetArg("-genproclimit", DEFAULT_GENERATE_THREADS), chainparams, connman);
+#endif // ENABLE_MINER
 
     // ********************************************************* Step 13: finished
 

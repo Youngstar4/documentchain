@@ -103,6 +103,9 @@ private:
     QLabel *labelWalletHDStatusIcon;
     QLabel *labelConnectionsIcon;
     QLabel *labelBlocksIcon;
+#if ENABLE_MINER
+    QLabel *labelMiningIcon;
+#endif
     QLabel *progressBarLabel;
     QProgressBar *progressBar;
     QProgressDialog *progressDialog;
@@ -135,6 +138,9 @@ private:
     QAction *lockWalletAction;
     QAction *aboutQtAction;
     QAction *openRPCConsoleAction;
+#if ENABLE_MINER
+    QAction *startMiningAction;
+#endif
     QAction *openConfEditorAction;
     QAction *showBackupsAction;
     QAction *openAction;
@@ -212,6 +218,9 @@ private:
     void updateHeadersSyncProgressLabel();
 
     void updateProgressBarVisibility();
+#if ENABLE_MINER
+    void setMining(int nThreads);
+#endif
 
 Q_SIGNALS:
     /** Signal raised when a URI was entered */
@@ -241,6 +250,11 @@ public Q_SLOTS:
        @param[in] ret       pointer to a bool that will be modified to whether Ok was clicked (modal only)
     */
     void message(const QString &title, const QString &message, unsigned int style, bool *ret = nullptr);
+
+#if ENABLE_MINER
+    /** Set the mining status as shown in the UI. **/
+    void setMiningStatus();
+#endif
 
 #ifdef ENABLE_WALLET
     bool setCurrentWallet(const QString& name);
@@ -298,6 +312,10 @@ private Q_SLOTS:
     /** Highlight checked tab button */
     void highlightTabButton(QAbstractButton *button, bool checked);
 #endif // ENABLE_WALLET
+#if ENABLE_MINER
+    /** ebable/disable mining **/
+    void setMiningUI();
+#endif // ENABLE_MINER
     /** Show configuration dialog */
     void optionsClicked();
     /** Show about dialog */

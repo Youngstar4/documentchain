@@ -1,5 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -149,6 +150,9 @@ protected:
      */
     virtual void BlockChecked(const CBlock&, const CValidationState&) {}
     /**
+    * Internal miner */
+    virtual void GetScriptForMining(std::shared_ptr<CReserveScript>&) {};
+    /**
      * Notifies listeners that a block which builds directly on our current tip
      * has been received and connected to the headers tree, though not validated yet */
     virtual void NewPoWValidBlock(const CBlockIndex *pindex, const std::shared_ptr<const CBlock>& block) {};
@@ -201,6 +205,7 @@ public:
     void SetBestChain(const CBlockLocator &);
     void Broadcast(int64_t nBestBlockTime, CConnman* connman);
     void BlockChecked(const CBlock&, const CValidationState&);
+    void ScriptForMining(std::shared_ptr<CReserveScript>&);
     void NewPoWValidBlock(const CBlockIndex *, const std::shared_ptr<const CBlock>&);
 };
 

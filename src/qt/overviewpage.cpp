@@ -1,5 +1,6 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2021 The Dash Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -128,6 +129,10 @@ OverviewPage::OverviewPage(QWidget* parent) :
                       ui->labelWatchTotal,
                       ui->labelTotal
                      }, GUIUtil::FontWeight::Bold, 14);
+#if ENABLE_MINER
+    GUIUtil::setFont({ui->labelMiningInfo
+                     }, GUIUtil::FontWeight::Bold, 10);
+#endif
 
     GUIUtil::setFont({ui->labelBalanceText,
                       ui->labelPendingText,
@@ -140,6 +145,10 @@ OverviewPage::OverviewPage(QWidget* parent) :
 
     m_balances.balance = -1;
 
+#if ENABLE_MINER
+    // Mining info
+    ui->labelMiningInfo->setVisible(false);
+#endif
     // Recent transactions
     ui->listTransactions->setItemDelegate(txdelegate);
     // Note: minimum height of listTransactions will be set later in updateAdvancedCJUI() to reflect actual settings
@@ -316,6 +325,14 @@ void OverviewPage::showOutOfSyncWarning(bool fShow)
     ui->labelCoinJoinSyncStatus->setVisible(fShow);
     ui->labelTransactionsStatus->setVisible(fShow);
 }
+
+#if ENABLE_MINER
+void OverviewPage::showMiningInfo(const bool bVisible, const QString &strText)
+{
+    ui->labelMiningInfo->setVisible(bVisible);
+    ui->labelMiningInfo->setText(strText);
+}
+#endif // ENABLE_MINER
 
 void OverviewPage::updateCoinJoinProgress()
 {

@@ -32,6 +32,7 @@
 
 #include <chainparams.h>
 #include <init.h>
+#include <miner.h>
 #include <interfaces/handler.h>
 #include <interfaces/node.h>
 #include <ui_interface.h>
@@ -47,6 +48,7 @@
 #include <QDateTime>
 #include <QDesktopServices>
 #include <QDesktopWidget>
+#include <QInputDialog>
 #include <QDragEnterEvent>
 #include <QListWidget>
 #include <QMenuBar>
@@ -85,6 +87,9 @@ BitcoinGUI::BitcoinGUI(interfaces::Node& node, const NetworkStyle* networkStyle,
     labelWalletHDStatusIcon(0),
     labelConnectionsIcon(0),
     labelBlocksIcon(0),
+#if ENABLE_MINER
+    labelMiningIcon(0),
+#endif
     progressBarLabel(0),
     progressBar(0),
     progressDialog(0),
@@ -114,6 +119,9 @@ BitcoinGUI::BitcoinGUI(interfaces::Node& node, const NetworkStyle* networkStyle,
     changePassphraseAction(0),
     aboutQtAction(0),
     openRPCConsoleAction(0),
+#if ENABLE_MINER
+    startMiningAction(0),
+#endif
     openAction(0),
     openSupportWebsiteAction(0),
     showHelpMessageAction(0),
@@ -206,6 +214,9 @@ BitcoinGUI::BitcoinGUI(interfaces::Node& node, const NetworkStyle* networkStyle,
     labelConnectionsIcon = new GUIUtil::ClickableLabel();
 
     labelBlocksIcon = new GUIUtil::ClickableLabel();
+#if ENABLE_MINER
+    labelMiningIcon = new GUIUtil::ClickableLabel();
+#endif
     if(enableWallet)
     {
         frameBlocksLayout->addStretch();
@@ -214,6 +225,10 @@ BitcoinGUI::BitcoinGUI(interfaces::Node& node, const NetworkStyle* networkStyle,
         frameBlocksLayout->addWidget(labelWalletHDStatusIcon);
         frameBlocksLayout->addWidget(labelWalletEncryptionIcon);
     }
+#if ENABLE_MINER
+    frameBlocksLayout->addStretch();
+    frameBlocksLayout->addWidget(labelMiningIcon);
+#endif
     frameBlocksLayout->addStretch();
     frameBlocksLayout->addWidget(labelConnectionsIcon);
     frameBlocksLayout->addStretch();
@@ -268,6 +283,14 @@ BitcoinGUI::BitcoinGUI(interfaces::Node& node, const NetworkStyle* networkStyle,
         connect(progressBar, SIGNAL(clicked(QPoint)), this, SLOT(showModalOverlay()));
     }
 #endif
+#if ENABLE_MINER
+    // mining status icon
+    connect(labelMiningIcon, SIGNAL(clicked(QPoint)), this, SLOT(setMiningUI()));
+    QTimer* timerMiningIcon = new QTimer(labelMiningIcon);
+    connect(timerMiningIcon, SIGNAL(timeout()), this, SLOT(setMiningStatus()));
+    timerMiningIcon->start(8000);
+    setMiningStatus();
+#endif // ENABLE_MINER
 
 #ifdef Q_OS_MAC
     m_app_nap_inhibitor = new CAppNapInhibitor;
@@ -447,14 +470,21 @@ void BitcoinGUI::createActions()
 
     openRPCConsoleAction = new QAction(tr("&Debug console"), this);
     openRPCConsoleAction->setStatusTip(tr("Open debugging console"));
+#if ENABLE_MINER
+    startMiningAction = new QAction(tr("&Mining..."), this);
+    startMiningAction->setStatusTip(tr("Generate coins"));
+#endif
     openConfEditorAction = new QAction(tr("Open Wallet &Configuration File"), this);
     openConfEditorAction->setStatusTip(tr("Open configuration file"));
     // override TextHeuristicRole set by default which confuses this action with application settings
     openConfEditorAction->setMenuRole(QAction::NoRole);
     showBackupsAction = new QAction(tr("Show Automatic &Backups"), this);
     showBackupsAction->setStatusTip(tr("Show automatically created wallet backups"));
-    // initially disable the debug window menu items
+    // initially disable the debug window and mining menu items
     openRPCConsoleAction->setEnabled(false);
+#if ENABLE_MINER
+    startMiningAction->setEnabled(false);
+#endif
 
     usedSendingAddressesAction = new QAction(tr("&Sending addresses..."), this);
     usedSendingAddressesAction->setStatusTip(tr("Show the list of used sending addresses and labels"));
@@ -486,6 +516,9 @@ void BitcoinGUI::createActions()
     connect(showCoinJoinHelpAction, SIGNAL(triggered()), this, SLOT(showCoinJoinHelpClicked()));
 
     connect(openRPCConsoleAction, SIGNAL(triggered()), this, SLOT(showConsole()));
+#if ENABLE_MINER
+    connect(startMiningAction, SIGNAL(triggered()), this, SLOT(setMiningUI()));
+#endif
 
     // Open configs and backup folder from menu
     connect(openConfEditorAction, SIGNAL(triggered()), this, SLOT(showConfEditor()));
@@ -562,6 +595,9 @@ void BitcoinGUI::createMenuBar()
     {
         QMenu *tools = appMenuBar->addMenu(tr("&Tools"));
         tools->addAction(openRPCConsoleAction);
+#if ENABLE_MINER
+        tools->addAction(startMiningAction);
+#endif
         tools->addSeparator();
         tools->addAction(openConfEditorAction);
         tools->addAction(showBackupsAction);
@@ -901,6 +937,10 @@ void BitcoinGUI::createIconMenu(QMenu *pmenu)
     pmenu->addAction(openRPCConsoleAction);
     pmenu->addSeparator();
     pmenu->addAction(openConfEditorAction);
+#if ENABLE_MINER
+    pmenu->addSeparator();
+    pmenu->addAction(startMiningAction);
+#endif
     pmenu->addAction(showBackupsAction);
 #ifndef Q_OS_MAC // This is built-in on Mac
     pmenu->addSeparator();
@@ -1387,6 +1427,13 @@ void BitcoinGUI::setAdditionalDataSyncProgress(double nSyncProgress)
     if(m_node.masternodeSync().isSynced()) {
         stopSpinner();
         labelBlocksIcon->setPixmap(GUIUtil::getIcon("synced", GUIUtil::ThemedColor::GREEN).pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
+#if ENABLE_MINER
+        startMiningAction->setEnabled(true);
+        QSettings settings;
+        int genproc = settings.value("nGenProc", 0).toInt();
+        if (genproc != 0)
+            setMining(genproc);
+#endif
     } else {
         progressBar->setFormat(tr("Synchronizing additional data: %p%"));
         progressBar->setMaximum(1000000000);
@@ -1653,6 +1700,76 @@ bool BitcoinGUI::eventFilter(QObject *object, QEvent *event)
     }
     return QMainWindow::eventFilter(object, event);
 }
+
+#if ENABLE_MINER
+void BitcoinGUI::setMining(int nThreads)
+{
+    bool fGenerate = (nThreads != 0);
+    gArgs.ForceSetArg("-gen", (fGenerate ? "1" : "0"));
+    gArgs.ForceSetArg("-genproclimit", itostr(nThreads));
+    GenerateBitcoins(true, nThreads, Params(), *g_connman);
+    setMiningStatus();
+}
+
+void BitcoinGUI::setMiningUI()
+{
+    if (!m_node.masternodeSync().isSynced())
+        return;
+
+    bool ok;
+    int nThreads = (int)gArgs.GetArg("-genproclimit", DEFAULT_GENERATE_THREADS);
+    int maxThreads = std::thread::hardware_concurrency();
+    nThreads = QInputDialog::getInt(this, tr("Mining"), 
+                                    tr("Mining threads (0-%1)").arg(maxThreads),
+                                    nThreads, -3, maxThreads, 1, &ok);
+    if (ok) {
+        setMining(nThreads);
+        QSettings settings;
+        settings.setValue("nGenProc", nThreads);
+    }
+}
+
+void BitcoinGUI::setMiningStatus()
+{
+    int nThreads = 0;
+    QString strHashrate;
+    QString strMining;
+
+    if (!m_node.masternodeSync().isSynced()) {
+        labelMiningIcon->setPixmap(GUIUtil::getIcon("mining", GUIUtil::ThemedColor::DEFAULT).pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
+        labelMiningIcon->setToolTip(tr("Please wait.") + "<br>" + progressBarLabel->text());
+    }
+    else if (gArgs.GetBoolArg("-gen", DEFAULT_GENERATE)) {
+        static CCriticalSection cs;
+        {
+            LOCK(cs);
+            strHashrate = dTotalHashrate > 0 ? QString("Hashrate: %1 H/s").arg(dTotalHashrate, 1, 'f', 1) : "Hashrate...";
+        }
+
+        labelMiningIcon->setPixmap(GUIUtil::getIcon("mining", GUIUtil::ThemedColor::GREEN).pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
+        nThreads = gArgs.GetArg("-genproclimit", DEFAULT_GENERATE_THREADS);
+        switch (nThreads) {
+            case -1:
+                strMining = tr("<b>Unlimited Mining</b>");
+                break;
+            case -2:
+            case -3:
+                strMining = tr("Weak <b>Mining</b>");
+                break;
+            default:
+                strMining = tr("<b>Mining</b> on %n Thread(s)", "", nThreads);
+        }
+        labelMiningIcon->setToolTip(strMining + "<br>" + strHashrate);
+    }
+    else {
+        labelMiningIcon->setPixmap(GUIUtil::getIcon("mining", GUIUtil::ThemedColor::DEFAULT).pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
+        labelMiningIcon->setToolTip(tr("Mining is not active.<br>Click here to generate Coins."));
+    }
+    if(walletFrame) {
+        walletFrame->showMiningInfo(nThreads != 0, strMining + ", " + strHashrate);
+    }
+}
+#endif // ENABLE_MINER
 
 #ifdef ENABLE_WALLET
 bool BitcoinGUI::handlePaymentRequest(const SendCoinsRecipient& recipient)

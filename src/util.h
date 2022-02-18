@@ -50,11 +50,15 @@
 #define DBG( x )
 #endif
 
-//DMS only features
-
+// Dash only features
 extern bool fMasternodeMode;
 extern bool fDisableGovernance;
 extern int nWalletBackups;
+
+#if defined(__linux__) || defined(__APPLE__)
+static const int THREAD_PRIORITY_LOWEST = 19;
+static const int THREAD_PRIORITY_NORMAL = 0;
+#endif
 
 // Application startup time (used for uptime calculation)
 int64_t GetStartupTime();
@@ -84,6 +88,7 @@ inline std::string _(const char* psz)
 
 void SetupEnvironment();
 bool SetupNetworking();
+void SetThreadPriority(int nPriority);
 
 template<typename... Args>
 bool error(const char* fmt, const Args&... args)

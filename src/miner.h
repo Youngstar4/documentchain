@@ -1,5 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -22,7 +23,14 @@ class CScript;
 
 namespace Consensus { struct Params; };
 
+#if ENABLE_MINER
+static const bool DEFAULT_GENERATE = false; // solo mining in wallet "setgenerate"
+static const int DEFAULT_GENERATE_THREADS = 1;
+extern double dTotalHashrate;
+#endif // ENABLE_MINER
+
 static const bool DEFAULT_PRINTPRIORITY = false;
+
 
 struct CBlockTemplate
 {
@@ -33,6 +41,11 @@ struct CBlockTemplate
     std::vector<CTxOut> voutMasternodePayments; // masternode payment
     std::vector<CTxOut> voutSuperblockPayments; // superblock payment
 };
+
+/** Run the solo mining threads */
+#if ENABLE_MINER
+void GenerateBitcoins(bool fGenerate, int nThreads, const CChainParams& chainparams, CConnman& connman);
+#endif // ENABLE_MINER
 
 // Container for tracking updates to ancestor feerate as we include (parent)
 // transactions in a block

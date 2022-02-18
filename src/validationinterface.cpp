@@ -1,5 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -34,6 +35,7 @@ struct MainSignalsInstance {
     boost::signals2::signal<void (const CBlockLocator &)> SetBestChain;
     boost::signals2::signal<void (int64_t nBestBlockTime, CConnman* connman)> Broadcast;
     boost::signals2::signal<void (const CBlock&, const CValidationState&)> BlockChecked;
+    boost::signals2::signal<void (std::shared_ptr<CReserveScript>&)> ScriptForMining;
     boost::signals2::signal<void (const CBlockIndex *, const std::shared_ptr<const CBlock>&)> NewPoWValidBlock;
     boost::signals2::signal<void (const CBlockIndex *)>AcceptedBlockHeader;
     boost::signals2::signal<void (const CBlockIndex *, bool)>NotifyHeaderTip;
@@ -101,6 +103,7 @@ void RegisterValidationInterface(CValidationInterface* pwalletIn) {
     g_signals.m_internals->SetBestChain.connect(boost::bind(&CValidationInterface::SetBestChain, pwalletIn, _1));
     g_signals.m_internals->Broadcast.connect(boost::bind(&CValidationInterface::ResendWalletTransactions, pwalletIn, _1, _2));
     g_signals.m_internals->BlockChecked.connect(boost::bind(&CValidationInterface::BlockChecked, pwalletIn, _1, _2));
+    g_signals.m_internals->ScriptForMining.connect(boost::bind(&CValidationInterface::GetScriptForMining, pwalletIn, _1));
     g_signals.m_internals->NewPoWValidBlock.connect(boost::bind(&CValidationInterface::NewPoWValidBlock, pwalletIn, _1, _2));
     g_signals.m_internals->NotifyGovernanceObject.connect(boost::bind(&CValidationInterface::NotifyGovernanceObject, pwalletIn, _1));
     g_signals.m_internals->NotifyGovernanceVote.connect(boost::bind(&CValidationInterface::NotifyGovernanceVote, pwalletIn, _1));
@@ -110,6 +113,7 @@ void RegisterValidationInterface(CValidationInterface* pwalletIn) {
 }
 
 void UnregisterValidationInterface(CValidationInterface* pwalletIn) {
+    g_signals.m_internals->ScriptForMining.disconnect(boost::bind(&CValidationInterface::GetScriptForMining, pwalletIn, _1));
     g_signals.m_internals->BlockChecked.disconnect(boost::bind(&CValidationInterface::BlockChecked, pwalletIn, _1, _2));
     g_signals.m_internals->Broadcast.disconnect(boost::bind(&CValidationInterface::ResendWalletTransactions, pwalletIn, _1, _2));
     g_signals.m_internals->SetBestChain.disconnect(boost::bind(&CValidationInterface::SetBestChain, pwalletIn, _1));
@@ -135,6 +139,7 @@ void UnregisterAllValidationInterfaces() {
     if (!g_signals.m_internals) {
         return;
     }
+    g_signals.m_internals->ScriptForMining.disconnect_all_slots();
     g_signals.m_internals->BlockChecked.disconnect_all_slots();
     g_signals.m_internals->Broadcast.disconnect_all_slots();
     g_signals.m_internals->SetBestChain.disconnect_all_slots();
@@ -222,6 +227,10 @@ void CMainSignals::Broadcast(int64_t nBestBlockTime, CConnman* connman) {
 
 void CMainSignals::BlockChecked(const CBlock& block, const CValidationState& state) {
     m_internals->BlockChecked(block, state);
+}
+
+void CMainSignals::ScriptForMining(std::shared_ptr<CReserveScript>& script) {
+    m_internals->ScriptForMining(script);
 }
 
 void CMainSignals::NewPoWValidBlock(const CBlockIndex *pindex, const std::shared_ptr<const CBlock> &block) {
