@@ -2648,7 +2648,7 @@ void static UpdateTip(const CBlockIndex *pindexNew, const CChainParams& chainPar
     std::string warningMessages;
     if (!IsInitialBlockDownload())
     {
-        int nUpgraded = 0;
+        int num_unexpected_version = 0;
         const CBlockIndex* pindex = pindexNew;
         for (int bit = 0; bit < VERSIONBITS_NUM_BITS; bit++) {
             WarningBitsConditionChecker checker(bit);
@@ -2667,14 +2667,15 @@ void static UpdateTip(const CBlockIndex *pindexNew, const CChainParams& chainPar
         {
             int32_t nExpectedVersion = ComputeBlockVersion(pindex->pprev, chainParams.GetConsensus());
             if (pindex->nVersion > VERSIONBITS_LAST_OLD_BLOCK_VERSION && (pindex->nVersion & ~nExpectedVersion) != 0)
-                ++nUpgraded;
+                ++num_unexpected_version;
             pindex = pindex->pprev;
         }
-        if (nUpgraded > 0)
-            AppendWarning(warningMessages, strprintf(_("%d of last 100 blocks have unexpected version"), nUpgraded));
-        if (nUpgraded > 100/2)
+        if (num_unexpected_version > 0)
+            LogPrintf("%d of last 100 blocks have unexpected version\n", num_unexpected_version);
+        if (num_unexpected_version > 100/2)
         {
-            std::string strWarning = _("Warning: Unknown block versions being mined! It's possible unknown rules are in effect");
+            std::string strWarning = _("Warning: Unknown block versions being mined! Please check latest releases, you might need to update")
+                                   + " <a href=\"https://github.com/Krekeler/documentchain/releases\">&raquo; github.com</a>";
             // notify GetWarnings(), called by Qt and the JSON-RPC code to warn the user:
             DoWarning(strWarning);
         }
