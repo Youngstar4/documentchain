@@ -38,6 +38,7 @@ CRecoveredSigsDb::CRecoveredSigsDb(CDBWrapper& _db) :
     db(_db)
 {
     if (Params().NetworkIDString() == CBaseChainParams::TESTNET) {
+        // TODO : check for dms
         // TODO this can be completely removed after some time (when we're pretty sure the conversion has been run on most testnet MNs)
         if (db.Exists(std::string("rs_upgraded"))) {
             return;

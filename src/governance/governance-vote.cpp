@@ -1,4 +1,5 @@
 // Copyright (c) 2014-2021 The Dash Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -163,32 +164,17 @@ bool CGovernanceVote::Sign(const CKey& key, const CKeyID& keyID)
 {
     std::string strError;
 
-    // Harden Spork6 so that it is active on testnet and no other networks
-    if (Params().NetworkIDString() == CBaseChainParams::TESTNET) {
-        uint256 hash = GetSignatureHash();
+    std::string strMessage = masternodeOutpoint.ToStringShort() + "|" + nParentHash.ToString() + "|" +
+                             std::to_string(nVoteSignal) + "|" + std::to_string(nVoteOutcome) + "|" + std::to_string(nTime);
 
-        if (!CHashSigner::SignHash(hash, key, vchSig)) {
-            LogPrintf("CGovernanceVote::Sign -- SignHash() failed\n");
-            return false;
-        }
+    if (!CMessageSigner::SignMessage(strMessage, vchSig, key)) {
+        LogPrintf("CGovernanceVote::Sign -- SignMessage() failed\n");
+        return false;
+    }
 
-        if (!CHashSigner::VerifyHash(hash, keyID, vchSig, strError)) {
-            LogPrintf("CGovernanceVote::Sign -- VerifyHash() failed, error: %s\n", strError);
-            return false;
-        }
-    } else {
-        std::string strMessage = masternodeOutpoint.ToStringShort() + "|" + nParentHash.ToString() + "|" +
-                                 std::to_string(nVoteSignal) + "|" + std::to_string(nVoteOutcome) + "|" + std::to_string(nTime);
-
-        if (!CMessageSigner::SignMessage(strMessage, vchSig, key)) {
-            LogPrintf("CGovernanceVote::Sign -- SignMessage() failed\n");
-            return false;
-        }
-
-        if (!CMessageSigner::VerifyMessage(keyID, vchSig, strMessage, strError)) {
-            LogPrintf("CGovernanceVote::Sign -- VerifyMessage() failed, error: %s\n", strError);
-            return false;
-        }
+    if (!CMessageSigner::VerifyMessage(keyID, vchSig, strMessage, strError)) {
+        LogPrintf("CGovernanceVote::Sign -- VerifyMessage() failed, error: %s\n", strError);
+        return false;
     }
 
     return true;
@@ -197,25 +183,14 @@ bool CGovernanceVote::Sign(const CKey& key, const CKeyID& keyID)
 bool CGovernanceVote::CheckSignature(const CKeyID& keyID) const
 {
     std::string strError;
+    std::string strMessage = masternodeOutpoint.ToStringShort() + "|" + nParentHash.ToString() + "|" +
+                             std::to_string(nVoteSignal) + "|" +
+                             std::to_string(nVoteOutcome) + "|" +
+                             std::to_string(nTime);
 
-    // Harden Spork6 so that it is active on testnet and no other networks
-    if (Params().NetworkIDString() == CBaseChainParams::TESTNET) {
-        uint256 hash = GetSignatureHash();
-
-        if (!CHashSigner::VerifyHash(hash, keyID, vchSig, strError)) {
-            LogPrint(BCLog::GOBJECT, "CGovernanceVote::IsValid -- VerifyHash() failed, error: %s\n", strError);
-            return false;
-        }
-    } else {
-        std::string strMessage = masternodeOutpoint.ToStringShort() + "|" + nParentHash.ToString() + "|" +
-                                 std::to_string(nVoteSignal) + "|" +
-                                 std::to_string(nVoteOutcome) + "|" +
-                                 std::to_string(nTime);
-
-        if (!CMessageSigner::VerifyMessage(keyID, vchSig, strMessage, strError)) {
-            LogPrint(BCLog::GOBJECT, "CGovernanceVote::IsValid -- VerifyMessage() failed, error: %s\n", strError);
-            return false;
-        }
+    if (!CMessageSigner::VerifyMessage(keyID, vchSig, strMessage, strError)) {
+        LogPrint(BCLog::GOBJECT, "CGovernanceVote::IsValid -- VerifyMessage() failed, error: %s\n", strError);
+        return false;
     }
 
     return true;
