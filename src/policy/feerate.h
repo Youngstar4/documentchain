@@ -14,7 +14,7 @@
 extern const std::string CURRENCY_UNIT;
 
 /**
- * Fee rate in satoshis per kilobyte: CAmount / kB
+ * Fee rate in satoshis/docz per kilobyte: CAmount / kB
  */
 class CFeeRate
 {
