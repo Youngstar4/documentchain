@@ -891,8 +891,8 @@
         <translation>ป้ายนี้จะเปลี่ยนเป็นสีแดงถ้าตัวรับใด ๆ ได้รับจำนวนเงินน้อยกว่าขั้นต่ำในปัจจุบัน</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 duff(s) per input.</source>
-        <translation>สามารถเปลี่ยนแปลงได้ + / - %1 duff (s) ต่อรายการ</translation>
+        <source>Can vary +/- %1 docz per input.</source>
+        <translation>สามารถเปลี่ยนแปลงได้ + / - %1 docz (s) ต่อรายการ</translation>
     </message>
     <message>
         <source>Some coins were unselected because they were spent.</source>

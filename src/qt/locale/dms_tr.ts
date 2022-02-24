@@ -891,8 +891,8 @@
         <translation>Eğer herhangi bir alıcı mevcut toz eşiğinden daha düşük bir tutar alırsa bu etiket kırmızıya dönüşür.</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 duff(s) per input.</source>
-        <translation>Girdi başına +/- %1 duff değişebilir.</translation>
+        <source>Can vary +/- %1 docz per input.</source>
+        <translation>Girdi başına +/- %1 docz değişebilir.</translation>
     </message>
     <message>
         <source>Some coins were unselected because they were spent.</source>
@@ -2861,7 +2861,7 @@ mail@documentchain.org</translation>
     </message>
     <message>
         <source>If the custom fee is set to 1000 docz and the transaction is only 250 bytes, then "per kilobyte" only pays 250 docz in fee,&lt;br /&gt;while "at least" pays 1000 docz. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Eğer özel ücret 1000 duff olarak belirlendiyse ve işlem sadece 250 bayt ise "kilobayt başına" ücret olarak sadece 250 duff ödersiniz,&lt;br /&gt;bu da "en az" 1000 duff öder. Bir kilobayttan büyük işlemler için ikisi de kilobayt başına ödeme yapar.</translation>
+        <translation>Eğer özel ücret 1000 docz olarak belirlendiyse ve işlem sadece 250 bayt ise "kilobayt başına" ücret olarak sadece 250 docz ödersiniz,&lt;br /&gt;bu da "en az" 1000 docz öder. Bir kilobayttan büyük işlemler için ikisi de kilobayt başına ödeme yapar.</translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for dms transactions than the network can process.</source>

@@ -817,8 +817,8 @@
         <translation>Această etichetă devine roşie, dacă orice beneficiar primeşte o sumă mai mică decât pragul curent pentru praf.</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 duff(s) per input.</source>
-        <translation>Poate varia +/- %1 duff(i) per intrare.</translation>
+        <source>Can vary +/- %1 docz per input.</source>
+        <translation>Poate varia +/- %1 docz per intrare.</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -2447,7 +2447,7 @@ mail@documentchain.org</translation>
     </message>
     <message>
         <source>If the custom fee is set to 1000 docz and the transaction is only 250 bytes, then "per kilobyte" only pays 250 docz in fee,&lt;br /&gt;while "at least" pays 1000 docz. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Dacă taxa vamală este stabilită la 1000 de duffi și tranzacția are doar 250 de octeți, atunci "per kilobyte" plătește doar 250 de duffi în taxă,&lt;br /&gt;în timp ce "cel puțin" plătește 1000 de duffi. Pentru tranzacțiile mai mari decât un kilobyte, ambele plătesc cu kilobyte.</translation>
+        <translation>Dacă taxa vamală este stabilită la 1000 de docz și tranzacția are doar 250 de octeți, atunci "per kilobyte" plătește doar 250 de docz în taxă,&lt;br /&gt;în timp ce "cel puțin" plătește 1000 de docz. Pentru tranzacțiile mai mari decât un kilobyte, ambele plătesc cu kilobyte.</translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for dms transactions than the network can process.</source>
