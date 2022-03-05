@@ -2223,17 +2223,19 @@ UniValue savemempool(const JSONRPCRequest& request)
 }
 
 /**
-  DMS Core specific, hidden, list special transactions from block height
+  DMS Core specific, hidden
+  list special transactions from block height
+  count long living masternode quorums
 */
 UniValue devlistspecialtxes(const JSONRPCRequest& request)
 {
-    if (request.fHelp || request.params.size() != 4)
+    if (request.fHelp || (request.params.size() != 4 && request.params.size() != 1) )
         throw std::runtime_error(
             "devlistspecialtxes type startheight blockcount verbosity\n"
-          //"devlistspecialtxes countallquorums\n"
+            "devlistspecialtxes -10 (count all quorums - long execution time)\n"
             "\nExamples:\n"
             + HelpExampleCli("devlistspecialtxes", "-1 277200 100 3") 
-          //+ HelpExampleCli("devlistspecialtxes", "countallquorums") 
+            + HelpExampleCli("devlistspecialtxes", "-10") 
             + HelpExampleRpc("devlistspecialtxes", "-1 277200 100 3")
         );
 
@@ -2245,17 +2247,16 @@ UniValue devlistspecialtxes(const JSONRPCRequest& request)
     int nCount;
     int nVerbosity;
 
-    /*
-    if (request.params[0].get_str() == "countallquorums") {
+    if (request.params[0].get_int() == -10) { // countquorums
         nTxType = 6;
         if (Params().NetworkIDString() == CBaseChainParams::MAIN)
             nHeight = 237500; // before DIP3
         else if (Params().NetworkIDString() == CBaseChainParams::TESTNET)
             nHeight = 6349; // testnet4
-        nCount  = nCurrHeight - nHeight;
+        nCount = nCurrHeight - nHeight;
         nVerbosity = 10;
     }
-    else */ {
+    else {
         nTxType = request.params[0].get_int();
         nCount  = request.params[2].get_int();
         nVerbosity = request.params[3].get_int();
@@ -2267,10 +2268,16 @@ UniValue devlistspecialtxes(const JSONRPCRequest& request)
     UniValue result(UniValue::VARR);
     CBlock block;
     int i = 0;
-    int nCount1 = 0;
-    int nCount2 = 0;
-    int nCount3 = 0;
-    int nCountN = 0;
+    int ntCnt1 = 0;  // total
+    int ntCnt2 = 0;
+    int ntCnt3 = 0;
+    int ntCnt101 = 0;
+    int ntCntOth = 0;
+    int nnCnt1 = 0;  // signer>0
+    int nnCnt2 = 0;
+    int nnCnt3 = 0;
+    int nnCnt101 = 0;
+    int nnCntOth = 0;
 
     while (i < nCount && nHeight+i < nCurrHeight)
     {
@@ -2299,33 +2306,45 @@ UniValue devlistspecialtxes(const JSONRPCRequest& request)
                 case 3 :
                 case 4 :
                 case 10:
-                    {
-                        std::string res = strprintf("height %s, type %s", nHeight+i, tx->nType);
-                        if (tx->nType == TRANSACTION_QUORUM_COMMITMENT) {
-                            llmq::CFinalCommitmentTxPayload qcTx;
-                            if (nVerbosity == 10) {
-                                switch ((int)qcTx.commitment.llmqType) {
-                                    case 1 : nCount1++;
-                                             break;
-                                    case 2 : nCount2++;
-                                             break;
-                                    case 3 : nCount3++;
-                                             break;
-                                    default: nCountN++;
+                     {
+                        llmq::CFinalCommitmentTxPayload qcTx;
+                        if (GetTxPayload(*tx, qcTx)) {
+                            if (tx->nType == TRANSACTION_QUORUM_COMMITMENT) {
+                                if (nVerbosity == 10) {
+                                    switch ((int)qcTx.commitment.llmqType) {
+                                        case 1 : ntCnt1++;
+                                                 if (qcTx.commitment.CountSigners() > 0)
+                                                   nnCnt1++;
+                                                 break;
+                                        case 2 : ntCnt2++;
+                                                 if (qcTx.commitment.CountSigners() > 0)
+                                                   nnCnt2++;
+                                                 break;
+                                        case 3 : ntCnt3++;
+                                                 if (qcTx.commitment.CountSigners() > 0)
+                                                   nnCnt3++;
+                                                 break;
+                                        case 101:ntCnt101++;
+                                                 if (qcTx.commitment.CountSigners() > 0)
+                                                   nnCnt101++;
+                                                 break;
+                                        default: ntCntOth++;
+                                                 if (qcTx.commitment.CountSigners() > 0)
+                                                   nnCntOth++;
+                                    }
                                 }
-                            }
-                            else {
-                                if (GetTxPayload(*tx, qcTx)) {
+                                else {
+                                    std::string res = strprintf("height %s, type %s", nHeight+i, tx->nType);
                                     res += strprintf(", llmqType %s, validMembersCount %s, signersCount %s, version %s", 
                                                      (int)qcTx.commitment.llmqType, qcTx.commitment.CountValidMembers(), 
                                                      qcTx.commitment.CountSigners(), qcTx.commitment.nVersion);
                                     if (nVerbosity == 4)
                                         res += strprintf(", quorumHash %s, quorumPublicKey %s", 
                                                          qcTx.commitment.quorumHash.ToString(), qcTx.commitment.quorumPublicKey.ToString());
+                                    result.push_back(res);
                                 }
                             }
                         }
-                        result.push_back(res);
                         break;
                     }
                 default : throw JSONRPCError(RPC_INTERNAL_ERROR, "Unsupported verbosity");
@@ -2335,7 +2354,12 @@ UniValue devlistspecialtxes(const JSONRPCRequest& request)
     }
 
     if (nVerbosity == 10)
-        return strprintf("total: llmqType 1=%s, llmqType 2=%s, llmqType 3=%s, others=%s", nCount1, nCount2, nCount3, nCountN);
+        return strprintf("total LLMQ (long living masternode quorums) statistics up to block %s\n"
+                         "-----------------------------------\n"
+                         "llmqType: total (with signers>0)\n"
+                         "-----------------------------------\n"
+                         "101: %s (%s)\n1  : %s (%s)\n2  : %s (%s)\n3  : %s (%s)\nothers: %s (%s)",
+                         nCurrHeight, ntCnt101, nnCnt101, ntCnt1, nnCnt1, ntCnt2, nnCnt2, ntCnt3, nnCnt3, ntCntOth, nnCntOth);
 
     return result;
 }
