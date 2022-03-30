@@ -884,8 +884,8 @@ public:
         consensus.BIP66Height = 1; // BIP66 activated immediately on devnet
         consensus.DIP0001Height = 2; // DIP0001 activated immediately on devnet
         consensus.DIP0003Height = 230; // devnet-4
-        consensus.DIP0003EnforcementHeight = 100000000; // TODO
-        consensus.DIP0003EnforcementHash = uint256(); // TODO
+        consensus.DIP0003EnforcementHeight = 5105;
+        consensus.DIP0003EnforcementHash = uint256S("000350a84ef790275c1f2a1f6428ca36199b45fd1d0fcdb34ca4c5d6bc670798");
         consensus.DIP0008Height = 100000000; // TODO
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 1
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Dash: 1 day
@@ -901,8 +901,8 @@ public:
 
         // Deployment of BIP68, BIP112, and BIP113.
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1640253600; // 2021-Dec-23
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1647129600; // 2022-Mar-13
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1648558800; // 2022-Mar-29
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1680429600; // 2023-Apr-02
 
         // Deployment of DIP0001
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].bit = 1;
@@ -925,26 +925,26 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nWindowSize = 10;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nThresholdStart = 8;
 
-        // Deployment of DIP0008 - TODO
+        // Deployment of DIP0008
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].bit = 4;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nStartTime = 3000000000;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nTimeout = 3300000000;
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nStartTime = 1648465200; // 2022-Mar-28
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nTimeout = 1680346800; // 2023-Apr-01
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nWindowSize = 100;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nThresholdStart = 50; // 50% of 100
 
-        // Deployment of Block Reward Reallocation - TODO
+        // Deployment of Block Reward Reallocation
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].bit = 5;
-        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nStartTime = 3000000000;
-        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nTimeout = 3300000000;
+        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nStartTime = 1648638000; // 2022-Mar-30
+        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nTimeout = 1680346800; // 2023-Apr-01
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nWindowSize = 100;
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nThresholdStart = 80; // 80% of 100
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nThresholdMin = 60; // 60% of 100
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nFalloffCoeff = 5; // this corresponds to 10 periods
 
-        // Deployment of DIP0020, DIP0021 and LLMQ_100_67 quorums - TODO
+        // Deployment of DIP0020, DIP0021 and LLMQ_30_60, LLMQ_100_67 quorums
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].bit = 6;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nStartTime = 3000000000;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nTimeout = 3300000000;
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nStartTime = 1648810800; // 2022-Apr-01
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nTimeout = 1680346800; // 2023-Apr-01
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nWindowSize = 100;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nThresholdStart = 80; // 80% of 100
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nThresholdMin = 60; // 60% of 100
@@ -1025,7 +1025,7 @@ public:
         nPoolMaxParticipants = 20;
         nFulfilledRequestExpireTime = 5*60; // fulfilled requests expire in 5 minutes
 
-        vSporkAddresses = {"yfX6A4qwkosDaxDPxWTHXG1e3Z62kpkepL"}; // devnet 4
+        vSporkAddresses = {"ybUKxfDwPA2RvmwtTRSYMZagQ3STq2kkgg"}; // devnet-5
         nMinSporkKeys = 1;
         // devnets are started with no blocks and no MN, so we can't check for upgraded MN (as there are none)
         fBIP9CheckMasternodesUpgraded = false;
