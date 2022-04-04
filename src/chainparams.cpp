@@ -516,7 +516,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nWindowSize = 4032;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nThresholdStart = 3226; // 80% of 4032
 
-        // Deployment of Block Reward Reallocation - TODO
+        // Deployment of Block Reward Reallocation - TODO remove
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].bit = 5;
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nStartTime = 3000000000;
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nTimeout = 3300000000;
@@ -584,18 +584,17 @@ public:
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x88, 0xAD, 0xE4};
 
         // DMS/Dash BIP44 coin type is '5'
+        // https://github.com/satoshilabs/slips/blob/master/slip-0044.md
         nExtCoinType = 5;
 
         // fixed seed nodes, use contrib/seeds/generate-seeds.py
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
         // long living quorum params
-        /* TODO : v0.17 activate llmq30_60 on devnet, testnet and later on mainet via spork
-           in v0.13 a never used llmq with too short interval 10 was defined
-        consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60; 
-        */
         consensus.llmqs[Consensus::LLMQ_150_60] = llmq150_60;
         consensus.llmqs[Consensus::LLMQ_150_85] = llmq150_85;
+        consensus.llmqs[Consensus::LLMQ_30_60]  = llmq30_60;  // DIP0020
+        consensus.llmqs[Consensus::LLMQ_100_67] = llmq100_67; // DIP0020
         consensus.llmqTypeChainLocks = Consensus::LLMQ_150_60;
         consensus.llmqTypeInstantSend = Consensus::LLMQ_30_60;
         consensus.llmqTypePlatform = Consensus::LLMQ_100_67;
@@ -740,7 +739,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nWindowSize = 100;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nThresholdStart = 50; // 50% of 100
 
-        // Deployment of Block Reward Reallocation - TODO
+        // Deployment of Block Reward Reallocation - TODO remove
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].bit = 5;
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nStartTime = 3000000000;
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nTimeout = 3300000000;
@@ -808,12 +807,14 @@ public:
         // Testnet DMS BIP44 coin type is '1' (All coin's testnet default)
         nExtCoinType = 1;
 
-        // long living quorum params in update period v0.13 to v0.17
-        /* TODO : v0.17 activate llmq30_60 on devnet, testnet and later on mainet via spork
-        consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60;
-        */
+        // long living quorum params
         consensus.llmqs[Consensus::LLMQ_150_60] = llmq150_60;
         consensus.llmqs[Consensus::LLMQ_150_85] = llmq150_85;
+        consensus.llmqs[Consensus::LLMQ_30_60]  = llmq30_60;  // DIP0020
+        consensus.llmqs[Consensus::LLMQ_100_67] = llmq100_67; // DIP0020
+        consensus.llmqTypeChainLocks = Consensus::LLMQ_150_60;
+        consensus.llmqTypeInstantSend = Consensus::LLMQ_30_60;
+        consensus.llmqTypePlatform = Consensus::LLMQ_100_67;
         /* Dash v0.17 long living quorum params
         consensus.llmqs[Consensus::LLMQ_50_60] = llmq50_60;
         consensus.llmqs[Consensus::LLMQ_400_60] = llmq400_60;
@@ -932,7 +933,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nWindowSize = 100;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nThresholdStart = 50; // 50% of 100
 
-        // Deployment of Block Reward Reallocation
+        // Deployment of Block Reward Reallocation - TODO remove
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].bit = 5;
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nStartTime = 1648638000; // 2022-Mar-30
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nTimeout = 1680346800; // 2023-Apr-01
@@ -991,15 +992,13 @@ public:
         // Devnet DMS BIP44 coin type is '1' (All coin's testnet default)
         nExtCoinType = 1;
 
-        // long living quorum params in update period v0.13 to v0.17
+        // long living quorum params
         consensus.llmqs[Consensus::LLMQ_DEVNET] = llmq_devnet; // LLMQ_10_60
-        consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60;    // used in devnet-4, not in devnet-5
-        /* TODO : v0.17 activate llmq30_60 on devnet-5, testnet and later on mainet via spork
-        consensus.llmqs[Consensus::LLMQ_30_60] = llmq30_60;    // used in devnet-4, not in devnet-5
-        */
         consensus.llmqs[Consensus::LLMQ_150_60] = llmq150_60;
         consensus.llmqs[Consensus::LLMQ_150_85] = llmq150_85;
-        consensus.llmqTypeChainLocks = Consensus::LLMQ_150_60;  // or LLMQ_30_60?
+        consensus.llmqs[Consensus::LLMQ_30_60]  = llmq30_60;  // DIP0020
+        consensus.llmqs[Consensus::LLMQ_100_67] = llmq100_67; // DIP0020
+        consensus.llmqTypeChainLocks = Consensus::LLMQ_30_60;
         consensus.llmqTypeInstantSend = Consensus::LLMQ_30_60;
         consensus.llmqTypePlatform = Consensus::LLMQ_100_67;
         /* Dash v0.17 long living quorum params
@@ -1102,7 +1101,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].bit = 4;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nStartTime = 0;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nTimeout = 999999999999ULL;
-        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].bit = 5;
+        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].bit = 5; // TODO remove
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nStartTime = 0;
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nTimeout = 999999999999ULL;
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nWindowSize = 500;
