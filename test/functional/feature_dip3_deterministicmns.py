@@ -392,11 +392,7 @@ class DIP3Test(BitcoinTestFramework):
         coinbasevalue += new_fees
 
         if mn_amount is None:
-            realloc_info = get_bip9_status(self.nodes[0], 'realloc')
-            realloc_height = 99999999
-            if realloc_info['status'] == 'active':
-                realloc_height = realloc_info['since']
-            mn_amount = get_masternode_payment(height, coinbasevalue, realloc_height)
+            mn_amount = get_masternode_payment(height, coinbasevalue)
         miner_amount = coinbasevalue - mn_amount
 
         outputs = {miner_address: str(Decimal(miner_amount) / COIN)}

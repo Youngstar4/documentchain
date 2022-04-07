@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2018-2021 The Documentchain developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -21,8 +21,8 @@ enum DeploymentPos
     DEPLOYMENT_BIP147, // Deployment of BIP147 (NULLDUMMY)
     DEPLOYMENT_DIP0003, // Deployment of DIP0002 and DIP0003 (txv3 and deterministic MN lists)
     DEPLOYMENT_DIP0008, // Deployment of ChainLock enforcement
-    DEPLOYMENT_REALLOC, // Deployment of Block Reward Reallocation
-    DEPLOYMENT_DIP0020, // Deployment of DIP0020, DIP0021 and LMQ_100_67 quorums
+    DEPLOYMENT_REALLOC, // Deployment of Block Reward Reallocation, not used in Documentchain yet
+    DEPLOYMENT_DIP0020, // Deployment of DIP0020, DIP0021 and LLMQ_30_60, LMQ_100_67 quorums
     // NOTE: Also add new deployments to VersionBitsDeploymentInfo in versionbits.cpp
     MAX_VERSION_BITS_DEPLOYMENTS
 };

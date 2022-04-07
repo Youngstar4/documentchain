@@ -1,4 +1,5 @@
 // Copyright (c) 2014-2021 The Dash Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -263,21 +264,13 @@ bool CMasternodePayments::GetBlockTxOuts(int nBlockHeight, CAmount blockReward, 
 {
     voutMasternodePaymentsRet.clear();
 
-    const CBlockIndex* pindex;
-    int nReallocActivationHeight{std::numeric_limits<int>::max()};
+    CAmount masternodeReward = GetMasternodePayment(nBlockHeight, blockReward);
 
+    const CBlockIndex* pindex;
     {
         LOCK(cs_main);
         pindex = chainActive[nBlockHeight - 1];
-
-        const Consensus::Params& consensusParams = Params().GetConsensus();
-        if (VersionBitsState(pindex, consensusParams, Consensus::DEPLOYMENT_REALLOC, versionbitscache) == ThresholdState::ACTIVE) {
-            nReallocActivationHeight = VersionBitsStateSinceHeight(pindex, consensusParams, Consensus::DEPLOYMENT_REALLOC, versionbitscache);
-        }
     }
-
-    CAmount masternodeReward = GetMasternodePayment(nBlockHeight, blockReward, nReallocActivationHeight);
-
     auto dmnPayee = deterministicMNManager->GetListForBlock(pindex).GetMNPayee();
     if (!dmnPayee) {
         return false;

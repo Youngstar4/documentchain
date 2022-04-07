@@ -516,7 +516,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nWindowSize = 4032;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nThresholdStart = 3226; // 80% of 4032
 
-        // Deployment of Block Reward Reallocation - TODO remove
+        // Deployment of Block Reward Reallocation, not used in Documentchain
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].bit = 5;
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nStartTime = 3000000000;
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nTimeout = 3300000000;
@@ -739,7 +739,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nWindowSize = 100;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nThresholdStart = 50; // 50% of 100
 
-        // Deployment of Block Reward Reallocation - TODO remove
+        // Deployment of Block Reward Reallocation, not used in Documentchain
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].bit = 5;
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nStartTime = 3000000000;
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nTimeout = 3300000000;
@@ -884,7 +884,7 @@ public:
         consensus.BIP65Height = 1; // BIP65 activated immediately on devnet
         consensus.BIP66Height = 1; // BIP66 activated immediately on devnet
         consensus.DIP0001Height = 2; // DIP0001 activated immediately on devnet
-        consensus.DIP0003Height = 230; // devnet-4
+        consensus.DIP0003Height = 30; // devnet-5
         consensus.DIP0003EnforcementHeight = 5105;
         consensus.DIP0003EnforcementHash = uint256S("000350a84ef790275c1f2a1f6428ca36199b45fd1d0fcdb34ca4c5d6bc670798");
         consensus.DIP0008Height = 100000000; // TODO
@@ -933,7 +933,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nWindowSize = 100;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nThresholdStart = 50; // 50% of 100
 
-        // Deployment of Block Reward Reallocation - TODO remove
+        // Deployment of Block Reward Reallocation, not used in Documentchain testnet/mainnet
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].bit = 5;
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nStartTime = 1648638000; // 2022-Mar-30
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nTimeout = 1680346800; // 2023-Apr-01
@@ -1101,7 +1101,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].bit = 4;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nStartTime = 0;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nTimeout = 999999999999ULL;
-        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].bit = 5; // TODO remove
+        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].bit = 5; // not used in Documentchain
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nStartTime = 0;
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nTimeout = 999999999999ULL;
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nWindowSize = 500;
