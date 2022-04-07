@@ -518,12 +518,12 @@ public:
 
         // Deployment of Block Reward Reallocation, not used in Documentchain
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].bit = 5;
-        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nStartTime = 3000000000;
+        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nStartTime = 3000000000; // not used
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nTimeout = 3300000000;
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nWindowSize = 4032;
-        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nThresholdStart = 3226; // 80% of 4032
-        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nThresholdMin = 2420; // 60% of 4032
-        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nFalloffCoeff = 5; // this corresponds to 10 periods
+        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nThresholdStart = 3226;
+        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nThresholdMin = 2420;
+        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nFalloffCoeff = 5;
 
         // Deployment of DIP0020, DIP0021 and LLMQ_100_67 quorums - TODO
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].bit = 6;
@@ -691,8 +691,8 @@ public:
         consensus.BIP66Height = 100;
         consensus.DIP0001Height = 1170;
         consensus.DIP0003Height = 6350;
-        consensus.DIP0003EnforcementHeight = 100000000; // TODO spork show SPORK_15_DETERMINISTIC_MNS_ENABLED
-        consensus.DIP0003EnforcementHash = uint256S("000000000000000000000000000000000000000000000000000000000000000"); // TODO
+        consensus.DIP0003EnforcementHeight = 22418;
+        consensus.DIP0003EnforcementHash = uint256S("0001b45136a9f935f9494e4c1f97a223e2c91de7dfc9ad9bd89b8708dae93b6d");
         consensus.DIP0008Height = 100000000; // TODO
         consensus.powLimit = uint256S("000fffffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 24 * 60 * 60;
@@ -732,30 +732,30 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nWindowSize = 10;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nThresholdStart = 7; // 70% of 10
 
-        // Deployment of DIP0008 - TODO
+        // Deployment of DIP0008
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].bit = 4;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nStartTime = 3000000000;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nTimeout = 3300000000;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nWindowSize = 100;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nThresholdStart = 50; // 50% of 100
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nStartTime = 1649498400; // 2022 Apr 9th
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nTimeout = 1680948000;   // 2023 Apr 8th
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nWindowSize = 160;
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nThresholdStart = 128; // 80% of 160
 
         // Deployment of Block Reward Reallocation, not used in Documentchain
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].bit = 5;
-        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nStartTime = 3000000000;
+        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nStartTime = 3000000000; // not used
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nTimeout = 3300000000;
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nWindowSize = 100;
-        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nThresholdStart = 80; // 80% of 100
-        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nThresholdMin = 60; // 60% of 100
-        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nFalloffCoeff = 5; // this corresponds to 10 periods
+        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nThresholdStart = 80;
+        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nThresholdMin = 60;
+        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nFalloffCoeff = 5;
 
-        // Deployment of DIP0020, DIP0021 and LLMQ_100_67 quorums - TODO
+        // Deployment of DIP0020, DIP0021 and LLMQ_100_67 quorums
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].bit = 6;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nStartTime = 3000000000;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nTimeout = 3300000000;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nWindowSize = 100;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nThresholdStart = 80; // 80% of 100
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nThresholdMin = 60; // 60% of 100
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nFalloffCoeff = 5; // this corresponds to 10 periods
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nStartTime = 1650103200; // 2022 Apr 16th
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nTimeout = 1681552800;   // 2023 Apr 15th
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nWindowSize = 160;
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nThresholdStart = 128; // 80% of 160
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nThresholdMin = 98; // 60% of 160
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nFalloffCoeff = 5; // Dash: this corresponds to 10 periods
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000000000009df47a"); // block 768
@@ -887,7 +887,7 @@ public:
         consensus.DIP0003Height = 30; // devnet-5
         consensus.DIP0003EnforcementHeight = 5105;
         consensus.DIP0003EnforcementHash = uint256S("000350a84ef790275c1f2a1f6428ca36199b45fd1d0fcdb34ca4c5d6bc670798");
-        consensus.DIP0008Height = 100000000; // TODO
+        consensus.DIP0008Height = 5700;
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 1
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Dash: 1 day
         consensus.nPowTargetSpacing = 6 * 60;

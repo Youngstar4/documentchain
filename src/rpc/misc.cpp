@@ -1318,7 +1318,7 @@ UniValue getinfo(const JSONRPCRequest& request)
 **/
 UniValue devgetinfo(const JSONRPCRequest& request)
 {
-    return "my dev comment";
+    return "0.17 testnet4 DIP3";
   //return FormatVersion(CLIENT_VERSION) + " release";
 }
 
