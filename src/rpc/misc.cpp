@@ -1268,10 +1268,10 @@ UniValue getinfo(const JSONRPCRequest& request)
 #ifdef ENABLE_WALLET
     std::shared_ptr<CWallet> const wallet = GetWalletForJSONRPCRequest(request);
     CWallet* const pwallet = wallet.get();
-    if (!EnsureWalletIsAvailable(pwallet, request.fHelp)) {
-        return NullUniValue;
-    }
-    LOCK2(cs_main, pwallet->cs_wallet);
+    if (EnsureWalletIsAvailable(pwallet, true))
+        LOCK2(cs_main, pwallet->cs_wallet);
+    else
+        LOCK(cs_main);
 #else
     LOCK(cs_main);
 #endif
@@ -1318,7 +1318,7 @@ UniValue getinfo(const JSONRPCRequest& request)
 **/
 UniValue devgetinfo(const JSONRPCRequest& request)
 {
-    return "0.17 testnet4 DIP3";
+    return strprintf("%s %s %s", FormatVersion(CLIENT_VERSION), __DATE__, __TIME__);
   //return FormatVersion(CLIENT_VERSION) + " release";
 }
 
