@@ -128,7 +128,8 @@ bool WalletInit::ParameterInteraction() const
 
         return true;
     } else if (gArgs.IsArgSet("-masternodeblsprivkey")) {
-        return InitError(_("You can not start a masternode with wallet enabled."));
+      //return InitError(_("You can not start a masternode with wallet enabled."));
+        InitWarning("You should not start a masternode with wallet enabled");
     }
 
     gArgs.SoftSetArg("-wallet", "");
