@@ -7,10 +7,14 @@
 #include <qt/guiutil.h>
 #include <netbase.h>
 #include <qt/walletmodel.h>
+#include <qt/rpcconsole.h>
 
 #include <univalue.h>
 
 #include <QMessageBox>
+#include <QInputDialog>
+#include <QSettings>
+#include <QStringList>
 #include <QTableWidgetItem>
 #include <QtGui/QClipboard>
 
@@ -93,13 +97,17 @@ MasternodeList::MasternodeList(QWidget* parent) :
 
     QAction* copyProTxHashAction = new QAction(tr("Copy ProTx Hash"), this);
     QAction* copyCollateralOutpointAction = new QAction(tr("Copy Collateral Outpoint"), this);
+    QAction* sendProtxUpdateServiceAction = new QAction(tr("Provider Update Service Transaction..."), this);
+    sendProtxUpdateServiceAction->setStatusTip(tr("Reactivate POSE_BANNED or specify new IP"));
     contextMenuDIP3 = new QMenu(this);
     contextMenuDIP3->addAction(copyProTxHashAction);
     contextMenuDIP3->addAction(copyCollateralOutpointAction);
+    contextMenuDIP3->addAction(sendProtxUpdateServiceAction);
     connect(ui->tableWidgetMasternodesDIP3, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(showContextMenuDIP3(const QPoint&)));
     connect(ui->tableWidgetMasternodesDIP3, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(extraInfoDIP3_clicked()));
     connect(copyProTxHashAction, SIGNAL(triggered()), this, SLOT(copyProTxHash_clicked()));
     connect(copyCollateralOutpointAction, SIGNAL(triggered()), this, SLOT(copyCollateralOutpoint_clicked()));
+    connect(sendProtxUpdateServiceAction, SIGNAL(triggered()), this, SLOT(sendProtxUpdateService_clicked()));
 
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateDIP3ListScheduled()));
@@ -394,4 +402,90 @@ void MasternodeList::copyCollateralOutpoint_clicked()
     }
 
     QApplication::clipboard()->setText(QString::fromStdString(dmn->collateralOutpoint.ToStringShort()));
+}
+
+void MasternodeList::sendProtxUpdateService_clicked()
+{
+    auto dmn = GetSelectedDIP3MN();
+    if (!dmn) {
+        return;
+    }
+
+    bool ok;
+    bool confExists = true;
+    QString strOutpoint = QString::fromStdString(dmn->collateralOutpoint.ToStringShort());
+    QString strIP = QString::fromStdString(dmn->pdmnState->addr.ToString());
+    QString strProTx = QString::fromStdString(dmn->proTxHash.ToString());
+    QString strBlsSecret = "";
+
+    QSettings mnk(GUIUtil::boostPathToQString(GetDataDir() / "masternodek.conf"), QSettings::IniFormat);
+    mnk.beginGroup("blssecret");
+    strBlsSecret = mnk.value(strOutpoint).toString();
+
+    if (strBlsSecret == "") {
+        confExists = false;
+        // read "dip3-masternodes.ini" from v0.13
+        QSettings mnini(GUIUtil::boostPathToQString(GetDataDir() / "dip3-masternodes.ini"), QSettings::IniFormat);
+        QStringList groups = mnini.childGroups();
+        for (int i = 0; i < groups.size(); ++i) {
+            mnini.beginGroup(groups.at(i));
+            if (mnini.value("ipAndPort").toString() == strIP) {
+                strBlsSecret = mnini.value("operatorPrivKey").toString();
+                break;
+            }
+            mnini.endGroup();
+        }
+
+        // enter BLS secret if not found
+        if (strBlsSecret == "") {
+            strBlsSecret = QInputDialog::getText(this, tr("Update Service"), tr("BLS Secret"), QLineEdit::Normal, strBlsSecret, &ok);
+            if (!ok) {
+                return;
+            }
+        }
+    }
+
+    strIP = QInputDialog::getText(this, tr("Update Service"), tr("IP:Port"), QLineEdit::Normal, strIP, &ok);
+    if (!ok) {
+        return;
+    }
+
+   CService mnaddr;
+    ok = false;
+    if (Lookup(strIP.toStdString().c_str(), mnaddr, 0, false)) {
+      //ok = g_connman->FindNode(mnaddr);   TODO : POSE_BAN node
+        if (!ok) {
+            LogPrintf("DMSDEBUG FindNode=false\n");
+            // TODO : can fail on testnet with non-default port
+            g_connman->OpenMasternodeConnection(CAddress(mnaddr, NODE_NETWORK));
+            ok = (g_connman->IsConnected(CAddress(mnaddr, NODE_NETWORK), CConnman::AllNodes));
+        }
+    }
+    if (!ok) {
+        if (QMessageBox::warning(this, tr("Update Service"), tr("Couldn't connect to masternode %1").arg(strIP),
+            QMessageBox::Ok | QMessageBox::Ok, QMessageBox::Cancel) != QMessageBox::Ok) return;
+    }
+
+    std::string result;
+    std::string cmd;
+    std::string filtered;
+    cmd = strprintf("protx update_service %s %s %s", 
+        strProTx.toStdString(), strIP.toStdString(), strBlsSecret.toStdString());
+    if (QMessageBox::question(this, tr("Update Service"), tr("Send protx") + "?\n" + QString::fromStdString(cmd),
+        QMessageBox::Yes | QMessageBox::Cancel, QMessageBox::Yes) != QMessageBox::Yes) return;
+
+    try {
+        auto node = interfaces::MakeNode();
+        RPCConsole::RPCExecuteCommandLine(*node, result, cmd, &filtered);
+
+        QMessageBox::information(this, tr("Update Service"),
+            tr("Done.") + QString("\n%1").arg(QString::fromStdString(result)));
+
+        if (!confExists) {
+            mnk.setValue(strOutpoint, strBlsSecret);
+        }
+    }
+    catch (...) {
+        QMessageBox::critical(this, "Error", "Error sending\n" + QString::fromStdString(cmd));
+    }
 }
