@@ -122,7 +122,7 @@ UniValue getinfo(const JSONRPCRequest& request)
 UniValue devgetinfo(const JSONRPCRequest& request)
 {
   //return "my dev comment";
-    return FormatVersion(CLIENT_VERSION) + " release";
+    return FormatVersion(CLIENT_VERSION) + " release 2";
 }
 
 UniValue debug(const JSONRPCRequest& request)

@@ -712,7 +712,7 @@ void MasternodeList::on_convertDIP3Button_clicked()
         QJsonDocument jdoc = QJsonDocument::fromJson(QByteArray::fromStdString(result));
         QJsonArray jary = jdoc.array();
         jdoc = QJsonDocument::fromJson(QByteArray::fromStdString(result));
-        if (jdoc.array().count() < 2) {
+        if (jdoc.array().count() < 1) { // min 1 unlocked unspent
             QMessageBox::information(this, "Fee required", 
                  "The masternode payout address \"" + addrPayout
                + "\" requires an available balance to pay the transaction fee (~0.01 DMS).");
@@ -739,14 +739,33 @@ void MasternodeList::on_convertDIP3Button_clicked()
             addrOwner = QString::fromStdString(result);
             mymntxt.setValue("ownerKeyAddr", addrOwner);
         }
+
+        CBLSSecretKey blskey;
+        QString blsSecretNew;
+        bool ok;
+        // enter bls key, e.g. if it was set by a hosting provider
+        blsSecretNew = blsSecret.isEmpty() ? "(create new)" : blsSecret;
+        blsSecretNew = QInputDialog::getText(this, tr("BLS Key"), tr("BLS Secret (optional)"), QLineEdit::Normal, blsSecretNew, &ok);
+        if (!ok) 
+            return;
+        if (!blsSecretNew.isEmpty() && blsSecretNew != "(create new)" && blsSecretNew != blsSecret) {
+            blsSecret = blsSecretNew;
+            auto binKey = ParseHex(blsSecret.toStdString());
+            blskey.SetBuf(binKey);
+            if (!blskey.IsValid()) {
+                QMessageBox::critical(this, "Error", "Invalid BLS secret key");
+                return;
+            }
+            blsPublic = QString::fromStdString(blskey.GetPublicKey().ToString());
+            if (QMessageBox::question(this, tr("BLS Key"), tr("BLS Public %1").arg(blsPublic),
+                QMessageBox::Ok | QMessageBox::Cancel,
+                QMessageBox::Ok) != QMessageBox::Ok) return;
+}
         // create bls key pair
         if (blsSecret.isEmpty()) {
-            CBLSSecretKey blskey;
             blskey.MakeNewKey();
             blsSecret = QString::fromStdString(blskey.ToString());
             blsPublic = QString::fromStdString(blskey.GetPublicKey().ToString());
-            mymntxt.setValue("operatorPrivKey", blsSecret);
-            mymntxt.setValue("operatorPubKey", blsPublic);
         }
 
         // unlock wallet
@@ -778,6 +797,8 @@ void MasternodeList::on_convertDIP3Button_clicked()
         QString proregtx = QString::fromStdString(result);
 
         // store in "my-dip3-masternodes.txt"
+        mymntxt.setValue("operatorPrivKey", blsSecret);
+        mymntxt.setValue("operatorPubKey", blsPublic);
         mymntxt.setValue("proregtx", proregtx);
         mymntxt.setValue("collateralHash", txCollateral);
         mymntxt.setValue("collateralIndex", idxCollateral);
@@ -786,7 +807,7 @@ void MasternodeList::on_convertDIP3Button_clicked()
         // update dms.conf on mn server
         QInputDialog::getMultiLineText(this, "Action required", 
             "Update dms.conf on server",
-            QString("Please add the masternodeblsprivkey to the masternodes's dms.conf:\n")
+            QString("Please add the masternodeblsprivkey to the masternodes's dms.conf if not already done:\n")
           + QString("ssh %1 -l (username)\n").arg(mnIP.split(':')[0])
           + QString("nano .dmscore/dms.conf\n")
           + QString("Paste the following line into dms.conf:\n")
