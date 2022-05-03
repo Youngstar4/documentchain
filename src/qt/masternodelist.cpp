@@ -1,6 +1,7 @@
 #include <qt/masternodelist.h>
 #include <qt/forms/ui_masternodelist.h>
 
+#include <bls/bls.h>
 #include <qt/clientmodel.h>
 #include <clientversion.h>
 #include <coins.h>
@@ -8,10 +9,13 @@
 #include <netbase.h>
 #include <qt/walletmodel.h>
 #include <qt/rpcconsole.h>
-
 #include <univalue.h>
 
+#include <QCheckBox>
 #include <QMessageBox>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
 #include <QInputDialog>
 #include <QSettings>
 #include <QStringList>
@@ -404,6 +408,210 @@ void MasternodeList::copyCollateralOutpoint_clicked()
     QApplication::clipboard()->setText(QString::fromStdString(dmn->collateralOutpoint.ToStringShort()));
 }
 
+void MasternodeList::on_pushButtonMasternodeAdd_clicked()
+{
+    QMessageBox msgPrompt(this);
+    msgPrompt.setWindowTitle(tr("Deploy Masternode"));
+    msgPrompt.setTextFormat(Qt::RichText);
+    msgPrompt.setText(tr("Send Provider Registration Transaction?<br><a href='https://documentchain.org/support/masternodes/'>Please note the instructions</a>"));
+    msgPrompt.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    msgPrompt.setDefaultButton(QMessageBox::Yes);
+    msgPrompt.setCheckBox(new QCheckBox(tr("Create Collateral Transaction")));
+    if (msgPrompt.exec() != QMessageBox::Yes) 
+        return;
+    bool createCollateralTx = msgPrompt.checkBox()->isChecked();
+
+    bool ok;
+    QString strIP = QInputDialog::getText(this, tr("Deploy Masternode"), tr("Masternode IP:Port"), QLineEdit::Normal, "", &ok);
+    if (!ok) return;
+    CService mnaddr;
+    if (!(strIP.contains(":") && Lookup(strIP.toStdString().c_str(), mnaddr, 0, false))) {
+        QMessageBox::critical(this, tr("Deploy Masternode"), tr("%1 is not a valid IP:Port.").arg(strIP));
+        return;
+    }
+
+    /* using RPCConsole is easy and prevents duplicate code */
+    try {
+        WalletModel::UnlockContext ctx(walletModel->requestUnlock());
+        if (!ctx.isValid()) 
+            return;
+
+        auto node = interfaces::MakeNode();
+        std::string result;
+        std::string filtered;
+        QString cmd;
+        QJsonDocument jdoc;
+        QJsonObject jobj;
+        QJsonArray jarr;
+        QString addrPayout;
+        QString addrOwner;
+        QString addrFee;
+        CBLSSecretKey blskey;
+        QString blsSecret;
+        QString blsPublic;
+        QString txCollateral;
+        int idxCollateral = -1;
+
+        // manuel mode, collateral tx was already created
+        if (!createCollateralTx) {
+            txCollateral = QInputDialog::getText(this, tr("Deploy Masternode"), tr("Collateral tx id"), QLineEdit::Normal, "", &ok);
+            if (!ok || txCollateral.isEmpty()) return;
+
+            idxCollateral = -1;
+            for (int i = 0; i < 100; i++) {
+                cmd = QString("gettxout %1 %2").arg(txCollateral).arg(i);
+                RPCConsole::RPCExecuteCommandLine(*node, result, cmd.toStdString(), &filtered);
+                jdoc = QJsonDocument::fromJson(QByteArray::fromStdString(result));
+                if (jdoc.isNull())
+                    break;
+                jobj = jdoc.object();
+                if (jobj.value("value").toInt() == 5000) {
+                    idxCollateral = i;
+                    jarr = jobj.value("scriptPubKey").toObject().value("addresses").toArray();
+                    if (jarr.size() != 1) {
+                        QMessageBox::critical(this, "Unexpected", QString(" %1 addresses in collateral output.").arg(jarr.size()));
+                        return;
+                    }
+                    addrPayout = jarr.at(0).toString();
+                    break;
+                }
+            }
+            if (idxCollateral < 0) {
+                QMessageBox::critical(this, tr("Deploy Masternode"), tr("No collateral transaction found."));
+                return;
+            }
+
+            addrOwner = QInputDialog::getText(this, tr("Deploy Masternode"), tr("Owner Address (optional)"), QLineEdit::Normal, "", &ok);
+            if (!ok) return;
+            if (addrOwner.isEmpty()) {
+                RPCConsole::RPCExecuteCommandLine(*node, result, "getnewaddress \"" + strIP.toStdString() + " (owner)\"", &filtered);
+                addrOwner = QString::fromStdString(result);
+                QMessageBox::information(this, "Deploy Masternode", tr("Owner Address %1 created").arg(addrOwner));
+             }
+
+            addrFee = QInputDialog::getText(this, tr("Deploy Masternode"), tr("Fee Address"), QLineEdit::Normal, addrPayout, &ok);
+            if (!ok) return;
+
+            blsSecret = QInputDialog::getText(this, tr("Deploy Masternode"), tr("BLS Secret (optional)"), QLineEdit::Normal, "", &ok);
+            if (!ok) return;
+            if (blsSecret.isEmpty()) {
+                blskey.MakeNewKey();
+                blsSecret = QString::fromStdString(blskey.ToString());
+                blsPublic = QString::fromStdString(blskey.GetPublicKey().ToString());
+            }
+            else {
+                auto binKey = ParseHex(blsSecret.toStdString());
+                blskey.SetByteVector(binKey);
+                if (!blskey.IsValid()) {
+                    QMessageBox::critical(this, tr("Deploy Masternode"), tr("Invalid BLS secret key"));
+                    return;
+                }
+                blsPublic = QString::fromStdString(blskey.GetPublicKey().ToString());
+            }
+
+            // protx register "collateralHash" collateralIndex "ipAndPort" "ownerAddress" "operatorPubKey" "votingAddress" operatorReward "payoutAddress" "feeSourceAddress"
+            cmd = QString("protx register %1 %2 %3 %4 %5 %4 0 %6 %7")
+                          .arg(txCollateral)
+                          .arg(idxCollateral)
+                          .arg(strIP)
+                          .arg(addrOwner)
+                          .arg(blsPublic)
+                          .arg(addrPayout)
+                          .arg(addrFee);
+        }
+
+        // automatic mode
+        else {
+            QString addrFund = QInputDialog::getText(this, tr("Deploy Masternode"), tr("Fund address to debit"), QLineEdit::Normal, "", &ok);
+            if (!ok) return;
+            RPCConsole::RPCExecuteCommandLine(*node, result, "listaddressbalances 5000.1", &filtered);
+            jdoc = QJsonDocument::fromJson(QByteArray::fromStdString(result));
+            if (!jdoc.object().contains(addrFund)) {
+                QMessageBox::critical(this, tr("Deploy Masternode"), tr("The fund address requires a balance of at least 5,000.01 DMS"));
+                return;
+            }
+
+            RPCConsole::RPCExecuteCommandLine(*node, result, "getnewaddress \"MN " + strIP.toStdString() + " (payout)\"", &filtered);
+            addrPayout = QString::fromStdString(result);
+            RPCConsole::RPCExecuteCommandLine(*node, result, "getnewaddress \"MN " + strIP.toStdString() + " (owner)\"", &filtered);
+            addrOwner = QString::fromStdString(result);
+            blskey.MakeNewKey();
+            blsSecret = QString::fromStdString(blskey.ToString());
+            blsPublic = QString::fromStdString(blskey.GetPublicKey().ToString());
+
+            // protx register_fund "collateralAddress" "ipAndPort" "ownerAddress" "operatorPubKey" "votingAddress" operatorReward "payoutAddress" "fundAddress"
+            cmd = QString("protx register_fund %1 %2 %3 %4 %3 0 %1 %5")
+                          .arg(addrPayout)
+                          .arg(strIP)
+                          .arg(addrOwner)
+                          .arg(blsPublic)
+                          .arg(addrFund);
+        }
+
+        if (QMessageBox::question(this, tr("Deploy Masternode"), tr("Send protx") + "?\n" + cmd,
+            QMessageBox::Yes | QMessageBox::Cancel, QMessageBox::Yes) != QMessageBox::Yes) return;
+
+        RPCConsole::RPCExecuteCommandLine(*node, result, cmd.toStdString(), &filtered);
+        QString proregtx = QString::fromStdString(result);
+
+        if (createCollateralTx) {
+            txCollateral = proregtx;
+            for (int i = 0; i < 2; i++) {
+                cmd = QString("gettxout %1 %2").arg(txCollateral).arg(i);
+                RPCConsole::RPCExecuteCommandLine(*node, result, cmd.toStdString(), &filtered);
+                jdoc = QJsonDocument::fromJson(QByteArray::fromStdString(result));
+                if (jdoc.object().value("value").toInt() == 5000) {
+                    idxCollateral = i;
+                    break;
+                }
+            }
+        }
+
+        QSettings mnk(GUIUtil::boostPathToQString(GetDataDir() / "masternodek.conf"), QSettings::IniFormat);
+        QString strOutpoint = QString("%1-%2").arg(txCollateral).arg(idxCollateral);
+        mnk.beginGroup("blssecret");
+        mnk.setValue(strOutpoint, blsSecret);
+        mnk.endGroup();
+
+
+        QMessageBox msgPrompt(this);
+        msgPrompt.setWindowTitle(tr("Deploy Masternode"));
+        msgPrompt.setText(tr("Done. As soon as the provider register transaction, your masternode is ready."));
+        msgPrompt.setStandardButtons(QMessageBox::Ok);
+        msgPrompt.setCheckBox(new QCheckBox(tr("Show dms.conf suggestion")));
+        msgPrompt.exec();
+        bool showDmsconf = msgPrompt.checkBox()->isChecked();
+
+        if (showDmsconf) {
+            QInputDialog::getMultiLineText(this, tr("Deploy Masternode"),
+                "Suggestion for dms.conf on masternode server",
+                QString("ssh %1 -l (username)\n").arg(strIP.split(':')[0])
+              + QString("nano .dmscore/dms.conf\n")
+              + QString("dms.conf:\n\n")
+              + QString("rpcuser=dmsrpcuser\n")
+              + QString("rpcpassword=mySeCrEtPw-TODO\n")
+              + QString("rpcallowip=127.0.0.1\n")
+              + QString("rpcport=41320\n")
+              + QString("server=1\n")
+              + QString("listen=1\n")
+              + QString("daemon=1\n")
+              + QString("maxconnections=125\n")
+              + QString("masternodeblsprivkey=%1\n").arg(blsSecret)
+              + QString("externalip=%1").arg(strIP));
+        }
+    }
+    catch (const UniValue& objError) {
+        std::string msgErr = find_value(objError, "message").get_str();
+        QMessageBox::critical(this, tr("Deploy Masternode"), QString::fromStdString(msgErr));
+    }
+    catch (const std::exception& e) {
+        QMessageBox::critical(this, tr("Deploy Masternode"), QString::fromStdString(e.what()));
+    }
+    catch (...) {
+        QMessageBox::critical(this, tr("Deploy Masternode"), "Unknown error");
+    }
+}
+
 void MasternodeList::sendProtxUpdateService_clicked()
 {
     auto dmn = GetSelectedDIP3MN();
@@ -422,7 +630,7 @@ void MasternodeList::sendProtxUpdateService_clicked()
     mnk.beginGroup("blssecret");
     strBlsSecret = mnk.value(strOutpoint).toString();
 
-    if (strBlsSecret == "") {
+    if (strBlsSecret.isEmpty()) {
         confExists = false;
         // read "dip3-masternodes.ini" from v0.13
         QSettings mnini(GUIUtil::boostPathToQString(GetDataDir() / "dip3-masternodes.ini"), QSettings::IniFormat);
@@ -437,7 +645,7 @@ void MasternodeList::sendProtxUpdateService_clicked()
         }
 
         // enter BLS secret if not found
-        if (strBlsSecret == "") {
+        if (strBlsSecret.isEmpty()) {
             strBlsSecret = QInputDialog::getText(this, tr("Update Service"), tr("BLS Secret"), QLineEdit::Normal, strBlsSecret, &ok);
             if (!ok) {
                 return;
@@ -450,7 +658,7 @@ void MasternodeList::sendProtxUpdateService_clicked()
         return;
     }
 
-   CService mnaddr;
+    CService mnaddr;
     ok = false;
     if (Lookup(strIP.toStdString().c_str(), mnaddr, 0, false)) {
       //ok = g_connman->FindNode(mnaddr);   TODO : POSE_BAN node
