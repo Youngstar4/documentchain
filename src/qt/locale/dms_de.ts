@@ -356,6 +356,53 @@
         <translation>Transaktionsverlauf durchsehen</translation>
     </message>
     <message>
+        <source>&amp;Documents</source>
+        <translation>&amp;Dokumente</translation>
+    </message>
+    <message>
+        <source>Document Revision</source>
+        <translation>Dokumentenrevision</translation>
+    </message>
+    <message>
+        <source>&amp;Support Website</source>
+        <translation>&amp;Support-Webseite</translation>
+    </message>
+    <message>
+        <source>Open the %1 support website</source>
+        <translation>Öffnet die %1 support Webseite</translation>
+    </message>
+    <message>
+        <source>&amp;Mining...</source>
+        <translation>Minin&amp;g...</translation>
+    </message>
+    <message>
+        <source>Generate coins</source>
+        <translation>Coins erzeugen</translation>
+    </message>
+    <message>
+        <source>Please wait.</source>
+        <translation>Bitte warten.</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Unlimited Mining&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Unbegrenztes Schürfen&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Weak &lt;b&gt;Mining&lt;/b&gt;</source>
+        <translation>Schwaches &lt;b&gt;Schürfen&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Mining is not active.&lt;br&gt;Click here to generate Coins.</source>
+        <translation>Mining ist deaktiviert.&lt;br&gt;Hier klicken, um Coins zu schürfen.</translation>
+    </message>
+    <message numerus="yes">
+        <source>&lt;b&gt;Mining&lt;/b&gt; on %n Thread(s)</source>
+        <translation>
+            <numerusform>&lt;b&gt;Schürfe&lt;/b&gt; mit %n Thread</numerusform>
+            <numerusform>&lt;b&gt;Schürfe&lt;/b&gt; mit %n Threads</numerusform>
+        </translation>
+    </message>
+    <message>
         <source>&amp;Masternodes</source>
         <translation>&amp;Masternodes</translation>
     </message>
@@ -843,6 +890,10 @@
         <translation>Nicht ausgegebenen Betrag sperren</translation>
     </message>
     <message>
+        <source>Lock permanently</source>
+        <translation>Dauerhaft sperren</translation>
+    </message>
+    <message>
         <source>Unlock unspent</source>
         <translation>Nicht ausgegebenen Betrag entsperren</translation>
     </message>
@@ -1119,7 +1170,7 @@
     </message>
     <message>
         <source>Filter List:</source>
-        <translation>Filterliste:</translation>
+        <translation>Liste filtern:</translation>
     </message>
     <message>
         <source>Filter masternode list</source>
@@ -1228,6 +1279,98 @@
     <message>
         <source>Additional information for DIP3 Masternode %1</source>
         <translation>Zusätzliche Informationen für DIP3 Masternode %1</translation>
+    </message>
+    <message>
+        <source>Deploy Masternode...</source>
+        <translation>Masternode bereitstellen...</translation>
+    </message>
+    <message>
+        <source>Deploy Masternode</source>
+        <translation>Masternode bereitstellen</translation>
+    </message>
+    <message>
+        <source>Operating a Documentchain Masternode requires 5,000 DMS as collateral, see also &lt;a href=&quot;https://documentchain.org/support/masternodes/&quot;&gt;instructions&lt;/a&gt; and &lt;a href=&quot;https://documentchain.org/news/shared-masternodes/&quot;&gt;shared masternodes&lt;/a&gt;.</source>
+        <translation>Für die Masternode-Bereitstellung sind 5.000 DMS als Pfand erforderlich, siehe auch &lt;a href=&quot;https://de.documentchain.org/support/masternodes/&quot;&gt;Anleitung&lt;/a&gt; und &lt;a href=&quot;https://de.documentchain.org/news/shared-masternodes/&quot;&gt;Shared Masternodes&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>Provider Update Service Transaction...</source>
+        <translation>Provider Update Service Transaktion...</translation>
+    </message>
+    <message>
+        <source>Send Provider Registration Transaction?&lt;br&gt;&lt;a href='https://documentchain.org/support/masternodes/'&gt;Please note the instructions&lt;/a&gt;</source>
+        <translation>Provider Registration Transaktion senden?&lt;br&gt;&lt;a href='https://de.documentchain.org/support/masternodes/'&gt;Bitte Anleitung beachten&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>Create Collateral Transaction</source>
+        <translation>Collateral-Transaktion erstellen</translation>
+    </message>
+    <message>
+        <source>Masternode IP:Port</source>
+        <translation>Masternode IP:Port</translation>
+    </message>
+    <message>
+        <source>%1 is not a valid IP:Port.</source>
+        <translation>%1 ist keine gültige IP:Port.</translation>
+    </message>
+    <message>
+        <source>Collateral tx id</source>
+        <translation>Collateral tx id</translation>
+    </message>
+    <message>
+        <source>No collateral transaction found.</source>
+        <translation>Keine Collateral-Transaktion gefunden.</translation>
+    </message>
+    <message>
+        <source>Owner Address (optional)</source>
+        <translation>Owner-Addresse (optional)</translation>
+    </message>
+    <message>
+        <source>Owner Address %1 created</source>
+        <translation>Owner-Addresse %1 erstellt</translation>
+    </message>
+    <message>
+        <source>Fee Address</source>
+        <translation>Gebühren-Addresse</translation>
+    </message>
+    <message>
+        <source>BLS Secret (optional)</source>
+        <translation>BLS Secret (optional)</translation>
+    </message>
+    <message>
+        <source>Invalid BLS secret key</source>
+        <translation>Ungültiger BLS-Secret-Key</translation>
+    </message>
+    <message>
+        <source>Fund address to debit</source>
+        <translation>Guthaben-Adresse</translation>
+    </message>
+    <message>
+        <source>The fund address requires a balance of at least 5,000.01 DMS</source>
+        <translation>Die zu belastene Adresse benötigt ein Guthaben von mindestens 5.000,01 DMS</translation>
+    </message>
+    <message>
+        <source>Send protx</source>
+        <translation>protx senden</translation>
+    </message>
+    <message>
+        <source>Done. As soon as the provider register transaction, your masternode is ready.</source>
+        <translation>Fertig. Sobald die &quot;provider register transaction&quot; geschürft ist, wird die Masternode aktiviert.</translation>
+    </message>
+    <message>
+        <source>Show dms.conf suggestion</source>
+        <translation>Zeige Vorschlag für dms.conf</translation>
+    </message>
+    <message>
+        <source>Update Service</source>
+        <translation>Update Service</translation>
+    </message>
+    <message>
+        <source>BLS Secret</source>
+        <translation>BLS Secret</translation>
+    </message>
+    <message>
+        <source>Couldn't connect to masternode %1</source>
+        <translation>Keine Verbindung zur Masternode %1</translation>
     </message>
 </context>
 <context>
@@ -3631,6 +3774,10 @@ mail@documentchain.org</translation>
         <translation>Überwiesen an</translation>
     </message>
     <message>
+        <source>Document Revision</source>
+        <translation>Dokumentenrevision</translation>
+    </message>
+    <message>
         <source>Payment to yourself</source>
         <translation>Eigenüberweisung</translation>
     </message>
@@ -3736,6 +3883,10 @@ mail@documentchain.org</translation>
     <message>
         <source>Sent to</source>
         <translation>Überwiesen an</translation>
+    </message>
+    <message>
+        <source>Document Revision</source>
+        <translation>Dokumentenrevision</translation>
     </message>
     <message>
         <source>%1 Send</source>
@@ -4867,6 +5018,183 @@ mail@documentchain.org</translation>
     <message>
         <source>Zapping all transactions from wallet...</source>
         <translation>Lösche alle Transaktionen aus Wallet...</translation>
+    </message>
+</context>
+<context>
+    <name>DocumentList</name>
+    <message>
+        <location filename="../forms/documentlist.ui"/>
+        <source>Document Revision</source>
+        <translation>Dokumentenrevision</translation>
+    </message>
+    <message>
+        <source>&amp;Add File...</source>
+        <translation>H&amp;inzufügen...</translation>
+    </message>
+    <message>
+        <source>&amp;Open</source>
+        <translation>&amp;Öffnen</translation>
+    </message>
+    <message>
+        <source>&amp;Revision</source>
+        <translation>&amp;Revision</translation>
+    </message>
+    <message>
+        <location filename="../documentlist.cpp"/>
+        <source>Select file(s) to append</source>
+        <translation>Hinzuzufügende Datei(en) wählen</translation>
+    </message>
+    <message>
+        <source>All Files (*.*)</source>
+        <translation>Alle Dateien (*.*)</translation>
+    </message>
+    <message>
+        <source>Document</source>
+        <translation>Dokument</translation>
+    </message>
+    <message>
+        <source>File hash</source>
+        <translation>Dateihash</translation>
+    </message>
+    <message>
+        <source>GUID</source>
+        <translation>GUID</translation>
+    </message>
+    <message>
+        <source>Attribute hash</source>
+        <translation>Attributhash</translation>
+    </message>
+    <message>
+        <source>Blockchain</source>
+        <translation>Blockchain</translation>
+    </message>
+    <message>
+        <source>Document Revision</source>
+        <translation>Dokumentenrevision</translation>
+    </message>
+    <message>
+        <source>Execute</source>
+        <translation>Ausführen</translation>
+    </message>
+    <message>
+        <source>Transaction ID</source>
+        <translation>Transaktions-ID</translation>
+    </message>
+    <message>
+        <source>Total Amount</source>
+        <translation>Summe</translation>
+    </message>
+    <message>
+        <source>Stored</source>
+        <translation>Gespeichert</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to send?</source>
+        <translation>Wollen Sie die Überweisung ausführen?</translation>
+    </message>
+    <message>
+        <source>Store document information</source>
+        <translation>Documentinformation speichern</translation>
+    </message>
+    <message>
+        <source>is paid as transaction fee.</source>
+        <translation>wird als Transaktionsgebühr bezahlt.</translation>
+    </message>
+    <message>
+        <source>Send Document</source>
+        <translation>Dokument senden</translation>
+    </message>
+    <message>
+        <source>File exists</source>
+        <translation>Datei existiert</translation>
+    </message>
+    <message>
+        <source>New file name</source>
+        <translation>Neuer Dateiname</translation>
+    </message>
+    <message>
+        <source>%1 document files</source>
+        <translation>%1 Dokumentdateien</translation>
+    </message>
+</context>
+<context>
+    <name>Document</name>
+    <message>
+        <location filename="../documentlist.cpp"/>
+        <source>Revision successful</source>
+        <translation>Revision erfolgreich</translation>
+    </message>
+    <message>
+        <source>Revision with notes</source>
+        <translation>Revision mit Hinweise</translation>
+    </message>
+    <message>
+        <source>Revision is not possible yet</source>
+        <translation>Revision ist noch nicht möglich</translation>
+    </message>
+    <message>
+        <source>Revision failed</source>
+        <translation>Revision gescheitert</translation>
+    </message>
+    <message>
+        <source>No Transaction stored.</source>
+        <translation>Keine Transaktion gespeichert.</translation>
+    </message>
+    <message>
+        <source>The current file does not match the locally saved hash. This file has been modified.</source>
+        <translation>Die aktuelle Datei entspricht nicht dem lokal gespeicherten Hash. Diese Datei wurde verändert.</translation>
+    </message>
+    <message>
+        <source>Transaction not found.</source>
+        <translation>Transaktion nicht gefunden.</translation>
+    </message>
+    <message>
+        <source>current value \"%1\" differs from value \"%2\" stored in blockchain.</source>
+        <translation>aktueller Wert \"%1\" unterscheidet sich vom in der Blockchain gespeicherten Wert \"%2\".</translation>
+    </message>
+    <message>
+        <source>matches the blockchain value.</source>
+        <translation>entspricht dem Wert in der Blockchain.</translation>
+    </message>
+    <message>
+        <source>There are not enough blockchain confirmations available for revision. Please wait a while.</source>
+        <translation>Es sind noch nicht genügend Blockchain-Bestätigungen für eine Revision vorhanden. Bitte etwas warten.</translation>
+    </message>
+    <message>
+        <source>Rejected</source>
+        <translation>Abgelehnt</translation>
+    </message>
+    <message>
+        <source>This file information has already been stored in Documentchain.</source>
+        <translation>Diese Dateiinformation wurde bereits in der Blockchain abgelegt.</translation>
+    </message>
+    <message>
+        <source>Invalid document description.</source>
+        <translation>Ungültige Dokument-Beschreibung.</translation>
+    </message>
+    <message>
+        <source>Signing</source>
+        <translation>Signierung</translation>
+    </message>
+    <message>
+        <source>Could not sign transaction.</source>
+        <translation>Transaktion konnte nicht signiert werden.</translation>
+    </message>
+    <message>
+        <source>RPC Error</source>
+        <translation>RPC-Fehler</translation>
+    </message>
+    <message>
+        <source>Unknown error.</source>
+        <translation>Unbekannter Fehler.</translation>
+    </message>
+    <message>
+        <source>Blockchain confirmations</source>
+        <translation>Blockchain-Bestätigungen</translation>
+    </message>
+    <message>
+        <source>The blockchain confirms that %1this document file%2 exists at least since %3 and has not been modified.</source>
+        <translation>Die Blockchain bestätigt, dass %1diese Dokumentdatei%2 seit %3 vorhanden ist und unverändert vorliegt.</translation>
     </message>
 </context>
 </TS>

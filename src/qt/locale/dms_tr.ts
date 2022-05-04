@@ -356,6 +356,53 @@
         <translation>İşlem geçmişine gözat</translation>
     </message>
     <message>
+        <source>&amp;Documents</source>
+        <translation>&amp;Belgeler</translation>
+    </message>
+    <message>
+        <source>Document Revision</source>
+        <translation>Belge Revizyonu</translation>
+    </message>
+    <message>
+        <source>&amp;Support Website</source>
+        <translation>&amp;Websitesi Destek</translation>
+    </message>
+    <message>
+        <source>Open the %1 support website</source>
+        <translation>%1 Websitesi Desteğini Açın</translation>
+    </message>
+    <message>
+        <source>&amp;Mining...</source>
+        <translation>&amp;Madencilik...</translation>
+    </message>
+    <message>
+        <source>Generate coins</source>
+        <translation>Madeni Para Üretme</translation>
+    </message>
+    <message>
+        <source>Please wait.</source>
+        <translation>Lütfen Bekleyin.</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Unlimited Mining&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Sınırsız Madencilik&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Weak &lt;b&gt;Mining&lt;/b&gt;</source>
+        <translation>Güçsüz &lt;b&gt;Madencilik&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Mining is not active.&lt;br&gt;Click here to generate Coins.</source>
+        <translation>Madencilik aktif değil.&lt;br&gt;Madeni para üretmek için buraya tıklayın.</translation>
+    </message>
+    <message numerus="yes">
+        <source>&lt;b&gt;Mining&lt;/b&gt; on %n Thread(s)</source>
+        <translation>
+            <numerusform>&lt;b&gt;Madencilik&lt;/b&gt; üzerinde %n Konu</numerusform>
+            <numerusform>&lt;b&gt;Madencilik&lt;/b&gt; üzerinde %n Konu</numerusform>
+        </translation>
+    </message>
+    <message>
         <source>&amp;Masternodes</source>
         <translation>&amp;Ana düğümler</translation>
     </message>
@@ -591,7 +638,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Documentchain network</source>
-        <translation><numerusform>DMS ağına %n aktif bağlantı</numerusform><numerusform>DMS ağına %n aktif bağlantı</numerusform></translation>
+        <translation><numerusform>Documentchain ağına %n aktif bağlantı</numerusform><numerusform>Documentchain ağına %n aktif bağlantı</numerusform></translation>
     </message>
     <message>
         <source>Network activity disabled</source>
@@ -841,6 +888,10 @@
     <message>
         <source>Lock unspent</source>
         <translation>Harcanmamışı kilitle</translation>
+    </message>
+    <message>
+        <source>Lock permanently</source>
+        <translation>Lock permanently</translation>
     </message>
     <message>
         <source>Unlock unspent</source>
@@ -1228,6 +1279,98 @@
     <message>
         <source>Additional information for DIP3 Masternode %1</source>
         <translation>DIP3 Ana Düğümü %1 için ek bilgi</translation>
+    </message>
+    <message>
+        <source>Deploy Masternode...</source>
+        <translation>Deploy Masternode...</translation>
+    </message>
+    <message>
+        <source>Deploy Masternode</source>
+        <translation>Deploy Masternode</translation>
+    </message>
+    <message>
+        <source>Operating a Documentchain Masternode requires 5,000 DMS as collateral, see also &lt;a href=&quot;https://documentchain.org/support/masternodes/&quot;&gt;instructions&lt;/a&gt; and &lt;a href=&quot;https://documentchain.org/news/shared-masternodes/&quot;&gt;shared masternodes&lt;/a&gt;.</source>
+        <translation>Operating a Documentchain Masternode requires 5,000 DMS as collateral, see also &lt;a href=&quot;https://documentchain.org/support/masternodes/&quot;&gt;instructions&lt;/a&gt; and &lt;a href=&quot;https://documentchain.org/news/shared-masternodes/&quot;&gt;shared masternodes&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>Provider Update Service Transaction...</source>
+        <translation>Provider Update Service Transaction...</translation>
+    </message>
+    <message>
+        <source>Send Provider Registration Transaction?&lt;br&gt;&lt;a href='https://documentchain.org/support/masternodes/'&gt;Please note the instructions&lt;/a&gt;</source>
+        <translation>Send Provider Registration Transaction?&lt;br&gt;&lt;a href='https://documentchain.org/support/masternodes/'&gt;Please note the instructions&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>Create Collateral Transaction</source>
+        <translation>Create Collateral Transaction</translation>
+    </message>
+    <message>
+        <source>Masternode IP:Port</source>
+        <translation>Masternode IP:Port</translation>
+    </message>
+    <message>
+        <source>%1 is not a valid IP:Port.</source>
+        <translation>%1 is not a valid IP:Port.</translation>
+    </message>
+    <message>
+        <source>Collateral tx id</source>
+        <translation>Collateral tx id</translation>
+    </message>
+    <message>
+        <source>No collateral transaction found.</source>
+        <translation>No collateral transaction found.</translation>
+    </message>
+    <message>
+        <source>Owner Address (optional)</source>
+        <translation>Owner Address (optional)</translation>
+    </message>
+    <message>
+        <source>Owner Address %1 created</source>
+        <translation>Owner Address %1 created</translation>
+    </message>
+    <message>
+        <source>Fee Address</source>
+        <translation>Fee Address</translation>
+    </message>
+    <message>
+        <source>BLS Secret (optional)</source>
+        <translation>BLS Secret (optional)</translation>
+    </message>
+    <message>
+        <source>Invalid BLS secret key</source>
+        <translation>Invalid BLS secret key</translation>
+    </message>
+    <message>
+        <source>Fund address to debit</source>
+        <translation>Fund address to debit</translation>
+    </message>
+    <message>
+        <source>The fund address requires a balance of at least 5,000.01 DMS</source>
+        <translation>The fund address requires a balance of at least 5,000.01 DMS</translation>
+    </message>
+    <message>
+        <source>Send protx</source>
+        <translation>Send protx</translation>
+    </message>
+    <message>
+        <source>Done. As soon as the provider register transaction, your masternode is ready.</source>
+        <translation>Done. As soon as the provider register transaction, your masternode is ready.</translation>
+    </message>
+    <message>
+        <source>Show dms.conf suggestion</source>
+        <translation>Show dms.conf suggestion</translation>
+    </message>
+    <message>
+        <source>Update Service</source>
+        <translation>Update Service</translation>
+    </message>
+    <message>
+        <source>BLS Secret</source>
+        <translation>BLS Secret</translation>
+    </message>
+    <message>
+        <source>Couldn't connect to masternode %1</source>
+        <translation>Couldn't connect to masternode %1</translation>
     </message>
 </context>
 <context>
@@ -3631,6 +3774,10 @@ mail@documentchain.org</translation>
         <translation>Gönderildiği adres</translation>
     </message>
     <message>
+        <source>Document Revision</source>
+        <translation>Belge Revizyonu</translation>
+    </message>
+    <message>
         <source>Payment to yourself</source>
         <translation>Kendinize ödeme</translation>
     </message>
@@ -3736,6 +3883,10 @@ mail@documentchain.org</translation>
     <message>
         <source>Sent to</source>
         <translation>Gönderildiği adres</translation>
+    </message>
+    <message>
+        <source>Document Revision</source>
+        <translation>Belge Revizyonu</translation>
     </message>
     <message>
         <source>%1 Send</source>
@@ -4867,6 +5018,180 @@ mail@documentchain.org</translation>
     <message>
         <source>Zapping all transactions from wallet...</source>
         <translation>Cüzdandaki tüm muameleler kaldırılıyor...</translation>
+    </message>
+</context>
+<context>
+    <name>DocumentList</name>
+    <message>
+        <source>Document Revision</source>
+        <translation>Belge Revizyonu</translation>
+    </message>
+    <message>
+        <source>&amp;Add File...</source>
+        <translation>Dosya Ekle...</translation>
+    </message>
+    <message>
+        <source>&amp;Open</source>
+        <translation>Aç</translation>
+    </message>
+    <message>
+        <source>&amp;Revision</source>
+        <translation>Revizyon</translation>
+    </message>
+    <message>
+        <source>Select file(s) to append</source>
+        <translation>Eklenecek dosya(ları) seç</translation>
+    </message>
+    <message>
+        <source>All Files (*.*)</source>
+        <translation>Tüm Dosyalar (*.*)</translation>
+    </message>
+    <message>
+        <source>Document</source>
+        <translation>Belge</translation>
+    </message>
+    <message>
+        <source>File hash</source>
+        <translation>Sağlama Dosyası</translation>
+    </message>
+    <message>
+        <source>GUID</source>
+        <translation>GUID</translation>
+    </message>
+    <message>
+        <source>Attribute hash</source>
+        <translation>Öz nitelik sağlama</translation>
+    </message>
+    <message>
+        <source>Blockchain</source>
+        <translation>Blockchain</translation>
+    </message>
+    <message>
+        <source>Document Revision</source>
+        <translation>Belge Revizyonu</translation>
+    </message>
+    <message>
+        <source>Execute</source>
+        <translation>Yürütme</translation>
+    </message>
+    <message>
+        <source>Transaction ID</source>
+        <translation>İşlem ID&apos;si</translation>
+    </message>
+    <message>
+        <source>Total Amount</source>
+        <translation>Toplam Miktar</translation>
+    </message>
+    <message>
+        <source>Stored</source>
+        <translation>Saklanmış</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to send?</source>
+        <translation>Göndermek istediğinizden emin misiniz?</translation>
+    </message>
+    <message>
+        <source>Store document information</source>
+        <translation>Belge bilgilerini saklayın</translation>
+    </message>
+    <message>
+        <source>is paid as transaction fee.</source>
+        <translation>işlem ücreti olarak ödenir.</translation>
+    </message>
+    <message>
+        <source>Send Document</source>
+        <translation>Belge Gönder</translation>
+    </message>
+    <message>
+        <source>File exists</source>
+        <translation>Dosya var</translation>
+    </message>
+    <message>
+        <source>New file name</source>
+        <translation>Yeni dosya adı</translation>
+    </message>
+    <message>
+        <source>%1 document files</source>
+        <translation>%1 belge dosyası</translation>
+    </message>
+</context>
+<context>
+    <name>Document</name>
+    <message>
+        <source>Revision successful</source>
+        <translation>Düzeltme başarılı</translation>
+    </message>
+    <message>
+        <source>Revision with notes</source>
+        <translation>Notlar ile Revizyon</translation>
+    </message>
+    <message>
+        <source>Revision is not possible yet</source>
+        <translation>Revizyon henüz mümkün değil</translation>
+    </message>
+    <message>
+        <source>Revision failed</source>
+        <translation>Revizyon başarısız oldu</translation>
+    </message>
+    <message>
+        <source>No Transaction stored.</source>
+        <translation>Kaydedilen İşlem yok.</translation>
+    </message>
+    <message>
+        <source>The current file does not match the locally saved hash. This file has been modified.</source>
+        <translation>Mevcut dosya Lokal olarak kaydedilen hash ile eşleşmiyor. Bu dosya değiştirildi.</translation>
+    </message>
+    <message>
+        <source>Transaction not found.</source>
+        <translation>İşlem bulunamadı.</translation>
+    </message>
+    <message>
+        <source>current value \"%1\" differs from value \"%2\" stored in blockchain.</source>
+        <translation>Mevcut değer \"%1\" değerden farklı \"%2\" blok zinzirinde saklandı.</translation>
+    </message>
+    <message>
+        <source>matches the blockchain value.</source>
+        <translation>blok zinciri değeri ile eşleşir.</translation>
+    </message>
+    <message>
+        <source>There are not enough blockchain confirmations available for revision. Please wait a while.</source>
+        <translation>Revizyon için yeterli blok zinciri onayı yok. Lütfen biraz bekleyin.</translation>
+    </message>
+    <message>
+        <source>Rejected</source>
+        <translation>Reddedildi</translation>
+    </message>
+    <message>
+        <source>This file information has already been stored in Documentchain.</source>
+        <translation>Bu dosya bilgisi zaten Documentchain'de saklandı.</translation>
+    </message>
+    <message>
+        <source>Invalid document description.</source>
+        <translation>Geçersiz belge açıklaması.</translation>
+    </message>
+    <message>
+        <source>Signing</source>
+        <translation>İmzalama</translation>
+    </message>
+    <message>
+        <source>Could not sign transaction.</source>
+        <translation>İşlem imzalanamadı.</translation>
+    </message>
+    <message>
+        <source>RPC Error</source>
+        <translation>RPC Hatası</translation>
+    </message>
+    <message>
+        <source>Unknown error.</source>
+        <translation>Bilinmeyen hata.</translation>
+    </message>
+    <message>
+        <source>Blockchain confirmations</source>
+        <translation>Blok zinciri onayları</translation>
+    </message>
+    <message>
+        <source>The blockchain confirms that %1this document file%2 exists at least since %3 and has not been modified.</source>
+        <translation>Blockchain, %1bu belge dosyasının%2 en az %3 tarihinden beri var olduğunu ve değiştirilmediğini onaylar.</translation>
     </message>
 </context>
 </TS>
