@@ -470,7 +470,7 @@ public:
         consensus.DIP0003Height = 237600; // getblockchaininfo dip0003 "since"
         consensus.DIP0003EnforcementHeight = 308144;
         consensus.DIP0003EnforcementHash = uint256S("000000ab7e1281dc6db4df1814d4ea9210750d15bcaea46f9a397cae85a2c734");
-        consensus.DIP0008Height = 100000000; // TODO, Dash: 1088640; // 00000000000000112e41e4b3afda8b233b8cc07c532d2eac5de097b68358c43e
+        consensus.DIP0008Height = 315530; // ~ June 10, 2022
         consensus.powLimit = uint256S("0000ffffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 24 * 60 * 60; // PoW calculation 24 * 60 * 60;  1 day
         consensus.nPowTargetSpacing = 6 * 60; // DMS 6 minutes (initial 4 minutes); Bitcoin 10 minutes; Dash 2.5 minutes
@@ -509,12 +509,13 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nWindowSize = 400;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nThresholdStart = 320; // 80% of 400
 
-        // Deployment of DIP0008 - TODO
+        // Deployment of DIP0008
+        // Miner voting was not used in Documentchain, DIP8 hard coded
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].bit = 4;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nStartTime = 3000000000;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nTimeout = 3300000000;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nWindowSize = 4032;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nThresholdStart = 3226; // 80% of 4032
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nWindowSize = 300;
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nThresholdStart = 240; // 80% of 300
 
         // Deployment of Block Reward Reallocation, not used in Documentchain
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].bit = 5;
@@ -693,7 +694,7 @@ public:
         consensus.DIP0003Height = 6350;
         consensus.DIP0003EnforcementHeight = 22418;
         consensus.DIP0003EnforcementHash = uint256S("0001b45136a9f935f9494e4c1f97a223e2c91de7dfc9ad9bd89b8708dae93b6d");
-        consensus.DIP0008Height = 100000000; // TODO
+        consensus.DIP0008Height = 23810;
         consensus.powLimit = uint256S("000fffffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 24 * 60 * 60;
         consensus.nPowTargetSpacing = 6 * 60;
@@ -732,7 +733,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nWindowSize = 10;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nThresholdStart = 7; // 70% of 10
 
-        // Deployment of DIP0008
+        // Deployment of DIP0008. Miner voting was not used, DIP8 hard coded
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].bit = 4;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nStartTime = 1649498400; // 2022 Apr 9th
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nTimeout = 1680948000;   // 2023 Apr 8th
@@ -887,7 +888,7 @@ public:
         consensus.DIP0003Height = 30; // devnet-5
         consensus.DIP0003EnforcementHeight = 5105;
         consensus.DIP0003EnforcementHash = uint256S("000350a84ef790275c1f2a1f6428ca36199b45fd1d0fcdb34ca4c5d6bc670798");
-        consensus.DIP0008Height = 5700;
+        consensus.DIP0008Height = 8050;
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 1
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Dash: 1 day
         consensus.nPowTargetSpacing = 6 * 60;
@@ -926,7 +927,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nWindowSize = 10;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nThresholdStart = 8;
 
-        // Deployment of DIP0008
+        // Deployment of DIP0008. Miner voting was not used, DIP8 hard coded
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].bit = 4;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nStartTime = 1648465200; // 2022-Mar-28
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nTimeout = 1680346800; // 2023-Apr-01
