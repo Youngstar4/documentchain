@@ -468,8 +468,8 @@ public:
         consensus.BIP66Height = 84000;
         consensus.DIP0001Height = 143481; // May 18, 2020
         consensus.DIP0003Height = 237600; // getblockchaininfo dip0003 "since"
-        consensus.DIP0003EnforcementHeight = 100000000;  // TODO : set after spork 15
-        consensus.DIP0003EnforcementHash = uint256S("000000000000002d1734087b4c5afc3133e4e1c3e1a89218f62bcd9bb3d17f81");  // TODO : set after spork 15
+        consensus.DIP0003EnforcementHeight = 308144;
+        consensus.DIP0003EnforcementHash = uint256S("000000ab7e1281dc6db4df1814d4ea9210750d15bcaea46f9a397cae85a2c734");
         consensus.DIP0008Height = 100000000; // TODO, Dash: 1088640; // 00000000000000112e41e4b3afda8b233b8cc07c532d2eac5de097b68358c43e
         consensus.powLimit = uint256S("0000ffffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 24 * 60 * 60; // PoW calculation 24 * 60 * 60;  1 day
