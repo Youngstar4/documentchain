@@ -526,13 +526,13 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nThresholdMin = 2420;
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nFalloffCoeff = 5;
 
-        // Deployment of DIP0020, DIP0021 and LLMQ_100_67 quorums - TODO
+        // Deployment of DIP0020, DIP0021 and LLMQ_30_60, LLMQ_100_67 quorums
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].bit = 6;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nStartTime = 3000000000;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nTimeout = 3300000000;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nWindowSize = 4032;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nThresholdStart = 3226; // 80% of 4032
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nThresholdMin = 2420; // 60% of 4032
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nStartTime = 1655035200; // Jun 12th, 2022
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nTimeout = 1686484800; // Jun 11th, 2023
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nWindowSize = 400;
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nThresholdStart = 320; // 80% of 400
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nThresholdMin = 240; // 60% of 400
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nFalloffCoeff = 5; // this corresponds to 10 periods
 
         // The best chain should have at least this much work.
@@ -749,7 +749,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nThresholdMin = 60;
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nFalloffCoeff = 5;
 
-        // Deployment of DIP0020, DIP0021 and LLMQ_100_67 quorums
+        // Deployment of DIP0020, DIP0021 and LLMQ_30_60, LLMQ_100_67 quorums
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].bit = 6;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nStartTime = 1650103200; // 2022 Apr 16th
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nTimeout = 1681552800;   // 2023 Apr 15th
