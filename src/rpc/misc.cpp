@@ -1318,8 +1318,8 @@ UniValue getinfo(const JSONRPCRequest& request)
 **/
 UniValue devgetinfo(const JSONRPCRequest& request)
 {
-    return strprintf("%s %s %s", FormatVersion(CLIENT_VERSION), __DATE__, __TIME__);
-  //return FormatVersion(CLIENT_VERSION) + " release";
+  //return strprintf("%s %s %s", FormatVersion(CLIENT_VERSION), __DATE__, __TIME__);
+    return FormatVersion(CLIENT_VERSION) + " release";
 }
 
 static const CRPCCommand commands[] =

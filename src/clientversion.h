@@ -27,7 +27,7 @@
   8.  Heidi    0.12.16   8 Oct 2020
   9.  Ivan     0.13.3    3 May 2021
   10. Judy     0.13.4    1 Feb 2022
-  11. Kenji    0.17.0
+  11. Kenji    0.17.0   14 May 2022
 */
 #define RELEASE_CODE_NAME "Kenji"
 

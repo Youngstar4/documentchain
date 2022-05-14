@@ -291,146 +291,6 @@ static Consensus::LLMQParams llmq100_67 = {
         .recoveryMembers = 50,
 };
 
-/* Dash v0.17:
-// this one is for testing only
-static Consensus::LLMQParams llmq_test = {
-        .type = Consensus::LLMQ_TEST,
-        .name = "llmq_test",
-        .size = 3,
-        .minSize = 2,
-        .threshold = 2,
-
-        .dkgInterval = 24, // one DKG per hour
-        .dkgPhaseBlocks = 2,
-        .dkgMiningWindowStart = 10, // dkgPhaseBlocks * 5 = after finalization
-        .dkgMiningWindowEnd = 18,
-        .dkgBadVotesThreshold = 2,
-
-        .signingActiveQuorumCount = 2, // just a few ones to allow easier testing
-
-        .keepOldConnections = 3,
-        .recoveryMembers = 3,
-};
-
-// this one is for testing only
-static Consensus::LLMQParams llmq_test_v17 = {
-        .type = Consensus::LLMQ_TEST_V17,
-        .name = "llmq_test_v17",
-        .size = 3,
-        .minSize = 2,
-        .threshold = 2,
-
-        .dkgInterval = 24, // one DKG per hour
-        .dkgPhaseBlocks = 2,
-        .dkgMiningWindowStart = 10, // dkgPhaseBlocks * 5 = after finalization
-        .dkgMiningWindowEnd = 18,
-        .dkgBadVotesThreshold = 2,
-
-        .signingActiveQuorumCount = 2, // just a few ones to allow easier testing
-
-        .keepOldConnections = 3,
-        .recoveryMembers = 3,
-};
-
-// this one is for devnets only
-static Consensus::LLMQParams llmq_devnet = {
-        .type = Consensus::LLMQ_DEVNET,
-        .name = "llmq_devnet",
-        .size = 10,
-        .minSize = 7,
-        .threshold = 6,
-
-        .dkgInterval = 24, // one DKG per hour
-        .dkgPhaseBlocks = 2,
-        .dkgMiningWindowStart = 10, // dkgPhaseBlocks * 5 = after finalization
-        .dkgMiningWindowEnd = 18,
-        .dkgBadVotesThreshold = 7,
-
-        .signingActiveQuorumCount = 3, // just a few ones to allow easier testing
-
-        .keepOldConnections = 4,
-        .recoveryMembers = 6,
-};
-
-static Consensus::LLMQParams llmq50_60 = {
-        .type = Consensus::LLMQ_50_60,
-        .name = "llmq_50_60",
-        .size = 50,
-        .minSize = 40,
-        .threshold = 30,
-
-        .dkgInterval = 24, // one DKG per hour
-        .dkgPhaseBlocks = 2,
-        .dkgMiningWindowStart = 10, // dkgPhaseBlocks * 5 = after finalization
-        .dkgMiningWindowEnd = 18,
-        .dkgBadVotesThreshold = 40,
-
-        .signingActiveQuorumCount = 24, // a full day worth of LLMQs
-
-        .keepOldConnections = 25,
-        .recoveryMembers = 25,
-};
-
-static Consensus::LLMQParams llmq400_60 = {
-        .type = Consensus::LLMQ_400_60,
-        .name = "llmq_400_60",
-        .size = 400,
-        .minSize = 300,
-        .threshold = 240,
-
-        .dkgInterval = 24 * 12, // one DKG every 12 hours
-        .dkgPhaseBlocks = 4,
-        .dkgMiningWindowStart = 20, // dkgPhaseBlocks * 5 = after finalization
-        .dkgMiningWindowEnd = 28,
-        .dkgBadVotesThreshold = 300,
-
-        .signingActiveQuorumCount = 4, // two days worth of LLMQs
-
-        .keepOldConnections = 5,
-        .recoveryMembers = 100,
-};
-
-// Used for deployment and min-proto-version signalling, so it needs a higher threshold
-static Consensus::LLMQParams llmq400_85 = {
-        .type = Consensus::LLMQ_400_85,
-        .name = "llmq_400_85",
-        .size = 400,
-        .minSize = 350,
-        .threshold = 340,
-
-        .dkgInterval = 24 * 24, // one DKG every 24 hours
-        .dkgPhaseBlocks = 4,
-        .dkgMiningWindowStart = 20, // dkgPhaseBlocks * 5 = after finalization
-        .dkgMiningWindowEnd = 48, // give it a larger mining window to make sure it is mined
-        .dkgBadVotesThreshold = 300,
-
-        .signingActiveQuorumCount = 4, // four days worth of LLMQs
-
-        .keepOldConnections = 5,
-        .recoveryMembers = 100,
-};
-
-// Used for Platform
-static Consensus::LLMQParams llmq100_67 = {
-        .type = Consensus::LLMQ_100_67,
-        .name = "llmq_100_67",
-        .size = 100,
-        .minSize = 80,
-        .threshold = 67,
-
-        .dkgInterval = 24, // one DKG per hour
-        .dkgPhaseBlocks = 2,
-        .dkgMiningWindowStart = 10, // dkgPhaseBlocks * 5 = after finalization
-        .dkgMiningWindowEnd = 18,
-        .dkgBadVotesThreshold = 80,
-
-        .signingActiveQuorumCount = 24, // a full day worth of LLMQs
-
-        .keepOldConnections = 25,
-        .recoveryMembers = 50,
-};
-*/
-
 /**
  * Main network
  */
@@ -441,7 +301,6 @@ static Consensus::LLMQParams llmq100_67 = {
  *    timestamp before)
  * + Contains no strange transactions
  */
-
 
 class CMainParams : public CChainParams {
 public:
@@ -536,10 +395,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nFalloffCoeff = 5; // this corresponds to 10 periods
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000000562b792bb20"); // = 5.921.544.780.576 total work, block 222876
+        consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000000000007afbf36f91d");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x00000003bd8ad5f5f5373342f9c2fddfb33f9e0344eb743521631875b596a20a"); // 222876
+        consensus.defaultAssumeValid = uint256S("0x0000003821872f60bb2ad615b632ea805d3472205bb9b29d1157b1947ef9c7fe"); // 308773
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -629,9 +488,7 @@ public:
             {
                 {     0, uint256S("0x00000af4a21d6e8daa4026a5eafc7132089a7dbb9d3921b12c4fa39b78c9a010")}, // 2018-Aug-26
                 {   133, uint256S("0x00003c1aa0d920b6a665b71fb8ebde8dff0426ed02483a1f3165a1b9533f339f")}, // 2018-Aug-27
-                {  4600, uint256S("0x00003e6d58a4974170d74f8ccb55aca3afeca21fc6a25789c64a88ac3b44c239")}, // 2018-Sep-14
                 { 15000, uint256S("0x0000024a04c4ac9eb28385fa0a18b6911b7ee22c64c3af476cd72bcf27fa136f")}, // 2018-Oct-31
-                { 20013, uint256S("0x000000465d652bda5d5746ec620b0926de583a622011b61404af02fd07176236")}, // 2018-Nov-24
                 { 26990, uint256S("0x00000ac7439f65441970eed887d5bad2ecf6a1bbde4f39a4a21f50aaa648d049")}, // 2018-Dec-25
                 { 35993, uint256S("0x000000d3ea06a03deccce15641c113ce59bc9ed662d878eb1d971fb0478df9cc")}, // 2019-Feb-03
                 { 46096, uint256S("0x000000a402d9343d7b70df237cfedadefbd002d18f95ce775d33956e7f7e4141")}, // 2019-Mar-19
@@ -642,7 +499,6 @@ public:
                 {100000, uint256S("0x00000095a23b6cc9ec9c0d7385bf4c3705220271d425a203af41163b4600e96d")}, // 2019-Nov-10
                 {110034, uint256S("0x00000025fcd0421225ea0c8d5874b3040a81618c609f2419bce9d339a96faee7")}, // 2019-Dec-24
                 {120004, uint256S("0x00000031fd82d41fa6fda29a405a55162304822be9b03beed79e47f25d3f3296")}, // 2020-Feb-06
-                {127991, uint256S("0x00000042ec60e4badf5e3288b1dbb8da2a27af4b88b6ec299e7149586784ccfd")}, // 2020-Mar-12
                 {135808, uint256S("0x00000025868ef0958009ba542ded2faf5242cd835445ca6c5556eff5a19161ab")}, // 2020-Apr-15
                 {144997, uint256S("0x00000074c2b1520d116c447d2cf6170951642fc50487b300074d76952fc20a4d")}, // 2020-May-25
                 {154972, uint256S("0x00000053c7c6c55129d6e9c9477ddcdbd351847d748ff77eff13dbc44bde58d4")}, // 2020-Jul-08
@@ -652,14 +508,19 @@ public:
                 {199995, uint256S("0x00000009b7ca8806f82b23aa8464967c4f60134941208daa69c320a0c4e98be8")}, // 2021-Jan-21
                 {212723, uint256S("0x0000000540497ce3a503d7f546f5faafe4c28e0e7a15cd81074416428b57a114")}, // 2021-Mar-18
                 {222876, uint256S("0x00000003bd8ad5f5f5373342f9c2fddfb33f9e0344eb743521631875b596a20a")}, // 2021-May-01
+                {238575, uint256S("0x000000122d79146f265ed51f8db833e1335e8ae96d3303f0a613b662aaeef89f")}, // 2021-Jul-09
+                {252969, uint256S("0x000000c86207c746aa600071f13b869129a81f5f8c01c5fb4f13852ad5d98259")}, // 2021-Sep-10
+                {266022, uint256S("0x00000039fe5539f91b9fd79cff3ffc0bdfc2f02dd2426eca5243ada3b77f804a")}, // 2021-Nov-06
+                {280992, uint256S("0x00000048b0a7413cf8ed2324a41e71918aa0bbfac09ee88a37416771e9fb6edf")}, // 2022-Jan-11
+                {293997, uint256S("0x0000001279263f8723a6efe088355e0390bc46eed91388476f1f4482dd1c42dc")}, // 2022-Mar-09
+                {308773, uint256S("0x0000003821872f60bb2ad615b632ea805d3472205bb9b29d1157b1947ef9c7fe")}, // 2022-May-13
             }
         };
 
-        chainTxData = ChainTxData{
-            1619902162, // * UNIX timestamp of last known number of transactions
-            387457,     // * total number of transactions between genesis and that timestamp
-                        //   (the tx=... number in the UpdateTip debug.log lines)
-            0.04        // * estimated number of transactions per second after that timestamp
+        chainTxData = ChainTxData{ // RPC getchaintxstats
+            1652430961, // * UNIX timestamp of last known number of transactions
+            565691,     // * total number of transactions between genesis and that timestamp
+            0.02        // * estimated number of transactions per second after that timestamp
         };
     }
 };
@@ -759,10 +620,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0020].nFalloffCoeff = 5; // Dash: this corresponds to 10 periods
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000000000009df47a"); // block 768
+        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000021089c94");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x0001a493d1f95c60541d553e8f1b748d48e344a0a2c8c27460196a727555cea8");
+        consensus.defaultAssumeValid = uint256S("0x00005202961d852e746013986d3c4b143ac3428251100ac1b7ae80e5fe5eaa68"); // 29899
 
         pchMessageStart[0] = 0x74;  // t in testnet4 (testnet3 used 0xce)
         pchMessageStart[1] = 0x44;  // D
@@ -846,16 +707,19 @@ public:
             {
                 {     0, uint256S("0x0006eb6114355f76dd011fb716cdf087a2b4336aa4419d77d915c74e2e679da1")}, // 2022-Jan-08
                 {   768, uint256S("0x0001a493d1f95c60541d553e8f1b748d48e344a0a2c8c27460196a727555cea8")}, // 2022-Jan-13
+                {  6999, uint256S("0x0002900952a6eb1c2c1503886248b3d591bd38b221c72eca0f53024c9556cf84")}, // 2022-Feb-03
+                { 13955, uint256S("0x000012acb6a9cf11674a17212cdc87d3394d2d917e89d90189844273ed5faeb9")}, // 2022-Mar-04
+                { 20000, uint256S("0x00023d67d17c09597dca21fd69f6fc945ae081b404a356e020c018d3f5a9172d")}, // 2022-Mar-28
+                { 24995, uint256S("0x000274ac5ad773dd7d7360d5744eb57f105ab8a0e44fbbfc0487509e7a223d5c")}, // 2022-Apr-18
+                { 29899, uint256S("0x00005202961d852e746013986d3c4b143ac3428251100ac1b7ae80e5fe5eaa68")}, // 2022-May-13
             }
         };
 
-        chainTxData = ChainTxData{
-            1642072314, // * UNIX timestamp of last known number of transactions
-            815,        // * total number of transactions between genesis and that timestamp
-                        //   (the tx=... number in the UpdateTip debug.log lines)
-            0.02        // * estimated number of transactions per second after that timestamp
+        chainTxData = ChainTxData{ // RPC getchaintxstats
+            1652443448, // * UNIX timestamp of last known number of transactions
+            44633,      // * total number of transactions between genesis and that timestamp
+            0.0045      // * estimated number of transactions per second after that timestamp
         };
-
     }
 };
 
@@ -971,13 +835,12 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("0xa500729aa7e2874bdb829c2e1ea99ef3542b7c43d426bca2f6720b9a9688308a"));
 
         if (!fHelpOnly) {
-            devnetGenesis = FindDevNetGenesisBlock(genesis, 50 * COIN);  // TODO : set to 10 in next devnet?
+            devnetGenesis = FindDevNetGenesisBlock(genesis, 50 * COIN);  // set to 10 in next devnet?
             consensus.hashDevnetGenesisBlock = devnetGenesis.GetHash();
         }
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        //vSeeds.push_back(CDNSSeedData("dashevo.org",  "devnet-seed.dashevo.org"));
 
         // Devnet DMS addresses start with 'y' (Dash default)
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
@@ -1190,13 +1053,6 @@ public:
         consensus.llmqTypeChainLocks = Consensus::LLMQ_150_60;
         consensus.llmqTypeInstantSend = Consensus::LLMQ_30_60;
         consensus.llmqTypePlatform = Consensus::LLMQ_100_67;
-        /* Dash v0.17 long living quorum params
-        consensus.llmqs[Consensus::LLMQ_TEST] = llmq_test;
-        consensus.llmqs[Consensus::LLMQ_TEST_V17] = llmq_test_v17;
-        consensus.llmqTypeChainLocks = Consensus::LLMQ_TEST;
-        consensus.llmqTypeInstantSend = Consensus::LLMQ_TEST;
-        consensus.llmqTypePlatform = Consensus::LLMQ_TEST;
-        */
     }
 };
 

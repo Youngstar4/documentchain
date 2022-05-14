@@ -1,4 +1,5 @@
 // Copyright (c) 2018-2021 The Dash Core developers
+// Copyright (c) 2021-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -311,7 +312,6 @@ bool CLLMQUtils::IsQuorumTypeEnabled(Consensus::LLMQType llmqType, const CBlockI
             break;
         case Consensus::LLMQ_30_60:
         case Consensus::LLMQ_100_67:
-     // case Consensus::LLMQ_TEST_V17: TODO
             if (!f_dip0020_Active) {
                 return false;
             }
