@@ -2,6 +2,10 @@
 <context>
     <name>AddressBookPage</name>
     <message>
+        <source>Enter address or label to search</source>
+        <translation>Saisissez une adresse ou une étiquette à rechercher</translation>
+    </message>
+    <message>
         <source>Right-click to edit address or label</source>
         <translation>Faites un clic-droit pour modifier l'adresse ou l'étiquette</translation>
     </message>
@@ -20,6 +24,14 @@
     <message>
         <source>&amp;Copy</source>
         <translation>&amp;Copier</translation>
+    </message>
+    <message>
+        <source>Show QR code for the currently selected address</source>
+        <translation>Voir le QR-code pour l'adresse actuellement sélectionnée</translation>
+    </message>
+    <message>
+        <source>&amp;Show QR code</source>
+        <translation>Voir le QR-code</translation>
     </message>
     <message>
         <source>Delete the currently selected address from the list</source>
@@ -82,6 +94,14 @@
         <translation>&amp;Modifier</translation>
     </message>
     <message>
+        <source>&amp;Show address QR code</source>
+        <translation>Voir le QR-code de l'adresse</translation>
+    </message>
+    <message>
+        <source>QR code</source>
+        <translation>QR-code</translation>
+    </message>
+    <message>
         <source>Export Address List</source>
         <translation>Exporter la liste d'adresses</translation>
     </message>
@@ -114,6 +134,45 @@
     </message>
 </context>
 <context>
+    <name>AppearanceWidget</name>
+    <message>
+        <source>Lighter</source>
+        <translation>Plus léger</translation>
+    </message>
+    <message>
+        <source>Bolder</source>
+        <translation>Plus gras</translation>
+    </message>
+    <message>
+        <source>Font Weight Normal:</source>
+        <translation>Style normal :</translation>
+    </message>
+    <message>
+        <source>Smaller</source>
+        <translation>Plus petit</translation>
+    </message>
+    <message>
+        <source>Bigger</source>
+        <translation>Plus grand</translation>
+    </message>
+    <message>
+        <source>Font Scale:</source>
+        <translation>Taille du texte :</translation>
+    </message>
+    <message>
+        <source>Font Family:</source>
+        <translation>Police typographique :</translation>
+    </message>
+    <message>
+        <source>Theme:</source>
+        <translation>Thème :</translation>
+    </message>
+    <message>
+        <source>Font Weight Bold:</source>
+        <translation>Style gras :</translation>
+    </message>
+</context>
+<context>
     <name>AskPassphraseDialog</name>
     <message>
         <source>Passphrase Dialog</source>
@@ -130,6 +189,10 @@
     <message>
         <source>Repeat new passphrase</source>
         <translation>Répéter la phrase de passe</translation>
+    </message>
+    <message>
+        <source>Show password</source>
+        <translation>Afficher le mot de passe</translation>
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
@@ -184,10 +247,6 @@
         <translation>Portefeuille chiffré</translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your funds from being stolen by malware infecting your computer.</source>
-        <translation>%1 va maintenant être fermé afin de terminer le processus de chiffrage. Pour mémoire, le chiffrage de votre portefeuille ne peut protéger entièrement vos fonds d'être volés par un logiciel malveillant qui serait installé sur votre ordinateur.</translation>
-    </message>
-    <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. Previous backups of the unencrypted wallet file contain the same HD seed and still have full access to all your funds just like the new, encrypted wallet.</source>
         <translation>IMPORTANT : il convient que toutes les sauvegardes que vous avez faites précédemment de votre portefeuille soient remplacées par le fichier chiffré nouvellement créé. En effet, ces sauvegardes précédentes (non chiffrées) contiennent la même graine HD et ont un plein accès à tous vos fonds, tout comme le nouveau portefeuille chiffré.</translation>
     </message>
@@ -237,6 +296,13 @@
     <message>
         <source>Banned Until</source>
         <translation>banni jusqu'à</translation>
+    </message>
+</context>
+<context>
+    <name>BitcoinAmountField</name>
+    <message>
+        <source>Amount in %1</source>
+        <translation>Montant en %1</translation>
     </message>
 </context>
 <context>
@@ -373,6 +439,10 @@
         <translation>À &amp;propos de %1</translation>
     </message>
     <message>
+        <source>Send %1 funds to a DMS address</source>
+        <translation>Envoyer des fonds %1 à une adresse DMS</translation>
+    </message>
+    <message>
         <source>Modify configuration options for %1</source>
         <translation>Modifier les options de configuration de %1</translation>
     </message>
@@ -485,14 +555,6 @@
         <translation>Ouvrir le fichier de configuration</translation>
     </message>
     <message>
-        <source>Open &amp;Masternode Configuration File</source>
-        <translation>Ouvrir le fichier de configuration des &amp;masternodes</translation>
-    </message>
-    <message>
-        <source>Open Masternode configuration file</source>
-        <translation>Ouvrir le fichier de configuration des masternodes</translation>
-    </message>
-    <message>
         <source>Show Automatic &amp;Backups</source>
         <translation>Afficher les sauvegardes automatiques</translation>
     </message>
@@ -537,16 +599,26 @@
         <translation>Client %1</translation>
     </message>
     <message>
-        <source>&amp;PrivateSend information</source>
-        <translation>Information &amp;PrivateSend</translation>
+        <source>Wallet: %1
+</source>
+        <translation>Portefeuille : %1
+</translation>
     </message>
     <message>
-        <source>Show the PrivateSend basic information</source>
-        <translation>Afficher les informations de base PrivateSend</translation>
+        <source>Wallet is &lt;b&gt;unencrypted&lt;/b&gt;</source>
+        <translation>Le portefeuille n'est &lt;b&gt;pas chiffré&lt;/b&gt;</translation>
     </message>
     <message>
         <source>&amp;File</source>
         <translation>&amp;Fichier</translation>
+    </message>
+    <message>
+        <source>%1 &amp;information</source>
+        <translation>%1 &amp;Informations</translation>
+    </message>
+    <message>
+        <source>Show the %1 basic information</source>
+        <translation>Afficher les informations de base %1</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
@@ -566,7 +638,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Documentchain network</source>
-        <translation><numerusform>%n connexion active au réseau DMS </numerusform><numerusform>%n connexions actives au réseau DMS </numerusform></translation>
+        <translation><numerusform>%n connexion active au réseau Documentchain </numerusform><numerusform>%n connexions actives au réseau Documentchain </numerusform></translation>
     </message>
     <message>
         <source>Network activity disabled</source>
@@ -637,6 +709,30 @@
         <translation>Information</translation>
     </message>
     <message>
+        <source>Received and sent multiple transactions</source>
+        <translation>Transactions multiples reçues et envoyées</translation>
+    </message>
+    <message>
+        <source>Sent multiple transactions</source>
+        <translation>Transactions multiples envoyées</translation>
+    </message>
+    <message>
+        <source>Received multiple transactions</source>
+        <translation>Transactions multiples reçues</translation>
+    </message>
+    <message>
+        <source>Sent Amount: %1
+</source>
+        <translation>Montant envoyé : %1
+</translation>
+    </message>
+    <message>
+        <source>Received Amount: %1
+</source>
+        <translation>Montant reçu : %1
+</translation>
+    </message>
+    <message>
         <source>Date: %1
 </source>
         <translation>Date : %1
@@ -679,10 +775,6 @@
         <translation>La génération de clef HD est &lt;b&gt;activée&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>HD key generation is &lt;b&gt;disabled&lt;/b&gt;</source>
-        <translation>La génération de clef HD est &lt;b&gt;désactivée&lt;/b&gt;</translation>
-    </message>
-    <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
         <translation>Le portefeuille est &lt;b&gt;chiffré&lt;/b&gt; et est actuellement &lt;b&gt;déverrouillé&lt;/b&gt;</translation>
     </message>
@@ -693,17 +785,6 @@
     <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Le portefeuille est &lt;b&gt;chiffré&lt;/b&gt; et actuellement &lt;b&gt;verrouillé&lt;/b&gt;</translation>
-    </message>
-</context>
-<context>
-    <name>ClientModel</name>
-    <message>
-        <source>Total: %1 (PS compatible: %2 / Enabled: %3)</source>
-        <translation>Total : %1 (PS compatibles : %2 / activés : %3)</translation>
-    </message>
-    <message>
-        <source>Network Alert</source>
-        <translation>Alerte réseau</translation>
     </message>
 </context>
 <context>
@@ -773,8 +854,8 @@
         <translation>Reçu avec adresse</translation>
     </message>
     <message>
-        <source>PS Rounds</source>
-        <translation>cycles PrivateSend</translation>
+        <source>Mixing Rounds</source>
+        <translation>Cycles de mélange</translation>
     </message>
     <message>
         <source>Date</source>
@@ -845,10 +926,6 @@
         <translation>Veuillez passer en “mode liste” pour utiliser cette fonction.</translation>
     </message>
     <message>
-        <source>Non-anonymized input selected. &lt;b&gt;PrivateSend will be disabled.&lt;/b&gt;&lt;br&gt;&lt;br&gt;If you still want to use PrivateSend, please deselect all non-anonymized inputs first and then check the PrivateSend checkbox again.</source>
-        <translation>Éléments non-anonymisés sélectionnés. &lt;b&gt;PrivateSend sera désactivé.&lt;/b&gt;&lt;br&gt;&lt;br&gt;Si vous voulez quand même utiliser PrivateSend, veuillez d'abord désélectionner tous les éléments non-anonymisés, puis recochez la case PrivateSend.</translation>
-    </message>
-    <message>
         <source>(%1 locked)</source>
         <translation>(%1 verrouillés)</translation>
     </message>
@@ -867,6 +944,30 @@
     <message>
         <source>Can vary +/- %1 docz per input.</source>
         <translation>Peut varier de ± %1 docz par entrée.</translation>
+    </message>
+    <message>
+        <source>Some coins were unselected because they were spent.</source>
+        <translation>Certaines pièces ont été désélectionnées car elles ont été dépensées.</translation>
+    </message>
+    <message>
+        <source>Some coins were unselected because they do not have enough mixing rounds.</source>
+        <translation>Certaines pièces ont été désélectionnées car elles ne sont pas passées par un nombre suffisant de cycles de mélange.</translation>
+    </message>
+    <message>
+        <source>Show all coins</source>
+        <translation>Afficher tous les fonds</translation>
+    </message>
+    <message>
+        <source>Hide %1 coins</source>
+        <translation>Masquer les fonds %1</translation>
+    </message>
+    <message>
+        <source>Show all %1 coins</source>
+        <translation>Afficher tous les fonds %1</translation>
+    </message>
+    <message>
+        <source>Show spendable coins only</source>
+        <translation>Afficher seulement les fonds dépensables</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -906,10 +1007,6 @@
     <message>
         <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
         <translation>L'adresse associée à cette entrée de la liste d'adresses. Ceci ne peut être modifié que pour les adresses d'envoi.</translation>
-    </message>
-    <message>
-        <source>New receiving address</source>
-        <translation>Nouvelle adresse de réception</translation>
     </message>
     <message>
         <source>New sending address</source>
@@ -982,48 +1079,12 @@
         <translation>Options de ligne de commande</translation>
     </message>
     <message>
-        <source>Usage:</source>
-        <translation>Utilisation :</translation>
+        <source>%1 information</source>
+        <translation>Information %1</translation>
     </message>
     <message>
-        <source>command-line options</source>
-        <translation>options de ligne de commande</translation>
-    </message>
-    <message>
-        <source>UI Options:</source>
-        <translation>Options d'interface :</translation>
-    </message>
-    <message>
-        <source>Choose data directory on startup (default: %u)</source>
-        <translation>Choisir le répertoire de données au démarrage (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Set language, for example "de_DE" (default: system locale)</source>
-        <translation>Définir la langue, par exemple « fr_FR » (par défaut : la langue du système)</translation>
-    </message>
-    <message>
-        <source>Start minimized</source>
-        <translation>Démarrer en présentation minimisée</translation>
-    </message>
-    <message>
-        <source>Set SSL root certificates for payment request (default: -system-)</source>
-        <translation>Définir les certificats SSL racine pour les requêtes de paiement (par défaut : -system-)</translation>
-    </message>
-    <message>
-        <source>Show splash screen on startup (default: %u)</source>
-        <translation>Afficher l'écran de démarrage (défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Reset all settings changed in the GUI</source>
-        <translation>Réinitialiser tous les réglages modifiés de l'interface utilisateur</translation>
-    </message>
-    <message>
-        <source>PrivateSend information</source>
-        <translation>Information PrivateSend</translation>
-    </message>
-    <message>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the DMS in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 DMS, 0.01 DMS, 0.1 DMS, 1 DMS and 10 DMS -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a href="https://docs.dash.org/en/latest/wallets/dmscore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
-        <translation>&lt;h3&gt;Ce qu'il faut savoir sur PrivateSend&lt;/h3&gt; PrivateSend vous donne une véritable confidentialité financière en obscurcissant l'origine de vos fonds. Tous les dmss de votre portefeuille sont répartis en différentes "entrées", qu'on peut se représenter comme des pièces distinctes.&lt;br&gt; PrivateSend utilise une procédure innovante pour mélanger vos entrées avec les entrées de deux autres personnes, sans que vos fonds ne quittent jamais votre portefeuille. Vous gardez le contrôle de votre argent à tout moment.&lt;hr&gt; &lt;b&gt;La procédure PrivateSend fonctionne comme ceci :&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend commence par diviser vos entrées de transaction en coupures standard. Ces coupures sont de 0.001 DMS, 0.01 DMS, 0.1 DMS, 1 DMS et 10 DMS -- un peu comme pour les billets de banque que vous utilisez tous les jours.&lt;/li&gt; &lt;li&gt;Votre portefeuille envoie alors des requêtes à des serveurs spécifiques sur le réseau, appelés "masternodes". Ces masternodes sont informés que vous souhaiteriez mélanger certaines coupures. Aucune information permettant de vous identifier n'est envoyée aux masternodes, qui ne savent donc jamais "qui" vous êtes.&lt;/li&gt; &lt;li&gt;Quand deux autres personnes envoient des requêtes similaires, indiquant qu'elles veulent mélanger les mêmes coupures, alors commence une session de mélange. Le masternode mélange les entrées et demande aux portefeuilles des trois utilisateurs de payer l'entrée, désormais transformée, à eux-mêmes. Votre portefeuille paie cette coupure directement à lui-même, mais à une adresse différente (appelée une adresse de monnaie rendue).&lt;/li&gt; &lt;li&gt;Afin d'obscurcir complètement vos fonds, votre portefeuille doit répéter cette procédure un certain nombre de fois avec chaque coupure. Une procédure terminée s'appelle un "cycle". Chaque cycle PrivateSend rend exponentiellement plus difficile de déterminer d'où viennent vos fonds.&lt;/li&gt; &lt;li&gt;Cette procédure de mélange intervient en arrière-plan, sans aucune intervention de votre part. Quand vous souhaiterez faire une transaction, vos fonds seront déjà anonymisés. Aucune autre attente ne sera nécessaire.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT :&lt;/b&gt; Votre portefeuille ne contient que 1000 de ces "adresses de monnaie rendue". À chaque opération de mélange, jusqu'à 9 de ces adresses sont utilisées. Cela signifie que ces 1000 adresses couvrent environ 100 opérations de mélange. Quand 900 d'entre elles sont utilisées, votre portefeuille doit créer de nouvelles adresses. Cependant il ne peut le faire que si vous avez activé les sauvegardes automatiques.&lt;br&gt; En conséquence, les utilisateurs qui ont désactivé les sauvegardes ont aussi PrivateSend désactivé. &lt;hr&gt;Pour en savoir plus, voir la documentation PrivateSend.   </translation>
+        <source>&lt;h3&gt;%1 Basics&lt;/h3&gt; %1 gives you true financial privacy by obscuring the origins of your funds. All the DMS in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; %1 uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The %1 process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;%1 begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 DMS, 0.01 DMS, 0.1 DMS, 1 DMS and 10 DMS -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of %1 makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have %1 disabled. &lt;hr&gt;For more information, see the &lt;a style="%2" href="%3"&gt;%1 documentation&lt;/a&gt;.</source>
+        <translation>&lt;h3&gt;Ce qu'il faut savoir sur %1&lt;/h3&gt; %1 vous donne une véritable confidentialité financière en obscurcissant l'origine de vos fonds. Tous les dmss de votre portefeuille sont répartis en différentes "entrées", qu'on peut se représenter comme des pièces distinctes.&lt;br&gt; %1 utilise une procédure innovante pour mélanger vos entrées avec les entrées de deux autres personnes, sans que vos fonds ne quittent jamais votre portefeuille. Vous gardez le contrôle de votre argent à tout moment.&lt;hr&gt; &lt;b&gt;La procédure %1 fonctionne comme ceci :&lt;/b&gt;&lt;ol type="1"&gt; %1 commence par diviser vos entrées de transaction en coupures standard. Ces coupures sont de 0.001 DMS, 0.01 DMS, 0.1 DMS, 1 DMS et 10 DMS — un peu comme pour les billets de banque que vous utilisez tous les jours.&lt;/li&gt; &lt;li&gt;Votre portefeuille envoie alors des requêtes à des serveurs spécifiques sur le réseau, appelés "masternodes". Ces masternodes sont informés que vous souhaiteriez mélanger certaines coupures. Aucune information permettant de vous identifier n'est envoyée aux masternodes, qui ne savent donc jamais "qui" vous êtes.&lt;/li&gt; &lt;li&gt;Quand deux autres personnes envoient des requêtes similaires, indiquant qu'elles veulent mélanger les mêmes coupures, alors commence une session de mélange. Le masternode mélange les entrées et demande aux portefeuilles des trois utilisateurs de payer l'entrée, désormais transformée, à eux-mêmes. Votre portefeuille paie cette coupure directement à lui-même, mais à une adresse différente (appelée une adresse de monnaie rendue).&lt;/li&gt; &lt;li&gt;Afin d'obscurcir complètement vos fonds, votre portefeuille doit répéter cette procédure un certain nombre de fois avec chaque coupure. Une procédure terminée s'appelle un "cycle". Chaque cycle %1 rend exponentiellement plus difficile de déterminer d'où viennent vos fonds.&lt;/li&gt; &lt;li&gt;Cette procédure de mélange intervient en arrière-plan, sans aucune intervention de votre part. Quand vous souhaiterez faire une transaction, vos fonds seront déjà mélangés. Aucune autre attente ne sera nécessaire.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT :&lt;/b&gt; Votre portefeuille ne contient que 1000 de ces "adresses de monnaie rendue". À chaque opération de mélange, jusqu'à 9 de ces adresses sont utilisées. Cela signifie que ces 1000 adresses couvrent environ 100 opérations de mélange. Quand 900 d'entre elles sont utilisées, votre portefeuille doit créer de nouvelles adresses. Cependant il ne peut le faire que si vous avez activé les sauvegardes automatiques.&lt;br&gt; En conséquence, les utilisateurs qui ont désactivé les sauvegardes ont aussi %1 désactivé. &lt;hr&gt;Pour en savoir plus, voir la &lt;a style="%2" href="%3"&gt;documentation %1&lt;/a&gt;.   </translation>
     </message>
 </context>
 <context>
@@ -1041,8 +1102,16 @@
         <translation>Puisque c’est la première fois que le logiciel est lancé, vous pouvez choisir où %1 stockera ses données.</translation>
     </message>
     <message>
-        <source>%1 will download and store a copy of the DMS block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>%1 va maintenant télécharger et stocker une copie de la blockchain DMS.  Au moins %2GB de données seront stockés dans ce répertoire, et il grossira avec le temps. Le portefeuille sera également stocké dans ce répertoire.</translation>
+        <source>When you click OK, %1 will begin to download and process the full %4 block chain (%2GB) starting with the earliest transactions in %3 when %4 initially launched.</source>
+        <translation>Quand vous cliquerez sur Valider, %1 commencera à télécharger et à traiter l’intégralité de la chaîne de blocs %4 (%2 Go) en débutant avec les transactions les plus anciennes de %3, quand %4 a été lancé initialement.</translation>
+    </message>
+    <message>
+        <source>This initial synchronisation is very demanding, and may expose hardware problems with your computer that had previously gone unnoticed. Each time you run %1, it will continue downloading where it left off.</source>
+        <translation>La synchronisation initiale est très exigeante et pourrait exposer des problèmes matériels dans votre ordinateur passés inaperçus auparavant. Chaque fois que vous exécuterez %1, le téléchargement reprendra où il s’était arrêté.</translation>
+    </message>
+    <message>
+        <source>If you have chosen to limit block chain storage (pruning), the historical data must still be downloaded and processed, but will be deleted afterward to keep your disk usage low.</source>
+        <translation>Si vous avez choisi de limiter le stockage de la chaîne de blocs (élagage), les données historiques doivent quand même être téléchargées et traitées, mais seront supprimées par la suite pour minimiser l’utilisation de votre espace disque.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1051,6 +1120,22 @@
     <message>
         <source>Use a custom data directory:</source>
         <translation>Utiliser un répertoire de données personnalisé :</translation>
+    </message>
+    <message>
+        <source>At least %1 GB of data will be stored in this directory, and it will grow over time.</source>
+        <translation>Au moins %1 Go de données seront stockés dans ce répertoire et sa taille augmentera avec le temps.</translation>
+    </message>
+    <message>
+        <source>Approximately %1 GB of data will be stored in this directory.</source>
+        <translation>Approximativement %1 Go de données seront stockés dans ce répertoire.</translation>
+    </message>
+    <message>
+        <source>%1 will download and store a copy of the DMS block chain.</source>
+        <translation>%1 téléchargera et stockera une copie de la chaîne de blocs DMS.</translation>
+    </message>
+    <message>
+        <source>The wallet will also be stored in this directory.</source>
+        <translation>Le porte-monnaie sera aussi stocké dans ce répertoire.</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1076,76 +1161,12 @@
         <translation>Formulaire</translation>
     </message>
     <message>
-        <source>My Masternodes</source>
-        <translation>Mes masternodes</translation>
-    </message>
-    <message>
-        <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect. Always wait for wallet to sync additional data and then double check from &lt;a href=&quot;https://documentchain.org/explorer/?search=masternodelist&quot;&gt;another node&lt;/a&gt; if your masternode should be running but you still do not see &quot;ENABLED&quot; in &quot;Status&quot; field.&lt;br /&gt;Operating a Masternode requires 5,000 DMS as collateral, see also &lt;a href=&quot;https://documentchain.org/support/masternodes/&quot;&gt;instructions&lt;/a&gt; and &lt;a href=&quot;https://documentchain.org/news/shared-masternodes/&quot;&gt;shared masternodes&lt;/a&gt;.</source>
-        <translation>À noter : l'état de vos masternodes dans ce portefeuille local peut être légèrement erroné. Veuillez toujours attendre que votre portefeuille soit synchronisé au réseau, et vérifiez votre masternode depuis un autre nœud s'il est censé tourner mais que vous ne voyez toujours pas "ENABLED" dans le champ "État".&lt;br /&gt;Operating a Masternode requires 5,000 DMS as collateral, see also &lt;a href=&quot;https://documentchain.org/support/masternodes/&quot;&gt;instructions&lt;/a&gt; and &lt;a href=&quot;https://documentchain.org/news/shared-masternodes/&quot;&gt;shared masternodes&lt;/a&gt;.</translation>
-    </message>
-    <message>
-        <source>Alias</source>
-        <translation>Alias</translation>
-    </message>
-    <message>
-        <source>Address</source>
-        <translation>Adresse</translation>
-    </message>
-    <message>
-        <source>Protocol</source>
-        <translation>Protocole</translation>
-    </message>
-    <message>
         <source>Status</source>
         <translation>État</translation>
     </message>
     <message>
-        <source>Active</source>
-        <translation>Actif</translation>
-    </message>
-    <message>
-        <source>Last Seen</source>
-        <translation>Dernière vérification</translation>
-    </message>
-    <message>
-        <source>Payee</source>
-        <translation>Bénéficiaire</translation>
-    </message>
-    <message>
-        <source>S&amp;tart alias</source>
-        <translation>“S&amp;tart-alias”</translation>
-    </message>
-    <message>
-        <source>Start &amp;all</source>
-        <translation>“Start-&amp;all”</translation>
-    </message>
-    <message>
-        <source>Start &amp;MISSING</source>
-        <translation>“Start-&amp;missing”</translation>
-    </message>
-    <message>
-        <source>&amp;Update status</source>
-        <translation>Rafraîchir l'état</translation>
-    </message>
-    <message>
-        <source>Show additional Masternode information</source>
-        <translation>Afficher des infos supplémentaires sur le masternode</translation>
-    </message>
-    <message>
-        <source>Show &amp;Info...</source>
-        <translation>Afficher des &amp;Informations...</translation>
-    </message>
-    <message>
-        <source>Status will be updated automatically in (sec):</source>
-        <translation>L'état sera mis à jour automatiquement dans (sec.) :</translation>
-    </message>
-    <message>
         <source>0</source>
         <translation>0</translation>
-    </message>
-    <message>
-        <source>All Masternodes</source>
-        <translation>Tous les masternodes</translation>
     </message>
     <message>
         <source>Filter List:</source>
@@ -1160,12 +1181,16 @@
         <translation>Nombre de nœuds :</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: This list represents the legacy and non-deterministic masternode list. It is only active as long as DIP3 has not been fully activated. After SPORK15 activation, this list will be empty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note : ceci est la liste des masternodes non-déterministes historiques. Elle restera active tant que la DIP3 n'aura pas été entièrement activée. Après l'activation SPORK15, cette liste sera vide.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>Show only masternodes this wallet has keys for.</source>
+        <translation>N'afficher que les masternodes dont les clés sont dans ce portefeuille</translation>
     </message>
     <message>
-        <source>DIP3 Masternodes</source>
-        <translation>Masternodes DIP3</translation>
+        <source>My masternodes only</source>
+        <translation>Seulement mes masternodes</translation>
+    </message>
+    <message>
+        <source>Service</source>
+        <translation>Service</translation>
     </message>
     <message>
         <source>PoSe Score</source>
@@ -1184,16 +1209,24 @@
         <translation>Prochain paiement</translation>
     </message>
     <message>
+        <source>Payout Address</source>
+        <translation>Adresse de rétribution</translation>
+    </message>
+    <message>
         <source>Operator Reward</source>
         <translation>Récompense opérateur</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: This list is not active yet and only for informational purposes. The network is still running in compatibility mode, which means that the non-deterministic masternode list is still active. Only after SPORK15 activation, this list will become the active one. Also, the values in the payment related fields are not used at the moment, but still updated for every block. Please ignore this until SPORK15 activation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note : cette liste n'est pas encore active, elle n'est affichée qu'à titre informatif. Le réseau fonctionne encore en mode de compatibilité, ce qui signifie que la liste des masternodes non-déterministes est encore active. Ce n'est qu'après l'activation SPORK15 que cette liste deviendra la liste active. Par ailleurs, les valeurs des champs relatifs aux paiements ne sont pas encore utilisées, mais sont mises à jour avec chaque bloc. Veuillez ignorer cette liste avant l'activation SPORK15.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>Collateral Address</source>
+        <translation>Adresse de caution</translation>
     </message>
     <message>
-        <source>Start alias</source>
-        <translation>Start-alias</translation>
+        <source>Owner Address</source>
+        <translation>Adresse de propriétaire</translation>
+    </message>
+    <message>
+        <source>Voting Address</source>
+        <translation>Adresse de vote</translation>
     </message>
     <message>
         <source>Copy ProTx Hash</source>
@@ -1202,6 +1235,10 @@
     <message>
         <source>Copy Collateral Outpoint</source>
         <translation>Copier sortie caution</translation>
+    </message>
+    <message>
+        <source>Updating...</source>
+        <translation>Mise à jour en cours…</translation>
     </message>
     <message>
         <source>ENABLED</source>
@@ -1232,72 +1269,108 @@
         <translation>AUCUN</translation>
     </message>
     <message>
-        <source>Confirm masternode start</source>
-        <translation>Confirmer le démarrage du masternode</translation>
+        <source>Filter by any property (e.g. address or protx hash)</source>
+        <translation>Filtrer selon tout critère (par ex. : adresse ou empreinte protx)</translation>
     </message>
     <message>
-        <source>Are you sure you want to start masternode %1?</source>
-        <translation>Êtes-vous certain de vouloir démarrer le masternode %1 ?</translation>
-    </message>
-    <message>
-        <source>Confirm all masternodes start</source>
-        <translation>Confirmer le démarrage de tous les masternodes</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to start ALL masternodes?</source>
-        <translation>Êtes-vous certain de vouloir démarrer TOUS les masternodes ?</translation>
-    </message>
-    <message>
-        <source>Command is not available right now</source>
-        <translation>Cette commande n'est pas immédiatement disponible.</translation>
-    </message>
-    <message>
-        <source>You can't use this command until masternode list is synced</source>
-        <translation>Impossible d'utiliser cette commande avant que la liste des masternodes soit synchronisée.</translation>
-    </message>
-    <message>
-        <source>Confirm missing masternodes start</source>
-        <translation>Confirmer le démarrage des masternodes manquants</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to start MISSING masternodes?</source>
-        <translation>Êtes-vous certain de vouloir démarrer les masternodes MANQUANTS ?</translation>
-    </message>
-    <message>
-        <source>Additional information for Masternode %1</source>
-        <translation>Informations supplémentaires sur le masternode %1</translation>
-    </message>
-    <message>
-        <source>Masternode Private Key</source>
-        <translation>Clé privée du masternode</translation>
-    </message>
-    <message>
-        <source>Private Key</source>
-        <translation>Clé privée</translation>
-    </message>
-    <message>
-        <source>Collateral</source>
-        <translation>Caution</translation>
-    </message>
-    <message>
-        <source>IP</source>
-        <translation>IP</translation>
-    </message>
-    <message>
-        <source>Version</source>
-        <translation>Version</translation>
-    </message>
-    <message>
-        <source>Unknown</source>
-        <translation>Inconnu</translation>
-    </message>
-    <message>
-        <source>Sentinel</source>
-        <translation>Sentinel</translation>
+        <source>Please wait...</source>
+        <translation>Veuillez patienter…</translation>
     </message>
     <message>
         <source>Additional information for DIP3 Masternode %1</source>
         <translation>Infos supplémentaires pour le masternode DIP3 %1</translation>
+    </message>
+    <message>
+        <source>Deploy Masternode...</source>
+        <translation>Deploy Masternode...</translation>
+    </message>
+    <message>
+        <source>Deploy Masternode</source>
+        <translation>Deploy Masternode</translation>
+    </message>
+    <message>
+        <source>Operating a Documentchain Masternode requires 5,000 DMS as collateral, see also &lt;a href=&quot;https://documentchain.org/support/masternodes/&quot;&gt;instructions&lt;/a&gt; and &lt;a href=&quot;https://documentchain.org/news/shared-masternodes/&quot;&gt;shared masternodes&lt;/a&gt;.</source>
+        <translation>Operating a Documentchain Masternode requires 5,000 DMS as collateral, see also &lt;a href=&quot;https://documentchain.org/support/masternodes/&quot;&gt;instructions&lt;/a&gt; and &lt;a href=&quot;https://documentchain.org/news/shared-masternodes/&quot;&gt;shared masternodes&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>Provider Update Service Transaction...</source>
+        <translation>Provider Update Service Transaction...</translation>
+    </message>
+    <message>
+        <source>Send Provider Registration Transaction?&lt;br&gt;&lt;a href='https://documentchain.org/support/masternodes/'&gt;Please note the instructions&lt;/a&gt;</source>
+        <translation>Send Provider Registration Transaction?&lt;br&gt;&lt;a href='https://documentchain.org/support/masternodes/'&gt;Please note the instructions&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>Create Collateral Transaction</source>
+        <translation>Create Collateral Transaction</translation>
+    </message>
+    <message>
+        <source>Masternode IP:Port</source>
+        <translation>Masternode IP:Port</translation>
+    </message>
+    <message>
+        <source>%1 is not a valid IP:Port.</source>
+        <translation>%1 is not a valid IP:Port.</translation>
+    </message>
+    <message>
+        <source>Collateral tx id</source>
+        <translation>Collateral tx id</translation>
+    </message>
+    <message>
+        <source>No collateral transaction found.</source>
+        <translation>No collateral transaction found.</translation>
+    </message>
+    <message>
+        <source>Owner Address (optional)</source>
+        <translation>Owner Address (optional)</translation>
+    </message>
+    <message>
+        <source>Owner Address %1 created</source>
+        <translation>Owner Address %1 created</translation>
+    </message>
+    <message>
+        <source>Fee Address</source>
+        <translation>Fee Address</translation>
+    </message>
+    <message>
+        <source>BLS Secret (optional)</source>
+        <translation>BLS Secret (optional)</translation>
+    </message>
+    <message>
+        <source>Invalid BLS secret key</source>
+        <translation>Invalid BLS secret key</translation>
+    </message>
+    <message>
+        <source>Fund address to debit</source>
+        <translation>Fund address to debit</translation>
+    </message>
+    <message>
+        <source>The fund address requires a balance of at least 5,000.01 DMS</source>
+        <translation>The fund address requires a balance of at least 5,000.01 DMS</translation>
+    </message>
+    <message>
+        <source>Send protx</source>
+        <translation>Send protx</translation>
+    </message>
+    <message>
+        <source>Done. As soon as the provider register transaction, your masternode is ready.</source>
+        <translation>Done. As soon as the provider register transaction, your masternode is ready.</translation>
+    </message>
+    <message>
+        <source>Show dms.conf suggestion</source>
+        <translation>Show dms.conf suggestion</translation>
+    </message>
+    <message>
+        <source>Update Service</source>
+        <translation>Update Service</translation>
+    </message>
+    <message>
+        <source>BLS Secret</source>
+        <translation>BLS Secret</translation>
+    </message>
+    <message>
+        <source>Couldn't connect to masternode %1</source>
+        <translation>Couldn't connect to masternode %1</translation>
     </message>
 </context>
 <context>
@@ -1401,12 +1474,12 @@
         <translation>(0 = auto, &lt; 0 = ne pas utiliser ce nombre de cœurs)</translation>
     </message>
     <message>
-        <source>Amount of DMS to keep anonymized</source>
-        <translation>Nombre de dmss à conserver anonymisés</translation>
-    </message>
-    <message>
         <source>W&amp;allet</source>
         <translation>&amp;Portefeuille</translation>
+    </message>
+    <message>
+        <source>&amp;Appearance</source>
+        <translation>&amp;Apparence</translation>
     </message>
     <message>
         <source>Show additional tab listing all your masternodes in first sub-tab&lt;br/&gt;and all masternodes on the network in second sub-tab.</source>
@@ -1417,52 +1490,68 @@
         <translation>Afficher l'onglet Masternodes</translation>
     </message>
     <message>
-        <source>Show additional information and buttons for PrivateSend on overview screen.</source>
-        <translation>Afficher des infos et des boutons supplémentaires pour PrivateSend sur l'écran principal.</translation>
-    </message>
-    <message>
-        <source>Enable advanced PrivateSend interface</source>
-        <translation>Activer l'interface avancée PrivateSend</translation>
-    </message>
-    <message>
-        <source>Show warning dialog when PrivateSend detects that wallet has very low number of keys left.</source>
-        <translation>Afficher un message d'avertissement quand PrivateSend détecte qu'il reste très peu de clefs dans votre portefeuille.</translation>
-    </message>
-    <message>
-        <source>Warn if PrivateSend is running out of keys</source>
-        <translation>Avertir si PrivateSend manque bientôt de clefs</translation>
-    </message>
-    <message>
-        <source>Whether to use experimental PrivateSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
-        <translation>Choisir d'utiliser PrivateSend dans un mode expérimental avec sessions multiples de mélange par bloc.&lt;br/&gt;Note : fonction à utiliser avec prudence.&lt;br/&gt;Assurez-vous toujours d'avoir une sauvegarde (automatique) en lieu sûr !</translation>
-    </message>
-    <message>
-        <source>Enable PrivateSend &amp;multi-session</source>
-        <translation>Activer le mode &amp;multi-session pour PrivateSend</translation>
-    </message>
-    <message>
         <source>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</source>
         <translation>Si vous désactivez la dépense d'argent non confirmé, le montant d'une transaction&lt;br/&gt;ne peut pas être utilisé tant que cette transaction n'a pas reçu au moins une confirmation.&lt;br/&gt;Ceci a aussi un impact sur le calcul de votre solde.</translation>
     </message>
     <message>
-        <source>PrivateSend rounds to use</source>
-        <translation>Cycles PrivateSend à utiliser</translation>
+        <source>Show mixing interface on Overview screen and reveal an additional screen which allows to spend fully mixed coins only.&lt;br/&gt;A new tab with more settings will also appear in this dialog, please make sure to check them before mixing your coins.</source>
+        <translation>Montre l'interface de mélange sur l'écran "Vue d'ensemble" et affiche un écran supplémentaire qui permet de dépenser uniquement les fonds entièrement mélangés.&lt;br/&gt;Un nouvel onglet avec davantage d'options apparaîtra aussi dans cette boîte de dialogue, veuillez vérifier ces options avant de mélanger vos fonds.</translation>
     </message>
     <message>
-        <source>This amount acts as a threshold to turn off PrivateSend once it's reached.</source>
-        <translation>Ce montant agit comme seuil de désactivation de PrivateSend, une fois atteint.</translation>
+        <source>Show additional information and buttons on overview screen.</source>
+        <translation>Afficher des infos et des boutons supplémentaires sur l'écran "Vue d'ensemble".</translation>
+    </message>
+    <message>
+        <source>Enable advanced interface</source>
+        <translation>Activer l'interface avancée</translation>
+    </message>
+    <message>
+        <source>Show system popups for mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
+        <translation>Affiche des notifications système pour les transactions de mélange&lt;br/&gt;tout comme pour les autres types de transaction.</translation>
+    </message>
+    <message>
+        <source>Show popups for mixing transactions</source>
+        <translation>Afficher des notifications pour les transactions de mélange</translation>
+    </message>
+    <message>
+        <source>Show warning dialog when the wallet has very low number of keys left.</source>
+        <translation>Afficher un message d'avertissement quand le portefeuille n'a plus que très peu de clefs</translation>
+    </message>
+    <message>
+        <source>Warn if the wallet is running out of keys</source>
+        <translation>Avertir si le portefeuille manque bientôt de clefs</translation>
+    </message>
+    <message>
+        <source>Whether to use experimental mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
+        <translation>Choisir d'utiliser un mode expérimental avec sessions multiples de mélange par bloc.&lt;br/&gt;Note : fonction à utiliser avec prudence.&lt;br/&gt;Assurez-vous toujours d'avoir une sauvegarde récente (automatique) en lieu sûr !</translation>
+    </message>
+    <message>
+        <source>Enable &amp;multi-session</source>
+        <translation>Activer le mode &amp;multi-session</translation>
+    </message>
+    <message>
+        <source>Mixing rounds</source>
+        <translation>Cycles de mélange</translation>
+    </message>
+    <message>
+        <source>This amount acts as a threshold to turn off mixing once it's reached.</source>
+        <translation>Ce montant agit comme seuil de désactivation du mélange, une fois atteint.</translation>
+    </message>
+    <message>
+        <source>Target balance</source>
+        <translation>Solde cible</translation>
     </message>
     <message>
         <source>Automatically open the DMS Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Ouvrir automatiquement le port du client DMS Core sur le routeur. Cela ne fonctionne que si votre routeur supporte UPnP et est activé.</translation>
     </message>
     <message>
-        <source>Accept connections from outside</source>
-        <translation>Accepter les connexions provenant de l'extérieur</translation>
+        <source>Accept connections from outside.</source>
+        <translation>Accepter des connexions depuis l'extérieur.</translation>
     </message>
     <message>
-        <source>Allow incoming connections</source>
-        <translation>Autoriser les connexions entrantes</translation>
+        <source>Allow incomin&amp;g connections</source>
+        <translation>Autoriser les connexions entrantes (&amp;g)</translation>
     </message>
     <message>
         <source>Connect to the Documentchain network through a SOCKS5 proxy.</source>
@@ -1473,6 +1562,22 @@
         <translation>&amp;Connexion par SOCKS5 (proxy par défaut) :</translation>
     </message>
     <message>
+        <source>Shows if the supplied default SOCKS5 proxy is used to reach peers via this network type.</source>
+        <translation>Indique si le proxy SOCKS5 par défaut est utilisé pour atteindre les pairs à travers ce type de réseau.</translation>
+    </message>
+    <message>
+        <source>Use separate SOCKS&amp;5 proxy to reach peers via Tor hidden services:</source>
+        <translation>Utiliser un serveur mandataire SOCKS&amp;5 distinct pour atteindre les pairs par des services cachés Tor :</translation>
+    </message>
+    <message>
+        <source>Hide the icon from the system tray.</source>
+        <translation>Masquer l'icône de la barre d'état système.</translation>
+    </message>
+    <message>
+        <source>&amp;Hide tray icon</source>
+        <translation>Masquer l'icône de la barre d'état</translation>
+    </message>
+    <message>
         <source>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Exit in the menu.</source>
         <translation>Minimiser l'application (au lieu de la quitter) quand la fenêtre est fermée. Si cette option est activée, l'application se fermera uniquement en passant par le menu Quitter.</translation>
     </message>
@@ -1481,12 +1586,8 @@
         <translation>URLs de tierce partie (par ex. : un explorateur de blocs) affichées dans l'onglet Transactions comme menu contextuel.&lt;br/&gt;%s dans l'URL est remplacé par le hash de transaction. Les URLs multiples sont séparées par une barre verticale |.</translation>
     </message>
     <message>
-        <source>Expert</source>
-        <translation>Expert</translation>
-    </message>
-    <message>
-        <source>This setting determines the amount of individual masternodes that an input will be anonymized through.&lt;br/&gt;More rounds of anonymization gives a higher degree of privacy, but also costs more in fees.</source>
-        <translation>Ce paramètre détermine le nombre de masternodes uniques par lesquels l'anonymisation sera effectuée.&lt;br/&gt;Plus le nombre de cycles d'anonymisation est important, plus le degré de confidentialité est élevé, mais les frais associés sont d'autant plus importants.</translation>
+        <source>&amp;Third party transaction URLs</source>
+        <translation>URLs de transaction &amp;Tierces</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1505,16 +1606,12 @@
         <translation>Activer les fonctions de &amp;contrôle des pièces</translation>
     </message>
     <message>
-        <source>Show system popups for PrivateSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
-        <translation>Affiche des notifications système pour les transactions de mélange PrivateSend&lt;br/&gt;tout comme pour les autres types de transaction.</translation>
-    </message>
-    <message>
-        <source>Show popups for PrivateSend transactions</source>
-        <translation>Afficher des notifications pour les transactions PrivateSend</translation>
-    </message>
-    <message>
         <source>&amp;Spend unconfirmed change</source>
         <translation>&amp;Dépenser l'argent non confirmé</translation>
+    </message>
+    <message>
+        <source>This setting determines the amount of individual masternodes that an input will be mixed through.&lt;br/&gt;More rounds of mixing gives a higher degree of privacy, but also costs more in fees.</source>
+        <translation>Ce paramètre détermine le nombre de masternodes uniques par lesquels une entrée sera mélangée.&lt;br/&gt;Plus le nombre de cycles de mélange est important, plus le degré de confidentialité est élevé, mais les frais associés sont d'autant plus importants.</translation>
     </message>
     <message>
         <source>&amp;Network</source>
@@ -1545,10 +1642,6 @@
         <translation>Utilisé pour atteindre les pairs via :</translation>
     </message>
     <message>
-        <source>Shows, if the supplied default SOCKS5 proxy is used to reach peers via this network type.</source>
-        <translation>Indique si le proxy SOCKS5 par défaut est utilisé pour atteindre les pairs à travers ce type de réseau.</translation>
-    </message>
-    <message>
         <source>IPv4</source>
         <translation>IPv4</translation>
     </message>
@@ -1563,22 +1656,6 @@
     <message>
         <source>Connect to the Documentchain network through a separate SOCKS5 proxy for Tor hidden services.</source>
         <translation>Se connecter au réseau DMS via un proxy SOCKS5 séparé pour les services cachés Tor.</translation>
-    </message>
-    <message>
-        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services:</source>
-        <translation>Utiliser un proxy SOCKS5 distinct pour atteindre les pairs par des services cachés Tor :</translation>
-    </message>
-    <message>
-        <source>&amp;Window</source>
-        <translation>&amp;Fenêtre</translation>
-    </message>
-    <message>
-        <source>&amp;Hide the icon from the system tray.</source>
-        <translation>Masquer l'icône de la barre d'état système.</translation>
-    </message>
-    <message>
-        <source>Hide tray icon</source>
-        <translation>Masque l'icône de la barre d'état</translation>
     </message>
     <message>
         <source>Show only a tray icon after minimizing the window.</source>
@@ -1605,8 +1682,10 @@
         <translation>La langue de l’interface utilisateur peut être définie ici. Ce réglage sera pris en compte après redémarrage de %1.</translation>
     </message>
     <message>
-        <source>User Interface Theme:</source>
-        <translation>Thème d'interface de l'utilisateur :</translation>
+        <source>Language missing or translation incomplete? Help contributing translations here:
+mail@documentchain.org</source>
+        <translation>Langage manquant ou traduction incomplète ? Participez aux traductions ici :
+mail@documentchain.org</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -1619,10 +1698,6 @@
     <message>
         <source>Decimal digits</source>
         <translation>Nombre de décimales</translation>
-    </message>
-    <message>
-        <source>Third party transaction URLs</source>
-        <translation>URLs de transaction tierces</translation>
     </message>
     <message>
         <source>Active command-line options that override above options:</source>
@@ -1645,12 +1720,12 @@
         <translation>A&amp;nnuler</translation>
     </message>
     <message>
-        <source>default</source>
-        <translation>par défaut</translation>
+        <source>Enable %1 features</source>
+        <translation>Activer les fonctions %1</translation>
     </message>
     <message>
-        <source>none</source>
-        <translation>aucune</translation>
+        <source>default</source>
+        <translation>par défaut</translation>
     </message>
     <message>
         <source>Confirm options reset</source>
@@ -1744,10 +1819,6 @@
         <translation>Disponible :</translation>
     </message>
     <message>
-        <source>PrivateSend</source>
-        <translation>PrivateSend</translation>
-    </message>
-    <message>
         <source>Status:</source>
         <translation>État :</translation>
     </message>
@@ -1758,22 +1829,6 @@
     <message>
         <source>Completion:</source>
         <translation>Avancement :</translation>
-    </message>
-    <message>
-        <source>Try to manually submit a PrivateSend request.</source>
-        <translation>Essayer de soumettre manuellement une requête PrivateSend.</translation>
-    </message>
-    <message>
-        <source>Reset the current status of PrivateSend (can interrupt PrivateSend if it's in the process of Mixing, which can cost you money!)</source>
-        <translation>Réinitialiser l'état actuel de PrivateSend (peut interrompre PrivateSend s'il est en plein mélange, ce qui peut vous coûter de l'argent !)</translation>
-    </message>
-    <message>
-        <source>Information about PrivateSend and Mixing</source>
-        <translation>Information sur PrivateSend et le mélange</translation>
-    </message>
-    <message>
-        <source>Info</source>
-        <translation>Info</translation>
     </message>
     <message>
         <source>Amount and Rounds:</source>
@@ -1800,24 +1855,8 @@
         <translation>Démarrer/Arrêter le mélange</translation>
     </message>
     <message>
-        <source>PrivateSend Balance:</source>
-        <translation>Solde PrivateSend :</translation>
-    </message>
-    <message>
         <source>The denominations you submitted to the Masternode.&lt;br&gt;To mix, other users must submit the exact same denominations.</source>
         <translation>Les coupures que vous avez soumises au masternode.&lt;br&gt;Pour mélanger, d'autres utilisateurs doivent soumettre des coupures de même montant.</translation>
-    </message>
-    <message>
-        <source>(Last Message)</source>
-        <translation>(Dernier message)</translation>
-    </message>
-    <message>
-        <source>Try Mix</source>
-        <translation>Essayer le mélange</translation>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation>Réinitialiser</translation>
     </message>
     <message>
         <source>out of sync</source>
@@ -1828,28 +1867,24 @@
         <translation>Les sauvegardes automatiques sont désactivées, le mélange n'est pas possible !</translation>
     </message>
     <message>
-        <source>Start Mixing</source>
-        <translation>Commencer le mélange</translation>
-    </message>
-    <message>
-        <source>Stop Mixing</source>
-        <translation>Arrêter le mélange</translation>
-    </message>
-    <message>
         <source>No inputs detected</source>
         <translation>Aucune entrée détectée</translation>
+    </message>
+    <message>
+        <source>%1 Balance</source>
+        <translation>Solde %1</translation>
     </message>
     <message numerus="yes">
         <source>%n Rounds</source>
         <translation><numerusform>%n Cycle</numerusform><numerusform>%n cycles</numerusform></translation>
     </message>
     <message>
-        <source>Found enough compatible inputs to anonymize %1</source>
-        <translation>Trouvé assez d'entrées compatibles pour anonymiser %1</translation>
+        <source>Found enough compatible inputs to mix %1</source>
+        <translation>Trouvé assez d'entrées compatibles pour mélanger %1</translation>
     </message>
     <message>
-        <source>Not enough compatible inputs to anonymize &lt;span style='color:red;'&gt;%1&lt;/span&gt;,&lt;br&gt;will anonymize &lt;span style='color:red;'&gt;%2&lt;/span&gt; instead</source>
-        <translation>Pas assez d'entrées compatibles pour anonymiser &lt;span style='color:red;'&gt;%1&lt;/span&gt;, &lt;br&gt;nous allons anonymiser &lt;span style='color:red;'&gt;%2&lt;/span&gt; à la place</translation>
+        <source>Not enough compatible inputs to mix &lt;span style='%1'&gt;%2&lt;/span&gt;,&lt;br&gt;will mix &lt;span style='%1'&gt;%3&lt;/span&gt; instead</source>
+        <translation>Pas assez d'entrées compatibles pour mélanger &lt;span style='%1'&gt;%2&lt;/span&gt;,&lt;br&gt;nous allons mélanger &lt;span style='%1'&gt;%3&lt;/span&gt; à la place</translation>
     </message>
     <message>
         <source>Overall progress</source>
@@ -1860,12 +1895,12 @@
         <translation>Coupures</translation>
     </message>
     <message>
-        <source>Mixed</source>
-        <translation>Mélangés</translation>
+        <source>Partially mixed</source>
+        <translation>Partiellement mélangé</translation>
     </message>
     <message>
-        <source>Anonymized</source>
-        <translation>Anonymisés</translation>
+        <source>Mixed</source>
+        <translation>Mélangés</translation>
     </message>
     <message numerus="yes">
         <source>Denominated inputs have %5 of %n rounds on average</source>
@@ -1876,6 +1911,26 @@
         <translation>clefs restantes : %1</translation>
     </message>
     <message>
+        <source>Start %1</source>
+        <translation>Démarrer %1</translation>
+    </message>
+    <message>
+        <source>If you don't want to see internal %1 fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
+        <translation>Pour ne pas afficher les transactions et frais %1 internes, veuillez sélectionner le type "Les plus courantes" dans l'onglet "Transactions".</translation>
+    </message>
+    <message>
+        <source>%1 requires at least %2 to use.</source>
+        <translation>%1 nécessite au moins %2 pour être utilisé.</translation>
+    </message>
+    <message>
+        <source>Wallet is locked and user declined to unlock. Disabling %1.</source>
+        <translation>Le portefeuille est verrouillé et l'utilisateur a refusé de le déverrouiller. Désactivation de %1.</translation>
+    </message>
+    <message>
+        <source>Stop %1</source>
+        <translation>Arrêter %1</translation>
+    </message>
+    <message>
         <source>Disabled</source>
         <translation>Désactivé</translation>
     </message>
@@ -1884,8 +1939,8 @@
         <translation>Il reste très peu de clefs depuis la dernière sauvegarde automatique !</translation>
     </message>
     <message>
-        <source>We are about to create a new automatic backup for you, however &lt;span style='color:red;'&gt; you should always make sure you have backups saved in some safe place&lt;/span&gt;!</source>
-        <translation>Une nouvelle sauvegarde automatique est sur le point d'être créée pour vous, cependant &lt;span style='color:red;'&gt;assurez-vous toujours d'avoir des sauvegardes en lieu sûr&lt;/span&gt; !</translation>
+        <source>We are about to create a new automatic backup for you, however &lt;span style='%1'&gt; you should always make sure you have backups saved in some safe place&lt;/span&gt;!</source>
+        <translation>Une nouvelle sauvegarde automatique est sur le point d'être créée pour vous, cependant &lt;span style='%1'&gt;assurez-vous toujours d'avoir des sauvegardes en lieu sûr&lt;/span&gt; !</translation>
     </message>
     <message>
         <source>Note: You can turn this message off in options.</source>
@@ -1915,28 +1970,6 @@
         <source>WARNING! Failed to replenish keypool, please unlock your wallet to do so.</source>
         <translation>ATTENTION ! Impossible de réalimenter la série de clefs. Veuillez déverrouiller votre portefeuille pour cela.</translation>
     </message>
-    <message>
-        <source>Last PrivateSend message:
-</source>
-        <translation>Dernier message PrivateSend :
-</translation>
-    </message>
-    <message>
-        <source>PrivateSend was successfully reset.</source>
-        <translation>PrivateSend a bien été réinitialisé.</translation>
-    </message>
-    <message>
-        <source>If you don't want to see internal PrivateSend fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
-        <translation>Pour ne pas afficher les transactions et frais PrivateSend internes, veuillez sélectionner le type "Les plus courantes" dans l'onglet "Transactions".</translation>
-    </message>
-    <message>
-        <source>PrivateSend requires at least %1 to use.</source>
-        <translation>PrivateSend nécessite au moins %1 pour être utilisé.</translation>
-    </message>
-    <message>
-        <source>Wallet is locked and user declined to unlock. Disabling PrivateSend.</source>
-        <translation>Le portefeuille est verrouillé et l'utilisateur a refusé de le déverrouiller. PrivateSend est donc désactivé.</translation>
-    </message>
 </context>
 <context>
     <name>PaymentServer</name>
@@ -1951,6 +1984,10 @@
     <message>
         <source>URI handling</source>
         <translation>Gestion des URI</translation>
+    </message>
+    <message>
+        <source>'dms://' is not a valid URI. Use 'dms:' instead.</source>
+        <translation>'dms://' n'est pas un URI valide. Utilisez 'dms:' à la place.</translation>
     </message>
     <message>
         <source>Payment request fetch URL is invalid: %1</source>
@@ -2047,20 +2084,60 @@
         <source>Ping</source>
         <translation>Ping</translation>
     </message>
+    <message>
+        <source>Sent</source>
+        <translation>Envoyé</translation>
+    </message>
+    <message>
+        <source>Received</source>
+        <translation>Reçu</translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
-        <source>DMS Core</source>
-        <translation>DMS Core</translation>
+        <source>Choose data directory on startup (default: %u)</source>
+        <translation>Choisir le répertoire de données au démarrage (par défaut : %u)</translation>
+    </message>
+    <message>
+        <source>Set the font family. Possible values: %1. (default: %2)</source>
+        <translation>Choisir la police typographique. Valeurs possibles : %1. (par défaut : %2)</translation>
+    </message>
+    <message>
+        <source>Set a scale factor which gets applied to the base font size. Possible range %1 (smallest fonts) to %2 (largest fonts). (default: %3)</source>
+        <translation>Choisir un facteur d'agrandissement à appliquer à la taille typographique de base. Intervalle possible : %1 (polices les plus petites) to %2 (polices les plus grandes). (par défaut : %3)</translation>
+    </message>
+    <message>
+        <source>Set the font weight for bold texts. Possible range %1 to %2 (default: %3)</source>
+        <translation>Choisir le style pour les textes en gras. Intervalle possible : %1 à %2 (par défaut : %3)</translation>
+    </message>
+    <message>
+        <source>Set the font weight for normal texts. Possible range %1 to %2 (default: %3)</source>
+        <translation>Choisir le style pour les textes en style normal. Intervalle possible : %1 à %2 (par défaut : %3)</translation>
+    </message>
+    <message>
+        <source>Set language, for example "de_DE" (default: system locale)</source>
+        <translation>Définir la langue, par exemple « fr_FR » (par défaut : la langue du système)</translation>
+    </message>
+    <message>
+        <source>Start minimized</source>
+        <translation>Démarrer en présentation minimisée</translation>
+    </message>
+    <message>
+        <source>Reset all settings changed in the GUI</source>
+        <translation>Réinitialiser tous les réglages modifiés de l'interface utilisateur</translation>
+    </message>
+    <message>
+        <source>Set SSL root certificates for payment request (default: -system-)</source>
+        <translation>Définir les certificats SSL racine pour les requêtes de paiement (par défaut : -system-)</translation>
+    </message>
+    <message>
+        <source>Show splash screen on startup (default: %u)</source>
+        <translation>Afficher l'écran de démarrage (défaut : %u)</translation>
     </message>
     <message>
         <source>%1 didn't yet exit safely...</source>
         <translation>%1 ne s’est pas encore arrêté en toute sécurité...</translation>
-    </message>
-    <message>
-        <source>Error reading masternode configuration file: %1</source>
-        <translation>Erreur de lecture du fichier de configuration du masternode : %1</translation>
     </message>
     <message>
         <source>Amount</source>
@@ -2069,6 +2146,18 @@
     <message>
         <source>Enter a DMS address (e.g. %1)</source>
         <translation>Entrez une adresse DMS (e.g. %1)</translation>
+    </message>
+    <message>
+        <source>Appearance Setup</source>
+        <translation>Réglages de l'apparence</translation>
+    </message>
+    <message>
+        <source>Please choose your preferred settings for the appearance of %1</source>
+        <translation>Veuillez choisir vos réglages préférés pour l'apparence de %1</translation>
+    </message>
+    <message>
+        <source>This can also be adjusted later in the "Appearance" tab of the preferences.</source>
+        <translation>Vous pouvez aussi choisir cela plus tard, dans l'onglet "Apparence" des préférences.</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2127,6 +2216,22 @@
         <translation>%1 et %2</translation>
     </message>
     <message>
+        <source>%1 B</source>
+        <translation>%1 o</translation>
+    </message>
+    <message>
+        <source>%1 KB</source>
+        <translation>%1 Ko</translation>
+    </message>
+    <message>
+        <source>%1 MB</source>
+        <translation>%1 Mo</translation>
+    </message>
+    <message>
+        <source>%1 GB</source>
+        <translation>%1 Go</translation>
+    </message>
+    <message>
         <source>unknown</source>
         <translation>inconnu</translation>
     </message>
@@ -2144,6 +2249,34 @@
     <message>
         <source>Error: %1</source>
         <translation>Erreur : %1</translation>
+    </message>
+    <message>
+        <source>Error: Failed to load application fonts.</source>
+        <translation>Erreur : échec du chargement des polices d'application.</translation>
+    </message>
+    <message>
+        <source>Error: Specified font-family invalid. Valid values: %1.</source>
+        <translation>Erreur : la police typographique spécifiée n'est pas valide. Valeurs valides : %1.</translation>
+    </message>
+    <message>
+        <source>Error: Specified font-weight-normal invalid. Valid range %1 to %2.</source>
+        <translation>Erreur : le style normal spécifié n'est pas valide. Intervalle valide : %1 à %2.</translation>
+    </message>
+    <message>
+        <source>Error: Specified font-weight-bold invalid. Valid range %1 to %2.</source>
+        <translation>Erreur : le style gras spécifié n'est pas valide. Intervalle valide : %1 à %2.</translation>
+    </message>
+    <message>
+        <source>Error: Specified font-scale invalid. Valid range %1 to %2.</source>
+        <translation>Erreur : la taille typographique spécifiée n'est pas valide. Intervalle valide : %1 à %2.</translation>
+    </message>
+    <message>
+        <source>Error: Invalid -custom-css-dir path.</source>
+        <translation>Erreur : le chemin -custom-css-dir n'est pas valide.</translation>
+    </message>
+    <message>
+        <source>Error: %1 CSS file(s) missing in -custom-css-dir path.</source>
+        <translation>Erreur : %1 fichier(s) CSS manquant(s) dans le chemin -custom-css-dir.</translation>
     </message>
 </context>
 <context>
@@ -2294,14 +2427,6 @@
         <translation>Trafic &amp;réseau</translation>
     </message>
     <message>
-        <source>&amp;Clear</source>
-        <translation>&amp;Nettoyer</translation>
-    </message>
-    <message>
-        <source>Totals</source>
-        <translation>Totaux</translation>
-    </message>
-    <message>
         <source>Received</source>
         <translation>Reçus</translation>
     </message>
@@ -2312,6 +2437,10 @@
     <message>
         <source>&amp;Peers</source>
         <translation>Liste des &amp;pairs</translation>
+    </message>
+    <message>
+        <source>Wallet:</source>
+        <translation>Portefeuille :</translation>
     </message>
     <message>
         <source>Banned peers</source>
@@ -2346,6 +2475,22 @@
         <translation>Blocs synchronisés</translation>
     </message>
     <message>
+        <source>Rescan blockchain files 1</source>
+        <translation>Rebalayer les fichiers de la chaîne de blocs (1)</translation>
+    </message>
+    <message>
+        <source>Rescan blockchain files 2</source>
+        <translation>Rebalayer les fichiers de la chaîne de blocs (2)</translation>
+    </message>
+    <message>
+        <source>-rescan=1: Rescan the block chain for missing wallet transactions starting from wallet creation time.</source>
+        <translation>-rescan=1 : Rebalaye la chaîne de blocs pour les transactions de portefeuille manquantes, à compter du moment de création du portefeuille.</translation>
+    </message>
+    <message>
+        <source>-rescan=2: Rescan the block chain for missing wallet transactions starting from genesis block.</source>
+        <translation>-rescan=2 : Rebalaye la chaîne de blocs pour les transactions de portefeuille manquantes, à compter du tout premier bloc.</translation>
+    </message>
+    <message>
         <source>Wallet Path</source>
         <translation>Chemin du portefeuille</translation>
     </message>
@@ -2358,8 +2503,20 @@
         <translation>Rép. de données</translation>
     </message>
     <message>
+        <source>Last block hash</source>
+        <translation>Empreinte du dernier bloc</translation>
+    </message>
+    <message>
         <source>Open the %1 debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation>Ouvrir le fichier journal de débogage de %1 à partir du répertoire de données actuel. Cela peut prendre quelques secondes pour les fichiers journaux de grande taille.</translation>
+    </message>
+    <message>
+        <source>InstantSend locks</source>
+        <translation>Verrous InstantSend</translation>
+    </message>
+    <message>
+        <source>(none)</source>
+        <translation>(aucun)</translation>
     </message>
     <message>
         <source>Decrease font size</source>
@@ -2368,6 +2525,18 @@
     <message>
         <source>Increase font size</source>
         <translation>Augmenter la taille des caractères</translation>
+    </message>
+    <message>
+        <source>&amp;Reset</source>
+        <translation>&amp;Réinitialiser</translation>
+    </message>
+    <message>
+        <source>Node Type</source>
+        <translation>Type de nœud</translation>
+    </message>
+    <message>
+        <source>PoSe Score</source>
+        <translation>Score PoSe</translation>
     </message>
     <message>
         <source>Services</source>
@@ -2418,10 +2587,6 @@
         <translation>Récupération de portefeuille</translation>
     </message>
     <message>
-        <source>Rescan blockchain files</source>
-        <translation>Scanner à nouveau les fichiers de la chaîne de blocs</translation>
-    </message>
-    <message>
         <source>Recover transactions 1</source>
         <translation>Récupérer les transactions 1</translation>
     </message>
@@ -2440,10 +2605,6 @@
     <message>
         <source>-salvagewallet: Attempt to recover private keys from a corrupt wallet.dat.</source>
         <translation>-salvagewallet : Tente de récupérer les clefs privées d'un fichier "wallet.dat" corrompu.</translation>
-    </message>
-    <message>
-        <source>-rescan: Rescan the block chain for missing wallet transactions.</source>
-        <translation>-rescan : Réanalyse la chaîne de blocs pour les transactions de portefeuille manquantes.</translation>
     </message>
     <message>
         <source>-zapwallettxes=1: Recover transactions from blockchain (keep meta-data, e.g. account owner).</source>
@@ -2502,15 +2663,19 @@
         <translation>Bienvenue sur la console RPC de %1.</translation>
     </message>
     <message>
-        <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
-        <translation>Utilisez les touches de curseur pour naviguer dans l'historique et &lt;b&gt;Ctrl-L&lt;/b&gt; pour effacer l'écran.</translation>
+        <source>Use up and down arrows to navigate history, and %1 to clear screen.</source>
+        <translation>Utilisez les touches de curseur pour naviguer dans l'historique et %1 pour effacer l'écran.</translation>
     </message>
     <message>
-        <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
-        <translation>Tapez &lt;b&gt;help&lt;/b&gt; pour afficher une vue générale des commandes disponibles.</translation>
+        <source>Type %1 for an overview of available commands.</source>
+        <translation>Saisissez %1 pour un aperçu des commandes disponibles.</translation>
     </message>
     <message>
-        <source>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramification of a command.</source>
+        <source>For more information on using this console type %1.</source>
+        <translation>Pour en savoir plus sur l'utilisation de cette console, saisissez %1.</translation>
+    </message>
+    <message>
+        <source>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramifications of a command.</source>
         <translation>AVERTISSEMENT : des escrocs ont déjà tenté d'inciter des utilisateurs à saisir des commandes ici même, pour voler le contenu de leur portefeuille. N'utilisez pas cette console sans comprendre exactement la portée d'une commande.</translation>
     </message>
     <message>
@@ -2526,20 +2691,16 @@
         <translation>Activité réseau désactivée</translation>
     </message>
     <message>
-        <source>%1 B</source>
-        <translation>%1 o</translation>
+        <source>Total: %1 (Enabled: %2)</source>
+        <translation>Total : %1 (Activé : %2)</translation>
     </message>
     <message>
-        <source>%1 KB</source>
-        <translation>%1 Ko</translation>
+        <source>Executing command without any wallet</source>
+        <translation>Exécution de commande sans aucun portefeuille</translation>
     </message>
     <message>
-        <source>%1 MB</source>
-        <translation>%1 Mo</translation>
-    </message>
-    <message>
-        <source>%1 GB</source>
-        <translation>%1 Go</translation>
+        <source>Executing command using "%1" wallet</source>
+        <translation>Exécution de commande avec le portefeuille "%1"</translation>
     </message>
     <message>
         <source>(node id: %1)</source>
@@ -2570,20 +2731,24 @@
         <translation>No</translation>
     </message>
     <message>
+        <source>Regular</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>Masternode</source>
+        <translation>Masternode</translation>
+    </message>
+    <message>
+        <source>Verified Masternode</source>
+        <translation>Masternode vérifié</translation>
+    </message>
+    <message>
         <source>Unknown</source>
         <translation>Inconnus</translation>
     </message>
 </context>
 <context>
     <name>ReceiveCoinsDialog</name>
-    <message>
-        <source>Reuse one of the previously used receiving addresses.&lt;br&gt;Reusing addresses has security and privacy issues.&lt;br&gt;Do not use this unless re-generating a payment request made before.</source>
-        <translation>Réutilise une adresse de réception précédemment utilisée.&lt;br&gt;Réutiliser une adresse pose des problèmes de sécurité et de vie privée.&lt;br&gt;N'utilisez pas cette option, sauf si vous générez à nouveau une demande de paiement déjà faite.</translation>
-    </message>
-    <message>
-        <source>R&amp;euse an existing receiving address (not recommended)</source>
-        <translation>Ré&amp;utiliser une adresse de réception existante (non recommandé)</translation>
-    </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Documentchain network.</source>
         <translation>Un message optionnel à joindre à la demande de paiement, qui sera affiché quand la demande sera ouverte. Note : ce message ne sera pas envoyé avec le paiement à travers le réseau DMS.</translation>
@@ -2629,10 +2794,6 @@
         <translation>Effacer</translation>
     </message>
     <message>
-        <source>Request InstantSend</source>
-        <translation>Demander un paiement InstantSend</translation>
-    </message>
-    <message>
         <source>Requested payments history</source>
         <translation>Historique des paiements demandés</translation>
     </message>
@@ -2651,6 +2812,14 @@
     <message>
         <source>Remove</source>
         <translation>Enlever</translation>
+    </message>
+    <message>
+        <source>Enter a label to associate with the new receiving address</source>
+        <translation>Saisissez une étiquette à associer à la nouvelle adresse de réception</translation>
+    </message>
+    <message>
+        <source>Enter a message to attach to the payment request</source>
+        <translation>Saisissez un message à joindre à la requête de paiement</translation>
     </message>
     <message>
         <source>Copy URI</source>
@@ -2716,16 +2885,8 @@
         <translation>Message</translation>
     </message>
     <message>
-        <source>InstantSend</source>
-        <translation>InstantSend</translation>
-    </message>
-    <message>
-        <source>Yes</source>
-        <translation>Oui</translation>
-    </message>
-    <message>
-        <source>No</source>
-        <translation>Non</translation>
+        <source>Wallet</source>
+        <translation>Portefeuille</translation>
     </message>
     <message>
         <source>Resulting URI too long, try to reduce the text for label / message.</source>
@@ -2834,14 +2995,6 @@
         <translation>Choisissez...</translation>
     </message>
     <message>
-        <source>Using the fallbackfee can result in sending a transaction that will take several hours or days (or never) to confirm. Consider choosing your fee manually or wait until your have validated the complete chain.</source>
-        <translation>Utiliser les frais de repli peut allonger le temps de confirmation d'une transaction (jusqu'à plusieurs heures, ou jours, voire jamais). Envisagez de choisir vos frais manuellement, ou bien attendez la validation complète de la blockchain.</translation>
-    </message>
-    <message>
-        <source>Warning: Fee estimation is currently not possible.</source>
-        <translation>Avertissement : l’estimation des frais n’est actuellement pas possible.</translation>
-    </message>
-    <message>
         <source>collapse fee-settings</source>
         <translation>replier les paramètres de frais</translation>
     </message>
@@ -2850,20 +3003,8 @@
         <translation>Estimation du délai de confirmation :</translation>
     </message>
     <message>
-        <source>PrivateSend</source>
-        <translation>PrivateSend</translation>
-    </message>
-    <message>
-        <source>InstantSend</source>
-        <translation>InstantSend</translation>
-    </message>
-    <message>
         <source>If the custom fee is set to 1000 docz and the transaction is only 250 bytes, then "per kilobyte" only pays 250 docz in fee,&lt;br /&gt;while "at least" pays 1000 docz. For transactions bigger than a kilobyte both pay by kilobyte.</source>
         <translation>Si les frais personnalisés sont à 1000 docz et que la transaction fait seulement 250 octets, alors "par kilooctet" coûtera seulement 250 docz de frais,&lt;br /&gt;alors que "au moins" coûtera 1000 docz. Pour les transactions de plus d'un kilooctet, les deux coûts seront calculés au kilooctet.</translation>
-    </message>
-    <message>
-        <source>If the custom fee is set to 1000 docz and the transaction is only 250 bytes, then "per kilobyte" only pays 250 docz in fee,&lt;br /&gt;while "total at least" pays 1000 docz. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Si les frais personnalisés sont à 1000 docz et que la transaction fait seulement 250 octets, alors "par kilooctet" coûtera seulement 250 docz de frais,&lt;br /&gt;alors que "total au moins" coûtera 1000 docz. Pour les transactions de plus d'un kilooctet, les deux coûts seront calculés au kilooctet.</translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for dms transactions than the network can process.</source>
@@ -2874,12 +3015,16 @@
         <translation>par kilooctet</translation>
     </message>
     <message>
-        <source>Hide</source>
-        <translation>Cacher</translation>
+        <source>Using the fallbackfee can result in sending a transaction that will take several hours or days (or never) to confirm. Consider choosing your fee manually or wait until you have validated the complete chain.</source>
+        <translation>Utiliser les frais de repli peut allonger le temps de confirmation d'une transaction (jusqu'à plusieurs heures, ou jours, voire jamais). Envisagez de choisir vos frais manuellement, ou bien attendez la validation complète de la blockchain.</translation>
     </message>
     <message>
-        <source>total at least</source>
-        <translation>total au moins</translation>
+        <source>Note: Not enough data for fee estimation, using the fallback fee instead.</source>
+        <translation>Note : données insuffisantes pour estimer les frais. Utilisation des frais prédéfinis à la place.</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>Cacher</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -2896,14 +3041,6 @@
     <message>
         <source>(Smart fee not initialized yet. This usually takes a few blocks...)</source>
         <translation>(Les frais intelligents ne sont pas encore disponibles. Cette fonction apparaît d'habitude après quelques blocs...)</translation>
-    </message>
-    <message>
-        <source>normal</source>
-        <translation>normal</translation>
-    </message>
-    <message>
-        <source>fast</source>
-        <translation>rapide</translation>
     </message>
     <message>
         <source>Confirm the send action</source>
@@ -2962,24 +3099,16 @@
         <translation>Copier la monnaie</translation>
     </message>
     <message>
+        <source>%1 (%2 blocks)</source>
+        <translation>%1 (%2 blocs)</translation>
+    </message>
+    <message>
+        <source>from wallet %1</source>
+        <translation>depuis le portefeuille %1</translation>
+    </message>
+    <message>
         <source>using</source>
         <translation>utiliser</translation>
-    </message>
-    <message>
-        <source>anonymous funds</source>
-        <translation>fonds anonymisés</translation>
-    </message>
-    <message>
-        <source>(privatesend requires this amount to be rounded up to the nearest %1).</source>
-        <translation>(PrivateSend nécessite que ce montant soit arrondi au plus proche de %1).</translation>
-    </message>
-    <message>
-        <source>any available funds (not anonymous)</source>
-        <translation>tous fonds disponibles (pas d'anonymat)</translation>
-    </message>
-    <message>
-        <source>and InstantSend</source>
-        <translation>et InstantSend</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -3000,6 +3129,42 @@
     <message>
         <source>&lt;b&gt;(%1 of %2 entries displayed)&lt;/b&gt;</source>
         <translation>&lt;b&gt;(%1 sur %2 entrées affichées)&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>S&amp;end mixed funds</source>
+        <translation>Envoyer les fonds mélangés</translation>
+    </message>
+    <message>
+        <source>Confirm the %1 send action</source>
+        <translation>Confirmer l’action d'envoi %1</translation>
+    </message>
+    <message>
+        <source>%1 funds only</source>
+        <translation>Fonds %1 seulement</translation>
+    </message>
+    <message>
+        <source>any available funds</source>
+        <translation>tous fonds disponibles</translation>
+    </message>
+    <message>
+        <source>(%1 transactions have higher fees usually due to no change output being allowed)</source>
+        <translation>(les transactions %1 ont d'habitude des frais plus élevés, parce qu'elles n'acceptent pas de monnaie rendue)</translation>
+    </message>
+    <message>
+        <source>Transaction size: %1</source>
+        <translation>Taille de la transaction : %1</translation>
+    </message>
+    <message>
+        <source>Fee rate: %1</source>
+        <translation>Taux des frais : %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>This transaction will consume %n input(s)</source>
+        <translation><numerusform>Cette transaction emploiera %n entrée</numerusform><numerusform>Cette transaction emploiera %n entrées</numerusform></translation>
+    </message>
+    <message>
+        <source>Warning: Using %1 with %2 or more inputs can harm your privacy and is not recommended</source>
+        <translation>Attention : utiliser %1 avec %2 entrées ou plus peut affaiblir votre confidentialité et n'est pas recommandé</translation>
     </message>
     <message>
         <source>Confirm send coins</source>
@@ -3040,10 +3205,6 @@
     <message>
         <source>Payment request expired.</source>
         <translation>La demande de paiement a expiré.</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n block(s)</source>
-        <translation><numerusform>%n bloc</numerusform><numerusform>%n blocs</numerusform></translation>
     </message>
     <message>
         <source>Pay only the required fee of %1</source>
@@ -3127,6 +3288,10 @@
     <message>
         <source>S&amp;ubtract fee from amount</source>
         <translation>So&amp;ustraire les frais du montant</translation>
+    </message>
+    <message>
+        <source>Use available balance</source>
+        <translation>Utiliser le solde disponible</translation>
     </message>
     <message>
         <source>Message:</source>
@@ -3243,7 +3408,7 @@
     </message>
     <message>
         <source>Enter the receiver's address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack. Note that this only proves the signing party receives with the address, it cannot prove sendership of any transaction!</source>
-        <translation>Saisir ci-dessous l'adresse du destinataire, le message (assurez-vous d'avoir copié exactement les retours à la ligne, les espaces, tabulations, etc.) et la signature pour vérifier le message. Faites attention à ne pas déduire davantage de la signature que ce qui est contenu dans le message signé lui-même, pour éviter d'être trompé par une attaque "man in the middle". Gardez à l'esprit que cette opération prouve uniquement que le destinataire peut recevoir des fonds dans l'adresse donnée, cela ne prouve pas l'identité de l'expéditeur d'une transaction !</translation>
+        <translation>Saisir ci-dessous l'adresse du destinataire, le message (assurez-vous d'avoir copié exactement les retours à la ligne, les espaces, tabulations, etc.) et la signature pour vérifier le message. Faites attention à ne pas déduire davantage de la signature que ce qui est contenu dans le message signé lui-même, pour éviter d'être trompé par une attaque "man in the middle". Gardez à l'esprit que cette opération prouve uniquement que le signataire peut recevoir des fonds à l'adresse donnée, cela ne prouve pas l'identité de l'expéditeur d'une transaction !</translation>
     </message>
     <message>
         <source>The DMS address the message was signed with</source>
@@ -3262,8 +3427,20 @@
         <translation>Réinitialiser tous les champs de vérification de message</translation>
     </message>
     <message>
+        <source>Enter a message to be signed</source>
+        <translation>Saisissez un message à signer</translation>
+    </message>
+    <message>
         <source>Click "Sign Message" to generate signature</source>
         <translation>Cliquez sur « Signer le message » pour générer la signature</translation>
+    </message>
+    <message>
+        <source>Enter a message to be verified</source>
+        <translation>Saisissez un message à vérifier</translation>
+    </message>
+    <message>
+        <source>Enter a signature for the message to be verified</source>
+        <translation>Saisissez la signature permettant de vérifier le message</translation>
     </message>
     <message>
         <source>The entered address is invalid.</source>
@@ -3320,16 +3497,24 @@
         <source>[testnet]</source>
         <translation>[réseau de test]</translation>
     </message>
-    <message>
-        <source>Version %1</source>
-        <translation>Version %1</translation>
-    </message>
 </context>
 <context>
     <name>TrafficGraphWidget</name>
     <message>
         <source>KB/s</source>
         <translation>Ko/s</translation>
+    </message>
+    <message>
+        <source>Total</source>
+        <translation>Total</translation>
+    </message>
+    <message>
+        <source>Received</source>
+        <translation>Reçu</translation>
+    </message>
+    <message>
+        <source>Sent</source>
+        <translation>Envoyé</translation>
     </message>
 </context>
 <context>
@@ -3345,10 +3530,6 @@
     <message>
         <source>conflicted</source>
         <translation>en conflit</translation>
-    </message>
-    <message>
-        <source>%1/offline</source>
-        <translation>%1/déconnecté</translation>
     </message>
     <message>
         <source>0/unconfirmed, %1</source>
@@ -3375,28 +3556,16 @@
         <translation>%1 confirmations</translation>
     </message>
     <message>
+        <source>locked via ChainLocks</source>
+        <translation>verrouillé avec ChainLocks</translation>
+    </message>
+    <message>
         <source>verified via InstantSend</source>
-        <translation>vérifié via InstantSend</translation>
-    </message>
-    <message>
-        <source>InstantSend verification in progress - %1 of %2 signatures</source>
-        <translation>Vérification InstantSend en cours - %1 de %2 signatures</translation>
-    </message>
-    <message>
-        <source>InstantSend verification failed</source>
-        <translation>Echec de la vérification InstantSend</translation>
+        <translation>vérifié avec InstantSend</translation>
     </message>
     <message>
         <source>Status</source>
         <translation>État</translation>
-    </message>
-    <message>
-        <source>, has not been successfully broadcast yet</source>
-        <translation>, n’a pas encore été diffusée avec succès</translation>
-    </message>
-    <message numerus="yes">
-        <source>, broadcast through %n node(s)</source>
-        <translation><numerusform>, diffusée à travers %n nœud</numerusform><numerusform>, diffusée à travers %n nœuds</numerusform></translation>
     </message>
     <message>
         <source>Date</source>
@@ -3553,10 +3722,6 @@
         <translation>Ouvert jusqu'à %1</translation>
     </message>
     <message>
-        <source>Offline</source>
-        <translation>Déconnecté</translation>
-    </message>
-    <message>
         <source>Unconfirmed</source>
         <translation>Non confirmé</translation>
     </message>
@@ -3581,12 +3746,16 @@
         <translation>Immature (%1 confirmations, sera disponible après %2)</translation>
     </message>
     <message>
-        <source>This block was not received by any other nodes and will probably not be accepted!</source>
-        <translation>Ce bloc n’a été reçu par aucun autre nœud et sera probablement rejeté !</translation>
-    </message>
-    <message>
         <source>Generated but not accepted</source>
         <translation>Généré mais pas accepté</translation>
+    </message>
+    <message>
+        <source>verified via InstantSend</source>
+        <translation>vérifié avec InstantSend</translation>
+    </message>
+    <message>
+        <source>locked via ChainLocks</source>
+        <translation>verrouillé avec ChainLocks</translation>
     </message>
     <message>
         <source>Received with</source>
@@ -3597,8 +3766,8 @@
         <translation>Reçue de</translation>
     </message>
     <message>
-        <source>Received via PrivateSend</source>
-        <translation>Reçu par PrivateSend</translation>
+        <source>Received via %1</source>
+        <translation>Reçu par %1</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -3617,24 +3786,24 @@
         <translation>Miné</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
-        <translation>Coupure PrivateSend</translation>
+        <source>%1 Mixing</source>
+        <translation>Mélange %1</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
-        <translation>Paiement de caution PrivateSend</translation>
+        <source>%1 Collateral Payment</source>
+        <translation>Paiement de caution %1</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
-        <translation>Création d'entrées de caution PrivateSend</translation>
+        <source>%1 Make Collateral Inputs</source>
+        <translation>Création d'entrées de caution %1</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
-        <translation>Création de coupures PrivateSend</translation>
+        <source>%1 Create Denominations</source>
+        <translation>Création de coupures %1</translation>
     </message>
     <message>
-        <source>PrivateSend</source>
-        <translation>PrivateSend</translation>
+        <source>%1 Send</source>
+        <translation>Envoyer %1</translation>
     </message>
     <message>
         <source>watch-only</source>
@@ -3665,10 +3834,6 @@
         <translation>Si une adresse en lecture seule est impliquée dans cette transaction.</translation>
     </message>
     <message>
-        <source>Whether or not this transaction was locked by InstantSend.</source>
-        <translation>Si cette transaction est ou n'est pas verrouillée par InstantSend.</translation>
-    </message>
-    <message>
         <source>User-defined intent/purpose of the transaction.</source>
         <translation>Intention/raison de la transaction définie par l'utilisateur</translation>
     </message>
@@ -3682,14 +3847,6 @@
     <message>
         <source>All</source>
         <translation>Toutes</translation>
-    </message>
-    <message>
-        <source>Locked by InstantSend</source>
-        <translation>Verrouillée par InstantSend</translation>
-    </message>
-    <message>
-        <source>Not locked by InstantSend</source>
-        <translation>Non verrouillée par InstantSend</translation>
     </message>
     <message>
         <source>Today</source>
@@ -3717,7 +3874,7 @@
     </message>
     <message>
         <source>Most Common</source>
-        <translation>Les plus courants</translation>
+        <translation>Les plus courantes</translation>
     </message>
     <message>
         <source>Received with</source>
@@ -3732,24 +3889,24 @@
         <translation>Document Revision</translation>
     </message>
     <message>
-        <source>PrivateSend</source>
-        <translation>PrivateSend</translation>
+        <source>%1 Send</source>
+        <translation>Envoyer %1</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
-        <translation>Création d'entrées de caution PrivateSend</translation>
+        <source>%1 Make Collateral Inputs</source>
+        <translation>Création d'entrées de caution %1</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
-        <translation>Création de coupures PrivateSend</translation>
+        <source>%1 Create Denominations</source>
+        <translation>Création de coupures %1</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
-        <translation>Coupure PrivateSend</translation>
+        <source>%1 Mixing</source>
+        <translation>Mélange %1</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
-        <translation>Paiement de caution PrivateSend</translation>
+        <source>%1 Collateral Payment</source>
+        <translation>Paiement de caution %1</translation>
     </message>
     <message>
         <source>To yourself</source>
@@ -3764,8 +3921,8 @@
         <translation>Autres</translation>
     </message>
     <message>
-        <source>Enter address or label to search</source>
-        <translation>Saisir une adresse ou une étiquette à rechercher</translation>
+        <source>Enter address, transaction id, or label to search</source>
+        <translation>Saisir une adresse, un identifiant de transaction ou une étiquette à rechercher</translation>
     </message>
     <message>
         <source>Min amount</source>
@@ -3806,6 +3963,10 @@
     <message>
         <source>Show transaction details</source>
         <translation>Afficher les détails de la transaction</translation>
+    </message>
+    <message>
+        <source>Show address QR code</source>
+        <translation>Voir le QR-code de l'adresse</translation>
     </message>
     <message>
         <source>Export Transaction History</source>
@@ -3860,6 +4021,10 @@
         <translation>L'historique des transactions a été sauvegardée avec succès vers %1.</translation>
     </message>
     <message>
+        <source>QR code</source>
+        <translation>QR-code</translation>
+    </message>
+    <message>
         <source>Range:</source>
         <translation>Intervalle :</translation>
     </message>
@@ -3887,14 +4052,6 @@
     <message>
         <source>Send Coins</source>
         <translation>Envoyer des fonds</translation>
-    </message>
-    <message>
-        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 DMS.</source>
-        <translation>InstantSend ne supporte pas des transferts aussi élevés. Les transactions sont pour le moment limitées à %1 DMS.</translation>
-    </message>
-    <message>
-        <source>Used way too many inputs (&gt;%1) for this InstantSend transaction, fees could be huge.</source>
-        <translation>Vous avez utilisé bien trop d'entrées (&gt;%1) pour cette transaction InstantSend, les frais peuvent être énormes.</translation>
     </message>
 </context>
 <context>
@@ -3935,40 +4092,16 @@
         <source>The wallet data was successfully saved to %1.</source>
         <translation>Les données de portefeuille ont été enregistrées avec succès vers %1</translation>
     </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annuler</translation>
+    </message>
 </context>
 <context>
     <name>dms-core</name>
     <message>
-        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
-        <translation>Se lier à l'adresse donnée et toujours l'écouter. Utilisez la notation [host]:port pour l'IPv6</translation>
-    </message>
-    <message>
         <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
         <translation>Erreur : l'écoute des connexions entrantes a échoué (erreur retournée : %s)</translation>
-    </message>
-    <message>
-        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
-        <translation>Exécuter une commande lorsqu'une alerte pertinente est reçue ou si nous voyons une bifurcation vraiment étendue (%s dans la commande est remplacé par le message)</translation>
-    </message>
-    <message>
-        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
-        <translation>Exécuter la commande lorsqu'une transaction de portefeuille change (%s dans la commande est remplacée par TxID)</translation>
-    </message>
-    <message>
-        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
-        <translation>Exécuter la commande lorsque le meilleur bloc change (%s dans cmd est remplacé par le hachage du bloc)</translation>
-    </message>
-    <message>
-        <source>Name to construct url for KeePass entry that stores the wallet passphrase</source>
-        <translation>Nom pour construire l'URL pour l'entrée KeePass qui conserve la phrase de passe du portefeuille</translation>
-    </message>
-    <message>
-        <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
-        <translation>Définir la taille maximale en octets des transactions prioritaires/à frais modiques (par défaut : %d)</translation>
-    </message>
-    <message>
-        <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
-        <translation>Définir le nombre d'exétrons de vérification des scripts (%u à %d, 0 = auto, &lt; 0 = laisser ce nombre de cœurs inutilisés, par défaut : %d)</translation>
     </message>
     <message>
         <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
@@ -3983,60 +4116,20 @@
         <translation>Attention : nous ne semblons pas être en accord complet avec nos pairs ! Peut-être devez-vous faire une mise à jour, ou d'autres nœuds du réseau ont besoin de faire une mise à jour.</translation>
     </message>
     <message>
-        <source>You must specify a masternodeprivkey in the configuration. Please see documentation for help.</source>
-        <translation>Vous devez définir "masternodeprivkey" dans la configuration. Veuillez consulter la documentation pour obtenir plus d'aide.</translation>
-    </message>
-    <message>
-        <source>Accept command line and JSON-RPC commands</source>
-        <translation>Accepter les commandes de JSON-RPC et de la ligne de commande</translation>
-    </message>
-    <message>
-        <source>Add a node to connect to and attempt to keep the connection open</source>
-        <translation>Ajouter un nœud auquel se connecter et tenter de garder la connexion ouverte</translation>
-    </message>
-    <message>
-        <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
-        <translation>Autoriser les recherches DNS pour -addnode, -seednode et -connect</translation>
-    </message>
-    <message>
         <source>Already have that input.</source>
         <translation>Entrée déjà présente.</translation>
-    </message>
-    <message>
-        <source>Block creation options:</source>
-        <translation>Options de création de bloc :</translation>
     </message>
     <message>
         <source>Cannot downgrade wallet</source>
         <translation>Impossible de revenir à une version inférieure du portefeuille</translation>
     </message>
     <message>
-        <source>Cannot write default address</source>
-        <translation>Impossible d'écrire l'adresse par défaut</translation>
-    </message>
-    <message>
         <source>Collateral not valid.</source>
         <translation>Caution invalide.</translation>
     </message>
     <message>
-        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
-        <translation>Se connecter à un nœud pour obtenir des adresses de pairs, puis se déconnecter</translation>
-    </message>
-    <message>
-        <source>Connection options:</source>
-        <translation>Options de connexion :</translation>
-    </message>
-    <message>
         <source>Corrupted block database detected</source>
         <translation>Détection d'une corruption de la base de données des blocs</translation>
-    </message>
-    <message>
-        <source>Debugging/Testing options:</source>
-        <translation>Options de test/de débogage :</translation>
-    </message>
-    <message>
-        <source>Do not load the wallet and disable wallet RPC calls</source>
-        <translation>Ne pas charger le portefeuille et désactiver les appels RPC</translation>
     </message>
     <message>
         <source>Do you want to rebuild the block database now?</source>
@@ -4083,164 +4176,36 @@
         <translation>Échec de l'écoute sur un port quelconque. Utilisez -listen=0 si vous voulez ceci.</translation>
     </message>
     <message>
-        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
-        <translation>(1 = garder les méta-données de tx, par ex nom de compte et infos de paiements, 2 = supprimer méta-données)</translation>
-    </message>
-    <message>
         <source>-maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
         <translation>-maxtxfee est réglée sur un montant très élevé ! Ces frais aussi élevés peuvent être payés sur une transaction unique.</translation>
     </message>
     <message>
-        <source>A fee rate (in %s/kB) that will be used when fee estimation has insufficient data (default: %s)</source>
-        <translation>Un taux de frais (en %s/ko) qui seront utilisés lorsque les estimations de frais sont insuffisantes par manque de données (par défaut : %s)</translation>
-    </message>
-    <message>
-        <source>Accept relayed transactions received from whitelisted peers even when not relaying transactions (default: %d)</source>
-        <translation>Accepter les transactions retransmises par les pairs en liste blanche, même sans être en train de retransmettre des transactions (par défaut : %d)</translation>
-    </message>
-    <message>
-        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
-        <translation>Permettre connections JSON-RPC depuis la source spécifiée. Valide pour &lt;ip&gt; sont: une IP seule (ex. 1.2.3.4), un réseau/masque (ex. 1.2.3.4/255.255.255.0) ou un réseau/CIDR (ex. 1.2.3.4/24). Ce paramétre peut être utilisé plusieurs fois.</translation>
-    </message>
-    <message>
-        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
-        <translation>Se lier à l'adresse donnée et mettre les pairs qui se connectent en liste blanche. Utilisez la notation [hôte]:port pour l'IPv6</translation>
-    </message>
-    <message>
-        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
-        <translation>Se lier à l'adresse indiquée pour écouter des connections JSON-RPC. Utilisez la notation [hôte]:port pour l'IPv6. Ce paramètre peut être utilisée à plusieurs reprises (par défaut: se lie a toutes les interfaces)</translation>
-    </message>
-    <message>
-        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
-        <translation>Créer les nouveaux fichiers avec les permissions systèmes par défaut, au lieu du umask 077 (utile seulement si le portefeuille est désactivé)</translation>
-    </message>
-    <message>
-        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
-        <translation>Effacer toutes les transactions du portefeuille et récupérer celles qui font partie de la chaîne de blocs par un -rescan au démarrage</translation>
-    </message>
-    <message>
-        <source>Enable publish raw transactions of attempted InstantSend double spend in &lt;address&gt;</source>
-        <translation>Activer la publication des transactions brutes des tentatives de double dépense InstantSend dans &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish transaction hashes of attempted InstantSend double spend in &lt;address&gt;</source>
-        <translation>Activer la publication des empreintes de transaction des tentatives de double dépense InstantSend dans &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Error loading %s: You can't enable HD on a already existing non-HD wallet</source>
-        <translation>Erreur en chargeant %s : Impossible d'activer HD sur un portefeuille non-HD déjà existant</translation>
+        <source>Cannot provide specific connections and have addrman find outgoing connections at the same.</source>
+        <translation>Impossible de fournir des connexions spécifiques tout en cherchant des connexions sortantes avec addrman.</translation>
     </message>
     <message>
         <source>Found unconfirmed denominated outputs, will wait till they confirm to continue.</source>
         <translation>Détection de sorties de coupures non confirmées, attente de leur confirmation pour continuer.</translation>
     </message>
     <message>
-        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
-        <translation>Degré de profondeur de la vérification des blocs -checkblocks (0-4, par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
-        <translation>Si paytxfee n'est pas indiqué, inclure assez de frais pour que les transactions commencent leur confirmation en moyenne dans les n blocs (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>If this block is in the chain assume that it and its ancestors are valid and potentially skip their script verification (0 to verify all, default: %s, testnet: %s)</source>
-        <translation>Si ce bloc est dans la chaîne, considérer que lui et ses parents sont valides et omettre éventuellement la vérification de script (0 pour les vérifier tous, par défaut : %s, réseau de test : %s)</translation>
+        <source>Invalid -socketevents ('%s') specified. Only these modes are supported: %s</source>
+        <translation>Les -socketevents ('%s') spécifiés ne sont pas valides. Seuls ces modes sont compatibles : %s</translation>
     </message>
     <message>
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s' (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
         <translation>Montant invalide pour -maxtxfee=&lt;montant&gt; : « %s » (doit être au moins du montant de frais minrelay de %s pour éviter des transactions bloquées)</translation>
     </message>
     <message>
-        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
-        <translation>Maintenir un index complet des transactions, utilisé par l'appel rpc getrawtransaction (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Make sure to encrypt your wallet and delete all non-encrypted backups after you verified that wallet works!</source>
-        <translation>Assurez-vous de chiffrer votre portefeuille, et effacez toutes vos sauvegardes non chiffrées après avoir vérifié que ce portefeuille marche !</translation>
-    </message>
-    <message>
-        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
-        <translation>Taille maximale des données dans les transactions support de données que l'on relaye et mine (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
-        <translation>Délai en secondes de refus de reconnexion pour les pairs présentant un mauvais comportement (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
-        <translation>Extraire les informations de débogage (par défaut : %u, fournir &lt;category&gt; est optionnel)</translation>
-    </message>
-    <message>
-        <source>Overrides minimum spork signers to change spork value. Only useful for regtest and devnet. Using this on mainnet or testnet will ban you.</source>
-        <translation>Ignore le nombre minimal de signataires spork pour la modification de la valeur de spork. Utile seulement pour les réseaux d'enregistrement et de développement. Utiliser ceci sur les réseaux principal ou de test entraînera votre bannissement.</translation>
-    </message>
-    <message>
-        <source>Use N separate masternodes in parallel to mix funds (%u-%u, default: %u)</source>
-        <translation>Utiliser en parallèle N masternodes distincts pour mélanger les fonds (%u-%u, par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
-        <translation>Utiliser un serveur proxy SOCKS5 séparé pour atteindre les pairs par les services cachés de Tor (par défaut : %s)</translation>
-    </message>
-    <message>
-        <source>User defined mnemonic for HD wallet (bip39). Only has effect during wallet creation/first start (default: randomly generated)</source>
-        <translation>Mnémonique défini par l'utilisateur pour le portefeuille HD (bip39). N'a d'effet que durant la création ou le premier lancement du portefeuille (défaut : généré aléatoirement)</translation>
-    </message>
-    <message>
-        <source>User defined seed for HD wallet (should be in hex). Only has effect during wallet creation/first start (default: randomly generated)</source>
-        <translation>Graine définie par l'utilisateur pour le portefeuille HD (devrait être en hexadécimal). N'a d'effet que durant la création ou le premier lancement du portefeuille (défaut : générée aléatoirement)</translation>
-    </message>
-    <message>
-        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
-        <translation>Pairs en liste blanche ne peuvent être bannis pour DoS et leurs transactions sont toujours relayées, même si elles sont déjà en mémoire, utile par ex. pour une passerelle</translation>
-    </message>
-    <message>
-        <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
-        <translation>Vous devez reconstruire la base de données en utilisant -reindex-chainstate pour modifier -txindex</translation>
-    </message>
-    <message>
-        <source>You should specify a masternodeblsprivkey in the configuration. Please see documentation for help.</source>
-        <translation>Vous devriez indiquer une "masternodeprivkey" dans la configuration. Veuillez consulter la documentation pour en savoir plus.</translation>
-    </message>
-    <message>
-        <source>(default: %s)</source>
-        <translation>(par défaut: %s)</translation>
-    </message>
-    <message>
-        <source>Accept public REST requests (default: %u)</source>
-        <translation>Accepter les requetes REST publiques (par défaut: %u)</translation>
-    </message>
-    <message>
-        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
-        <translation>Toujours requêter via recherche DNS pour des adresses de pairs (par défaut: %u)</translation>
+        <source>Transaction index can't be disabled with governance validation enabled. Either start with -disablegovernance command line switch or enable transaction index.</source>
+        <translation>L'index de transaction ne peut pas être désactivé lorsque la validation de gouvernance est activée. Démarrez en ligne de commande avec l'argument -disablegovernance, ou bien activez l'index de transaction.</translation>
     </message>
     <message>
         <source>Can't mix: no compatible inputs found!</source>
         <translation>Impossible de mélanger : pas d'entrées compatibles trouvées !</translation>
     </message>
     <message>
-        <source>Chain selection options:</source>
-        <translation>Options de sélection de chaîne :</translation>
-    </message>
-    <message>
-        <source>Connect through SOCKS5 proxy</source>
-        <translation>Connexion à travers un serveur mandataire SOCKS5</translation>
-    </message>
-    <message>
-        <source>Connect to KeePassHttp on port &lt;port&gt; (default: %u)</source>
-        <translation>Connecter à KeePassHttp sur le port &lt;port&gt; (par défaut: %u)</translation>
-    </message>
-    <message>
-        <source>Enable the client to act as a masternode (0-1, default: %u)</source>
-        <translation>Autoriser le client à agir en tant que masternode (0-1, par défaut : %u)</translation>
-    </message>
-    <message>
         <source>Entry exceeds maximum size.</source>
         <translation>L'entrée dépasse la taille maximale.</translation>
-    </message>
-    <message>
-        <source>Error loading %s: You can't disable HD on a already existing HD wallet</source>
-        <translation>Erreur au chargement de %s : Impossible de désactiver HD sur un portefeuille HD déjà existant</translation>
     </message>
     <message>
         <source>Failed to load fulfilled requests cache from</source>
@@ -4255,10 +4220,6 @@
         <translation>Échec du chargement du cache des masternodes depuis</translation>
     </message>
     <message>
-        <source>Failed to load masternode payments cache from</source>
-        <translation>Échec du chargement du cache des paiements de masternode depuis</translation>
-    </message>
-    <message>
         <source>Found enough users, signing ( waiting %s )</source>
         <translation>Nombre suffisant d'utilisateurs trouvé, signature ( attente %s )</translation>
     </message>
@@ -4267,16 +4228,8 @@
         <translation>Nombre suffisant d'utilisateurs trouvé, signature ...</translation>
     </message>
     <message>
-        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
-        <translation>Nombre de blocs à vérifier au démarrage (par défaut : %u, 0 = tous)</translation>
-    </message>
-    <message>
         <source>Importing...</source>
         <translation>Importation...</translation>
-    </message>
-    <message>
-        <source>Include IP addresses in debug output (default: %u)</source>
-        <translation>Inclure les adresses IP dans la sortie debug (par défaut: %u)</translation>
     </message>
     <message>
         <source>Incompatible mode.</source>
@@ -4303,20 +4256,12 @@
         <translation>Fonds insuffisants</translation>
     </message>
     <message>
-        <source>Invalid -onion address: '%s'</source>
-        <translation>Adresse -onion invalide : « %s »</translation>
-    </message>
-    <message>
-        <source>Invalid -proxy address: '%s'</source>
-        <translation>Adresse -proxy invalide : « %s »</translation>
+        <source>Invalid amount for -discardfee=&lt;amount&gt;: '%s'</source>
+        <translation>Montant invalide pour -discardfee=&lt;montant&gt; : « %s »</translation>
     </message>
     <message>
         <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s' (must be at least %s)</source>
         <translation>Montant invalide pour -paytxfee=&lt;montant&gt; : « %s » (minimum possible: %s)</translation>
-    </message>
-    <message>
-        <source>Invalid masternodeblsprivkey. Please see documenation.</source>
-        <translation>masternodeblsprivkey invalide. Veuillez vous référer à la documentation.</translation>
     </message>
     <message>
         <source>Invalid minimum number of spork signers specified with -minsporkkeys</source>
@@ -4325,14 +4270,6 @@
     <message>
         <source>Keypool ran out, please call keypoolrefill first</source>
         <translation>La réserve de clefs est épuisée, veuillez d'abord utiliser keypoolrefill</translation>
-    </message>
-    <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation>Écouter les connexions JSON-RPC sur &lt;port&gt; (par défaut : %u ou tesnet : %u)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation>Écouter les connexions sur &lt;port&gt; (par défaut: %u ou testnet: %u)</translation>
     </message>
     <message>
         <source>Loading banlist...</source>
@@ -4347,32 +4284,12 @@
         <translation>Chargement du cache de masternode...</translation>
     </message>
     <message>
-        <source>Loading masternode payment cache...</source>
-        <translation>Chargement du cache de paiement masternode...</translation>
-    </message>
-    <message>
         <source>Lock is already in place.</source>
         <translation>Verrou déjà en place.</translation>
     </message>
     <message>
-        <source>Lock masternodes from masternode configuration file (default: %u)</source>
-        <translation>Vérouiller les masternodes depuis le fichier de configuration masternode (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation>Tampon maximal de réception par connexion, &lt;n&gt;*1000 octets (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation>Tampon maximal d'envoi par connexion », &lt;n&gt;*1000 octets (par défaut : %u)</translation>
-    </message>
-    <message>
         <source>Mixing in progress...</source>
         <translation>Mélange en cours...</translation>
-    </message>
-    <message>
-        <source>Mnemonic passphrase is too long, must be at most 256 characters</source>
-        <translation>La phrase de passe mnémonique est trop longue, elle ne peut dépasser 256 caractères</translation>
     </message>
     <message>
         <source>Need to specify a port with -whitebind: '%s'</source>
@@ -4387,120 +4304,20 @@
         <translation>Aucun masternode compatible trouvé.</translation>
     </message>
     <message>
+        <source>Not enough funds to mix.</source>
+        <translation>Pas assez de fonds à mélanger.</translation>
+    </message>
+    <message>
         <source>Not in the Masternode list.</source>
         <translation>Absent de la liste des masternodes.</translation>
-    </message>
-    <message>
-        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
-        <translation>Se connecter uniquement aux nœuds du réseau &lt;net&gt; (IPv4, IPv6 ou onion)</translation>
-    </message>
-    <message>
-        <source>Port: %d</source>
-        <translation>Port : %d</translation>
-    </message>
-    <message>
-        <source>Prepend debug output with timestamp (default: %u)</source>
-        <translation>Ajouter l'horodatage au début de la sortie de débogage (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Rebuild chain state and block index from the blk*.dat files on disk</source>
-        <translation>Reconstruire l'état de chaîne et l'index de bloc à partir des fichiers blk*.dat sur le disque</translation>
-    </message>
-    <message>
-        <source>Rebuild chain state from the currently indexed blocks</source>
-        <translation>Reconstruire l'état de chaîne à partir des blocs actuellement indexés</translation>
-    </message>
-    <message>
-        <source>Send trace/debug info to debug.log file (default: %u)</source>
-        <translation>Envoyer les informations de débogage/trace au fichier debug.log (par défaut: %u)</translation>
-    </message>
-    <message>
-        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
-        <translation>N'envoyer que des transactions sans frais si possible (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
-        <translation>Définir la taille de la réserve de clefs à &lt;n&gt; (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Set the masternode BLS private key</source>
-        <translation>Définir la clé privée BLS du masternode</translation>
-    </message>
-    <message>
-        <source>Set the number of threads to service RPC calls (default: %d)</source>
-        <translation>Définir le nombre de fils d’exécution pour desservir les appels RPC (par défaut : %d)</translation>
-    </message>
-    <message>
-        <source>Specify configuration file (default: %s)</source>
-        <translation>Définir le fichier de configuration (par défaut : %s)</translation>
-    </message>
-    <message>
-        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
-        <translation>Spécifier le délai d'expiration de la connexion en millisecondes (minimum : 1, par défaut : %d)</translation>
-    </message>
-    <message>
-        <source>Specify masternode configuration file (default: %s)</source>
-        <translation>Définir le fichier de configuration du masternode (par défaut : %s)</translation>
-    </message>
-    <message>
-        <source>Specify pid file (default: %s)</source>
-        <translation>Définir le fichier pid (défaut : %s)</translation>
-    </message>
-    <message>
-        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
-        <translation>Dépenser la monnaie non confirmée lors de l'envoi de transactions (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Submitted following entries to masternode: %u / %d</source>
-        <translation>Les entrées suivantes ont été envoyées au masternode: %u / %d</translation>
-    </message>
-    <message>
-        <source>Submitted to masternode, waiting for more entries ( %u / %d ) %s</source>
-        <translation>Envoyé au masternode, en attente d'entrées supplémentaires ( %u / %d ) %s</translation>
     </message>
     <message>
         <source>Submitted to masternode, waiting in queue %s</source>
         <translation>Soumis au masternode, dans la file d'attente %s</translation>
     </message>
     <message>
-        <source>Synchroning blockchain...</source>
-        <translation>Synchronisation de la chaîne de blocs...</translation>
-    </message>
-    <message>
-        <source>Synchronization failed</source>
-        <translation>La synchronisation a échoué</translation>
-    </message>
-    <message>
         <source>Synchronization finished</source>
         <translation>La synchronisation est terminée</translation>
-    </message>
-    <message>
-        <source>Synchronizing masternodes...</source>
-        <translation>Synchronisation des masternodes...</translation>
-    </message>
-    <message>
-        <source>This is not a Masternode.</source>
-        <translation>Ceci n'est pas un masternode.</translation>
-    </message>
-    <message>
-        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
-        <translation>Seuil de déconnexion des pairs présentant un mauvais comportement (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Too many %f denominations, removing.</source>
-        <translation>Trop de coupures %f, suppression en cours.</translation>
-    </message>
-    <message>
-        <source>Too many %f denominations, skipping.</source>
-        <translation>Trop de coupures %f, on ignore.</translation>
-    </message>
-    <message>
-        <source>Tor control port password (default: empty)</source>
-        <translation>Mot de passe pour le port de contrôle Tor (par défaut : vide)</translation>
-    </message>
-    <message>
-        <source>Tor control port to use if onion listening enabled (default: %s)</source>
-        <translation>Port de contrôle Tor à utiliser si l'écoute sur onion est activée (par défaut : %s)</translation>
     </message>
     <message>
         <source>Unable to start HTTP server. See debug log for details.</source>
@@ -4523,148 +4340,60 @@
         <translation>Paramètre non supporté -tor trouvé, utiliser -onion.</translation>
     </message>
     <message>
-        <source>Upgrade wallet to latest format on startup</source>
-        <translation>Mettre à jour le portefeuille vers le format le plus récent au démarrage</translation>
-    </message>
-    <message>
-        <source>Use KeePass 2 integration using KeePassHttp plugin (default: %u)</source>
-        <translation>Utiliser l'intégration KeePass 2 en utilisant le greffon KeePassHttp (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Use UPnP to map the listening port (default: %u)</source>
-        <translation>Utiliser l'UPnP pour mapper le port d'écoute (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Use the test chain</source>
-        <translation>Utiliser la chaîne de test</translation>
-    </message>
-    <message>
         <source>User Agent comment (%s) contains unsafe characters.</source>
         <translation>Le commentaire User Agent (%s) contient des caractères dangereux.</translation>
+    </message>
+    <message>
+        <source>Verifying wallet(s)...</source>
+        <translation>Vérification du ou des portefeuille(s)…</translation>
     </message>
     <message>
         <source>Will retry...</source>
         <translation>Va réessayer ...</translation>
     </message>
     <message>
-        <source>Invalid masternodeprivkey. Please see documenation.</source>
-        <translation>masternodeprivkey invalide. Veuillez vous référer à la documentation.</translation>
-    </message>
-    <message>
         <source>Can't find random Masternode.</source>
         <translation>Masternode aléatoire introuvable.</translation>
+    </message>
+    <message>
+        <source>%s can't be lower than %s</source>
+        <translation>%s ne peut pas être inférieur à %s</translation>
+    </message>
+    <message>
+        <source>%s is idle.</source>
+        <translation>%s est inactif.</translation>
+    </message>
+    <message>
+        <source>%s request incomplete: %s</source>
+        <translation>Requête %s incomplète : %s</translation>
     </message>
     <message>
         <source>Can't mix while sync in progress.</source>
         <translation>Impossible de mélanger pendant la synchronisation.</translation>
     </message>
     <message>
-        <source>Could not parse masternode.conf</source>
-        <translation>Impossible d'analyser masternode.conf</translation>
-    </message>
-    <message>
         <source>Invalid netmask specified in -whitelist: '%s'</source>
         <translation>Masque de réseau inconnu spécifié sur -whitelist : « %s »</translation>
-    </message>
-    <message>
-        <source>Invalid port detected in masternode.conf</source>
-        <translation>Port invalide détecté dans masternode.conf</translation>
     </message>
     <message>
         <source>Invalid script detected.</source>
         <translation>Script invalide détecté.</translation>
     </message>
     <message>
-        <source>KeePassHttp id for the established association</source>
-        <translation>Id KeePassHttp pour l'association établie</translation>
-    </message>
-    <message>
-        <source>KeePassHttp key for AES encrypted communication with KeePass</source>
-        <translation>Clef KeePassHttp pour la communication chiffrée AES avec KeePass</translation>
-    </message>
-    <message>
-        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
-        <translation>Garder au plus &lt;n&gt; transactions sans connexion en mémoire (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Disable all DMS specific functionality (Masternodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</source>
-        <translation>Désactiver toutes les fonctionnalités liées à DMS (masternodes, PrivateSend, InstantSend, gouvernance) (0-1, par défaut : %u)</translation>
-    </message>
-    <message>
         <source>%s file contains all private keys from this wallet. Do not share it with anyone!</source>
         <translation>Le fichier %s contient toutes les clés privées de ce portefeuille. Ne le partagez avec personne !</translation>
     </message>
     <message>
-        <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
-        <translation>Découvrir sa propre adresse IP (par défaut : 1 lors de l'écoute et si aucun -externalip ou -proxy)</translation>
-    </message>
-    <message>
-        <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
-        <translation>Ne pas garder de transactions dans la zone mémoire plus de &lt;n&gt; heures (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Enable InstantSend, show confirmations for locked transactions (0-1, default: %u)</source>
-        <translation>Activer InstantSend, montrer les confirmations pour les transactions verrouillées (0-1, par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Enable multiple PrivateSend mixing sessions per block, experimental (0-1, default: %u)</source>
-        <translation>Active de multiples sessions de mélange PrivateSend par blocs, expérimental (0-1, par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Enable use of automated PrivateSend for funds stored in this wallet (0-1, default: %u)</source>
-        <translation>Activer l'utilisation automatique de PrivateSend pour les fonds stockés dans ce portefeuille (0-1, par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Execute command when a wallet InstantSend transaction is successfully locked (%s in cmd is replaced by TxID)</source>
-        <translation>Exécuter la commande lorsqu'une transaction InstantSend de portefeuille est bloquée avec succès (%s dans la commande est remplacée par TxID)</translation>
-    </message>
-    <message>
-        <source>Extra transactions to keep in memory for compact block reconstructions (default: %u)</source>
-        <translation>Transactions supplémentaires à conserver en mémoire pour les reconstructions de bloc compact (par défaut : %u)</translation>
+        <source>-masternode option is deprecated and ignored, specifying -masternodeblsprivkey is enough to start this node as a masternode.</source>
+        <translation>L'option -masternode est obsolète et ignorée. Indiquer -masternodeblsprivkey suffit à démarrer ce nœud en tant que masternode.</translation>
     </message>
     <message>
         <source>Failed to create backup, file already exists! This could happen if you restarted wallet in less than 60 seconds. You can continue if you are ok with this.</source>
         <translation>La création de la sauvegarde a échoué, le fichier existe déjà ! Cela peut arriver si vous avez redémarré le portefeuille il y a moins de 60 secondes. Vous pouvez continuer si cela ne vous pose pas de problème.</translation>
     </message>
     <message>
-        <source>Fees (in %s/kB) smaller than this are considered zero fee for relaying, mining and transaction creation (default: %s)</source>
-        <translation>Les frais (en %s/ko) inférieurs à ce seuil sont considérés comme nuls pour la retransmission, le minage et pour la création de transactions (par défaut : %s)</translation>
-    </message>
-    <message>
-        <source>Fees (in %s/kB) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Les frais (en %s/ko) inférieurs à ce seuil sont considérés comme nuls pour la création de transactions (par défaut : %s)</translation>
-    </message>
-    <message>
-        <source>If &lt;category&gt; is not supplied or if &lt;category&gt; = 1, output all debugging information.</source>
-        <translation>Si &lt;category&gt; n'est pas indiqué ou si &lt;category&gt; = 1, extraire toutes les données de débogage.</translation>
-    </message>
-    <message>
-        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 DMS.</source>
-        <translation>InstantSend ne supporte pas encore des transferts aussi élevés. Les transactions sont pour le moment limitées à %1 DMS.</translation>
-    </message>
-    <message>
-        <source>InstantSend requires inputs with at least %d confirmations, you might need to wait a few minutes and try again.</source>
-        <translation>InstantSend nécessite des entrées avec au moins %d confirmations. Vous devriez attendre quelques minutes avant de réessayer.</translation>
-    </message>
-    <message>
-        <source>Maintain a full address index, used to query for the balance, txids and unspent outputs for addresses (default: %u)</source>
-        <translation>Maintenir un index complet des transactions, utilisé pour requêter le solde, txids et sorties non dépensées par adresses (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Maintain a full spent index, used to query the spending txid and input index for an outpoint (default: %u)</source>
-        <translation>Maintenir un index complet des dépenses, utilisé pour requêter les transactions de dépenses et l'index d'entrée d'un point de sortie (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Maintain a timestamp index for block hashes, used to query blocks hashes by a range of timestamps (default: %u)</source>
-        <translation>Maintenir un index d'horodatage des hachages de bloc, utilisé pour requêter les hachages de blocs par une plage de temps (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Maintain at most &lt;n&gt; connections to peers (temporary service connections excluded) (default: %u)</source>
-        <translation>Garder au plus &lt;n&gt; connexions avec les pairs (services temporaires de connexions exclus) (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>PrivateSend uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.</source>
-        <translation>PrivateSend utilise des montants libellés exacts pour envoyer des fonds, vous pourriez simplement avoir besoin d'anonymiser plus de fonds.</translation>
+        <source>Make sure to encrypt your wallet and delete all non-encrypted backups after you have verified that the wallet works!</source>
+        <translation>Assurez-vous de chiffrer votre portefeuille, et effacez toutes vos sauvegardes non chiffrées après avoir vérifié que ce portefeuille marche !</translation>
     </message>
     <message>
         <source>Prune configured below the minimum of %d MiB.  Please use a higher number.</source>
@@ -4675,20 +4404,8 @@
         <translation>Élagage : la dernière synchronisation de portefeuille va au-delà des données élaguées. Vous devez -reindex er (télécharger la chaîne complète de nouveau dans le cas d'un nœud élagué)</translation>
     </message>
     <message>
-        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
-        <translation>Rendre les Identifiant aléatoires pour chaque connection au proxy. Ceci active l'isolation de flux Tor (par défaut : %u)</translation>
-    </message>
-    <message>
         <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
         <translation>Les re-balayages ne sont pas possibles en mode élagué. Vous devrez utiliser -reindex qui va télécharger la chaîne complète de nouveau.</translation>
-    </message>
-    <message>
-        <source>Specify full path to directory for automatic wallet backups (must exist)</source>
-        <translation>Spécifiez le chemin complet vers le répertoire pour la sauvegarde automatique de portefeuille (doit exister)</translation>
-    </message>
-    <message>
-        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
-        <translation>Supporte le filtrage des blocs et transactions par filtres bloom (par défaut : %u)</translation>
     </message>
     <message>
         <source>The block database contains a block which appears to be from the future. This may be due to your computer's date and time being set incorrectly. Only rebuild the block database if you are sure that your computer's date and time are correct</source>
@@ -4703,28 +4420,12 @@
         <translation>La taille totale de la chaîne de version réseau (%i) dépasse la taille maximum (%i). Réduisez le nombre ou la taille des uacomments.</translation>
     </message>
     <message>
-        <source>Transaction index can't be disabled in full mode. Either start with -litemode command line switch or enable transaction index.</source>
-        <translation>L'index de transaction ne peut pas être désactivé en mode complet. Démarrez en ligne de commande avec l'argument -litemode, ou bien activez l'index de transaction.</translation>
-    </message>
-    <message>
-        <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
-        <translation>Essaie de limiter le trafic sortant sous la cible indiquée (en Mio par 24h), 0 = sans limite (par défaut : %d)</translation>
-    </message>
-    <message>
-        <source>Unable to locate enough PrivateSend denominated funds for this transaction.</source>
-        <translation>Impossible de trouver suffisamment de fonds PrivateSend pour cette transaction.</translation>
-    </message>
-    <message>
         <source>Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
         <translation>Paramètre obsolète -socks utilisé. Il n'est plus possible d'indiquer la version SOCKS, seuls les proxy SOCKS5 sont supportés.</translation>
     </message>
     <message>
         <source>Unsupported argument -whitelistalwaysrelay ignored, use -whitelistrelay and/or -whitelistforcerelay.</source>
         <translation>Paramètre obsolète -whitelistalwaysrelay ignoré, utilisez -whitelistrelay et/ou -whitelistforcerelay.</translation>
-    </message>
-    <message>
-        <source>Use UPnP to map the listening port (default: 1 when listening and no -proxy)</source>
-        <translation>Utiliser l'UPnP pour mapper le port d'écoute (par défaut : 1 lors de l'écoute et pas de -proxy)</translation>
     </message>
     <message>
         <source>WARNING! Failed to replenish keypool, please unlock your wallet to do so.</source>
@@ -4739,84 +4440,60 @@
         <translation>Attention : un bloc de version inconnue est en train d'être miné ! Il est possible que des règles inconnues soient en vigueur.</translation>
     </message>
     <message>
-        <source>You are starting in lite mode, all DMS-specific functionality is disabled.</source>
-        <translation>Vous démarrez en mode allégé : toutes les fonctionnalités propres à DMS sont désactivées.</translation>
+        <source>You need to rebuild the database using -reindex to change -timestampindex</source>
+        <translation>Vous devez reconstruire la base de données avec l'option -reindex afin de modifier -timestampindex</translation>
     </message>
     <message>
         <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
         <translation>Vous devez reconstruire la base de données en utilisant -reindex pour retourner en mode non-élagué. Ceci aura pour effet de télécharger à nouveau la chaîne de blocs complète.</translation>
     </message>
     <message>
-        <source>(%d could be used only on mainnet)</source>
-        <translation>(%d devraît être utilisée que sur mainnet)</translation>
-    </message>
-    <message>
-        <source>(default: %u)</source>
-        <translation>(par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>(must be %d for mainnet)</source>
-        <translation>(doit être %d pour mainnet)</translation>
+        <source>-litemode is deprecated.</source>
+        <translation>-litemode est obsolète.</translation>
     </message>
     <message>
         <source>-maxmempool must be at least %d MB</source>
         <translation>-maxmempool doit être au moins %d Mo</translation>
     </message>
     <message>
-        <source>&lt;category&gt; can be:</source>
-        <translation>&lt;category&gt; peut être :</translation>
-    </message>
-    <message>
-        <source>Append comment to the user agent string</source>
-        <translation>Apposer un commentaire à la chaîne d'agent utilisateur</translation>
-    </message>
-    <message>
         <source>Automatic backups disabled</source>
         <translation>Sauvegardes automatiques désactivées</translation>
-    </message>
-    <message>
-        <source>Automatically create Tor hidden service (default: %d)</source>
-        <translation>Créer un service caché Tor automatiquement (par défaut : %d)</translation>
     </message>
     <message>
         <source>ERROR! Failed to create automatic backup</source>
         <translation>ERREUR ! Impossible de créer la sauvegarde automatique</translation>
     </message>
     <message>
-        <source>Enable publish hash block in &lt;address&gt;</source>
-        <translation>Activer la publication du hachage de bloc dans &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish hash of governance objects (like proposals) in &lt;address&gt;</source>
-        <translation>Activer la publication du hachage des objets de gouvernance (tels que les propositions budgétaires) dans &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish hash of governance votes in &lt;address&gt;</source>
-        <translation>Activer la publication du hachage des votes de gouvernance dans &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish hash transaction (locked via InstantSend) in &lt;address&gt;</source>
-        <translation>Activer la publication du hachage de transaction (verrouillée via InstantSend) dans &lt;address&gt; </translation>
-    </message>
-    <message>
-        <source>Enable publish hash transaction in &lt;address&gt;</source>
-        <translation>Activer la publication du hachage de transaction dans &lt;address&gt; </translation>
-    </message>
-    <message>
-        <source>Enable publish raw block in &lt;address&gt;</source>
-        <translation>Activer la publication du bloc brut dans &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish raw transaction (locked via InstantSend) in &lt;address&gt;</source>
-        <translation>Activer la publication de la transaction brute (verrouillée via InstantSend) dans &lt;address&gt; </translation>
-    </message>
-    <message>
-        <source>Enable publish raw transaction in &lt;address&gt;</source>
-        <translation>Activer la publication de la transaction brute dans &lt;address&gt; </translation>
+        <source>Error upgrading evo database</source>
+        <translation>Erreur en mettant à jour la base de données evo</translation>
     </message>
     <message>
         <source>Error: A fatal internal error occurred, see debug.log for details</source>
         <translation>Erreur : Une erreur interne fatale est survenue, voir debug.log pour les détails</translation>
+    </message>
+    <message>
+        <source>Error: failed to add socket to epollfd (epoll_ctl returned error %s)</source>
+        <translation>Erreur : impossible d'ajouter le socket à epollfd (epoll_ctl a renvoyé l'erreur %s)</translation>
+    </message>
+    <message>
+        <source>Exceeded max tries.</source>
+        <translation>Le nombre maximal d'essais est dépassé.</translation>
+    </message>
+    <message>
+        <source>Failed to clear fulfilled requests cache at</source>
+        <translation>Échec de l'effacement du cache des requêtes exécutées à</translation>
+    </message>
+    <message>
+        <source>Failed to clear governance cache at</source>
+        <translation>Échec de l'effacement du cache de gouvernance à</translation>
+    </message>
+    <message>
+        <source>Failed to clear masternode cache at</source>
+        <translation>Échec de l'effacement du cache masternode à</translation>
+    </message>
+    <message>
+        <source>Failed to commit EvoDB</source>
+        <translation>Impossible d'atteindre EvoDB</translation>
     </message>
     <message>
         <source>Failed to create backup %s!</source>
@@ -4831,56 +4508,28 @@
         <translation>La suppression de la sauvegarde a échoué, erreur : %s !</translation>
     </message>
     <message>
-        <source>Failed to load InstantSend data cache from</source>
-        <translation>Échec du chargement du cache de données InstantSend depuis</translation>
-    </message>
-    <message>
         <source>Failed to load sporks cache from</source>
         <translation>Échec du chargement du cache des sporks depuis</translation>
     </message>
     <message>
-        <source>Failed to parse host:port string</source>
-        <translation>L'analyse de la chaîne hôte:port a échoué</translation>
-    </message>
-    <message>
-        <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
-        <translation>Frais (en %s/ko) à ajouter aux transactions que vous envoyez (par défaut : %s)</translation>
-    </message>
-    <message>
-        <source>Imports blocks from external blk000??.dat file on startup</source>
-        <translation>Importe des blocs depuis un fichier blk000??.dat externe au démarrage</translation>
-    </message>
-    <message>
-        <source>InstantSend options:</source>
-        <translation>Options InstantSend :</translation>
+        <source>Failed to rescan the wallet during initialization</source>
+        <translation>Échec de la réinspection du portefeuille pendant le démarrage</translation>
     </message>
     <message>
         <source>Invalid amount for -fallbackfee=&lt;amount&gt;: '%s'</source>
         <translation>Montant invalide pour -fallbackfee=&lt;montant&gt; : « %s »</translation>
     </message>
     <message>
-        <source>Keep the transaction memory pool below &lt;n&gt; megabytes (default: %u)</source>
-        <translation>Garder la zone mémoire de transactions en-dessous de &lt;n&gt; Mo (par défaut : %u)</translation>
+        <source>Invalid masternodeblsprivkey. Please see documentation.</source>
+        <translation>masternodeblsprivkey invalide. Veuillez vous référer à la documentation.</translation>
     </message>
     <message>
-        <source>Last PrivateSend was too recent.</source>
-        <translation>Le dernier PrivateSend est trop récent.</translation>
+        <source>It has been replaced by -disablegovernance.</source>
+        <translation>Il a été remplacé par -disablegovernance.</translation>
     </message>
     <message>
-        <source>Last successful PrivateSend action was too recent.</source>
-        <translation>La dernière action PrivateSend réussie est trop récente.</translation>
-    </message>
-    <message>
-        <source>Line: %d</source>
-        <translation>Ligne : %d</translation>
-    </message>
-    <message>
-        <source>Loading InstantSend data cache...</source>
-        <translation>Chargement du cache de données d'InstantSend…</translation>
-    </message>
-    <message>
-        <source>Loading addresses...</source>
-        <translation>Chargement des adresses...</translation>
+        <source>Its replacement -disablegovernance has been forced instead.</source>
+        <translation>L'argument de remplacement -disablegovernance a été imposé à la place.</translation>
     </message>
     <message>
         <source>Loading block index...</source>
@@ -4903,32 +4552,12 @@
         <translation>Chargement du portefeuille...</translation>
     </message>
     <message>
-        <source>Location of the auth cookie (default: data dir)</source>
-        <translation>Localisation du cookie d'authentification (par défaut : répertoire des données)</translation>
-    </message>
-    <message>
-        <source>Make the wallet broadcast transactions</source>
-        <translation>Diffuser les transactions via le portefeuille</translation>
-    </message>
-    <message>
-        <source>Masternode cache is empty, skipping payments and governance cache...</source>
-        <translation>Le cache de masternode est vide, omission du cache des paiements et de gouvernance...</translation>
-    </message>
-    <message>
-        <source>Masternode options:</source>
-        <translation>Options masternode :</translation>
-    </message>
-    <message>
         <source>Masternode queue is full.</source>
         <translation>La file d'attente du masternode est pleine.</translation>
     </message>
     <message>
         <source>Masternode:</source>
         <translation>Masternode :</translation>
-    </message>
-    <message>
-        <source>Minimum bytes per sigop in transactions we relay and mine (default: %u)</source>
-        <translation>Octets minimums par sigop dans les transactions que nous transmettont et les notres (par défaut : %u)</translation>
     </message>
     <message>
         <source>Missing input transaction information.</source>
@@ -4943,14 +4572,6 @@
         <translation>Pas de coupures équivalentes trouvées pour le mélange.</translation>
     </message>
     <message>
-        <source>Node relay options:</source>
-        <translation>Options de nœud de relais :</translation>
-    </message>
-    <message>
-        <source>Non-standard public key detected.</source>
-        <translation>Clef publique non standard détectée.</translation>
-    </message>
-    <message>
         <source>Not compatible with existing transactions.</source>
         <translation>Non compatible avec les transactions existantes.</translation>
     </message>
@@ -4959,44 +4580,12 @@
         <translation>Pas assez de descripteurs de fichiers disponibles.</translation>
     </message>
     <message>
-        <source>Not enough funds to anonymize.</source>
-        <translation>Pas assez de fonds pour anonymiser.</translation>
-    </message>
-    <message>
-        <source>Number of automatic wallet backups (default: %u)</source>
-        <translation>Nombre de sauvegardes automatiques de portefeuille (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Options:</source>
-        <translation>Options :</translation>
-    </message>
-    <message>
-        <source>Password for JSON-RPC connections</source>
-        <translation>Mot de passe pour les connexions JSON-RPC</translation>
-    </message>
-    <message>
-        <source>Print version and exit</source>
-        <translation>Afficher la version et quitter</translation>
-    </message>
-    <message>
-        <source>PrivateSend is idle.</source>
-        <translation>PrivateSend est inactif.</translation>
-    </message>
-    <message>
-        <source>PrivateSend options:</source>
-        <translation>Options PrivateSend :</translation>
-    </message>
-    <message>
-        <source>PrivateSend request complete:</source>
-        <translation>Requête PrivateSend complète :</translation>
-    </message>
-    <message>
-        <source>PrivateSend request incomplete:</source>
-        <translation>Requête PrivateSend incomplète :</translation>
-    </message>
-    <message>
         <source>Prune cannot be configured with a negative value.</source>
         <translation>L'élagage ne peut être configuré avec une valeur négative.</translation>
+    </message>
+    <message>
+        <source>Prune mode is incompatible with -disablegovernance=false.</source>
+        <translation>Le mode Élaguer est incompatible avec -disablegovernance=false.</translation>
     </message>
     <message>
         <source>Prune mode is incompatible with -txindex.</source>
@@ -5007,12 +4596,28 @@
         <translation>Élagage  du stockage de blocs...</translation>
     </message>
     <message>
-        <source>Rescan the block chain for missing wallet transactions on startup</source>
-        <translation>Réanalyser la chaîne de blocs au démarrage pour les transactions de portefeuille manquantes</translation>
+        <source>Specified -walletdir "%s" does not exist</source>
+        <translation>Le -walletdir spécifié "%s" n'existe pas</translation>
+    </message>
+    <message>
+        <source>Specified -walletdir "%s" is a relative path</source>
+        <translation>Le -walletdir spécifié "%s" est un chemin relatif</translation>
+    </message>
+    <message>
+        <source>Specified -walletdir "%s" is not a directory</source>
+        <translation>Le -walletdir spécifié "%s" n'est pas un répertoire</translation>
+    </message>
+    <message>
+        <source>Synchronizing blockchain...</source>
+        <translation>Synchronisation de la blockchain…</translation>
     </message>
     <message>
         <source>The wallet will avoid paying less than the minimum relay fee.</source>
         <translation>Le porte-monnaie évitera de payer moins que les frais minimaux de relais. </translation>
+    </message>
+    <message>
+        <source>This is expected because you are running a pruned node.</source>
+        <translation>Cela est attendu car vous faites tourner un nœud élagué.</translation>
     </message>
     <message>
         <source>This is the minimum transaction fee you pay on every transaction.</source>
@@ -5032,7 +4637,7 @@
     </message>
     <message>
         <source>Transaction must have at least one recipient</source>
-        <translation>La transaction doit comporter au moins un destinataire</translation>
+        <translation>La transaction doit avoir au moins un destinataire</translation>
     </message>
     <message>
         <source>Transaction too large</source>
@@ -5047,20 +4652,16 @@
         <translation>Impossible de se lier à %s sur cet ordinateur. %s fonctionne probablement déjà.</translation>
     </message>
     <message>
+        <source>Unable to generate initial keys</source>
+        <translation>Impossible de générer les clés initiales</translation>
+    </message>
+    <message>
         <source>Upgrading UTXO database</source>
         <translation>Mise à niveau de la base de données UTXO</translation>
     </message>
     <message>
-        <source>Use devnet chain with provided name</source>
-        <translation>Utiliser la chaîne devnet avec le nom fourni</translation>
-    </message>
-    <message>
-        <source>Wallet debugging/testing options:</source>
-        <translation>Options de débogage/de test du porte-monnaie :</translation>
-    </message>
-    <message>
-        <source>Wallet is not initialized</source>
-        <translation>Le portefeuille n'est pas initialisé</translation>
+        <source>Wallet %s resides outside wallet directory %s</source>
+        <translation>Le portefeuille %s réside en dehors du répertoire de portefeuille %s</translation>
     </message>
     <message>
         <source>Wallet needed to be rewritten: restart %s to complete</source>
@@ -5075,16 +4676,20 @@
         <translation>La création du répertoire de sauvegarde du portefeuille %s a échoué !</translation>
     </message>
     <message>
-        <source>Whether to operate in a blocks only mode (default: %u)</source>
-        <translation>Opérer en mode blocs uniquement (par défaut : %u)</translation>
+        <source>You can not start a masternode with wallet enabled.</source>
+        <translation>Impossible de démarrer un masternode avec le portefeuille activé.</translation>
     </message>
     <message>
-        <source>You can not start a masternode in lite mode.</source>
-        <translation>Vous ne pouvez pas démarrer un masternode en mode allégé.</translation>
+        <source>You need to rebuild the database using -reindex to change -addressindex</source>
+        <translation>Vous devez reconstruire la base de données avec l'option -reindex afin de modifier -addressindex</translation>
     </message>
     <message>
-        <source>ZeroMQ notification options:</source>
-        <translation>Options de notifications ZeroMQ :</translation>
+        <source>You need to rebuild the database using -reindex to change -spentindex</source>
+        <translation>Vous devez reconstruire la base de données avec l'option -reindex afin de modifier -spentindex</translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex to change -txindex</source>
+        <translation>Vous devez reconstruire la base de données avec l'option -reindex afin de modifier -txindex</translation>
     </message>
     <message>
         <source>no mixing available.</source>
@@ -5095,10 +4700,6 @@
         <translation>voir le fichier debug.log pour les détails.</translation>
     </message>
     <message>
-        <source>RPC server options:</source>
-        <translation>Options du serveur RPC :</translation>
-    </message>
-    <message>
         <source>DMS Core</source>
         <translation>DMS Core</translation>
     </message>
@@ -5107,44 +4708,28 @@
         <translation>Les développeurs de %s</translation>
     </message>
     <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect/-noconnect)</source>
-        <translation>Accepter les connexions de l'extérieur (par défaut : 1, si pas de -proxy ni de -connect/-noconnect)</translation>
+        <source>%s uses exact denominated amounts to send funds, you might simply need to mix some more coins.</source>
+        <translation>%s utilise des montants exacts de coupures pour envoyer des fonds, vous pourriez simplement avoir besoin de mélanger plus de fonds.</translation>
     </message>
     <message>
         <source>Cannot obtain a lock on data directory %s. %s is probably already running.</source>
         <translation>Impossible d’obtenir un verrou sur le répertoire de données %s. %s fonctionne probablement déjà.</translation>
     </message>
     <message>
-        <source>Connect only to the specified node(s); -noconnect or -connect=0 alone to disable automatic connections</source>
-        <translation>Se connecter seulement aux nœud(s) indiqués ; -noconnect ou -connect=0 seul pour désactiver les connexions automatiques</translation>
-    </message>
-    <message>
         <source>Distributed under the MIT software license, see the accompanying file %s or %s</source>
         <translation>Distribué sous la licence MIT d’utilisation d’un logiciel. Consulter le fichier joint %s ou %s</translation>
+    </message>
+    <message>
+        <source>Error loading %s: You can't enable HD on an already existing non-HD wallet</source>
+        <translation>Erreur en chargeant %s : Impossible d'activer HD sur un portefeuille non-HD déjà existant</translation>
     </message>
     <message>
         <source>Error reading %s! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
         <translation>Erreur de lecture de %s ! Toutes les clés ont été lues correctement, mais les données transactionnelles ou les entrées du carnet d’adresses sont peut-être manquantes ou incorrectes.</translation>
     </message>
     <message>
-        <source>Force relay of transactions from whitelisted peers even if they violate local relay policy (default: %d)</source>
-        <translation>Forcer le relais de transactions des pairs de la liste blanche même s’ils transgressent la politique locale de relais (par défaut : %d)</translation>
-    </message>
-    <message>
         <source>Incorrect or no devnet genesis block found. Wrong datadir for devnet specified?</source>
         <translation>Le bloc de genèse devnet est incorrect ou introuvable. Mauvais répertoire de données pour devnet ?</translation>
-    </message>
-    <message>
-        <source>Maximum allowed median peer time offset adjustment. Local perspective of time may be influenced by peers forward or backward by this amount. (default: %u seconds)</source>
-        <translation>Réglage moyen maximal autorisé de décalage de l’heure d’un pair. La perspective locale du temps peut être influencée par les pairs, en avance ou en retard, de cette valeur. (Par défaut : %u secondes)</translation>
-    </message>
-    <message>
-        <source>Maximum total fees (in %s) to use in a single wallet transaction or raw transaction; setting this too low may abort large transactions (default: %s)</source>
-        <translation>Frais totaux maximaux (en %s) à utiliser en une seule transaction de porte-monnaie ou transaction brute ; les définir trop bas pourrait interrompre les grosses transactions (par défaut : %s)</translation>
-    </message>
-    <message>
-        <source>Override spork address. Only useful for regtest and devnet. Using this on mainnet or testnet will ban you.</source>
-        <translation>Ignorer l'adresse spork. Utile seulement pour regtest et devnet. L'utilisation sur mainnet ou testnet entraîne un banissement.</translation>
     </message>
     <message>
         <source>Please check that your computer's date and time are correct! If your clock is wrong, %s will not work properly.</source>
@@ -5155,20 +4740,8 @@
         <translation>Si vous trouvez %s utile, vous pouvez y contribuer. Vous trouverez davantage d’informations à propos du logiciel sur %s.</translation>
     </message>
     <message>
-        <source>Provide liquidity to PrivateSend by infrequently mixing coins on a continual basis (%u-%u, default: %u, 1=very frequent, high fees, %u=very infrequent, low fees)</source>
-        <translation>Fournir de la liquidité à PrivateSend par un mélange occasionnel ou continuel de pièces (%u-%u, par défaut : %u, 1=haute fréquence, frais élevés, %u=très occasionnel, frais bas)</translation>
-    </message>
-    <message>
-        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect/-noconnect)</source>
-        <translation>Requête d'adresses de pairs par consultation DNS, en cas de pénurie d'adresses (par défaut : 1, sauf si -connect/-noconnect)</translation>
-    </message>
-    <message>
-        <source>Reduce storage requirements by enabling pruning (deleting) of old blocks. This allows the pruneblockchain RPC to be called to delete specific blocks, and enables automatic pruning of old blocks if a target size in MiB is provided. This mode is incompatible with -txindex and -rescan. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, 1 = allow manual pruning via RPC, &gt;%u = automatically prune block files to stay under the specified target size in MiB)</source>
-        <translation>Réduire les exigences de stockage en activant l’élagage (suppression) des anciens blocs. Cela permet d’appeler le RPC « pruneblockchain » pour supprimer des blocs précis et active l’élagage automatique des anciens blocs si une taille cible en Mio est fournie. Ce mode n’est pas compatible avec -txindex et -rescan. Avertissement : ramener ce paramètre à sa valeur antérieure exige de retélécharger l’intégralité de la chaîne de blocs (par défaut : 0 = désactiver l’élagage des blocs, 1 = permettre l’élagage manuel par RPC, &gt;%u = élaguer automatiquement les fichiers de blocs pour rester en deçà de la taille cible précisée en Mio).</translation>
-    </message>
-    <message>
-        <source>Set lowest fee rate (in %s/kB) for transactions to be included in block creation. (default: %s)</source>
-        <translation>Définir le taux minimal de frais (en %s/Ko) pour les transactions à inclure dans la création de blocs (par défaut : %s)</translation>
+        <source>This is the transaction fee you may discard if change is smaller than dust at this level</source>
+        <translation>Il s’agit des frais de transaction auxquels vous pouvez renoncer si la monnaie rendue est inférieure à ce qui est considéré comme "poussière" à ce niveau</translation>
     </message>
     <message>
         <source>This is the transaction fee you may pay when fee estimates are not available.</source>
@@ -5179,44 +4752,16 @@
         <translation>Ce produit comprend des logiciels développés par le Projet OpenSSL pour être utilisés dans la boîte à outils OpenSSL %s, et un logiciel cryptographique écrit par Eric Young, ainsi qu’un logiciel UPnP écrit par Thomas Bernard.</translation>
     </message>
     <message>
-        <source>Unable to locate enough PrivateSend non-denominated funds for this transaction.</source>
-        <translation>Impossible de trouver pour cette transaction suffisamment de fonds PrivateSend non libellés.</translation>
-    </message>
-    <message>
-        <source>Use N separate masternodes for each denominated input to mix funds (%u-%u, default: %u)</source>
-        <translation>Utiliser N masternodes distincts pour chaque coupure pour mélanger les fonds (%u-%u, par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Use hierarchical deterministic key generation (HD) after BIP39/BIP44. Only has effect during wallet creation/first start</source>
-        <translation>Utiliser la génération de clé hiérarchique et déterministe (HD) conforme à BIP39/BIP44. N'a d'effet que lors de la création ou du premier lancement du portefeuille.</translation>
-    </message>
-    <message>
-        <source>User defined mnemonic passphrase for HD wallet (BIP39). Only has effect during wallet creation/first start (default: empty string)</source>
-        <translation>Utiliser une phrase de passe mnémonique définie par l'utilisateur pour le portefeuille HD (BIP39). N'a d'effet que lors de la création ou du premier lancement (par défaut : chaîne vide).</translation>
-    </message>
-    <message>
-        <source>Username and hashed password for JSON-RPC connections. The field &lt;userpw&gt; comes in the format: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. A canonical python script is included in share/rpcuser. The client then connects normally using the rpcuser=&lt;USERNAME&gt;/rpcpassword=&lt;PASSWORD&gt; pair of arguments. This option can be specified multiple times</source>
-        <translation>Nom d’utilisateur et mot de passe haché pour les connexions JSON-RPC. Le champ &lt;userpw&gt; est au format : &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. Un script python canonique est inclus dans share/rpcuser. Le client se connecte ensuite normalement en utilisant la paire d’arguments rpcuser=&lt;USERNAME&gt;/rpcpassword=&lt;PASSWORD&gt;. Cette option peut être précisée plusieurs fois.</translation>
-    </message>
-    <message>
-        <source>Wallet will not create transactions that violate mempool chain limits (default: %u)</source>
-        <translation>Un porte-monnaie ne créera aucune transaction qui enfreint les limites de chaîne de la réserve de mémoire (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Warning: At least %d of %d masternodes are running on a newer software version. Please check latest releases, you might need to update too.</source>
-        <translation>Avertissement : au moins %d masternodes sur %d tournent sur une version logicielle plus récente. Veuillez vérifier les dernières mises à jour, car vous pourriez aussi avoir besoin de les appliquer.</translation>
-    </message>
-    <message>
-        <source>Warning: Every masternode (out of %d known ones) is running on a newer software version. Please check latest releases, it's very likely that you missed a major/critical update.</source>
-        <translation>Avertissement : chaque masternode (sur un total de %d connus) tourne sur une version logicielle plus récente. Veuillez vérifier les dernières mises à jour, car il est très probable que vous ayez manqué une mise à jour majeure ou critique.</translation>
+        <source>Unable to replay blocks. You will need to rebuild the database using -reindex-chainstate.</source>
+        <translation>Impossible de repasser les blocs. Vous devez reconstruire la base de données en utilisant -reindex-chainstate.</translation>
     </message>
     <message>
         <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
         <translation>Avertissement : le fichier du porte-monnaie est corrompu, les données ont été récupérées ! Le fichier %s original a été enregistré en tant que %s dans %s ; si votre solde ou vos transactions sont incorrects, vous devriez restaurer une sauvegarde.</translation>
     </message>
     <message>
-        <source>Whitelist peers connecting from the given IP address (e.g. 1.2.3.4) or CIDR notated network (e.g. 1.2.3.0/24). Can be specified multiple times.</source>
-        <translation>Pairs de la liste blanche se connectant à partir de l’adresse IP donnée (p. ex. 1.2.3.4) ou du réseau noté CIDR (p. ex. 1.2.3.0/24). Peut être précisé plusieurs fois.</translation>
+        <source>%d of last 100 blocks have unexpected version</source>
+        <translation>%d des 100 derniers blocs sont d'une version inattendue</translation>
     </message>
     <message>
         <source>%s corrupt, salvage failed</source>
@@ -5231,10 +4776,6 @@
         <translation>La valeur %s est très élevée !</translation>
     </message>
     <message>
-        <source>(press q to shutdown and continue later)</source>
-        <translation>(appuyez sur Q pour quitter et continuer plus tard)</translation>
-    </message>
-    <message>
         <source>-devnet can only be specified once</source>
         <translation>-devnet ne peut être spécifié qu'une seule fois</translation>
     </message>
@@ -5247,16 +4788,12 @@
         <translation>-rpcport doit être spécifié si -devnet et -server le sont déjà</translation>
     </message>
     <message>
-        <source>Allow RFC1918 addresses to be relayed and connected to (default: %u)</source>
-        <translation>Autoriser les adresses RFC1918 à être relayées et pour la connexion (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Attempt to recover private keys from a corrupt wallet on startup</source>
-        <translation>Tenter de récupérer les clés privées d’un porte-monnaie corrompu lors du démarrage</translation>
-    </message>
-    <message>
         <source>Cannot resolve -%s address: '%s'</source>
         <translation>Impossible de résoudre l’adresse -%s : « %s »</translation>
+    </message>
+    <message>
+        <source>Cannot write to data directory '%s'; check permissions.</source>
+        <translation>Impossible d'écrire dans le répertoire de données '%s' ; vérifiez les droits.</translation>
     </message>
     <message>
         <source>Change index out of range</source>
@@ -5279,8 +4816,20 @@
         <translation>Erreur de chargement de %s : le porte-monnaie exige une version plus récente de %s</translation>
     </message>
     <message>
+        <source>Error loading %s: You can't disable HD on an already existing HD wallet</source>
+        <translation>Erreur au chargement de %s : Impossible de désactiver HD sur un portefeuille HD déjà existant</translation>
+    </message>
+    <message>
+        <source>Error loading wallet %s. Duplicate -wallet filename specified.</source>
+        <translation>Erreur au chargement du portefeuille %s. Le nom de fichier -wallet indiqué est en double.</translation>
+    </message>
+    <message>
         <source>Error upgrading chainstate database</source>
         <translation>Erreur de mise à niveau de la base de données d’état de la chaîne</translation>
+    </message>
+    <message>
+        <source>Error: failed to add socket to kqueuefd (kevent returned error %s)</source>
+        <translation>Erreur : impossible d'ajouter le socket à kqueuefd (kevent a renvoyé l'erreur %s)</translation>
     </message>
     <message>
         <source>Failed to find mixing queue to join</source>
@@ -5291,8 +4840,24 @@
         <translation>Impossible de démarrer une nouvelle file de mélange</translation>
     </message>
     <message>
+        <source>Incorrect -rescan mode, falling back to default value</source>
+        <translation>Mode -rescan incorrect, retour à la valeur par défaut</translation>
+    </message>
+    <message>
         <source>Initialization sanity check failed. %s is shutting down.</source>
         <translation>L’initialisation du test de cohérence a échoué. %s est en cours de fermeture. </translation>
+    </message>
+    <message>
+        <source>Inputs vs outputs size mismatch.</source>
+        <translation>Différence de taille entre entrées et sorties.</translation>
+    </message>
+    <message>
+        <source>Invalid -onion address or hostname: '%s'</source>
+        <translation>Adresse ou nom d’hôte -onion invalide : « %s »</translation>
+    </message>
+    <message>
+        <source>Invalid -proxy address or hostname: '%s'</source>
+        <translation>Adresse ou nom d’hôte -proxy invalide : « %s »</translation>
     </message>
     <message>
         <source>Invalid amount for -%s=&lt;amount&gt;: '%s'</source>
@@ -5303,40 +4868,20 @@
         <translation>L'adresse spork spécifiée avec -sporkaddr est invalide</translation>
     </message>
     <message>
-        <source>Keep N DMS anonymized (%u-%u, default: %u)</source>
-        <translation>Conserver N dmss anonymisés (%u-%u, par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Print this help message and exit</source>
-        <translation>Imprimer ce message d’aide et quitter</translation>
-    </message>
-    <message>
-        <source>Receive and display P2P network alerts (default: %u)</source>
-        <translation>Recevoir et afficher les alertes réseau P2P (par défaut : %u)</translation>
+        <source>Loading P2P addresses...</source>
+        <translation>Chargement des adresses P2P...</translation>
     </message>
     <message>
         <source>Reducing -maxconnections from %d to %d, because of system limitations.</source>
         <translation>Réduction de -maxconnections de %d à %d, en raison de limitations du système.</translation>
     </message>
     <message>
-        <source>Relay and mine data carrier transactions (default: %u)</source>
-        <translation>Relayer et miner les transactions de support de données (par défaut : %u)</translation>
-    </message>
-    <message>
-        <source>Relay non-P2SH multisig (default: %u)</source>
-        <translation>Relayer les multisig non-P2SH (par défaut : %u)</translation>
+        <source>Replaying blocks...</source>
+        <translation>Retraitement des blocs…</translation>
     </message>
     <message>
         <source>Rescanning...</source>
         <translation>Nouvelle analyse...</translation>
-    </message>
-    <message>
-        <source>Run in the background as a daemon and accept commands</source>
-        <translation>Fonctionner en arrière-plan en tant que démon et accepter les commandes</translation>
-    </message>
-    <message>
-        <source>Send trace/debug info to console instead of debug.log file</source>
-        <translation>Envoyer les informations de débogage/trace à la console au lieu du fichier debug.log</translation>
     </message>
     <message>
         <source>Session not complete!</source>
@@ -5347,56 +4892,28 @@
         <translation>Session expirée.</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
-        <translation>Définir la taille du cache de la base de données en Mo (%d to %d, default: %d)</translation>
-    </message>
-    <message>
-        <source>Set maximum block size in bytes (default: %d)</source>
-        <translation>Définir la taille minimale de bloc en octets (par défaut : %d)</translation>
-    </message>
-    <message>
-        <source>Set the masternode private key</source>
-        <translation>Définir la clef privée du masternode</translation>
-    </message>
-    <message>
-        <source>Show all debugging options (usage: --help -help-debug)</source>
-        <translation>Montrer toutes les options de débogage (utilisation : --help --help-debug)</translation>
-    </message>
-    <message>
-        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
-        <translation>Réduire le fichier debug.log lors du démarrage du client (par défaut : 1 lorsque -debug n'est pas présent)</translation>
-    </message>
-    <message>
         <source>Signing transaction failed</source>
         <translation>La signature de la transaction a échoué</translation>
     </message>
     <message>
-        <source>Specify data directory</source>
-        <translation>Spécifier le répertoire de données</translation>
+        <source>Specified blocks directory "%s" does not exist.</source>
+        <translation>Le répertoire de données indiqué "%s" n’existe pas.</translation>
     </message>
     <message>
-        <source>Specify wallet file (within data directory)</source>
-        <translation>Spécifiez le fichier de portefeuille (dans le répertoire de données)</translation>
+        <source>Last queue was created too recently.</source>
+        <translation>La dernière file d'attente a été créée trop récemment.</translation>
     </message>
     <message>
-        <source>Specify your own public address</source>
-        <translation>Spécifier votre propre adresse publique</translation>
+        <source>Last successful action was too recent.</source>
+        <translation>La dernière action réussie est trop récente.</translation>
     </message>
     <message>
         <source>Starting network threads...</source>
         <translation>Démarrage des processus réseau...</translation>
     </message>
     <message>
-        <source>Synchronization pending...</source>
-        <translation>Synchronisation en suspens...</translation>
-    </message>
-    <message>
         <source>Synchronizing governance objects...</source>
         <translation>Synchronisation des objets de gouvernance...</translation>
-    </message>
-    <message>
-        <source>Synchronizing masternode payments...</source>
-        <translation>Synchronisation du paiement des masternodes...</translation>
     </message>
     <message>
         <source>The source code is available from %s.</source>
@@ -5435,6 +4952,14 @@
         <translation>Impossible de se lier à %s sur cet ordinateur (erreur bind retournée %s)</translation>
     </message>
     <message>
+        <source>Unable to locate enough mixed funds for this transaction.</source>
+        <translation>Impossible de trouver suffisamment de fonds mélangés pour cette transaction.</translation>
+    </message>
+    <message>
+        <source>Unable to locate enough non-denominated funds for this transaction.</source>
+        <translation>Impossible de trouver pour cette transaction suffisamment de fonds hors coupures.</translation>
+    </message>
+    <message>
         <source>Unable to sign spork message, wrong key?</source>
         <translation>Impossible de signer le message spork, mauvaise clef ?</translation>
     </message>
@@ -5447,48 +4972,48 @@
         <translation>État inconnu : id = %u</translation>
     </message>
     <message>
-        <source>Username for JSON-RPC connections</source>
-        <translation>Nom d'utilisateur pour les connexions JSON-RPC</translation>
+        <source>Unsupported logging category %s=%s.</source>
+        <translation>Catégorie de journalisation non supportée %s=%s.</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>
         <translation>Vérification des blocs en cours...</translation>
     </message>
     <message>
-        <source>Verifying wallet...</source>
-        <translation>Vérification du portefeuille en cours...</translation>
-    </message>
-    <message>
         <source>Very low number of keys left: %d</source>
         <translation>Très peu de clefs restantes : %d</translation>
-    </message>
-    <message>
-        <source>Wallet %s resides outside data directory %s</source>
-        <translation>Le portefeuille %s réside en dehors du répertoire de données %s</translation>
     </message>
     <message>
         <source>Wallet is locked.</source>
         <translation>Le portefeuille est verrouillé.</translation>
     </message>
     <message>
-        <source>Wallet options:</source>
-        <translation>Options du portefeuille :</translation>
-    </message>
-    <message>
-        <source>Wallet window title</source>
-        <translation>Titre de la fenêtre du portefeuille</translation>
-    </message>
-    <message>
         <source>Warning</source>
         <translation>Avertissement</translation>
     </message>
     <message>
-        <source>Your entries added successfully.</source>
-        <translation>Vos entrées ajoutées avec succès.</translation>
+        <source>Warning: %s is deprecated, please use %s instead</source>
+        <translation>Attention : %s est obsolète, veuillez utiliser %s à la place</translation>
     </message>
     <message>
-        <source>Your transaction was accepted into the pool!</source>
-        <translation>Votre transaction a été acceptée dans le registre !</translation>
+        <source>Warning: can't use %s and %s together, will prefer %s</source>
+        <translation>Attention : impossible d'utiliser ensemble %s et %s, préférence accordée à %s</translation>
+    </message>
+    <message>
+        <source>Warning: incorrect parameter %s, path must exist! Using default path.</source>
+        <translation>Attention : paramètre %s incorrect, le chemin doit exister ! Utilisation du chemin par défaut.</translation>
+    </message>
+    <message>
+        <source>You are starting with governance validation disabled.</source>
+        <translation>Vous démarrez avec la validation de gouvernance désactivée.</translation>
+    </message>
+    <message>
+        <source>You can not disable governance validation on a masternode.</source>
+        <translation>Impossible de désactiver la validation de gouvernance sur un masternode.</translation>
+    </message>
+    <message>
+        <source>Your entries added successfully.</source>
+        <translation>Vos entrées ajoutées avec succès.</translation>
     </message>
     <message>
         <source>Zapping all transactions from wallet...</source>

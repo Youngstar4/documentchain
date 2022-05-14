@@ -1,4 +1,5 @@
 // Copyright (c) 2019 Softwarebuero Krekeler
+// Copyright (c) 2019-2022 The Documentchain developers
 
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -6,9 +7,8 @@
 #ifndef DOCUMENTLIST_H
 #define DOCUMENTLIST_H
 
-#include "platformstyle.h"
-#include "walletmodel.h"
-#include "primitives/document.h"
+#include <qt/walletmodel.h>
+#include <primitives/document.h>
 
 #include <QDateTime>
 #include <QStringListModel>
@@ -54,9 +54,8 @@ class DocumentList : public QWidget
     Q_OBJECT
 
 public:
-    explicit DocumentList(const PlatformStyle *_platformStyle, QWidget *parent = nullptr);
+    explicit DocumentList(QWidget *parent = nullptr);
     ~DocumentList();
-    const PlatformStyle *platformStyle;
 
     void setClientModel(ClientModel *clientModel);
     void setWalletModel(WalletModel *model);

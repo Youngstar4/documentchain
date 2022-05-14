@@ -1,12 +1,12 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
-// Copyright (c) 2018-2021 The Documentchain developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef BITCOIN_QT_OVERVIEWPAGE_H
 #define BITCOIN_QT_OVERVIEWPAGE_H
 
-#include "amount.h"
+#include <interfaces/wallet.h>
 
 #include <QWidget>
 #include <memory>
@@ -14,7 +14,6 @@
 class ClientModel;
 class TransactionFilterProxy;
 class TxViewDelegate;
-class PlatformStyle;
 class WalletModel;
 
 namespace Ui {
@@ -31,18 +30,19 @@ class OverviewPage : public QWidget
     Q_OBJECT
 
 public:
-    explicit OverviewPage(const PlatformStyle *platformStyle, QWidget *parent = 0);
+    explicit OverviewPage(QWidget* parent = 0);
     ~OverviewPage();
 
     void setClientModel(ClientModel *clientModel);
     void setWalletModel(WalletModel *walletModel);
     void showOutOfSyncWarning(bool fShow);
+#if ENABLE_MINER
     void showMiningInfo(const bool bVisible, const QString &strText);
+#endif
 
 public Q_SLOTS:
-    void privateSendStatus();
-    void setBalance(const CAmount& balance, const CAmount& unconfirmedBalance, const CAmount& immatureBalance, const CAmount& anonymizedBalance,
-                    const CAmount& watchOnlyBalance, const CAmount& watchUnconfBalance, const CAmount& watchImmatureBalance);
+    void coinJoinStatus(bool fForce = false);
+    void setBalance(const interfaces::WalletBalances& balances);
 
 Q_SIGNALS:
     void transactionClicked(const QModelIndex &index);
@@ -53,30 +53,22 @@ private:
     Ui::OverviewPage *ui;
     ClientModel *clientModel;
     WalletModel *walletModel;
-    CAmount currentBalance;
-    CAmount currentUnconfirmedBalance;
-    CAmount currentImmatureBalance;
-    CAmount currentAnonymizedBalance;
-    CAmount currentWatchOnlyBalance;
-    CAmount currentWatchUnconfBalance;
-    CAmount currentWatchImmatureBalance;
+    interfaces::WalletBalances m_balances;
     int nDisplayUnit;
-    bool fShowAdvancedPSUI;
+    bool fShowAdvancedCJUI;
+    int cachedNumISLocks;
 
     TxViewDelegate *txdelegate;
     std::unique_ptr<TransactionFilterProxy> filter;
 
     void SetupTransactionList(int nNumItems);
-    void DisablePrivateSendCompletely();
+    void DisableCoinJoinCompletely();
 
 private Q_SLOTS:
-    void togglePrivateSend();
-    void privateSendAuto();
-    void privateSendReset();
-    void privateSendInfo();
+    void toggleCoinJoin();
     void updateDisplayUnit();
-    void updatePrivateSendProgress();
-    void updateAdvancedPSUI(bool fShowAdvancedPSUI);
+    void updateCoinJoinProgress();
+    void updateAdvancedCJUI(bool fShowAdvancedCJUI);
     void handleTransactionClicked(const QModelIndex &index);
     void updateAlerts(const QString &warnings);
     void updateWatchOnlyLabels(bool showWatchOnly);

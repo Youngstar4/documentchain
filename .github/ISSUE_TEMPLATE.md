@@ -2,6 +2,8 @@
 
 This issue tracker is only for technical issues related to DMS Core.
 
+To report critical security issues, email mail@documentchain.org
+
 ### Describe the issue
 
 ### Can you reliably reproduce the issue?

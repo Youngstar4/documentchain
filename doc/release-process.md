@@ -1,22 +1,38 @@
-DMS Core Release Process
+Release Process "DMS Core"
 ====================
 
 Before every minor and major release:
 
 * Update translations, see [translation_process.md](https://github.com/Krekeler/documentchain/blob/master/doc/translation_process.md#synchronising-translations)
-* Update manpages, see [gen-manpages.sh](https://github.com/Krekeler/documentchain/blob/master/contrib/devtools/README.md#gen-manpagessh)
-* Update [bips.md](bips.md) to account for changes since the last release
+* Update [bips.md](bips.md) to account for changes since the last release.
 * Update version in sources (see below)
 * Write release notes (see below)
-* Update `src/chainparams.cpp`
-  - Add checkpointData
-  - Set defaultAssumeValid to latest checkpoint (with information from the getblockhash rpc).
-     The selected value must not be orphaned so it may be useful to set the value two blocks back from the tip.
-     Testnet should be set some tens of thousands back from the tip due to reorgs there.
-     This update should be reviewed with a reindex-chainstate with assumevalid=0 to catch any defect that causes rejection of blocks in the past history.
-  - Set nMinimumChainWork to "chainwork" from block "defaultAssumeValid", rpc "getblock (hash)"
-* Update hardcoded [seeds](/contrib/seeds/README.md) with stable Masternodes.
-* Update [`BLOCK_CHAIN_SIZE`](/src/qt/intro.cpp) to the current size plus some overhead.
+* Update `src/chainparams.cpp` nMinimumChainWork with information from the getblockchaininfo rpc.
+* Update `src/chainparams.cpp` chainTxData with statistics about the transaction count and rate. Use the output of the RPC `getchaintxstats`, see
+  [this pull request](https://github.com/bitcoin/bitcoin/pull/12270) for an example. Reviewers can verify the results by running `getchaintxstats <window_block_count> <window_last_block_hash>` with the `window_block_count` and `window_last_block_hash` from your output.
+* Update `src/chainparams.cpp` defaultAssumeValid with information from the getblockhash rpc.
+  - The selected value must not be orphaned so it may be useful to set the value two blocks back from the tip.
+  - Testnet should be set some tens of thousands back from the tip due to reorgs there.
+  - This update should be reviewed with a reindex-chainstate with assumevalid=0 to catch any defect
+     that causes rejection of blocks in the past history.
+* Update hardcoded [seeds](/contrib/seeds/README.md).
+* Update `src/qt/&intro.cpp` BLOCK_CHAIN_SIZE to the current size plus some overhead.
+
+
+### Update version in sources
+
+Client version
+
+- `configure.ac`:
+    - `_CLIENT_VERSION_MAJOR`
+    - `_CLIENT_VERSION_MINOR`
+    - `_CLIENT_VERSION_REVISION`
+    - `_CLIENT_VERSION_BUILD`
+    - Set `_CLIENT_VERSION_IS_RELEASE` to `true`
+    - `_COPYRIGHT_YEAR`
+- `src/clientversion.h: RELEASE_CODE_NAME` **A**lice, **B**ob, **C**arol etc.
+- `src/rpc/misc.cpp: devgetinfo` return release
+- `contrib/gitian-descriptors/*.yml`: documentchain-win-0.17
 
 ### First time / New builders
 
@@ -30,29 +46,7 @@ Check out the source code in the following directory hierarchy.
 	git clone https://github.com/devrandom/gitian-builder.git
 	git clone https://github.com/Krekeler/documentchain.git
 
-### Update version in sources and write release notes
-
-Client version
-
-- `configure.ac`:
-    - `_CLIENT_VERSION_MAJOR`
-    - `_CLIENT_VERSION_MINOR`
-    - `_CLIENT_VERSION_REVISION`
-    - `_CLIENT_VERSION_BUILD`
-    - Set `_CLIENT_VERSION_IS_RELEASE` to `true`
-    - `_COPYRIGHT_YEAR`
-- `src/clientversion.h`: (this mirrors `configure.ac` - see issue #3539)
-    - `CLIENT_VERSION_MAJOR`
-    - `CLIENT_VERSION_MINOR`
-    - `CLIENT_VERSION_REVISION`
-    - `CLIENT_VERSION_BUILD`
-    - Set `CLIENT_VERSION_IS_RELEASE` to `true`
-	- `COPYRIGHT_YEAR`
-	- `RELEASE_CODE_NAME` **A**lice, **B**ob, **C**arol etc.
-- `src/rpc/misc.cpp: devgetinfo` return release
-- `doc/README.md` and `doc/README_windows.txt`
-- `doc/Doxyfile`: `PROJECT_NUMBER` contains the full version
-- `contrib/gitian-descriptors/*.yml`: documentchain-win-0.13
+### DMS Core maintainers/release engineers, suggestion for writing release notes
 
 Write release notes. git shortlog helps a lot, for example:
 
@@ -60,7 +54,7 @@ Write release notes. git shortlog helps a lot, for example:
 
 Generate list of authors:
 
-    git log --format='%aN' "$*" | sort -ui | sed -e 's/^/- /'
+    git log --format='- %aN' v(current version, e.g. 0.13.3)..v(new version, e.g. 0.13.4) | sort -fiu
 
 Tag version (or release candidate) in git
 
@@ -73,7 +67,7 @@ If you're using the automated script (found in [contrib/gitian-build.py](/contri
 Setup Gitian descriptors:
 
     pushd ./documentchain
-    export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
+    export SIGNER="(your Gitian key)"
     export VERSION=(new version, e.g. 0.13.4)
     git fetch
     git checkout v${VERSION}
@@ -96,15 +90,17 @@ Ensure gitian-builder is up-to-date:
 
     pushd ./gitian-builder
     mkdir -p inputs
-    wget -P inputs https://bitcoincore.org/cfields/osslsigncode-Backports-to-1.7.1.patch
-    wget -P inputs http://downloads.sourceforge.net/project/osslsigncode/osslsigncode/osslsigncode-1.7.1.tar.gz
+    wget -O inputs/osslsigncode-2.0.tar.gz https://github.com/mtrojnar/osslsigncode/archive/2.0.tar.gz
+    echo '5a60e0a4b3e0b4d655317b2f12a810211c50242138322b16e7e01c6fbb89d92f inputs/osslsigncode-2.0.tar.gz' | sha256sum -c
     popd
 
-Create the macOS SDK tarball, see [macOS SDK](gitian-building-mac-os-sdk.md) and [OS X readme](README_osx.md) for details, and copy it into the inputs directory.
+Create the macOS SDK tarball, see the [OS X readme](README_osx.md) for details, and copy it into the inputs directory.
 
 ### Optional: Seed the Gitian sources cache and offline git repositories
 
-By default, Gitian will fetch source files as needed. To cache them ahead of time:
+NOTE: Gitian is sometimes unable to download files. If you have errors, try the step below.
+
+By default, Gitian will fetch source files as needed. To cache them ahead of time, make sure you have checked out the tag you want to build in documentchain, then:
 
     pushd ./gitian-builder
     make -C ../documentchain/depends download SOURCES_PATH=`pwd`/cache/common
@@ -123,17 +119,17 @@ The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 ### Build and sign DMS Core for Linux, Windows, and macOS:
 
     pushd ./gitian-builder
-    ./bin/gbuild --memory 3000 --commit documentchain=v${VERSION} ../documentchain/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../documentchain/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gbuild --num-make 2 --memory 3000 --commit documentchain=v${VERSION} ../documentchain/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-linux --destination ../gitian.sigs/ ../documentchain/contrib/gitian-descriptors/gitian-linux.yml
     mv build/out/dms-*.tar.gz build/out/src/dms-*.tar.gz ../
 
-    ./bin/gbuild --memory 3000 --commit documentchain=v${VERSION} ../documentchain/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../documentchain/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gbuild --num-make 2 --memory 3000 --commit documentchain=v${VERSION} ../documentchain/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../documentchain/contrib/gitian-descriptors/gitian-win.yml
     mv build/out/dms-*-win-unsigned.tar.gz inputs/dms-win-unsigned.tar.gz
     mv build/out/dms-*.zip build/out/dms-*.exe ../
 
-    ./bin/gbuild --memory 3000 --commit documentchain=v${VERSION} ../documentchain/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../documentchain/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gbuild --num-make 2 --memory 3000 --commit documentchain=v${VERSION} ../documentchain/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../documentchain/contrib/gitian-descriptors/gitian-osx.yml
     mv build/out/dms-*-osx-unsigned.tar.gz inputs/dms-osx-unsigned.tar.gz
     mv build/out/dms-*.tar.gz build/out/dms-*.dmg ../
     popd
@@ -166,23 +162,54 @@ Verify the signatures
 Commit your signature to gitian.sigs:
 
     pushd gitian.sigs
-    git add ${VERSION}-linux/${SIGNER}
-    git add ${VERSION}-win-unsigned/${SIGNER}
-    git add ${VERSION}-osx-unsigned/${SIGNER}
+    git add ${VERSION}-linux/"${SIGNER}"
+    git add ${VERSION}-win-unsigned/"${SIGNER}"
+    git add ${VERSION}-osx-unsigned/"${SIGNER}"
     git commit -a
     git push  # Assuming you can push to the gitian.sigs tree
     popd
 
-Wait for Windows/macOS detached signatures:
+Codesigner only: Create Windows/macOS detached signatures:
+- Only one person handles codesigning. Everyone else should skip to the next step.
+- Only once the Windows/macOS builds each have 3 matching signatures may they be signed with their respective release keys.
+
+Codesigner only: Sign the osx binary:
+
+    transfer dmscore-osx-unsigned.tar.gz to osx for signing
+    tar xf dmscore-osx-unsigned.tar.gz
+    ./detached-sig-create.sh -s "Key ID" -o runtime
+    Enter the keychain password and authorize the signature
+    Move signature-osx.tar.gz back to the gitian host
+
+Codesigner only: Sign the windows binaries:
+
+    tar xf dmscore-win-unsigned.tar.gz
+    ./detached-sig-create.sh -key /path/to/codesign.key
+    Enter the passphrase for the key when prompted
+    signature-win.tar.gz will be created
+
+Codesigner only: Commit the detached codesign payloads:
+
+    cd ~/documentchain-detached-sigs
+    checkout the appropriate branch for this release series
+    rm -rf *
+    tar xf signature-osx.tar.gz
+    tar xf signature-win.tar.gz
+    git add -a
+    git commit -m "point to ${VERSION}"
+    git tag -s v${VERSION} HEAD
+    git push the current branch and new tag
+
+Non-codesigners: wait for Windows/macOS detached signatures:
 
 - Once the Windows/macOS builds each have 3 matching signatures, they will be signed with their respective release keys.
-- TODO : Detached signatures will then be committed to the [dms-detached-sigs](https://github.com/Krekeler/documentchain-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [documentchain-detached-sigs](https://github.com/Krekeler/documentchain-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed macOS binary:
 
     pushd ./gitian-builder
     ./bin/gbuild -i --commit signature=v${VERSION} ../documentchain/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../documentchain/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../documentchain/contrib/gitian-descriptors/gitian-osx-signer.yml
     ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../documentchain/contrib/gitian-descriptors/gitian-osx-signer.yml
     mv build/out/dms-osx-signed.dmg ../dms-${VERSION}-osx.dmg
     popd
@@ -191,7 +218,7 @@ Create (and optionally verify) the signed Windows binaries:
 
     pushd ./gitian-builder
     ./bin/gbuild -i --commit signature=v${VERSION} ../documentchain/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../documentchain/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../documentchain/contrib/gitian-descriptors/gitian-win-signer.yml
     ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../documentchain/contrib/gitian-descriptors/gitian-win-signer.yml
     mv build/out/dms-*win64-setup.exe ../dms-${VERSION}-win64-setup.exe
     mv build/out/dms-*win32-setup.exe ../dms-${VERSION}-win32-setup.exe
@@ -200,8 +227,8 @@ Create (and optionally verify) the signed Windows binaries:
 Commit your signature for the signed macOS/Windows binaries:
 
     pushd gitian.sigs
-    git add ${VERSION}-osx-signed/${SIGNER}
-    git add ${VERSION}-win-signed/${SIGNER}
+    git add ${VERSION}-osx-signed/"${SIGNER}"
+    git add ${VERSION}-win-signed/"${SIGNER}"
     git commit -a
     git push  # Assuming you can push to the gitian.sigs tree
     popd
@@ -228,9 +255,9 @@ dms-${VERSION}-win32.zip
 dms-${VERSION}-win64-setup.exe
 dms-${VERSION}-win64.zip
 ```
-The `*-debug*` files generated by the gitian build contain debug symbols
+The `*-debug*` files generated by the Gitian build contain debug symbols
 for troubleshooting by developers. It is assumed that anyone that is interested
-in debugging can run gitian to generate the files for themselves. To avoid
+in debugging can run Gitian to generate the files for themselves. To avoid
 end-user confusion about which file to pick, as well as save storage
 space *do not upload these to the documentchain.org server*.
 

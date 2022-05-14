@@ -1,8 +1,8 @@
-DMS Core - Documentchain project
+DMS Core - Documentchain Project
 =====================
-
 https://documentchain.org/
 
+DMS Core staging tree 0.17
 
 What is DMS?
 ---------------------
@@ -19,6 +19,7 @@ Help and Support
 * Masternode setup https://documentchain.org/support/masternodes/
 * Block explorer (coin and documents) https://documentchain.org/explorer/
 * Documentchain Web API https://github.com/Krekeler/api-example-js
+* Resources and Links https://documentchain.org/resources/
 
 License
 ---------------------

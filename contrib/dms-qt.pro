@@ -1,13 +1,13 @@
 FORMS += \
     ../src/qt/forms/aboutdialog.ui \
     ../src/qt/forms/addressbookpage.ui \
+    ../src/qt/forms/appearancewidget.ui \
     ../src/qt/forms/askpassphrasedialog.ui \
     ../src/qt/forms/coincontroldialog.ui \
     ../src/qt/forms/debugwindow.ui \
     ../src/qt/forms/documentlist.ui \
     ../src/qt/forms/editaddressdialog.ui \
     ../src/qt/forms/helpmessagedialog.ui \
-    ../src/qt/forms/information.ui \
     ../src/qt/forms/intro.ui \
     ../src/qt/forms/masternodelist.ui \
     ../src/qt/forms/qrdialog.ui \

@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
-// Copyright (c) 2018-2019 The Documentchain developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,7 +11,6 @@
 
 class BitcoinGUI;
 class ClientModel;
-class PlatformStyle;
 class SendCoinsRecipient;
 class WalletModel;
 class WalletView;
@@ -32,12 +31,12 @@ class WalletFrame : public QFrame
     Q_OBJECT
 
 public:
-    explicit WalletFrame(const PlatformStyle *platformStyle, BitcoinGUI *_gui = 0);
+    explicit WalletFrame(BitcoinGUI* _gui = 0);
     ~WalletFrame();
 
     void setClientModel(ClientModel *clientModel);
 
-    bool addWallet(const QString& name, WalletModel *walletModel);
+    bool addWallet(WalletModel *walletModel);
     bool setCurrentWallet(const QString& name);
     bool removeWallet(const QString &name);
     void removeAllWallets();
@@ -46,6 +45,7 @@ public:
 
     void showOutOfSyncWarning(bool fShow);
     void showMiningInfo(const bool bVisible, const QString &strText);
+
 
 Q_SIGNALS:
     /** Notify that the user has requested more information about the out-of-sync warning */
@@ -59,8 +59,7 @@ private:
 
     bool bOutOfSync;
 
-    const PlatformStyle *platformStyle;
-
+public:
     WalletView *currentWalletView();
 
 public Q_SLOTS:
@@ -72,12 +71,12 @@ public Q_SLOTS:
     void gotoDocumentPage(const QStringList newFiles = QStringList());
     /** Switch to masternode page */
     void gotoMasternodePage();
-    /** Switch to information page */
-    void gotoInformationPage();
     /** Switch to receive coins page */
     void gotoReceiveCoinsPage();
     /** Switch to send coins page */
     void gotoSendCoinsPage(QString addr = "");
+    /** Switch to CoinJoin coins page */
+    void gotoCoinJoinCoinsPage(QString addr = "");
 
     /** Show Sign/Verify Message dialog and switch to sign message tab */
     void gotoSignMessageTab(QString addr = "");
@@ -85,7 +84,7 @@ public Q_SLOTS:
     void gotoVerifyMessageTab(QString addr = "");
 
     /** Encrypt the wallet */
-    void encryptWallet(bool status);
+    void encryptWallet();
     /** Backup the wallet */
     void backupWallet();
     /** Change encrypted wallet passphrase */

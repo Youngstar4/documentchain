@@ -1,10 +1,9 @@
-#ifndef MASTERNODELIST_H
-#define MASTERNODELIST_H
+#ifndef BITCOIN_QT_MASTERNODELIST_H
+#define BITCOIN_QT_MASTERNODELIST_H
 
-#include "platformstyle.h"
-#include "primitives/transaction.h"
-#include "sync.h"
-#include "util.h"
+#include <primitives/transaction.h>
+#include <sync.h>
+#include <util.h>
 
 #include <evo/deterministicmns.h>
 
@@ -12,8 +11,7 @@
 #include <QTimer>
 #include <QWidget>
 
-#define MY_MASTERNODELIST_UPDATE_SECONDS 60
-#define MASTERNODELIST_UPDATE_SECONDS 15
+#define MASTERNODELIST_UPDATE_SECONDS 3
 #define MASTERNODELIST_FILTER_COOLDOWN_SECONDS 3
 
 namespace Ui
@@ -34,67 +32,64 @@ class MasternodeList : public QWidget
     Q_OBJECT
 
 public:
-    explicit MasternodeList(const PlatformStyle* platformStyle, QWidget* parent = 0);
+    explicit MasternodeList(QWidget* parent = 0);
     ~MasternodeList();
+
+    enum {
+        COLUMN_SERVICE,
+        COLUMN_STATUS,
+        COLUMN_POSE,
+        COLUMN_REGISTERED,
+        COLUMN_LAST_PAYMENT,
+        COLUMN_NEXT_PAYMENT,
+        COLUMN_PAYOUT_ADDRESS,
+        COLUMN_OPERATOR_REWARD,
+        COLUMN_COLLATERAL_ADDRESS,
+        COLUMN_OWNER_ADDRESS,
+        COLUMN_VOTING_ADDRESS,
+        COLUMN_PROTX_HASH,
+    };
 
     void setClientModel(ClientModel* clientModel);
     void setWalletModel(WalletModel* walletModel);
-    void ShowQRCode(std::string strAlias);
-    void StartAlias(std::string strAlias);
-    void StartAll(std::string strCommand = "start-all");
-    CDeterministicMNCPtr GetSelectedDIP3MN();
 
 private:
-    QMenu* contextMenu;
     QMenu* contextMenuDIP3;
-    int64_t nTimeFilterUpdated;
     int64_t nTimeFilterUpdatedDIP3;
-    bool fFilterUpdated;
+    int64_t nTimeUpdatedDIP3;
     bool fFilterUpdatedDIP3;
 
-public Q_SLOTS:
-    void updateMyMasternodeInfo(QString strAlias, QString strAddr, const COutPoint& outpoint);
-    void updateMyNodeList(bool fForce = false);
-    void updateNodeList();
-    void updateDIP3List();
-
-Q_SIGNALS:
-    void doubleClicked(const QModelIndex&);
-
-private:
     QTimer* timer;
     Ui::MasternodeList* ui;
     ClientModel* clientModel;
     WalletModel* walletModel;
 
-    // Protects tableWidgetMasternodes
-    CCriticalSection cs_mnlist;
-
-    // Protects tableWidgetMyMasternodes
-    CCriticalSection cs_mymnlist;
-
     // Protects tableWidgetMasternodesDIP3
     CCriticalSection cs_dip3list;
 
-    QString strCurrentFilter;
     QString strCurrentFilterDIP3;
 
+    bool mnListChanged;
+
+    CDeterministicMNCPtr GetSelectedDIP3MN();
+
+    void updateDIP3List();
+
+Q_SIGNALS:
+    void doubleClicked(const QModelIndex&);
+
 private Q_SLOTS:
-    void showContextMenu(const QPoint&);
     void showContextMenuDIP3(const QPoint&);
-    void on_filterLineEdit_textChanged(const QString& strFilterIn);
     void on_filterLineEditDIP3_textChanged(const QString& strFilterIn);
-    void on_QRButton_clicked();
-    void on_startButton_clicked();
-    void on_startAllButton_clicked();
-    void on_startMissingButton_clicked();
-    void on_convertDIP3Button_clicked();
-    void on_tableWidgetMyMasternodes_itemSelectionChanged();
-    void on_UpdateButton_clicked();
     void on_checkBoxMyMasternodesOnly_stateChanged(int state);
+    void on_pushButtonMasternodeAdd_clicked();
 
     void extraInfoDIP3_clicked();
     void copyProTxHash_clicked();
     void copyCollateralOutpoint_clicked();
+    void sendProtxUpdateService_clicked();
+
+    void handleMasternodeListChanged();
+    void updateDIP3ListScheduled();
 };
-#endif // MASTERNODELIST_H
+#endif // BITCOIN_QT_MASTERNODELIST_H

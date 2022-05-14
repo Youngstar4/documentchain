@@ -1,5 +1,4 @@
-TOR SUPPORT IN DMS CORE
-=======================
+# TOR SUPPORT IN DMS CORE
 
 It is possible to run DMS Core as a Tor hidden service, and connect to such services.
 
@@ -10,8 +9,7 @@ See [Tor Project FAQ:TBBSocksPort](https://www.torproject.org/docs/faq.html.en#T
 for how to properly configure Tor.
 
 
-1. Run DMS Core behind a Tor proxy
-----------------------------------
+## 1. Run DMS Core behind a Tor proxy
 
 The first step is running DMS Core behind a Tor proxy. This will already make all
 outgoing connections be anonymized, but more is possible.
@@ -44,19 +42,19 @@ In a typical situation, this suffices to run behind a Tor proxy:
 	./dmsd -proxy=127.0.0.1:9050
 
 
-2. Run a DMS Core hidden server
--------------------------------
+## 2. Run a DMS Core hidden server
 
 If you configure your Tor system accordingly, it is possible to make your node also
 reachable from the Tor network. Add these lines to your /etc/tor/torrc (or equivalent
-config file):
+config file): *Needed for Tor version 0.2.7.0 and older versions of Tor only. For newer
+versions of Tor see [Section 4](#4-automatically-listen-on-tor).*
 
 	HiddenServiceDir /var/lib/tor/dmscore-service/
-	HiddenServicePort 41319 127.0.0.1:41319
-	HiddenServicePort 41419 127.0.0.1:41419
+	HiddenServicePort 9999 127.0.0.1:9999
+	HiddenServicePort 19999 127.0.0.1:19999
 
 The directory can be different of course, but (both) port numbers should be equal to
-your dmsd's P2P listen port (41319 by default).
+your dmsd's P2P listen port (9999 by default).
 
 	-externalip=X   You can tell DMS Core about its publicly reachable address using
 	                this option, and this can be a .onion address. Given the above
@@ -91,7 +89,7 @@ as well, use `discover` instead:
 
 	./dmsd ... -discover
 
-and open port 41319 on your firewall (or use -upnp).
+and open port 9999 on your firewall (or use -upnp).
 
 If you only want to use Tor to reach onion addresses, but not use it as a proxy
 for normal IPv4/IPv6 communication, use:
@@ -99,24 +97,23 @@ for normal IPv4/IPv6 communication, use:
 	./dmsd -onion=127.0.0.1:9050 -externalip=ssapp53tmftyjmjb.onion -discover
 
 
-3. List of known DMS Core Tor relays
-------------------------------------
+## 3. List of known DMS Core Tor relays
 
-* [darkcoinie7ghp67.onion](http://darkcoinie7ghp67.onion/)
-* [drktalkwaybgxnoq.onion](http://drktalkwaybgxnoq.onion/)
-* [drkcoinooditvool.onion](http://drkcoinooditvool.onion/)
-* [darkcoxbtzggpmcc.onion](http://darkcoxbtzggpmcc.onion/)
-* [ssapp53tmftyjmjb.onion](http://ssapp53tmftyjmjb.onion/)
-* [j2dfl3cwxyxpbc7s.onion](http://j2dfl3cwxyxpbc7s.onion/)
-* [vf6d2mxpuhh2cbxt.onion](http://vf6d2mxpuhh2cbxt.onion/)
-* [rj24sicr6i4vsnkv.onion](http://rj24sicr6i4vsnkv.onion/)
-* [wrwx2dy7jyh32o53.onion](http://wrwx2dy7jyh32o53.onion/)
-* [f5ekot4ajkbe23gt.onion](http://f5ekot4ajkbe23gt.onion/)
-* [dshtord4mqvgzqev.onion](http://dshtord4mqvgzqev.onion/)
+Note: All these nodes are hosted by masternodehosting.com
+
+* l7oq3v7ujau5tfrw.onion
+* vsmegqxisccimsir.onion
+* 4rbha5nrjso54l75.onion
+* 3473226fvgoenztx.onion
+* onn5v3aby2dioicx.onion
+* w5n7s2p3mdq5yf2d.onion
+* ec4qdvujskzasvrb.onion
+* g5e4hvsecwri3inf.onion
+* ys5upbdeotplam3y.onion
+* fijy6aikzxfea54i.onion
 
 
-4. Automatically listen on Tor
---------------------------------
+## 4. Automatically listen on Tor
 
 Starting with Tor version 0.2.7.1 it is possible, through Tor's control socket
 API, to create and destroy 'ephemeral' hidden services programmatically.
@@ -142,10 +139,9 @@ which has the appropriate permissions. An alternative authentication method is t
 of the `-torpassword` flag and a `hash-password` which can be enabled and specified in 
 Tor configuration.
 
-4. Privacy recommendations
----------------------------
+## 5. Privacy recommendations
 
-- Do not add anything but bitcoin ports to the hidden service created in section 2.
+- Do not add anything but DMS Core ports to the hidden service created in section 2.
   If you run a web service too, create a new hidden service for that.
   Otherwise it is trivial to link them, which may reduce privacy. Hidden
   services created automatically (as in section 3) always have only one port

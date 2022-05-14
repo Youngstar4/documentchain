@@ -1,9 +1,9 @@
-// Copyright (c) 2020-2021 The Documentchain developers
+// Copyright (c) 2020-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "primitives/document.h"
-#include "tinyformat.h"
+#include <primitives/document.h>
+#include <tinyformat.h>
 
 /** CDocumentHash
  */
@@ -41,10 +41,14 @@ std::string CDocumentHash::AlgoName()
         case 22: return "SHA2-256";
         case 23: return "SHA2-384";
         case 25: return "SHA2-512";
-        case 31: return "SHA3-224";
-        case 32: return "SHA3-256";
-        case 33: return "SHA3-384";
-        case 35: return "SHA3-512";
+        case 31: return "Keccak-224";
+        case 32: return "Keccak-256";
+        case 33: return "Keccak-384";
+        case 35: return "Keccak-512";
+        case 36: return "SHA3-224";
+        case 37: return "SHA3-256";
+        case 38: return "SHA3-384";
+        case 39: return "SHA3-512";
         default: return "";
     }
 }
@@ -132,10 +136,14 @@ int CDocument::HashHexLength(int algo)
         case 22: return 64;  // SHA2-256
         case 23: return 96;  // SHA2-384
         case 25: return 128; // SHA2-512
-        case 31: return 56;  // SHA3-224
-        case 32: return 64;  // SHA3-256
-        case 33: return 96;  // SHA3-384
-        case 35: return 128; // SHA3-512
+        case 31: return 56;  // Keccak-224
+        case 32: return 64;  // Keccak-256
+        case 33: return 96;  // Keccak-384
+        case 35: return 128; // Keccak-512
+        case 36: return 56;  // SHA3-224
+        case 37: return 64;  // SHA3-256
+        case 38: return 96;  // SHA3-384
+        case 39: return 128; // SHA3-512
         default: return 0;
     }
 }

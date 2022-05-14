@@ -5,12 +5,11 @@
 #ifndef BITCOIN_QT_SENDCOINSENTRY_H
 #define BITCOIN_QT_SENDCOINSENTRY_H
 
-#include "walletmodel.h"
+#include <qt/walletmodel.h>
 
 #include <QStackedWidget>
 
 class WalletModel;
-class PlatformStyle;
 
 namespace Ui {
     class SendCoinsEntry;
@@ -26,11 +25,11 @@ class SendCoinsEntry : public QStackedWidget
     Q_OBJECT
 
 public:
-    explicit SendCoinsEntry(const PlatformStyle *platformStyle, QWidget *parent = 0);
+    explicit SendCoinsEntry(QWidget* parent = 0);
     ~SendCoinsEntry();
 
     void setModel(WalletModel *model);
-    bool validate();
+    bool validate(interfaces::Node& node);
     SendCoinsRecipient getValue();
 
     /** Return whether the entry is still empty and unedited */
@@ -65,12 +64,16 @@ private Q_SLOTS:
     void on_pasteButton_clicked();
     void updateDisplayUnit();
 
+protected:
+    void changeEvent(QEvent* e);
+
 private:
     SendCoinsRecipient recipient;
     Ui::SendCoinsEntry *ui;
     WalletModel *model;
-    const PlatformStyle *platformStyle;
 
+    /** Set required icons for buttons inside the dialog */
+    void setButtonIcons();
     bool updateLabel(const QString &address);
 };
 

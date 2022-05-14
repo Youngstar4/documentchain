@@ -2,6 +2,10 @@
 <context>
     <name>AddressBookPage</name>
     <message>
+        <source>Enter address or label to search</source>
+        <translation>검색을 위해 주소 또는 라벨을 입력하세요.</translation>
+    </message>
+    <message>
         <source>Right-click to edit address or label</source>
         <translation>오른쪽 마우스를 클릭하여 주소와 라벨 편집</translation>
     </message>
@@ -20,6 +24,14 @@
     <message>
         <source>&amp;Copy</source>
         <translation>복사(&amp;C)</translation>
+    </message>
+    <message>
+        <source>Show QR code for the currently selected address</source>
+        <translation>현재 선택된 주소에 대한 QR 코드 보이기</translation>
+    </message>
+    <message>
+        <source>&amp;Show QR code</source>
+        <translation>QR 코드($S)</translation>
     </message>
     <message>
         <source>Delete the currently selected address from the list</source>
@@ -82,6 +94,14 @@
         <translation>편집(&amp;E)</translation>
     </message>
     <message>
+        <source>&amp;Show address QR code</source>
+        <translation>주소 QR 코드(&amp;S)</translation>
+    </message>
+    <message>
+        <source>QR code</source>
+        <translation>QR 코드</translation>
+    </message>
+    <message>
         <source>Export Address List</source>
         <translation>주소 목록 추출</translation>
     </message>
@@ -114,6 +134,45 @@
     </message>
 </context>
 <context>
+    <name>AppearanceWidget</name>
+    <message>
+        <source>Lighter</source>
+        <translation>밝게</translation>
+    </message>
+    <message>
+        <source>Bolder</source>
+        <translation>굵게</translation>
+    </message>
+    <message>
+        <source>Font Weight Normal:</source>
+        <translation>글꼴 두께 일반:</translation>
+    </message>
+    <message>
+        <source>Smaller</source>
+        <translation>작게</translation>
+    </message>
+    <message>
+        <source>Bigger</source>
+        <translation>크게</translation>
+    </message>
+    <message>
+        <source>Font Scale:</source>
+        <translation>글꼴 크기:</translation>
+    </message>
+    <message>
+        <source>Font Family:</source>
+        <translation>글꼴 집합:</translation>
+    </message>
+    <message>
+        <source>Theme:</source>
+        <translation>테마:</translation>
+    </message>
+    <message>
+        <source>Font Weight Bold:</source>
+        <translation>글꼴 두께 굵게:</translation>
+    </message>
+</context>
+<context>
     <name>AskPassphraseDialog</name>
     <message>
         <source>Passphrase Dialog</source>
@@ -130,6 +189,10 @@
     <message>
         <source>Repeat new passphrase</source>
         <translation>새로운 암호문 확인</translation>
+    </message>
+    <message>
+        <source>Show password</source>
+        <translation>비밀번호 보이기</translation>
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
@@ -184,10 +247,6 @@
         <translation>지갑 암호화 완료</translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your funds from being stolen by malware infecting your computer.</source>
-        <translation>암호화 진행을 완료하기 위하여 %1 이/가 종료됩니다. 사용자 지갑 암호화를 진행한다고 하더라도 컴퓨터에 영향을 끼치는 맬웨어로부터 자금을 완전히 보호하지 못한다는 점을 기억하세요. </translation>
-    </message>
-    <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. Previous backups of the unencrypted wallet file contain the same HD seed and still have full access to all your funds just like the new, encrypted wallet.</source>
         <translation>중요: 당신의 지갑 파일에서 생성된 이전 백업은 새로 생성된 암호화 지갑 파일로 교체되어야 합니다.암호화되지 않은 이전 지갑 파일의 백업은 동일한 HD 시드를 가지며, 새로운 암호화 지갑과 마찬가지로 당신의 자금에 완전한 접근성을 제공합니다.</translation>
     </message>
@@ -237,6 +296,13 @@
     <message>
         <source>Banned Until</source>
         <translation>다음의 일시까지 정지되었습니다:</translation>
+    </message>
+</context>
+<context>
+    <name>BitcoinAmountField</name>
+    <message>
+        <source>Amount in %1</source>
+        <translation>%1로 표시한 금액</translation>
     </message>
 </context>
 <context>
@@ -290,6 +356,53 @@
         <translation>거래내역을 검색합니다.</translation>
     </message>
     <message>
+        <source>&amp;Documents</source>
+        <translation>서류(&amp;D)</translation>
+    </message>
+    <message>
+        <source>Document Revision</source>
+        <translation>Document Revision</translation>
+    </message>
+    <message>
+        <source>&amp;Support Website</source>
+        <translation>&amp;Support Website</translation>
+    </message>
+    <message>
+        <source>Open the %1 support website</source>
+        <translation>Open the %1 support website</translation>
+    </message>
+    <message>
+        <source>&amp;Mining...</source>
+        <translation>&amp;Mining...</translation>
+    </message>
+    <message>
+        <source>Generate coins</source>
+        <translation>Generate coins</translation>
+    </message>
+    <message>
+        <source>Please wait.</source>
+        <translation>Please wait.</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Unlimited Mining&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Unlimited Mining&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Weak &lt;b&gt;Mining&lt;/b&gt;</source>
+        <translation>Weak &lt;b&gt;Mining&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Mining is not active.&lt;br&gt;Click here to generate Coins.</source>
+        <translation>Mining is not active.&lt;br&gt;Click here to generate Coins.</translation>
+    </message>
+    <message numerus="yes">
+        <source>&lt;b&gt;Mining&lt;/b&gt; on %n Thread(s)</source>
+        <translation>
+            <numerusform>&lt;b&gt;Mining&lt;/b&gt; on %n Thread</numerusform>
+            <numerusform>&lt;b&gt;Mining&lt;/b&gt; on %n Threads</numerusform>
+        </translation>
+    </message>
+    <message>
         <source>&amp;Masternodes</source>
         <translation>마스터노드(&amp;M)</translation>
     </message>
@@ -324,6 +437,10 @@
     <message>
         <source>&amp;About %1</source>
         <translation>%1 정보(&amp;A)</translation>
+    </message>
+    <message>
+        <source>Send %1 funds to a DMS address</source>
+        <translation>%1 금액을 대시 주소로 전송</translation>
     </message>
     <message>
         <source>Modify configuration options for %1</source>
@@ -438,14 +555,6 @@
         <translation>설정 파일을 엽니다.</translation>
     </message>
     <message>
-        <source>Open &amp;Masternode Configuration File</source>
-        <translation>마스터노드 설정 파일 열기(&amp;M)</translation>
-    </message>
-    <message>
-        <source>Open Masternode configuration file</source>
-        <translation>마스터노드 설정 파일을 엽니다.</translation>
-    </message>
-    <message>
         <source>Show Automatic &amp;Backups</source>
         <translation>자동 백업 표시(&amp;B)</translation>
     </message>
@@ -490,16 +599,26 @@
         <translation>%1 클라이언트</translation>
     </message>
     <message>
-        <source>&amp;PrivateSend information</source>
-        <translation>프라이빗샌드 정보(&amp;P)</translation>
+        <source>Wallet: %1
+</source>
+        <translation>지갑: %1
+</translation>
     </message>
     <message>
-        <source>Show the PrivateSend basic information</source>
-        <translation>프라이빗샌드에 대한 기본적인 정보를 보여줍니다.</translation>
+        <source>Wallet is &lt;b&gt;unencrypted&lt;/b&gt;</source>
+        <translation>지갑이 &lt;b&gt;복호화&lt;/b&gt; 되었습니다</translation>
     </message>
     <message>
         <source>&amp;File</source>
         <translation>파일(&amp;F)</translation>
+    </message>
+    <message>
+        <source>%1 &amp;information</source>
+        <translation>%1 정보</translation>
+    </message>
+    <message>
+        <source>Show the %1 basic information</source>
+        <translation>%1 기본 정보를 보여줍니다</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
@@ -590,6 +709,30 @@
         <translation>정보</translation>
     </message>
     <message>
+        <source>Received and sent multiple transactions</source>
+        <translation>보내고 받은 다중 거래</translation>
+    </message>
+    <message>
+        <source>Sent multiple transactions</source>
+        <translation>다중 거래가 전송되었습니다</translation>
+    </message>
+    <message>
+        <source>Received multiple transactions</source>
+        <translation>다중 거래를 받았습니다</translation>
+    </message>
+    <message>
+        <source>Sent Amount: %1
+</source>
+        <translation>전송 금액: %1
+</translation>
+    </message>
+    <message>
+        <source>Received Amount: %1
+</source>
+        <translation>받은 금액: %1
+</translation>
+    </message>
+    <message>
         <source>Date: %1
 </source>
         <translation>날짜: %1
@@ -632,10 +775,6 @@
         <translation>HD 키 생성이 &lt;b&gt;활성화되었습니다&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>HD key generation is &lt;b&gt;disabled&lt;/b&gt;</source>
-        <translation>HD 키 생성이 &lt;b&gt;비활성화되었습니다&lt;/b&gt;</translation>
-    </message>
-    <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
         <translation>지갑이 &lt;b&gt;암호화&lt;/b&gt;되어 있으며, 현재 &lt;b&gt;잠금 해제&lt;/b&gt; 상태입니다.</translation>
     </message>
@@ -646,17 +785,6 @@
     <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>지갑이 &lt;b&gt;암호화&lt;/b&gt; 되었고 현재 &lt;b&gt;잠겨져&lt;/b&gt; 있습니다</translation>
-    </message>
-</context>
-<context>
-    <name>ClientModel</name>
-    <message>
-        <source>Total: %1 (PS compatible: %2 / Enabled: %3)</source>
-        <translation>전체: %1 (PS 호환: %2 / 가능: %3)</translation>
-    </message>
-    <message>
-        <source>Network Alert</source>
-        <translation>네트워크 경고</translation>
     </message>
 </context>
 <context>
@@ -726,8 +854,8 @@
         <translation>함께 수신된 주소</translation>
     </message>
     <message>
-        <source>PS Rounds</source>
-        <translation>PS 라운드</translation>
+        <source>Mixing Rounds</source>
+        <translation>믹싱 라운드</translation>
     </message>
     <message>
         <source>Date</source>
@@ -762,6 +890,10 @@
         <translation>사용되지 않은 주소 잠금</translation>
     </message>
     <message>
+        <source>Lock permanently</source>
+        <translation>Lock permanently</translation>
+    </message>
+    <message>
         <source>Unlock unspent</source>
         <translation>사용되지 않은 주소 잠금 해제</translation>
     </message>
@@ -794,10 +926,6 @@
         <translation>이 기능을 사용하기 위해서는 '리스트 모드'를 켜주세요.</translation>
     </message>
     <message>
-        <source>Non-anonymized input selected. &lt;b&gt;PrivateSend will be disabled.&lt;/b&gt;&lt;br&gt;&lt;br&gt;If you still want to use PrivateSend, please deselect all non-anonymized inputs first and then check the PrivateSend checkbox again.</source>
-        <translation>익명화 되지 않은 입력이 선택되었습니다. &lt;b&gt;프라이빗샌드 기능이 비활성화됩니다. &lt;/b&gt;&lt;br&gt;&lt;br&gt;계속해서 프라이빗샌드 기능을 사용하고자 하신다면 모든 익명화되지 않은 입력 선택을 취소하시고 프라이빗샌드 체크박스를 다시 선택해주세요. </translation>
-    </message>
-    <message>
         <source>(%1 locked)</source>
         <translation>(%1 잠금)</translation>
     </message>
@@ -816,6 +944,30 @@
     <message>
         <source>Can vary +/- %1 docz per input.</source>
         <translation>입력당 +/- %1 더프가 달라질 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Some coins were unselected because they were spent.</source>
+        <translation>일부 코인은 이미 사용되어 선택되지 않았습니다.</translation>
+    </message>
+    <message>
+        <source>Some coins were unselected because they do not have enough mixing rounds.</source>
+        <translation>일부 코인은 믹싱 라운드가 충분하지 않아 선택되지 않았습니다.</translation>
+    </message>
+    <message>
+        <source>Show all coins</source>
+        <translation>모든 코인을 보여줍니다</translation>
+    </message>
+    <message>
+        <source>Hide %1 coins</source>
+        <translation>%1 코인을 숨깁니다</translation>
+    </message>
+    <message>
+        <source>Show all %1 coins</source>
+        <translation>모든 %1 코인을 보여줍니다</translation>
+    </message>
+    <message>
+        <source>Show spendable coins only</source>
+        <translation>사용할 수 있는 코인만을 보여줍니다</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -855,10 +1007,6 @@
     <message>
         <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
         <translation>이 주소 목록에 입력된 주소와 연결된 주소. 이 경우 보내기 주소만 변경이 가능합니다.</translation>
-    </message>
-    <message>
-        <source>New receiving address</source>
-        <translation>새로운 받기 주소</translation>
     </message>
     <message>
         <source>New sending address</source>
@@ -931,48 +1079,12 @@
         <translation>명령줄 옵션</translation>
     </message>
     <message>
-        <source>Usage:</source>
-        <translation>사용법:</translation>
+        <source>%1 information</source>
+        <translation>%1 정보</translation>
     </message>
     <message>
-        <source>command-line options</source>
-        <translation>명령줄 옵션</translation>
-    </message>
-    <message>
-        <source>UI Options:</source>
-        <translation>UI 옵션:</translation>
-    </message>
-    <message>
-        <source>Choose data directory on startup (default: %u)</source>
-        <translation>실행시 데이터 디렉토리 선택하기 (기본값: %u)</translation>
-    </message>
-    <message>
-        <source>Set language, for example "de_DE" (default: system locale)</source>
-        <translation>언어를 설정하십시오. 예: "kr_KR" (기본값: 시스템 로케일)</translation>
-    </message>
-    <message>
-        <source>Start minimized</source>
-        <translation>최소화된 상태에서 시작</translation>
-    </message>
-    <message>
-        <source>Set SSL root certificates for payment request (default: -system-)</source>
-        <translation>지불 요청을 위한 SSL 루트 인증서 설정 (기본값: -system-)</translation>
-    </message>
-    <message>
-        <source>Show splash screen on startup (default: %u)</source>
-        <translation>실행시 시작 화면 보기 (기본값: %u)</translation>
-    </message>
-    <message>
-        <source>Reset all settings changed in the GUI</source>
-        <translation>GUI를 통해 수정된 모든 설정을 초기화</translation>
-    </message>
-    <message>
-        <source>PrivateSend information</source>
-        <translation>프라이빗샌드 정보</translation>
-    </message>
-    <message>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the DMS in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 DMS, 0.01 DMS, 0.1 DMS, 1 DMS and 10 DMS -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a href="https://docs.dash.org/en/latest/wallets/dmscore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
-        <translation>&lt;h3&gt;프라이빗샌드에 관한 기본 정보&lt;/h3&gt; 프라이빗 샌드는 당신의 자금 출처를 가려 진정한 재정적 프라이버시를 보장합니다. 당신의 지갑에 보관된 모든 대시는 각기 다른 ‘입력값’으로 구성되어 있습니다. 쉽게 생각하면 별도의 분리된 동전으로 구성되어 있다고 볼 수 있습니다.&lt;br&gt; 프라이빗샌드는 당신의 코인이 지갑을 떠나지 않고도 그 입력값을 다른 두 사람의 입력값과 섞는 혁신적인 방식을 사용합니다. 이로써 당신의 자금은 언제나 당신의 통제 하에 있습니다.&lt;hr&gt;&lt;b&gt; 프라이빗샌드는 다음과 같은 방식으로 작동합니다.&lt;/b&gt;&lt;ol type="1"&gt;&lt;li&gt; 프라이빗샌드는 당신의 거래 입력값을 표준 단위로 쪼개는 것으로 시작합니다. 이렇게 분할하는 단위는 0.001대시, 0.01대시, 0.1대시, 1대시 혹은 10대시 입니다 - 귀하가 일상적으로 사용하는 지폐와 비슷하다고 생각하셔도 좋습니다. &lt;/li&gt;&lt;li&gt;이후 당신의 지갑은 ‘마스터노드’라고 불리는 네트워크의 특수 구성 소프트웨어 노드에 요청을 전송합니다. 이로써 이들 마스터노드는 당신이 특정 금액을 믹싱하고자 한다는 정보를 수신합니다. 마스터노드에는 당신의 개인 정보를 식별할 수 있는 어떤 내용도 전송되지 않습니다. 즉 당신이 ‘누구’인지 알 수 있는 방법은 없습니다.&lt;/li&gt;&lt;li&gt; 두 명의 다른 사람이 비슷한 메시지를 보내어 그들 역시 같은 단위의 금액을 믹싱하고 싶다는 정보를 표시하면 믹싱 세션이 시작됩니다. 마스터노드는 이들 입력값을 믹싱하여 세 사용자의 지갑에 변환된 입력을 지불하도록 지시합니다. 당신의 지갑은 해당 입력값을 지불하지만, 지불되는 주소는 '변경 주소'라고 불리는 다른 주소로 보내집니다.&lt;/li&gt;&lt;li&gt; 당신의 자금을 완전히 가리기 위해서, 당신의 지갑은 이 과정을 각 대시 분할 단위만큼 여러번 반복합니다. 이러한 반복을 ‘라운드’라고 부릅니다. 프라이빗샌드의 각 라운드가 진행됨에 따라 당신이 송금하고자 하는 자금의 출처는 기하급수적으로 높은 수준으로 가려집니다.&lt;/li&gt;&lt;li&gt; 이 믹싱 과정은 당신이 개입할 필요 없이 백그라운드에서 진행됩니다. 당신이 거래를 원하시는 경우, 당신의 자금은 이미 익명화가 진행되는 중입니다. 추가적으로 대기할 필요 역시 없습니다. &lt;/li&gt;&lt;/ol&gt;&lt;hr&gt;&lt;b&gt;중요:&lt;/b&gt; 당신의 지갑은 1,000개의 ‘변경 주소’만을 가지고 있습니다. 믹싱을 실행할 때마다 최대 9개의 주소가 사용됩니다. 이는 곧 이들 1000개의 주소가 약 100개의 믹싱 작업을 위해 사용될 수 있다는 것을 의미합니다. 전체 1,000개의 주소 중 900개가 사용된 경우 당신의 지갑은 더 많은 주소를 만들어야 합니다. 그러나 이 작업은 당신이 자동 백업을 설정한 경우에만 수행됩니다. &lt;br&gt;따라서 백업이 비활성화된 사용자는 프라이빗샌드 역시 비활성화 됩니다. &lt;hr&gt;더 많은 정보를 위해서는 다음을 참조하세요 &lt;a href="https://docs.dash.org/en/latest/wallets/dmscore/privatesend-instantsend.html"&gt;프라이빗샌드 설명서&lt;/a&gt;. </translation>
+        <source>&lt;h3&gt;%1 Basics&lt;/h3&gt; %1 gives you true financial privacy by obscuring the origins of your funds. All the DMS in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; %1 uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The %1 process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;%1 begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 DMS, 0.01 DMS, 0.1 DMS, 1 DMS and 10 DMS -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of %1 makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have %1 disabled. &lt;hr&gt;For more information, see the &lt;a style="%2" href="%3"&gt;%1 documentation&lt;/a&gt;.</source>
+        <translation>&lt;h3&gt;%1 기본 정보&lt;/h3&gt; %1은 당신의 자금 출처를 가려 진정한 재정적 프라이버시를 보장합니다. 당신의 지갑에 보관된 모든 대시는 각기 다른 "입력값"으로 구성되어 있습니다. 쉽게 생각하면 별도의 분리된 동전으로 구성되어 있다고 볼 수 있습니다.&lt;br&gt;  %1은 당신의 코인이 지갑을 떠나지 않고도 그 입력값을 다른 두 사람의 입력값과 섞는 혁신적인 방식을 사용합니다. 이로써 당신의 자금은 언제나 당신의 통제 하에 있습니다.&lt;hr&gt;&lt;b&gt; %1은 다음과 같은 방식으로 작동합니다.&lt;/b&gt;&lt;ol type="1"&gt;&lt;li&gt; %1은 당신의 거래 입력값을 표준 단위로 쪼개는 것으로 시작합니다. 이렇게 분할하는 단위는 0.001대시, 0.01대시, 0.1대시, 1대시 혹은 10대시 입니다 - 귀하가 일상적으로 사용하는 지폐와 비슷하다고 생각하셔도 좋습니다. &lt;/li&gt;&lt;li&gt;이후 당신의 지갑은 "마스터노드"라고 불리는 네트워크의 특수 구성 소프트웨어 노드에 요청을 전송합니다. 이로써 이들 마스터노드는 당신이 특정 금액을 믹싱하고자 한다는 정보를 수신합니다. 마스터노드에는 당신의 개인 정보를 식별할 수 있는 어떤 내용도 전송되지 않습니다. 즉 당신이 "누구"인지 알 수 있는 방법은 없습니다.&lt;/li&gt;&lt;li&gt; 두 명의 다른 사람이 비슷한 메시지를 보내어 그들 역시 같은 단위의 금액을 믹싱하고 싶다는 정보를 나타내면 믹싱 세션이 시작됩니다. 마스터노드는 이들 입력값을 믹싱하여 세 사용자의 지갑에 변환된 입력을 지불하도록 지시합니다. 당신의 지갑은 해당 입력값을 곧바로 스스로에게 지불하지만, 지불되는 주소는 '변경 주소'라고 불리는 다른 주소로 보내집니다.&lt;/li&gt;&lt;li&gt; 당신의 자금을 완전히 가리기 위해서, 당신의 지갑은 이 과정을 각 대시 분할 단위만큼 여러번 반복합니다. 이러한 반복을 ‘라운드’라고 부릅니다. 프라이빗샌드의 각 라운드가 진행됨에 따라 당신이 송금하고자 하는 자금의 출처는 기하급수적으로 높은 수준으로 가려집니다.&lt;/li&gt;&lt;li&gt; 이 믹싱 과정은 당신이 개입할 필요 없이 백그라운드에서 진행됩니다. 당신이 거래를 원하는 경우, 당신의 자금은 이미 믹싱을 거친 것입니다. 추가적으로 대기할 필요 역시 없습니다. &lt;/li&gt;&lt;/ol&gt;&lt;hr&gt;&lt;b&gt;중요:&lt;/b&gt; 당신의 지갑은 1,000개의 ‘변경 주소’만을 가지고 있습니다. 믹싱을 실행할 때마다 최대 9개의 주소가 사용됩니다. 이는 곧 이들 1000개의 주소가 약 100개의 믹싱 작업을 위해 사용될 수 있다는 것을 의미합니다. 전체 1,000개의 주소 중 900개가 사용된 경우 당신의 지갑은 더 많은 주소를 만들어야 합니다. 그러나 이 작업은 당신이 자동 백업을 설정한 경우에만 수행됩니다. &lt;br&gt;따라서 백업이 비활성화된 사용자는 %1 역시 비활성화 됩니다. &lt;hr&gt;더 많은 정보를 위해서는 &lt;a style="%2" href="%3"&gt;%1 문서&lt;/a&gt;를 참조하세요.</translation>
     </message>
 </context>
 <context>
@@ -990,8 +1102,16 @@
         <translation>프로그램을 처음으로 실행합니다. 어디에 %1 데이터를 저장 할 지 선택할 수 있습니다. </translation>
     </message>
     <message>
-        <source>%1 will download and store a copy of the DMS block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>%1이/가 다운로드 되며 사본이 대시 블록체인 상에 저장됩니다. 이 디렉토리에 최소 %2GB의 데이터가 저장되며, 저장되는 데이터의 양은 시간이 지남에 따라 증가합니다. 지갑 역시 이 디렉토리에 저장될 예정입니다.</translation>
+        <source>When you click OK, %1 will begin to download and process the full %4 block chain (%2GB) starting with the earliest transactions in %3 when %4 initially launched.</source>
+        <translation>확인을 클릭하면 %1은 모든 %4블록 체인 (%2GB) 장부를 %3 안에 다운로드하고 처리하기 시작합니다.  이는 %4가 시작될 때 생성된 가장 오래된 트랜잭션부터 시작합니다.</translation>
+    </message>
+    <message>
+        <source>This initial synchronisation is very demanding, and may expose hardware problems with your computer that had previously gone unnoticed. Each time you run %1, it will continue downloading where it left off.</source>
+        <translation>초기 동기화는 매우 오래 걸리며 이전에는 본 적 없는  하드웨어 문제가 발생할 수 있습니다. %1을 실행할 때마다 중단 된 곳에서 다시 계속 다운로드 됩니다.</translation>
+    </message>
+    <message>
+        <source>If you have chosen to limit block chain storage (pruning), the historical data must still be downloaded and processed, but will be deleted afterward to keep your disk usage low.</source>
+        <translation>블록 체인 저장 영역 (블록축소)을 제한하도록 선택한 경우, 이력 데이터는 계속해서 다운로드 및 처리 되어야 하지만 차후 디스크 용량을 줄이기 위해 삭제됩니다.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1000,6 +1120,22 @@
     <message>
         <source>Use a custom data directory:</source>
         <translation>사용자 설정 데이터 디렉토리 사용하기</translation>
+    </message>
+    <message>
+        <source>At least %1 GB of data will be stored in this directory, and it will grow over time.</source>
+        <translation>최소 %1 GB의 데이터가 이 디렉토리에 저장되며 시간이 지남에 따라 증가할 것입니다.</translation>
+    </message>
+    <message>
+        <source>Approximately %1 GB of data will be stored in this directory.</source>
+        <translation>약 %1 GB의 데이터가 이 디렉토리에 저장됩니다.</translation>
+    </message>
+    <message>
+        <source>%1 will download and store a copy of the DMS block chain.</source>
+        <translation>%1은 비트코인 블록체인의 사본을 다운로드하여 저장합니다.</translation>
+    </message>
+    <message>
+        <source>The wallet will also be stored in this directory.</source>
+        <translation>지갑도 이 디렉토리에 저장됩니다.</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1025,76 +1161,12 @@
         <translation>유형</translation>
     </message>
     <message>
-        <source>My Masternodes</source>
-        <translation>나의 마스터노드</translation>
-    </message>
-    <message>
-        <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your masternode should be running but you still do not see "ENABLED" in "Status" field.</source>
-        <translation>주의: 로컬 지갑의 마스터노드 상태가 약간 다를 수 있습니다. 만일 당신의 마스터노드가 작동하고 있으나 여전히 '상태' 란에서 '활성화'가 표시되지 않은 경우 &lt;br /&gt;지갑이 추가적인 데이터와 동기화를 마치도록 기다리고 다른 노드로부터 이중 검증하세요.&lt;br /&gt;</translation>
-    </message>
-    <message>
-        <source>Alias</source>
-        <translation>에일리어스</translation>
-    </message>
-    <message>
-        <source>Address</source>
-        <translation>주소</translation>
-    </message>
-    <message>
-        <source>Protocol</source>
-        <translation>프로토콜</translation>
-    </message>
-    <message>
         <source>Status</source>
         <translation>상태</translation>
     </message>
     <message>
-        <source>Active</source>
-        <translation>활동 중</translation>
-    </message>
-    <message>
-        <source>Last Seen</source>
-        <translation>마지막 확인</translation>
-    </message>
-    <message>
-        <source>Payee</source>
-        <translation>수취인</translation>
-    </message>
-    <message>
-        <source>S&amp;tart alias</source>
-        <translation>에일리어스 시작(&amp;S)</translation>
-    </message>
-    <message>
-        <source>Start &amp;all</source>
-        <translation>모두 시작(&amp;A)</translation>
-    </message>
-    <message>
-        <source>Start &amp;MISSING</source>
-        <translation>미싱 시작(&amp;M)</translation>
-    </message>
-    <message>
-        <source>&amp;Update status</source>
-        <translation>업데이트 상태(&amp;U)</translation>
-    </message>
-    <message>
-        <source>Show additional Masternode information</source>
-        <translation>마스터노드 추가 정보를 보여줍니다.</translation>
-    </message>
-    <message>
-        <source>Show &amp;Info...</source>
-        <translation>정보 보기...(&amp;I)</translation>
-    </message>
-    <message>
-        <source>Status will be updated automatically in (sec):</source>
-        <translation>상태가 (초)안에 자동으로 업데이트 됩니다:</translation>
-    </message>
-    <message>
         <source>0</source>
         <translation>0</translation>
-    </message>
-    <message>
-        <source>All Masternodes</source>
-        <translation>모든 마스터노드</translation>
     </message>
     <message>
         <source>Filter List:</source>
@@ -1109,12 +1181,16 @@
         <translation>노드 개수:</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: This list represents the legacy and non-deterministic masternode list. It is only active as long as DIP3 has not been fully activated. After SPORK15 activation, this list will be empty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;주의: 이 리스트는 레거시와 비결정론적 마스터노드 리스트를 나타냅니다. 이는 DIP3가 완전히 활성화되지 않은 경우에만 활성화됩니다. SPORK15 활성화 후에 이 리스트는 비워집니다.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>Show only masternodes this wallet has keys for.</source>
+        <translation>이 지갑이 키를 가지고 있는 마스터노드만 보이기</translation>
     </message>
     <message>
-        <source>DIP3 Masternodes</source>
-        <translation>DIP3 마스터노드</translation>
+        <source>My masternodes only</source>
+        <translation>나의 마스터노드만</translation>
+    </message>
+    <message>
+        <source>Service</source>
+        <translation>서비스</translation>
     </message>
     <message>
         <source>PoSe Score</source>
@@ -1133,16 +1209,24 @@
         <translation>다음 지불</translation>
     </message>
     <message>
+        <source>Payout Address</source>
+        <translation>지불 주소</translation>
+    </message>
+    <message>
         <source>Operator Reward</source>
         <translation>운영 보상</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: This list is not active yet and only for informational purposes. The network is still running in compatibility mode, which means that the non-deterministic masternode list is still active. Only after SPORK15 activation, this list will become the active one. Also, the values in the payment related fields are not used at the moment, but still updated for every block. Please ignore this until SPORK15 activation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;주의: 이 리스트는 아직 활성화되지 않았으며 정보 전달을 위한 목적으로만 사용됩니다. 네트워크는 여전히 호환성 모드에서 작동하고 있으며, 이는 곧 비결정론적 마스터노드 리스트가 여전히 활성화되어 있음을 나타냅니다. 이 리스트는 SPORK15 활성화 이후에만 활성화됩니다. 또한, 지불과 관련된 필드의 값은 현재 사용되지 않지만, 여전히 모든 블록에 대해 업데이트 됩니다. SPORK15 활성화가 이루어질 때까지 이를 무시해주십시오.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>Collateral Address</source>
+        <translation>담보 주소</translation>
     </message>
     <message>
-        <source>Start alias</source>
-        <translation>에일리어스 시작</translation>
+        <source>Owner Address</source>
+        <translation>소유자 주소</translation>
+    </message>
+    <message>
+        <source>Voting Address</source>
+        <translation>투표 주소</translation>
     </message>
     <message>
         <source>Copy ProTx Hash</source>
@@ -1151,6 +1235,10 @@
     <message>
         <source>Copy Collateral Outpoint</source>
         <translation>콜래트럴 아웃포인트 복사</translation>
+    </message>
+    <message>
+        <source>Updating...</source>
+        <translation>업데이트 중...</translation>
     </message>
     <message>
         <source>ENABLED</source>
@@ -1181,72 +1269,108 @@
         <translation>없음</translation>
     </message>
     <message>
-        <source>Confirm masternode start</source>
-        <translation>마스터노드 실행 확인</translation>
+        <source>Filter by any property (e.g. address or protx hash)</source>
+        <translation>모든 속성으로 검색하기 (예: 주소 혹은 protx 해시)</translation>
     </message>
     <message>
-        <source>Are you sure you want to start masternode %1?</source>
-        <translation>정말로 마스터노드 %1를 실행하시겠습니까?</translation>
-    </message>
-    <message>
-        <source>Confirm all masternodes start</source>
-        <translation>모든 마스터노드 실행 확인</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to start ALL masternodes?</source>
-        <translation>정말로 모든 마스터노드를 실행하시겠습니까?</translation>
-    </message>
-    <message>
-        <source>Command is not available right now</source>
-        <translation>현재 이 명령을 실행할 수 없습니다.</translation>
-    </message>
-    <message>
-        <source>You can't use this command until masternode list is synced</source>
-        <translation>마스터노드 리스트가 동기화 될 때까지 이 명령을 실행할 수 없습니다.</translation>
-    </message>
-    <message>
-        <source>Confirm missing masternodes start</source>
-        <translation>미싱 마스터노드 시작 확인</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to start MISSING masternodes?</source>
-        <translation>정말로 미싱 마스터노드를 시작하시겠습니까?</translation>
-    </message>
-    <message>
-        <source>Additional information for Masternode %1</source>
-        <translation>마스터노드 %1에 대한 추가 정보</translation>
-    </message>
-    <message>
-        <source>Masternode Private Key</source>
-        <translation>마스터노드 개인 키</translation>
-    </message>
-    <message>
-        <source>Private Key</source>
-        <translation>개인 키</translation>
-    </message>
-    <message>
-        <source>Collateral</source>
-        <translation>콜래트럴</translation>
-    </message>
-    <message>
-        <source>IP</source>
-        <translation>IP</translation>
-    </message>
-    <message>
-        <source>Version</source>
-        <translation>버전</translation>
-    </message>
-    <message>
-        <source>Unknown</source>
-        <translation>알 수 없음</translation>
-    </message>
-    <message>
-        <source>Sentinel</source>
-        <translation>센티넬</translation>
+        <source>Please wait...</source>
+        <translation>기다려주십시오...</translation>
     </message>
     <message>
         <source>Additional information for DIP3 Masternode %1</source>
         <translation>DIP3 마스터노드 %1에 대한 추가 정보</translation>
+    </message>
+    <message>
+        <source>Deploy Masternode...</source>
+        <translation>Deploy Masternode...</translation>
+    </message>
+    <message>
+        <source>Deploy Masternode</source>
+        <translation>Deploy Masternode</translation>
+    </message>
+    <message>
+        <source>Operating a Documentchain Masternode requires 5,000 DMS as collateral, see also &lt;a href=&quot;https://documentchain.org/support/masternodes/&quot;&gt;instructions&lt;/a&gt; and &lt;a href=&quot;https://documentchain.org/news/shared-masternodes/&quot;&gt;shared masternodes&lt;/a&gt;.</source>
+        <translation>Operating a Documentchain Masternode requires 5,000 DMS as collateral, see also &lt;a href=&quot;https://documentchain.org/support/masternodes/&quot;&gt;instructions&lt;/a&gt; and &lt;a href=&quot;https://documentchain.org/news/shared-masternodes/&quot;&gt;shared masternodes&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>Provider Update Service Transaction...</source>
+        <translation>Provider Update Service Transaction...</translation>
+    </message>
+    <message>
+        <source>Send Provider Registration Transaction?&lt;br&gt;&lt;a href='https://documentchain.org/support/masternodes/'&gt;Please note the instructions&lt;/a&gt;</source>
+        <translation>Send Provider Registration Transaction?&lt;br&gt;&lt;a href='https://documentchain.org/support/masternodes/'&gt;Please note the instructions&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>Create Collateral Transaction</source>
+        <translation>Create Collateral Transaction</translation>
+    </message>
+    <message>
+        <source>Masternode IP:Port</source>
+        <translation>Masternode IP:Port</translation>
+    </message>
+    <message>
+        <source>%1 is not a valid IP:Port.</source>
+        <translation>%1 is not a valid IP:Port.</translation>
+    </message>
+    <message>
+        <source>Collateral tx id</source>
+        <translation>Collateral tx id</translation>
+    </message>
+    <message>
+        <source>No collateral transaction found.</source>
+        <translation>No collateral transaction found.</translation>
+    </message>
+    <message>
+        <source>Owner Address (optional)</source>
+        <translation>Owner Address (optional)</translation>
+    </message>
+    <message>
+        <source>Owner Address %1 created</source>
+        <translation>Owner Address %1 created</translation>
+    </message>
+    <message>
+        <source>Fee Address</source>
+        <translation>Fee Address</translation>
+    </message>
+    <message>
+        <source>BLS Secret (optional)</source>
+        <translation>BLS Secret (optional)</translation>
+    </message>
+    <message>
+        <source>Invalid BLS secret key</source>
+        <translation>Invalid BLS secret key</translation>
+    </message>
+    <message>
+        <source>Fund address to debit</source>
+        <translation>Fund address to debit</translation>
+    </message>
+    <message>
+        <source>The fund address requires a balance of at least 5,000.01 DMS</source>
+        <translation>The fund address requires a balance of at least 5,000.01 DMS</translation>
+    </message>
+    <message>
+        <source>Send protx</source>
+        <translation>Send protx</translation>
+    </message>
+    <message>
+        <source>Done. As soon as the provider register transaction, your masternode is ready.</source>
+        <translation>Done. As soon as the provider register transaction, your masternode is ready.</translation>
+    </message>
+    <message>
+        <source>Show dms.conf suggestion</source>
+        <translation>Show dms.conf suggestion</translation>
+    </message>
+    <message>
+        <source>Update Service</source>
+        <translation>Update Service</translation>
+    </message>
+    <message>
+        <source>BLS Secret</source>
+        <translation>BLS Secret</translation>
+    </message>
+    <message>
+        <source>Couldn't connect to masternode %1</source>
+        <translation>Couldn't connect to masternode %1</translation>
     </message>
 </context>
 <context>
@@ -1350,12 +1474,12 @@
         <translation>(0 = 자동, &lt;0 = 지정된 코어 개수만큼 사용 안함)</translation>
     </message>
     <message>
-        <source>Amount of DMS to keep anonymized</source>
-        <translation>익명을 유지할 대시의 개수</translation>
-    </message>
-    <message>
         <source>W&amp;allet</source>
         <translation>지갑(&amp;a)</translation>
+    </message>
+    <message>
+        <source>&amp;Appearance</source>
+        <translation>외관(&amp;A)</translation>
     </message>
     <message>
         <source>Show additional tab listing all your masternodes in first sub-tab&lt;br/&gt;and all masternodes on the network in second sub-tab.</source>
@@ -1366,51 +1490,67 @@
         <translation>마스터노드 탭을 보여줍니다.</translation>
     </message>
     <message>
-        <source>Show additional information and buttons for PrivateSend on overview screen.</source>
-        <translation>추가적인 정보와 프라이빗샌드를 위한 버튼을 개요에 나타냅니다.</translation>
-    </message>
-    <message>
-        <source>Enable advanced PrivateSend interface</source>
-        <translation>향상된 프라이빗샌드 인터페이스 사용하기</translation>
-    </message>
-    <message>
-        <source>Show warning dialog when PrivateSend detects that wallet has very low number of keys left.</source>
-        <translation>프라이빗샌드가 지갑에 남은 키의 숫자가 적은 것을 감지하는 경우 대화 상자에 오류를 나타냅니다.</translation>
-    </message>
-    <message>
-        <source>Warn if PrivateSend is running out of keys</source>
-        <translation>프라이빗샌드에 사용할 키가 없는 경우 경고문을 표시합니다.</translation>
-    </message>
-    <message>
-        <source>Whether to use experimental PrivateSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
-        <translation>블록당 다수의 믹싱 세션을 이용하는 실험적 프라이빗샌드 모드를 사용할 지 여부를 결정합니다. &lt;br/&gt;주의: 이 기능을 사용하기 위해서는 특별히 주의를 기울여야 합니다.&lt;br/&gt;언제나 안전한 장소에 최신의 지갑 (자동)백업이 되고 있는지 확인하세요! </translation>
-    </message>
-    <message>
-        <source>Enable PrivateSend &amp;multi-session</source>
-        <translation>프라이빗샌드 멀티 세션 활성화(&amp;m)</translation>
-    </message>
-    <message>
         <source>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</source>
         <translation>확인되지 않은 잔액 사용을 중지하는 경우, 거래로부터 발생하는 잔액은 &lt;br/&gt;최소 한 번의 거래 확인이 발생할 때 까지 사용할 수 없습니다.&lt;br/&gt;이는 또한 당신의 잔고가 계산되는 방식에 영향을 미칠 수 있습니다.</translation>
     </message>
     <message>
-        <source>PrivateSend rounds to use</source>
-        <translation>프라이빗샌드 라운드 사용</translation>
+        <source>Show mixing interface on Overview screen and reveal an additional screen which allows to spend fully mixed coins only.&lt;br/&gt;A new tab with more settings will also appear in this dialog, please make sure to check them before mixing your coins.</source>
+        <translation>개요 화면의 믹싱 인터페이스를 보여주고, 완전히 믹싱된 코인만을 지불에 사용할 수 있도록 하는 추가적 스크린을 나타냅니다. &lt;br/&gt;더 많은 설정을 담은 새로운 탭이 이 대화창에 나타나게 되니, 코인을 믹싱하기 전 해당 내용을 확인하십시오.</translation>
     </message>
     <message>
-        <source>This amount acts as a threshold to turn off PrivateSend once it's reached.</source>
-        <translation>이 금액에 도달하는 경우 프라이빗샌드를 끄기 위한 한계점으로 작동합니다.</translation>
+        <source>Show additional information and buttons on overview screen.</source>
+        <translation>개요 화면에 추가적 정보와 버튼을 보여줍니다.</translation>
+    </message>
+    <message>
+        <source>Enable advanced interface</source>
+        <translation>향상된 인터페이스를 활성화합니다</translation>
+    </message>
+    <message>
+        <source>Show system popups for mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
+        <translation>모든 다른 유형의 거래와 마찬가지로&lt;br/&gt;믹싱 거래를 위한 시스템 팝업을 보여줍니다</translation>
+    </message>
+    <message>
+        <source>Show popups for mixing transactions</source>
+        <translation>믹싱 거래를 위한 팝업을 보여줍니다</translation>
+    </message>
+    <message>
+        <source>Show warning dialog when the wallet has very low number of keys left.</source>
+        <translation>지갑에 적은 수의 키가 남아있는 경우 경고 대화창을 보여줍니다</translation>
+    </message>
+    <message>
+        <source>Warn if the wallet is running out of keys</source>
+        <translation>지갑에 키가 부족한 경우 경고합니다</translation>
+    </message>
+    <message>
+        <source>Whether to use experimental mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
+        <translation>블록당 다양한 믹싱 세션이 있는 실험 모드를 사용할 지 여부를 결정합니다. &lt;br/&gt;참고: 이 기능을 사용할 때는 주의해야 합니다.&lt;br/&gt;언제나 안전한 장소에 최신 지갑 (자동) 백업이 되어 있는 지 확인하세요!</translation>
+    </message>
+    <message>
+        <source>Enable &amp;multi-session</source>
+        <translation>멀티 세션 활성화(&amp;m)</translation>
+    </message>
+    <message>
+        <source>Mixing rounds</source>
+        <translation>믹싱 라운드</translation>
+    </message>
+    <message>
+        <source>This amount acts as a threshold to turn off mixing once it's reached.</source>
+        <translation>이 금액은 도달 시 믹싱을 종료하기 위한 한계점으로 작동합니다.</translation>
+    </message>
+    <message>
+        <source>Target balance</source>
+        <translation>타깃 잔고</translation>
     </message>
     <message>
         <source>Automatically open the DMS Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>라우터에서 대시 코어 클라이언트를 자동으로 엽니다. 이 기능은 당신의 라우터가 UPnP를 지원하고 해당 기능이 작동하는 경우에만 가능합니다.</translation>
     </message>
     <message>
-        <source>Accept connections from outside</source>
-        <translation>외부로부터의 연결 허용</translation>
+        <source>Accept connections from outside.</source>
+        <translation>외부로부터의 연결을 허용합니다.</translation>
     </message>
     <message>
-        <source>Allow incoming connections</source>
+        <source>Allow incomin&amp;g connections</source>
         <translation>수신 연결 허용</translation>
     </message>
     <message>
@@ -1422,6 +1562,22 @@
         <translation>SOCKS5 프록시를 거쳐 연결합니다(&amp;C) (기본 프록시):</translation>
     </message>
     <message>
+        <source>Shows if the supplied default SOCKS5 proxy is used to reach peers via this network type.</source>
+        <translation>선택된 기본 SOCKS5 프록시가 이 네트워크 유형을 통해 피어에 연결하는 경우에 보여주기</translation>
+    </message>
+    <message>
+        <source>Use separate SOCKS&amp;5 proxy to reach peers via Tor hidden services:</source>
+        <translation>Tor 숨김 서비스로 피어에 접속하기 위해 별도의 SOCKS&amp;5 프록시 사용:</translation>
+    </message>
+    <message>
+        <source>Hide the icon from the system tray.</source>
+        <translation>시스템 트레이에서 아이콘을 숨깁니다.</translation>
+    </message>
+    <message>
+        <source>&amp;Hide tray icon</source>
+        <translation>트레이 아이콘 숨김(&amp;H)</translation>
+    </message>
+    <message>
         <source>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Exit in the menu.</source>
         <translation>창이 닫히는 경우 종료하지 않고 축소합니다. 이 옵션을 활성화하면 메뉴에서 종료를 선택하는 경우에만 어플리케이션이 종료됩니다.</translation>
     </message>
@@ -1430,12 +1586,8 @@
         <translation>거래 탭에 강조 표시된 메뉴 항목으로 나타나는 제3자 URL(예: 블록 탐색기). &lt;br/&gt;해당 URL의 %s 는 거래 해시에 의해 대체됩니다. 다중 URL은 수직 바 | 에 의해 분리됩니다.</translation>
     </message>
     <message>
-        <source>Expert</source>
-        <translation>전문가</translation>
-    </message>
-    <message>
-        <source>This setting determines the amount of individual masternodes that an input will be anonymized through.&lt;br/&gt;More rounds of anonymization gives a higher degree of privacy, but also costs more in fees.</source>
-        <translation>이 설정은 얼마나 많은 개별 마스터노드를 거쳐 익명화를 진행할 지를 결정합니다.&lt;br/&gt;익명화를 위해 보다 많은 라운드를 거치는 것은 향상된 개인 정보 보호 수준을 제공하지만 더 많은 수수료가 발생합니다.</translation>
+        <source>&amp;Third party transaction URLs</source>
+        <translation>제3자 거래 URL(&amp;T)</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1454,16 +1606,12 @@
         <translation>코인 제어 기능 활성화(&amp;C)</translation>
     </message>
     <message>
-        <source>Show system popups for PrivateSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
-        <translation>다른 모든 거래 타입과 같이&lt;br/&gt;프라이빗샌드 믹싱 거래를 위한 시스템 팝업을 보여줍니다</translation>
-    </message>
-    <message>
-        <source>Show popups for PrivateSend transactions</source>
-        <translation>프라이빗샌드 거래를 위한 팝업을 보여줍니다.</translation>
-    </message>
-    <message>
         <source>&amp;Spend unconfirmed change</source>
         <translation>검증되지 않은 잔돈 쓰기 (&amp;S)</translation>
+    </message>
+    <message>
+        <source>This setting determines the amount of individual masternodes that an input will be mixed through.&lt;br/&gt;More rounds of mixing gives a higher degree of privacy, but also costs more in fees.</source>
+        <translation>이 설정은 얼마나 많은 개별 마스터노드를 거쳐 믹싱을 진행할 지를 결정합니다.&lt;br/&gt;믹싱을 위해 보다 많은 라운드를 거치는 것은 향상된 개인 정보 보호 수준을 제공하지만 더 많은 수수료가 발생합니다.</translation>
     </message>
     <message>
         <source>&amp;Network</source>
@@ -1494,10 +1642,6 @@
         <translation>피어에 연결하기 위해 사용된 방법:</translation>
     </message>
     <message>
-        <source>Shows, if the supplied default SOCKS5 proxy is used to reach peers via this network type.</source>
-        <translation>선택된 기본 SOCKS5 프록시가 이 네트워크 유형을 통해 피어에 연결하는 경우에 보여주기</translation>
-    </message>
-    <message>
         <source>IPv4</source>
         <translation>IPv4</translation>
     </message>
@@ -1512,22 +1656,6 @@
     <message>
         <source>Connect to the Documentchain network through a separate SOCKS5 proxy for Tor hidden services.</source>
         <translation>Tor 숨김 서비스를 위한 별도의 SOCKS5 프록시를 사용하여 대시 네트워크에 연결</translation>
-    </message>
-    <message>
-        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services:</source>
-        <translation>Tor 숨김 서비스로 피어에 접속하기 위해 별도의 SOCKS5 프록시 사용</translation>
-    </message>
-    <message>
-        <source>&amp;Window</source>
-        <translation>창(&amp;W)</translation>
-    </message>
-    <message>
-        <source>&amp;Hide the icon from the system tray.</source>
-        <translation>시스템 트레이에서 아이콘 숨기기(&amp;H)</translation>
-    </message>
-    <message>
-        <source>Hide tray icon</source>
-        <translation>트레이 아이콘을 숨깁니다.</translation>
     </message>
     <message>
         <source>Show only a tray icon after minimizing the window.</source>
@@ -1554,8 +1682,10 @@
         <translation>이곳에서 사용자 인터페이스 언어를 설정 할 수 있습니다. 이 설정은 %1을/를 다시 시작할 때 적용됩니다.</translation>
     </message>
     <message>
-        <source>User Interface Theme:</source>
-        <translation>사용자 인터페이스 테마:</translation>
+        <source>Language missing or translation incomplete? Help contributing translations here:
+mail@documentchain.org</source>
+        <translation>지정하려는 언어가 목록에 없거나 번역이 완성되지 않았다면? 다음의 주소에서 번역을 도와주세요:
+mail@documentchain.org</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -1568,10 +1698,6 @@
     <message>
         <source>Decimal digits</source>
         <translation>십진수</translation>
-    </message>
-    <message>
-        <source>Third party transaction URLs</source>
-        <translation>제3자 거래 URL</translation>
     </message>
     <message>
         <source>Active command-line options that override above options:</source>
@@ -1594,12 +1720,12 @@
         <translation>취소(&amp;C)</translation>
     </message>
     <message>
-        <source>default</source>
-        <translation>기본값</translation>
+        <source>Enable %1 features</source>
+        <translation>%1 기능 활성화</translation>
     </message>
     <message>
-        <source>none</source>
-        <translation>없음</translation>
+        <source>default</source>
+        <translation>기본값</translation>
     </message>
     <message>
         <source>Confirm options reset</source>
@@ -1693,10 +1819,6 @@
         <translation>사용 가능한 잔고:</translation>
     </message>
     <message>
-        <source>PrivateSend</source>
-        <translation>프라이빗샌드</translation>
-    </message>
-    <message>
         <source>Status:</source>
         <translation>상태:</translation>
     </message>
@@ -1707,22 +1829,6 @@
     <message>
         <source>Completion:</source>
         <translation>완료:</translation>
-    </message>
-    <message>
-        <source>Try to manually submit a PrivateSend request.</source>
-        <translation>프라이빗샌드 요청을 수동으로 제출합니다.</translation>
-    </message>
-    <message>
-        <source>Reset the current status of PrivateSend (can interrupt PrivateSend if it's in the process of Mixing, which can cost you money!)</source>
-        <translation>프라이빗샌드의 현재 상태를 재설정합니다. (프라이빗샌드가 믹싱 단계에 있다면 이를 방해할 수도 있습니다. 이 경우에 수수료가 발생할 수 있습니다!)</translation>
-    </message>
-    <message>
-        <source>Information about PrivateSend and Mixing</source>
-        <translation>프라이빗샌드와 믹싱에 관한 정보</translation>
-    </message>
-    <message>
-        <source>Info</source>
-        <translation>정보</translation>
     </message>
     <message>
         <source>Amount and Rounds:</source>
@@ -1749,24 +1855,8 @@
         <translation>믹싱 시작/정지</translation>
     </message>
     <message>
-        <source>PrivateSend Balance:</source>
-        <translation>프라이빗샌드 잔고</translation>
-    </message>
-    <message>
         <source>The denominations you submitted to the Masternode.&lt;br&gt;To mix, other users must submit the exact same denominations.</source>
         <translation>당신이 마스터노드에 제출한 분할 단위.&lt;br&gt;믹싱을 위해서는 다른 사용자들이 같은 단위를 제출하여야만 합니다.</translation>
-    </message>
-    <message>
-        <source>(Last Message)</source>
-        <translation>(지난 메시지)</translation>
-    </message>
-    <message>
-        <source>Try Mix</source>
-        <translation>믹스하기</translation>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation>재설정</translation>
     </message>
     <message>
         <source>out of sync</source>
@@ -1777,28 +1867,24 @@
         <translation>자동 백업이 비활성화 되어 있어 믹싱이 불가능합니다!</translation>
     </message>
     <message>
-        <source>Start Mixing</source>
-        <translation>믹싱을 시작합니다.</translation>
-    </message>
-    <message>
-        <source>Stop Mixing</source>
-        <translation>믹싱을 정지합니다.</translation>
-    </message>
-    <message>
         <source>No inputs detected</source>
         <translation>입력이 감지되지 않습니다.</translation>
+    </message>
+    <message>
+        <source>%1 Balance</source>
+        <translation>%1 잔고</translation>
     </message>
     <message numerus="yes">
         <source>%n Rounds</source>
         <translation><numerusform>&amp;n 라운드</numerusform></translation>
     </message>
     <message>
-        <source>Found enough compatible inputs to anonymize %1</source>
-        <translation>%1 을/를 익명으로 처리하기 위해 충분한 호환 가능 입력을 찾았습니다.</translation>
+        <source>Found enough compatible inputs to mix %1</source>
+        <translation>%1 믹싱에 사용되는 호환 가능한 입력값을 찾았습니다</translation>
     </message>
     <message>
-        <source>Not enough compatible inputs to anonymize &lt;span style='color:red;'&gt;%1&lt;/span&gt;,&lt;br&gt;will anonymize &lt;span style='color:red;'&gt;%2&lt;/span&gt; instead</source>
-        <translation>&lt;span style='color:red;'&gt;%1&lt;/span&gt;을/를 익명으로 처리하기 위한 호환 가능 입력이 충분하지 않아, 이를 대신 하여 &lt;span style='color:red;'&gt;%2&lt;/span&gt;을/를 &lt;br&gt;익명화 할 예정입니다.</translation>
+        <source>Not enough compatible inputs to mix &lt;span style='%1'&gt;%2&lt;/span&gt;,&lt;br&gt;will mix &lt;span style='%1'&gt;%3&lt;/span&gt; instead</source>
+        <translation>&lt;span style='%1'&gt;%2&lt;/span&gt; 믹싱에 쓰이는 호환 가능한 입력값이 충분하지 않아, &lt;br&gt;이를 대신하여 &lt;span style='%1'&gt;%3&lt;/span&gt;을 믹싱할 예정입니다</translation>
     </message>
     <message>
         <source>Overall progress</source>
@@ -1809,12 +1895,12 @@
         <translation>단위 분할 완료</translation>
     </message>
     <message>
-        <source>Mixed</source>
-        <translation>믹싱 완료</translation>
+        <source>Partially mixed</source>
+        <translation>부분적으로 믹싱됨</translation>
     </message>
     <message>
-        <source>Anonymized</source>
-        <translation>익명화 처리 완료</translation>
+        <source>Mixed</source>
+        <translation>믹싱 완료</translation>
     </message>
     <message numerus="yes">
         <source>Denominated inputs have %5 of %n rounds on average</source>
@@ -1825,6 +1911,26 @@
         <translation>남은 키의 수: %1</translation>
     </message>
     <message>
+        <source>Start %1</source>
+        <translation>%1 시작</translation>
+    </message>
+    <message>
+        <source>If you don't want to see internal %1 fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
+        <translation>내부 %1 수수료/거래를 보지 않으려면 "거래" 탭의 유형에서 "자주 사용된 항목"을 선택하세요. </translation>
+    </message>
+    <message>
+        <source>%1 requires at least %2 to use.</source>
+        <translation>%1 를 사용하기 위해서는 최소한 %2가 필요합니다.</translation>
+    </message>
+    <message>
+        <source>Wallet is locked and user declined to unlock. Disabling %1.</source>
+        <translation>지갑이 잠겨있으며 사용자가 잠금 해제를 거으며 사용자가 잠금 해제를 거절했습니다. %1를 비활성화 합니다.</translation>
+    </message>
+    <message>
+        <source>Stop %1</source>
+        <translation>%1 정지</translation>
+    </message>
+    <message>
         <source>Disabled</source>
         <translation>비활성화</translation>
     </message>
@@ -1833,8 +1939,8 @@
         <translation>지난 자동 백업 이후 매우 적은 수의 키가 남아 있습니다!</translation>
     </message>
     <message>
-        <source>We are about to create a new automatic backup for you, however &lt;span style='color:red;'&gt; you should always make sure you have backups saved in some safe place&lt;/span&gt;!</source>
-        <translation>당신을 위한 새로운 자동 백업을 생성하고자 합니다. 그러나 &lt;span style='color:red;'&gt;언제나 안전한 장소에 백업 파일을 저장해두어야 한다는 점을 명심하세요&lt;/span&gt;!</translation>
+        <source>We are about to create a new automatic backup for you, however &lt;span style='%1'&gt; you should always make sure you have backups saved in some safe place&lt;/span&gt;!</source>
+        <translation>당신을 위한 새로운 자동 백업을 생성하고자 합니다. 그러나 &lt;span style='%1'&gt;언제나 안전한 장소에 백업 파일을 저장해두어야 한다는 점을 명심하세요&lt;/span&gt;!</translation>
     </message>
     <message>
         <source>Note: You can turn this message off in options.</source>
@@ -1864,28 +1970,6 @@
         <source>WARNING! Failed to replenish keypool, please unlock your wallet to do so.</source>
         <translation>경고! 키풀 보충에 실패하였습니다. 키풀 보충을 위해서는 지갑을 잠금 해제 하세요.</translation>
     </message>
-    <message>
-        <source>Last PrivateSend message:
-</source>
-        <translation>지난 프라이빗샌드 메시지:
-</translation>
-    </message>
-    <message>
-        <source>PrivateSend was successfully reset.</source>
-        <translation>프라이빗샌드가 성공적으로 재설정 되었습니다.</translation>
-    </message>
-    <message>
-        <source>If you don't want to see internal PrivateSend fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
-        <translation>프라이빗샌드 수수료/거래의 내부 사항을 보고 싶지 않으면 '거래' 탭에서 유형을 클릭하고  '자주 사용된 항목'을 선택하세요.</translation>
-    </message>
-    <message>
-        <source>PrivateSend requires at least %1 to use.</source>
-        <translation>프라이빗샌드를 사용하기 위해서는 최소한 %1이/가 필요합니다.</translation>
-    </message>
-    <message>
-        <source>Wallet is locked and user declined to unlock. Disabling PrivateSend.</source>
-        <translation>지갑이 잠겨있으며 사용자가 잠금 해제를 거부하였습니다. 프라이빗샌드를 비활성화 합니다.</translation>
-    </message>
 </context>
 <context>
     <name>PaymentServer</name>
@@ -1900,6 +1984,10 @@
     <message>
         <source>URI handling</source>
         <translation>URI 처리</translation>
+    </message>
+    <message>
+        <source>'dms://' is not a valid URI. Use 'dms:' instead.</source>
+        <translation>'dms://' 는 유효하지 않은 URI 입니다. 'dms:' 를 사용하세요.</translation>
     </message>
     <message>
         <source>Payment request fetch URL is invalid: %1</source>
@@ -1996,20 +2084,60 @@
         <source>Ping</source>
         <translation>Ping</translation>
     </message>
+    <message>
+        <source>Sent</source>
+        <translation>보냄</translation>
+    </message>
+    <message>
+        <source>Received</source>
+        <translation>받음</translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
-        <source>DMS Core</source>
-        <translation>대시 코어</translation>
+        <source>Choose data directory on startup (default: %u)</source>
+        <translation>실행시 데이터 디렉토리 선택하기 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Set the font family. Possible values: %1. (default: %2)</source>
+        <translation>글꼴 집합을 지정하세요. 가능한 값: %1. (디폴트: %2)</translation>
+    </message>
+    <message>
+        <source>Set a scale factor which gets applied to the base font size. Possible range %1 (smallest fonts) to %2 (largest fonts). (default: %3)</source>
+        <translation>기본 글꼴 크기에 적용되는 글꼴 크기를 지정하세요. 가능한 범위 %1 (가장 작은 글꼴) 에서 %2 (가장 큰 글꼴). (디폴트: %3)</translation>
+    </message>
+    <message>
+        <source>Set the font weight for bold texts. Possible range %1 to %2 (default: %3)</source>
+        <translation>두꺼운 텍스트를 위한 글꼴 두께를 지정하세요. 가능한 범위 %1 에서 %2 (디폴트: %3)</translation>
+    </message>
+    <message>
+        <source>Set the font weight for normal texts. Possible range %1 to %2 (default: %3)</source>
+        <translation>일반 텍스트를 위한 글꼴 두께를 지정하세요. 가능한 범위 %1에서 %2 (디폴트: %3)</translation>
+    </message>
+    <message>
+        <source>Set language, for example "de_DE" (default: system locale)</source>
+        <translation>언어를 설정하십시오. 예: "kr_KR" (기본값: 시스템 로케일)</translation>
+    </message>
+    <message>
+        <source>Start minimized</source>
+        <translation>최소화된 상태에서 시작</translation>
+    </message>
+    <message>
+        <source>Reset all settings changed in the GUI</source>
+        <translation>GUI를 통해 수정된 모든 설정을 초기화</translation>
+    </message>
+    <message>
+        <source>Set SSL root certificates for payment request (default: -system-)</source>
+        <translation>지불 요청을 위한 SSL 루트 인증서 설정 (기본값: -system-)</translation>
+    </message>
+    <message>
+        <source>Show splash screen on startup (default: %u)</source>
+        <translation>실행시 시작 화면 보기 (기본값: %u)</translation>
     </message>
     <message>
         <source>%1 didn't yet exit safely...</source>
         <translation>%1가 아직 안전하게 종료되지 않았습니다...</translation>
-    </message>
-    <message>
-        <source>Error reading masternode configuration file: %1</source>
-        <translation>마스터노드 설정을 읽는 과정에서 에러가 발생하였습니다: %1</translation>
     </message>
     <message>
         <source>Amount</source>
@@ -2018,6 +2146,18 @@
     <message>
         <source>Enter a DMS address (e.g. %1)</source>
         <translation>대시 주소 입력 (예: %1)</translation>
+    </message>
+    <message>
+        <source>Appearance Setup</source>
+        <translation>외관 설정</translation>
+    </message>
+    <message>
+        <source>Please choose your preferred settings for the appearance of %1</source>
+        <translation>%1의 외관을 위해 원하는 설정을 선택하세요.</translation>
+    </message>
+    <message>
+        <source>This can also be adjusted later in the "Appearance" tab of the preferences.</source>
+        <translation>이는 이후 "외관" 탭에서 선호에 따라 다시 조정할 수 있습니다.</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2076,6 +2216,22 @@
         <translation>%1 및 %2</translation>
     </message>
     <message>
+        <source>%1 B</source>
+        <translation>%1 B</translation>
+    </message>
+    <message>
+        <source>%1 KB</source>
+        <translation>%1 KB</translation>
+    </message>
+    <message>
+        <source>%1 MB</source>
+        <translation>%1 MB</translation>
+    </message>
+    <message>
+        <source>%1 GB</source>
+        <translation>%1 GB</translation>
+    </message>
+    <message>
         <source>unknown</source>
         <translation>알 수 없음</translation>
     </message>
@@ -2093,6 +2249,34 @@
     <message>
         <source>Error: %1</source>
         <translation>에러: %1</translation>
+    </message>
+    <message>
+        <source>Error: Failed to load application fonts.</source>
+        <translation>오류: 어플리케이션 글꼴을 불러오는 데 실패하였습니다.</translation>
+    </message>
+    <message>
+        <source>Error: Specified font-family invalid. Valid values: %1.</source>
+        <translation>오류: 지정된 글꼴 집합이 유효하지 않습니다. 유효한 값: %1</translation>
+    </message>
+    <message>
+        <source>Error: Specified font-weight-normal invalid. Valid range %1 to %2.</source>
+        <translation>오류: 지정된 글꼴-두께-일반이 유효하지 않습니다. 유효 범위는 %1에서 %2 사이입니다.</translation>
+    </message>
+    <message>
+        <source>Error: Specified font-weight-bold invalid. Valid range %1 to %2.</source>
+        <translation>오류: 지정된 글꼴-두께-굵게가 유효하지 않습니다. 유효 범위는 %1에서 %2 사이입니다.</translation>
+    </message>
+    <message>
+        <source>Error: Specified font-scale invalid. Valid range %1 to %2.</source>
+        <translation>오류: 지정된 글꼴 크기가 유효하지 않습니다. 유효 범위는 %1에서 %2 사이입니다.</translation>
+    </message>
+    <message>
+        <source>Error: Invalid -custom-css-dir path.</source>
+        <translation>오류: 유효하지 않은 -custom-css-dir 경로입니다.</translation>
+    </message>
+    <message>
+        <source>Error: %1 CSS file(s) missing in -custom-css-dir path.</source>
+        <translation>오류: %1 CSS 파일이 -custom-css-dir 경로에서 누락되었습니다.</translation>
     </message>
 </context>
 <context>
@@ -2243,14 +2427,6 @@
         <translation>네트워크 트래픽(&amp;N)</translation>
     </message>
     <message>
-        <source>&amp;Clear</source>
-        <translation>지우기(&amp;C)</translation>
-    </message>
-    <message>
-        <source>Totals</source>
-        <translation>총액</translation>
-    </message>
-    <message>
         <source>Received</source>
         <translation>받음</translation>
     </message>
@@ -2261,6 +2437,10 @@
     <message>
         <source>&amp;Peers</source>
         <translation>피어(&amp;P)</translation>
+    </message>
+    <message>
+        <source>Wallet:</source>
+        <translation>지갑:</translation>
     </message>
     <message>
         <source>Banned peers</source>
@@ -2295,6 +2475,22 @@
         <translation>동기화 된 블록</translation>
     </message>
     <message>
+        <source>Rescan blockchain files 1</source>
+        <translation>블록체인 파일 1 재스캔</translation>
+    </message>
+    <message>
+        <source>Rescan blockchain files 2</source>
+        <translation>블록체인 파일 2 재스캔</translation>
+    </message>
+    <message>
+        <source>-rescan=1: Rescan the block chain for missing wallet transactions starting from wallet creation time.</source>
+        <translation>-rescan=1: 지갑 생성시부터 누락된 지갑 거래를 위해 블록체인을 다시 스캔합니다.</translation>
+    </message>
+    <message>
+        <source>-rescan=2: Rescan the block chain for missing wallet transactions starting from genesis block.</source>
+        <translation>-rescan=2: 제네시스 블록에서부터 누락된 지갑 거래를 위해 블록체인을 다시 스캔합니다.</translation>
+    </message>
+    <message>
         <source>Wallet Path</source>
         <translation>지갑 경로</translation>
     </message>
@@ -2307,16 +2503,40 @@
         <translation>데이터 폴더</translation>
     </message>
     <message>
+        <source>Last block hash</source>
+        <translation>최종 블록 해시</translation>
+    </message>
+    <message>
         <source>Open the %1 debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation>현재 데이터 디렉토리에서 %1 디버그 로그 파일을 엽니다. 용량이 큰 로그 파일들은 여는 데 수 초가 걸릴 수 있습니다.</translation>
     </message>
     <message>
+        <source>InstantSend locks</source>
+        <translation>인스턴트샌드 잠금</translation>
+    </message>
+    <message>
+        <source>(none)</source>
+        <translation>(없음)</translation>
+    </message>
+    <message>
         <source>Decrease font size</source>
-        <translation>글자 크기 축소</translation>
+        <translation>글꼴 크기 축소</translation>
     </message>
     <message>
         <source>Increase font size</source>
-        <translation>글자 크기 확대</translation>
+        <translation>글꼴 크기 확대</translation>
+    </message>
+    <message>
+        <source>&amp;Reset</source>
+        <translation>&amp;재설정(&amp;R)</translation>
+    </message>
+    <message>
+        <source>Node Type</source>
+        <translation>노드 유형</translation>
+    </message>
+    <message>
+        <source>PoSe Score</source>
+        <translation>PoSe 스코어</translation>
     </message>
     <message>
         <source>Services</source>
@@ -2367,10 +2587,6 @@
         <translation>지갑 복원</translation>
     </message>
     <message>
-        <source>Rescan blockchain files</source>
-        <translation>블록체인 파일을 다시 스캔</translation>
-    </message>
-    <message>
         <source>Recover transactions 1</source>
         <translation>거래 1 복구</translation>
     </message>
@@ -2389,10 +2605,6 @@
     <message>
         <source>-salvagewallet: Attempt to recover private keys from a corrupt wallet.dat.</source>
         <translation>-salvagewallet: 손상된 wallet.dat에서 개인 키 복원을 시도합니다.</translation>
-    </message>
-    <message>
-        <source>-rescan: Rescan the block chain for missing wallet transactions.</source>
-        <translation>-rescan: 누락된 지갑 거래를 위해 블록체인을 다시 검색합니다.</translation>
     </message>
     <message>
         <source>-zapwallettxes=1: Recover transactions from blockchain (keep meta-data, e.g. account owner).</source>
@@ -2451,15 +2663,19 @@
         <translation>%1 RPC 콘솔에 오신걸 환영합니다</translation>
     </message>
     <message>
-        <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
-        <translation>기록을 찾아보려면 위 아래 화살표 키를, 화면을 지우려면 &lt;b&gt;Ctrl-L&lt;/b&gt;키를 사용하십시오.</translation>
+        <source>Use up and down arrows to navigate history, and %1 to clear screen.</source>
+        <translation>기록을 찾아보려면 위 아래 화살표 키를, 화면을 지우려면 %1 키를 사용하십시오.</translation>
     </message>
     <message>
-        <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
-        <translation>사용 가능한 명령을 둘러보려면 &lt;b&gt;help&lt;/b&gt;를 입력하십시오.</translation>
+        <source>Type %1 for an overview of available commands.</source>
+        <translation>사용 가능한 명령을 둘러보시려면 %1을 입력하십시오.</translation>
     </message>
     <message>
-        <source>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramification of a command.</source>
+        <source>For more information on using this console type %1.</source>
+        <translation>이 콘솔을 사용하기 위한 더 많은 정보를 둘러보시려면 %1을 입력하십시오.</translation>
+    </message>
+    <message>
+        <source>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramifications of a command.</source>
         <translation>주의: 사기범들이 사용자들에게 이곳에 명령을 입력하도록 유도하면서 지갑의 내용물을 탈취할 수 있습니다. 명령의 결과에 관해 충분히 숙지하기 전에는 이 콘솔을 사용하지 마십시오.</translation>
     </message>
     <message>
@@ -2475,20 +2691,16 @@
         <translation>네트워크 활동 비활성화</translation>
     </message>
     <message>
-        <source>%1 B</source>
-        <translation>%1 B</translation>
+        <source>Total: %1 (Enabled: %2)</source>
+        <translation>전체: %1 (가능: %2)</translation>
     </message>
     <message>
-        <source>%1 KB</source>
-        <translation>%1 KB</translation>
+        <source>Executing command without any wallet</source>
+        <translation>지갑 없이 명령 수행하기</translation>
     </message>
     <message>
-        <source>%1 MB</source>
-        <translation>%1 MB</translation>
-    </message>
-    <message>
-        <source>%1 GB</source>
-        <translation>%1 GB</translation>
+        <source>Executing command using "%1" wallet</source>
+        <translation>"%1" 지갑을 이용하여 명령 수행하기</translation>
     </message>
     <message>
         <source>(node id: %1)</source>
@@ -2519,20 +2731,24 @@
         <translation>아니오</translation>
     </message>
     <message>
+        <source>Regular</source>
+        <translation>일반</translation>
+    </message>
+    <message>
+        <source>Masternode</source>
+        <translation>마스터노드</translation>
+    </message>
+    <message>
+        <source>Verified Masternode</source>
+        <translation>인증된 마스터노드</translation>
+    </message>
+    <message>
         <source>Unknown</source>
         <translation>알 수 없음</translation>
     </message>
 </context>
 <context>
     <name>ReceiveCoinsDialog</name>
-    <message>
-        <source>Reuse one of the previously used receiving addresses.&lt;br&gt;Reusing addresses has security and privacy issues.&lt;br&gt;Do not use this unless re-generating a payment request made before.</source>
-        <translation>이전에 사용한 적 있는 받기 주소를 다시 사용합니다. &lt;br&gt;주소를 다시 사용하는 것은 보안 및 프라이버시 문제에 연결됩니다. &lt;br&gt;이전에 이루어진 지불 요청을 다시 생성하는 것이 아니면 해당 주소를 사용하지 마십시오.</translation>
-    </message>
-    <message>
-        <source>R&amp;euse an existing receiving address (not recommended)</source>
-        <translation>이미 존재하는 받기 주소를 다시 사용하기(권장하지 않음) (&amp;R)</translation>
-    </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Documentchain network.</source>
         <translation>지불 요청에 메시지를 첨부할 지 선택할 수 있습니다. 해당 메세지는 지불 요청이 열릴 때 표시될 것 입니다. 메모: 이 메시지는 대시 네트워크로 전송되지 않습니다.</translation>
@@ -2578,10 +2794,6 @@
         <translation>지우기</translation>
     </message>
     <message>
-        <source>Request InstantSend</source>
-        <translation>인스턴트샌드 요청</translation>
-    </message>
-    <message>
         <source>Requested payments history</source>
         <translation>지불 요청 히스토리</translation>
     </message>
@@ -2600,6 +2812,14 @@
     <message>
         <source>Remove</source>
         <translation>삭제</translation>
+    </message>
+    <message>
+        <source>Enter a label to associate with the new receiving address</source>
+        <translation>새로운 받기 주소와 연결된 라벨을 입력하세요</translation>
+    </message>
+    <message>
+        <source>Enter a message to attach to the payment request</source>
+        <translation>지불 요청에 첨부되는 메시지를 입력하세요</translation>
     </message>
     <message>
         <source>Copy URI</source>
@@ -2665,16 +2885,8 @@
         <translation>메시지</translation>
     </message>
     <message>
-        <source>InstantSend</source>
-        <translation>인스턴트샌드</translation>
-    </message>
-    <message>
-        <source>Yes</source>
-        <translation>예</translation>
-    </message>
-    <message>
-        <source>No</source>
-        <translation>아니요</translation>
+        <source>Wallet</source>
+        <translation>지갑</translation>
     </message>
     <message>
         <source>Resulting URI too long, try to reduce the text for label / message.</source>
@@ -2783,14 +2995,6 @@
         <translation>선택...</translation>
     </message>
     <message>
-        <source>Using the fallbackfee can result in sending a transaction that will take several hours or days (or never) to confirm. Consider choosing your fee manually or wait until your have validated the complete chain.</source>
-        <translation>폴백수수료(fallbackfee)를 사용하는 경우 거래를 전송하는 데 수 시간, 수 일이 소요되거나 거래가 전송되지 않을 수 있습니다. 수수료를 수동으로 선택하시거나 완전한 블록체인에 승인할 때 까지 기다리실 것을 권장합니다.</translation>
-    </message>
-    <message>
-        <source>Warning: Fee estimation is currently not possible.</source>
-        <translation>경고: 지금은 수수료 예측이 불가능합니다.</translation>
-    </message>
-    <message>
         <source>collapse fee-settings</source>
         <translation>수수료 설정 접기</translation>
     </message>
@@ -2799,20 +3003,8 @@
         <translation>승인 시간 목표:</translation>
     </message>
     <message>
-        <source>PrivateSend</source>
-        <translation>프라이빗샌드</translation>
-    </message>
-    <message>
-        <source>InstantSend</source>
-        <translation>인스턴트샌드</translation>
-    </message>
-    <message>
         <source>If the custom fee is set to 1000 docz and the transaction is only 250 bytes, then "per kilobyte" only pays 250 docz in fee,&lt;br /&gt;while "at least" pays 1000 docz. For transactions bigger than a kilobyte both pay by kilobyte.</source>
         <translation>만일 사용자 지정 수수료가 1000 더프로 설정되어 있으나 거래는 250바이트에 불과한 경우, 'KB 당'은 오직 250 더프를 수수료로 지불하는 한편 &lt;br /&gt;'최소'는 1000더프를 지불합니다. 1 KB보다 큰 거래를 진행하는 경우 두 옵션 모두 KB 당으로 지불합니다.</translation>
-    </message>
-    <message>
-        <source>If the custom fee is set to 1000 docz and the transaction is only 250 bytes, then "per kilobyte" only pays 250 docz in fee,&lt;br /&gt;while "total at least" pays 1000 docz. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>만일 사용자 지정 수수료가 1000 더프로 설정되어 있으나 거래는 250바이트에 불과한 경우, 'KB 당'은 250 더프를 수수료로 지불하는 한편, &lt;br /&gt;'전체 최소'는 1000더프를 지불합니다. 1 KB보다 큰 거래를 진행하는 경우 두 옵션 모두 KB 당으로 지불합니다.</translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for dms transactions than the network can process.</source>
@@ -2823,12 +3015,16 @@
         <translation>킬로바이트 당</translation>
     </message>
     <message>
-        <source>Hide</source>
-        <translation>숨기기</translation>
+        <source>Using the fallbackfee can result in sending a transaction that will take several hours or days (or never) to confirm. Consider choosing your fee manually or wait until you have validated the complete chain.</source>
+        <translation>폴백수수료(fallbackfee)를 사용하는 경우 거래를 전송하는 데 수 시간, 수 일이 소요되거나 거래가 전송되지 않을 수 있습니다. 수수료를 수동으로 선택하시거나 완전한 블록체인에 승인할 때 까지 기다리실 것을 권장합니다.</translation>
     </message>
     <message>
-        <source>total at least</source>
-        <translation>최소 총액</translation>
+        <source>Note: Not enough data for fee estimation, using the fallback fee instead.</source>
+        <translation>주의: 수수료 추정에 필요한 데이터가 부족하여 대체 수수료를 이용합니다.</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>숨기기</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -2845,14 +3041,6 @@
     <message>
         <source>(Smart fee not initialized yet. This usually takes a few blocks...)</source>
         <translation>(Smart fee가 아직 초기화 되지 않았습니다. 이 과정에는 수 블록이 소요됩니다...)</translation>
-    </message>
-    <message>
-        <source>normal</source>
-        <translation>일반</translation>
-    </message>
-    <message>
-        <source>fast</source>
-        <translation>빠름</translation>
     </message>
     <message>
         <source>Confirm the send action</source>
@@ -2911,24 +3099,16 @@
         <translation>잔돈 복사</translation>
     </message>
     <message>
+        <source>%1 (%2 blocks)</source>
+        <translation>%1 (%2 블록)</translation>
+    </message>
+    <message>
+        <source>from wallet %1</source>
+        <translation>지갑 %1에서</translation>
+    </message>
+    <message>
         <source>using</source>
         <translation>사용 중</translation>
-    </message>
-    <message>
-        <source>anonymous funds</source>
-        <translation>익명 처리된 자금</translation>
-    </message>
-    <message>
-        <source>(privatesend requires this amount to be rounded up to the nearest %1).</source>
-        <translation>(프라이빗샌드는 %1 가까이 라운드를 진행하기 위해서 이 금액을 필요로 합니다).</translation>
-    </message>
-    <message>
-        <source>any available funds (not anonymous)</source>
-        <translation>이용 가능한 모든 자금(비익명 포함)</translation>
-    </message>
-    <message>
-        <source>and InstantSend</source>
-        <translation>및 인스턴트샌드</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -2949,6 +3129,42 @@
     <message>
         <source>&lt;b&gt;(%1 of %2 entries displayed)&lt;/b&gt;</source>
         <translation>&lt;b&gt;(%2 중 %1 입력값 표시됨)&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>S&amp;end mixed funds</source>
+        <translation>믹싱된 자금 보내기(&amp;e)</translation>
+    </message>
+    <message>
+        <source>Confirm the %1 send action</source>
+        <translation>%1 전송 액션 확인</translation>
+    </message>
+    <message>
+        <source>%1 funds only</source>
+        <translation>%1 자금만</translation>
+    </message>
+    <message>
+        <source>any available funds</source>
+        <translation>이용이 가능한 모든 자금</translation>
+    </message>
+    <message>
+        <source>(%1 transactions have higher fees usually due to no change output being allowed)</source>
+        <translation>(%1 거래는 잔돈 아웃풋이 허용되지 않아 보다 높은 수수료가 책정됩니다)</translation>
+    </message>
+    <message>
+        <source>Transaction size: %1</source>
+        <translation>거래 크기: %1</translation>
+    </message>
+    <message>
+        <source>Fee rate: %1</source>
+        <translation>수수료 요율: %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>This transaction will consume %n input(s)</source>
+        <translation><numerusform>이 거래는 %n 입력값을 소모합니다</numerusform></translation>
+    </message>
+    <message>
+        <source>Warning: Using %1 with %2 or more inputs can harm your privacy and is not recommended</source>
+        <translation>경고: %1를 %2 혹은 그 이상의 인풋으로 이용하게 되면 당신의 프라이버시가 침해될 수 있어 권장하지 않습니다.</translation>
     </message>
     <message>
         <source>Confirm send coins</source>
@@ -2989,10 +3205,6 @@
     <message>
         <source>Payment request expired.</source>
         <translation>지불 요청이 만료 되었습니다.</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n block(s)</source>
-        <translation><numerusform>%n 블록</numerusform></translation>
     </message>
     <message>
         <source>Pay only the required fee of %1</source>
@@ -3076,6 +3288,10 @@
     <message>
         <source>S&amp;ubtract fee from amount</source>
         <translation>송금액에서 수수료 차감(&amp;u)</translation>
+    </message>
+    <message>
+        <source>Use available balance</source>
+        <translation>사용할 수 있는 잔고 사용</translation>
     </message>
     <message>
         <source>Message:</source>
@@ -3211,8 +3427,20 @@
         <translation>모든 검증 메시지 필드 재설정</translation>
     </message>
     <message>
+        <source>Enter a message to be signed</source>
+        <translation>서명할 메시지를 입력하세요</translation>
+    </message>
+    <message>
         <source>Click "Sign Message" to generate signature</source>
         <translation>서명을 생성하려면 "메시지 서명"을 클릭하세요.</translation>
+    </message>
+    <message>
+        <source>Enter a message to be verified</source>
+        <translation>검증할 메시지를 입력하세요</translation>
+    </message>
+    <message>
+        <source>Enter a signature for the message to be verified</source>
+        <translation>검증될 메시지를 위한 서명을 입력하세요</translation>
     </message>
     <message>
         <source>The entered address is invalid.</source>
@@ -3269,16 +3497,24 @@
         <source>[testnet]</source>
         <translation>[테스트넷]</translation>
     </message>
-    <message>
-        <source>Version %1</source>
-        <translation>버전 %1</translation>
-    </message>
 </context>
 <context>
     <name>TrafficGraphWidget</name>
     <message>
         <source>KB/s</source>
         <translation>KB/s</translation>
+    </message>
+    <message>
+        <source>Total</source>
+        <translation>총액</translation>
+    </message>
+    <message>
+        <source>Received</source>
+        <translation>받음</translation>
+    </message>
+    <message>
+        <source>Sent</source>
+        <translation>보냄</translation>
     </message>
 </context>
 <context>
@@ -3294,10 +3530,6 @@
     <message>
         <source>conflicted</source>
         <translation>충돌</translation>
-    </message>
-    <message>
-        <source>%1/offline</source>
-        <translation>%1/오프라인</translation>
     </message>
     <message>
         <source>0/unconfirmed, %1</source>
@@ -3324,28 +3556,16 @@
         <translation>%1 확인</translation>
     </message>
     <message>
+        <source>locked via ChainLocks</source>
+        <translation>체인락스로 잠김</translation>
+    </message>
+    <message>
         <source>verified via InstantSend</source>
         <translation>인스턴트샌드를 통해 검증됨</translation>
     </message>
     <message>
-        <source>InstantSend verification in progress - %1 of %2 signatures</source>
-        <translation>인스턴트샌드 검증이 진행 중입니다 - %2 서명 중 %1</translation>
-    </message>
-    <message>
-        <source>InstantSend verification failed</source>
-        <translation>인스턴트샌드 검증에 실패하였습니다.</translation>
-    </message>
-    <message>
         <source>Status</source>
         <translation>상태</translation>
-    </message>
-    <message>
-        <source>, has not been successfully broadcast yet</source>
-        <translation>. 아직 성공적으로 통보되지 않았습니다.</translation>
-    </message>
-    <message numerus="yes">
-        <source>, broadcast through %n node(s)</source>
-        <translation><numerusform>,%n 노드에 통보하였습니다.</numerusform></translation>
     </message>
     <message>
         <source>Date</source>
@@ -3502,10 +3722,6 @@
         <translation>%1 까지 열림</translation>
     </message>
     <message>
-        <source>Offline</source>
-        <translation>오프라인</translation>
-    </message>
-    <message>
         <source>Unconfirmed</source>
         <translation>미확인</translation>
     </message>
@@ -3530,12 +3746,16 @@
         <translation>이용 불가능한 상태 (%1 승인, %2 후에 사용 가능합니다)</translation>
     </message>
     <message>
-        <source>This block was not received by any other nodes and will probably not be accepted!</source>
-        <translation>이 블록은 다른 노드로부터 전달받지 않은 것으로, 받아들여지지 않을 것입니다!</translation>
-    </message>
-    <message>
         <source>Generated but not accepted</source>
         <translation>생성되었으나 받아들여지지 않음</translation>
+    </message>
+    <message>
+        <source>verified via InstantSend</source>
+        <translation>인스턴트샌드를 통해 검증됨</translation>
+    </message>
+    <message>
+        <source>locked via ChainLocks</source>
+        <translation>체인락스로 잠김</translation>
     </message>
     <message>
         <source>Received with</source>
@@ -3546,12 +3766,16 @@
         <translation>보낸 주소</translation>
     </message>
     <message>
-        <source>Received via PrivateSend</source>
-        <translation>프라이빗샌드를 통해 받음</translation>
+        <source>Received via %1</source>
+        <translation>%1을 통해 받음</translation>
     </message>
     <message>
         <source>Sent to</source>
         <translation>보낸 주소</translation>
+    </message>
+    <message>
+        <source>Document Revision</source>
+        <translation>Document Revision</translation>
     </message>
     <message>
         <source>Payment to yourself</source>
@@ -3562,24 +3786,24 @@
         <translation>채굴</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
-        <translation>프라이빗샌드 단위 분할</translation>
+        <source>%1 Mixing</source>
+        <translation>%1 믹싱</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
-        <translation>프라이빗샌드 콜래트럴 지불</translation>
+        <source>%1 Collateral Payment</source>
+        <translation>%1 콜래트럴 지불</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
-        <translation>프라이빗샌드 콜래트럴 입력값 생성</translation>
+        <source>%1 Make Collateral Inputs</source>
+        <translation>%1 콜래트럴 입력값 생성</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
-        <translation>프라이빗샌드 분할 단위 생성</translation>
+        <source>%1 Create Denominations</source>
+        <translation>%1 분할 단위 생성</translation>
     </message>
     <message>
-        <source>PrivateSend</source>
-        <translation>프라이빗샌드</translation>
+        <source>%1 Send</source>
+        <translation>%1 전송</translation>
     </message>
     <message>
         <source>watch-only</source>
@@ -3610,10 +3834,6 @@
         <translation>이 거래에 조회 전용 주소가 포함 되는지의 여부</translation>
     </message>
     <message>
-        <source>Whether or not this transaction was locked by InstantSend.</source>
-        <translation>이 거래가 인스턴트샌드를 통해 잠겼는 지의 여부</translation>
-    </message>
-    <message>
         <source>User-defined intent/purpose of the transaction.</source>
         <translation>거래의 의도/목적에 대한 사용자 정의</translation>
     </message>
@@ -3627,14 +3847,6 @@
     <message>
         <source>All</source>
         <translation>전체</translation>
-    </message>
-    <message>
-        <source>Locked by InstantSend</source>
-        <translation>인스턴트샌드로 잠김</translation>
-    </message>
-    <message>
-        <source>Not locked by InstantSend</source>
-        <translation>인스턴트샌드로 잠기지 않음</translation>
     </message>
     <message>
         <source>Today</source>
@@ -3673,24 +3885,28 @@
         <translation>보낸 주소</translation>
     </message>
     <message>
-        <source>PrivateSend</source>
-        <translation>프라이빗샌드</translation>
+        <source>Document Revision</source>
+        <translation>Document Revision</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
-        <translation>프라이빗샌드 콜래트럴 입력값 생성</translation>
+        <source>%1 Send</source>
+        <translation>%1 전송</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
-        <translation>프라이빗샌드 분할 단위 생성</translation>
+        <source>%1 Make Collateral Inputs</source>
+        <translation>%1 콜래트럴 입력값 생성</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
-        <translation>프라이빗샌드 단위 분할</translation>
+        <source>%1 Create Denominations</source>
+        <translation>%1 분할 단위 생성</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
-        <translation>프라이빗샌드 콜래트럴 지불</translation>
+        <source>%1 Mixing</source>
+        <translation>%1 믹싱</translation>
+    </message>
+    <message>
+        <source>%1 Collateral Payment</source>
+        <translation>%1 콜래트럴 지불</translation>
     </message>
     <message>
         <source>To yourself</source>
@@ -3705,8 +3921,8 @@
         <translation>기타</translation>
     </message>
     <message>
-        <source>Enter address or label to search</source>
-        <translation>검색을 위해 주소 또는 라벨을 입력하세요.</translation>
+        <source>Enter address, transaction id, or label to search</source>
+        <translation>검색을 위해 주소, 거래 id 또는 라벨을 입력하세요.</translation>
     </message>
     <message>
         <source>Min amount</source>
@@ -3747,6 +3963,10 @@
     <message>
         <source>Show transaction details</source>
         <translation>거래 세부 내역 보기</translation>
+    </message>
+    <message>
+        <source>Show address QR code</source>
+        <translation>주소 QR 코드 보이기</translation>
     </message>
     <message>
         <source>Export Transaction History</source>
@@ -3801,6 +4021,10 @@
         <translation>거래 기록이 성공적으로 %1에 저장되었습니다.</translation>
     </message>
     <message>
+        <source>QR code</source>
+        <translation>QR 코드</translation>
+    </message>
+    <message>
         <source>Range:</source>
         <translation>범위:</translation>
     </message>
@@ -3828,14 +4052,6 @@
     <message>
         <source>Send Coins</source>
         <translation>코인 보내기</translation>
-    </message>
-    <message>
-        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 DMS.</source>
-        <translation>인스턴트샌드는 이와 같은 고액 송금 기능을 아직 지원하지 않습니다. 현재 인스턴트샌드로 보낼 수 있는 최대한의 금액은 %1 DMS로 제한되어 있습니다.</translation>
-    </message>
-    <message>
-        <source>Used way too many inputs (&gt;%1) for this InstantSend transaction, fees could be huge.</source>
-        <translation>인스턴트샌드 거래를 위해서 지나치게 큰 입력값입니다(&gt;%1). 높은 수수료가 발생할 수 있습니다.</translation>
     </message>
 </context>
 <context>
@@ -3876,40 +4092,16 @@
         <source>The wallet data was successfully saved to %1.</source>
         <translation>지갑 정보가 %1에 성공적으로 저장되었습니다.</translation>
     </message>
+    <message>
+        <source>Cancel</source>
+        <translation>취소</translation>
+    </message>
 </context>
 <context>
     <name>dms-core</name>
     <message>
-        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
-        <translation>선택한 주소에 바인드하고 언제나 수신합니다. IPv6인 경우 [host]:port 명령어 표기법을 사용합니다.</translation>
-    </message>
-    <message>
         <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
         <translation>오류: 들어오는 연결을 수신하는 데 실패했습니다 (수신 반환 오류 %s)</translation>
-    </message>
-    <message>
-        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
-        <translation>관련 경고를 받거나 매우 긴 포크를 감지하는 경우 명령을 실행합니다 (cmd의 %s이/가 메시지로 변경됩니다).</translation>
-    </message>
-    <message>
-        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
-        <translation>지갑 거래가 변경되면 명령을 실행합니다(cmd의 %s이/가 TxID로 변경됩니다).</translation>
-    </message>
-    <message>
-        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
-        <translation>베스트 블록이 변경되면 명령을 실행합니다(cmd에 있는 %s은/는 블록 해시로 변경됩니다).</translation>
-    </message>
-    <message>
-        <source>Name to construct url for KeePass entry that stores the wallet passphrase</source>
-        <translation>지갑 암호문을 저장하는 KeePass에서 사용할 URL을 구성하기 위한 이름 </translation>
-    </message>
-    <message>
-        <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
-        <translation>우선 순위/적은 수수료 거래 크기의 최대치를 바이트로 설정하세요(디폴트: %d).</translation>
-    </message>
-    <message>
-        <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
-        <translation>스크립트 인증 스레드의 갯수 설정 (%u-%d, 0 = 자동, &lt;0 = 지정된 코어 개수만큼 사용 안함, 기본값: %d)</translation>
     </message>
     <message>
         <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
@@ -3924,60 +4116,20 @@
         <translation>경고: 피어와 완전히 일치하지 않는 것으로 보입니다! 당신 혹은 다른 노드들의 업그레이드가 필요합니다.</translation>
     </message>
     <message>
-        <source>You must specify a masternodeprivkey in the configuration. Please see documentation for help.</source>
-        <translation>마스터노드 설정에서 마스터노드 개인 키를 지정하십시오. 도움이 필요하신 경우 문서를 확인하십시오.</translation>
-    </message>
-    <message>
-        <source>Accept command line and JSON-RPC commands</source>
-        <translation>명령줄과 JSON-RPC 명령 수락</translation>
-    </message>
-    <message>
-        <source>Add a node to connect to and attempt to keep the connection open</source>
-        <translation>연결을 위해 노드를 추가하고 연결을 유지합니다.</translation>
-    </message>
-    <message>
-        <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
-        <translation>-addnode, -seednode, -connect 에 대해 DNS 탐색 허용</translation>
-    </message>
-    <message>
         <source>Already have that input.</source>
         <translation>이미 입력된 값입니다.</translation>
-    </message>
-    <message>
-        <source>Block creation options:</source>
-        <translation>블록 생성 옵션:</translation>
     </message>
     <message>
         <source>Cannot downgrade wallet</source>
         <translation>지갑을 다운그레이드 할 수 없습니다.</translation>
     </message>
     <message>
-        <source>Cannot write default address</source>
-        <translation>기본 주소에 기록할 수 없습니다.</translation>
-    </message>
-    <message>
         <source>Collateral not valid.</source>
         <translation>유효하지 않은 콜래트럴입니다.</translation>
     </message>
     <message>
-        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
-        <translation>피어 주소를 검색하기 위해 노드에 연결하고 검색이 끝나면 연결을 해제합니다.</translation>
-    </message>
-    <message>
-        <source>Connection options:</source>
-        <translation>연결 설정 : </translation>
-    </message>
-    <message>
         <source>Corrupted block database detected</source>
         <translation>손상된 블록 데이터베이스가 감지되었습니다</translation>
-    </message>
-    <message>
-        <source>Debugging/Testing options:</source>
-        <translation>디버깅 및 테스팅 옵션:</translation>
-    </message>
-    <message>
-        <source>Do not load the wallet and disable wallet RPC calls</source>
-        <translation>지갑을 로딩하지 마십시오. 또한 지갑 RPC 연결을 비활성화 하십시오.</translation>
     </message>
     <message>
         <source>Do you want to rebuild the block database now?</source>
@@ -4024,164 +4176,36 @@
         <translation>포트를 감지하는 데 실패하였습니다. 이를 진행하시려면 -listen=0 을 사용하세요.</translation>
     </message>
     <message>
-        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
-        <translation>(1 = 거래 메타 데이터를 유지함 예. 계정 소유주와 지불 요청 정보, 2 = 거래 메타 데이터 파기)</translation>
-    </message>
-    <message>
         <source>-maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
         <translation>-maxtxfee 값이 너무 크게 설정 되었습니다!  이 거래에 너무 큰 수수료가 지불 됩니다.</translation>
     </message>
     <message>
-        <source>A fee rate (in %s/kB) that will be used when fee estimation has insufficient data (default: %s)</source>
-        <translation>수수료 추정 기능이 충분한 데이터를 축적하지 않은 상태에서 사용 될 수수료 비율(%s/kB) (디폴트: %s)</translation>
-    </message>
-    <message>
-        <source>Accept relayed transactions received from whitelisted peers even when not relaying transactions (default: %d)</source>
-        <translation>거래를 중계하지 않은 상태라도 화이트리스트에 포함된 피어에서 수신된 거래 중계를 받습니다. (디폴트:%d)</translation>
-    </message>
-    <message>
-        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
-        <translation>특정 소스에서의 JSON-RPC 연결을 허용합니다. 이 설정은 다음에 유효합니다. &lt;ip&gt; 하나의 IP주소 (예 1.2.3.4), 네트워크/넷마스크 (예 1.2.3.4/255.255.255.0) 혹은 네트워크/CIDR (예 1.2.3.4/24). 이 옵션은 복수로 설정 할 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
-        <translation>선택한 주소와 이에 연결된 화이트리스트 피어를 바인드 합니다. IPv6인 경우 [host]:port 명령어 표기법을 사용합니다.</translation>
-    </message>
-    <message>
-        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
-        <translation>JSON-RPC 연결을 수신하기 위해 선택한 주소를 바인드 합니다. IPv6인 경우 [host]:port 명령어 표기법을 사용합니다. 이 옵션은 복수로 설정할 수 있습니다. (디폴트: 모든 인터페이스를 바인드)</translation>
-    </message>
-    <message>
-        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
-        <translation>umask 077 를 대신하여 시스템 기본 권한으로 새 파일을 만듭니다. (지갑 기능이 비활성화 상태에서만 유효합니다)</translation>
-    </message>
-    <message>
-        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
-        <translation>시작 시 모든 지갑 거래를 삭제하고 -rescan을 통해 블록체인의 특정 부분만을 복구합니다.</translation>
-    </message>
-    <message>
-        <source>Enable publish raw transactions of attempted InstantSend double spend in &lt;address&gt;</source>
-        <translation>&lt;address&gt;에서 시도된 인스턴트샌드 이중 지불의 원시 거래 공개를 활성화합니다.</translation>
-    </message>
-    <message>
-        <source>Enable publish transaction hashes of attempted InstantSend double spend in &lt;address&gt;</source>
-        <translation>&lt;address&gt;에서 시도된 인스턴트샌드 이중 지불의 거래 해시 공개를 활성화합니다.</translation>
-    </message>
-    <message>
-        <source>Error loading %s: You can't enable HD on a already existing non-HD wallet</source>
-        <translation>%s 로딩 에러: HD 지갑이 아닌 경우 HD를 활성화 할 수 없습니다.</translation>
+        <source>Cannot provide specific connections and have addrman find outgoing connections at the same.</source>
+        <translation>특정 연결을 제공하면서 addrman이 외부로 향하는 연결을 찾도록 동시에 설정할 수 없습니다.</translation>
     </message>
     <message>
         <source>Found unconfirmed denominated outputs, will wait till they confirm to continue.</source>
         <translation>확인 되지 않은 분할 단위 출력을 찾았습니다. 계속하기 위해 확인될 때까지 기다립니다.</translation>
     </message>
     <message>
-        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
-        <translation>-checkblocks을 통한 철저한 블록 점검 (0-4, 디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
-        <translation>paytxfee가 설정되어 있지 않다면 평균 n 블록 내에 승인이 이루어지도록 충분한 수수료를 포함해 주세요. (디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>If this block is in the chain assume that it and its ancestors are valid and potentially skip their script verification (0 to verify all, default: %s, testnet: %s)</source>
-        <translation>이 블록이 체인에 있으면 해당 블록과 그 조상이 유효하며, 스크립트 확인을 건너 뛸 수 있습니다. (0은 모두 확인, 기본값: %s, 테스트넷: %s)</translation>
+        <source>Invalid -socketevents ('%s') specified. Only these modes are supported: %s</source>
+        <translation>유효하지 않은 -socketevent ('%s')가 지정되었습니다. 이들 모드만이 지원됩니다: %s </translation>
     </message>
     <message>
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s' (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
         <translation>다음을 위한 금액이 유효하지 않습니다 -maxtxfee=&lt;amount&gt;: '%s' (거래가 막히는 상황을 방지하게 위해 적어도 %s 의 최소 중계 수수료를 지정해야 합니다)</translation>
     </message>
     <message>
-        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
-        <translation>getrawtransaction를 RPC CALL를 통해 완전한 거래 인덱스 유지 (기본값: %u)</translation>
-    </message>
-    <message>
-        <source>Make sure to encrypt your wallet and delete all non-encrypted backups after you verified that wallet works!</source>
-        <translation>해당 지갑이 작동하는 지 여부를 확인한 이후에는 당신의 지갑을 암호화하고, 암호화하지 않은 지갑 백업은 지워야 한다는 점을 주의하세요!</translation>
-    </message>
-    <message>
-        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
-        <translation>중계 및 채굴 시 데이터 운송 거래에서 데이터의 최대 크기 (디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
-        <translation>이상 행동을 하는 피어를 다시 연결시키는데 걸리는 시간 (디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
-        <translation>디버그 정보 출력 (디폴트: %u, &lt;category&gt; 제공 선택 가능)</translation>
-    </message>
-    <message>
-        <source>Overrides minimum spork signers to change spork value. Only useful for regtest and devnet. Using this on mainnet or testnet will ban you.</source>
-        <translation>최소 스포크 서명자를 무시하고 스포크 값을 변경합니다. 오직 회귀 테스트와 개발 네트워크에서만 유용합니다. 메인넷이나 테스트넷에서 사용하는 경우에는 금지당할 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Use N separate masternodes in parallel to mix funds (%u-%u, default: %u)</source>
-        <translation>병렬 관계에 있는 N개의 마스터노드를 사용하여 금액을 믹스합니다. (%u-%u, 디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
-        <translation>Tor 숨김 서비스로 피어에 접속하기 위해 별도의 SOCKS5 프록시를 사용하기 (디폴트: %s)</translation>
-    </message>
-    <message>
-        <source>User defined mnemonic for HD wallet (bip39). Only has effect during wallet creation/first start (default: randomly generated)</source>
-        <translation>HD 지갑을 위해 사용자가 지정한 연상 기호 암호문(bip39)은 지갑 생성/첫 시작에만 효력이 있습니다. (디폴트: 무작위 생성)</translation>
-    </message>
-    <message>
-        <source>User defined seed for HD wallet (should be in hex). Only has effect during wallet creation/first start (default: randomly generated)</source>
-        <translation>HD 지갑을 위해 사용자가 지정한 시드(hex여야 함)은 지갑 생성/첫 시작시에만 효력이 있습니다. (디폴트: 무작위 생성)</translation>
-    </message>
-    <message>
-        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
-        <translation>화이트리스트에 포함된 피어는 이미 멤풀에 포함되어 있다고 하더라도 DoS 추방이 되지 않으며, 이들의 거래는 항상 중계됩니다. 이는 예컨대 게이트웨이에서 유용합니다.</translation>
-    </message>
-    <message>
-        <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
-        <translation>-txindex를 변경하기 위해서는 -reindex- 체인 상태를 사용하여 데이터를 재구성해야 합니다.</translation>
-    </message>
-    <message>
-        <source>You should specify a masternodeblsprivkey in the configuration. Please see documentation for help.</source>
-        <translation>설정에서 masternodeblsprivkey를 지정하십시오. 도움이 필요하신 경우 문서를 확인하십시오.</translation>
-    </message>
-    <message>
-        <source>(default: %s)</source>
-        <translation>(디폴트: %s)</translation>
-    </message>
-    <message>
-        <source>Accept public REST requests (default: %u)</source>
-        <translation>공개 REST 요청을 허가 (디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
-        <translation>DNS lookup을 통해 항상 피어주소에 대한 쿼리 보내기 (디폴트: %u)</translation>
+        <source>Transaction index can't be disabled with governance validation enabled. Either start with -disablegovernance command line switch or enable transaction index.</source>
+        <translation>거버넌스 유효성 검사가 활성화된 경우 거래 색인을 비활성화할 수 없습니다. -disablegovernance 명령어 스위치로 시작하거나 거래 인덱스를 활성화하여 시작하세요.</translation>
     </message>
     <message>
         <source>Can't mix: no compatible inputs found!</source>
         <translation>믹스할 수 없습니다: 호환 가능한 입력값을 찾을 수 없습니다!</translation>
     </message>
     <message>
-        <source>Chain selection options:</source>
-        <translation>체인 선택 옵션:</translation>
-    </message>
-    <message>
-        <source>Connect through SOCKS5 proxy</source>
-        <translation>SOCK5 프록시를 통해 연결</translation>
-    </message>
-    <message>
-        <source>Connect to KeePassHttp on port &lt;port&gt; (default: %u)</source>
-        <translation>포트 &lt;port&gt;로 KeePassHttp에 접속합니다. (디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>Enable the client to act as a masternode (0-1, default: %u)</source>
-        <translation>클라이언트가 마스터노드로 활동하도록 활성화 합니다. (0-1, 디폴트: %u)</translation>
-    </message>
-    <message>
         <source>Entry exceeds maximum size.</source>
         <translation>입력값이 최대치를 초과하였습니다.</translation>
-    </message>
-    <message>
-        <source>Error loading %s: You can't disable HD on a already existing HD wallet</source>
-        <translation>%s 로딩 에러: 이미 존재하는 HD 지갑에서 HD를 비활성화 할 수 없습니다.</translation>
     </message>
     <message>
         <source>Failed to load fulfilled requests cache from</source>
@@ -4196,10 +4220,6 @@
         <translation>다음으로부터 마스터노드 캐시를 불러오는 데 실패하였습니다.</translation>
     </message>
     <message>
-        <source>Failed to load masternode payments cache from</source>
-        <translation>다음으로부터 마스터노드 지불 캐시를 불러오는 데 실패하였습니다.</translation>
-    </message>
-    <message>
         <source>Found enough users, signing ( waiting %s )</source>
         <translation>충분한 사용자를 감지하였습니다. 신호를 보내는 중입니다. ( %s 기다리기 )</translation>
     </message>
@@ -4208,16 +4228,8 @@
         <translation>충분한 사용자를 감지하였습니다. 신호를 보내는 중입니다...</translation>
     </message>
     <message>
-        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
-        <translation>시작 시 점검할 블록 갯수 (기본값: %u, 0 = 모두)</translation>
-    </message>
-    <message>
         <source>Importing...</source>
         <translation>가져오는 중...</translation>
-    </message>
-    <message>
-        <source>Include IP addresses in debug output (default: %u)</source>
-        <translation>디버그 출력에 IP주소 포함하기 (기본값: %u)</translation>
     </message>
     <message>
         <source>Incompatible mode.</source>
@@ -4244,20 +4256,12 @@
         <translation>잔고가 충분하지 않습니다.</translation>
     </message>
     <message>
-        <source>Invalid -onion address: '%s'</source>
-        <translation>잘못된 -onion 주소입니다: '%s'</translation>
-    </message>
-    <message>
-        <source>Invalid -proxy address: '%s'</source>
-        <translation>잘못된 -proxy 주소입니다: '%s'</translation>
+        <source>Invalid amount for -discardfee=&lt;amount&gt;: '%s'</source>
+        <translation>-discardfee=1: '%s' 에 대한 유효하지 않은 금액</translation>
     </message>
     <message>
         <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s' (must be at least %s)</source>
         <translation>유효하지 않은 금액입니다. -paytxfee=&lt;amount&gt;: '%s' (최소 %s 이상이어야 합니다)</translation>
-    </message>
-    <message>
-        <source>Invalid masternodeblsprivkey. Please see documenation.</source>
-        <translation>유효하지 않은 masternodeblsprivkey 입니다. 문서를 확인하세요.</translation>
     </message>
     <message>
         <source>Invalid minimum number of spork signers specified with -minsporkkeys</source>
@@ -4266,14 +4270,6 @@
     <message>
         <source>Keypool ran out, please call keypoolrefill first</source>
         <translation>Keypool을 모두 사용하였습니다. 우선 keypoolrefill을 호출하십시오.</translation>
-    </message>
-    <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation>JSON-RPC 연결을 수신합니다. &lt;port&gt; (기본값: %u 혹은 테스트넷: %u)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation>연결을 수신합니다. &lt;port&gt;(디폴트: %u 혹은 테스트넷: %u)</translation>
     </message>
     <message>
         <source>Loading banlist...</source>
@@ -4288,32 +4284,12 @@
         <translation>마스터노드 캐시를 불러오는 중...</translation>
     </message>
     <message>
-        <source>Loading masternode payment cache...</source>
-        <translation>마스터노드 지불 캐시를 불러오는 중...</translation>
-    </message>
-    <message>
         <source>Lock is already in place.</source>
         <translation>이미 잠금 상태입니다.</translation>
     </message>
     <message>
-        <source>Lock masternodes from masternode configuration file (default: %u)</source>
-        <translation>마스터노드 설정 파일로부터 마스터노드를 잠급니다. (디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation>접속 당 최대 수신 버퍼, &lt;n&gt;*1000 bytes (디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation>접속 당 최대 전송 버퍼, &lt;n&gt;*1000 bytes (디폴트: %u)</translation>
-    </message>
-    <message>
         <source>Mixing in progress...</source>
         <translation>믹싱이 진행 중입니다...</translation>
-    </message>
-    <message>
-        <source>Mnemonic passphrase is too long, must be at most 256 characters</source>
-        <translation>연상 기호 암호문이 너무 깁니다. 최대 256 글자까지 허용됩니다.</translation>
     </message>
     <message>
         <source>Need to specify a port with -whitebind: '%s'</source>
@@ -4328,120 +4304,20 @@
         <translation>호환되는 마스터노드를 찾을 수 없습니다.</translation>
     </message>
     <message>
+        <source>Not enough funds to mix.</source>
+        <translation>믹싱을 진행하기에 잔고가 충분하지 않습니다.</translation>
+    </message>
+    <message>
         <source>Not in the Masternode list.</source>
         <translation>마스터노드 리스트에 없습니다.</translation>
-    </message>
-    <message>
-        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
-        <translation>오직 네트워크에서만 노드에 접속합니다. &lt;net&gt;(ipv4, ipv6 혹은 onion)</translation>
-    </message>
-    <message>
-        <source>Port: %d</source>
-        <translation>포트: %d</translation>
-    </message>
-    <message>
-        <source>Prepend debug output with timestamp (default: %u)</source>
-        <translation>디버그 출력 앞에 타임 스탬프를 추가합니다. (기본값: %u)</translation>
-    </message>
-    <message>
-        <source>Rebuild chain state and block index from the blk*.dat files on disk</source>
-        <translation>디스크상의 blk*.dat 파일로부터 블록체인 상태와 색인을 재구성합니다.</translation>
-    </message>
-    <message>
-        <source>Rebuild chain state from the currently indexed blocks</source>
-        <translation>현재 색인된 블록으로부터 테인 상태를 재구성합니다.</translation>
-    </message>
-    <message>
-        <source>Send trace/debug info to debug.log file (default: %u)</source>
-        <translation>추적/디버그 정보를 debug.log 파일로 보냅니다. (디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
-        <translation>가능한 경우 수수료 제로 방식으로 거래합니다. (디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
-        <translation>키풀 크기를 &lt;n&gt; 로 설정합니다. (기본값: %u)</translation>
-    </message>
-    <message>
-        <source>Set the masternode BLS private key</source>
-        <translation>마스터노드 BLS 개인 키를 설정합니다.</translation>
-    </message>
-    <message>
-        <source>Set the number of threads to service RPC calls (default: %d)</source>
-        <translation>RPC 호출 서비스를 위한 스레드의 개수 설정 (기본값: %d)</translation>
-    </message>
-    <message>
-        <source>Specify configuration file (default: %s)</source>
-        <translation>설정 파일을 지정합니다. (기본값: %s)</translation>
-    </message>
-    <message>
-        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
-        <translation>밀리세컨드 단위로 연결 제한 시간을 설정합니다. (최소값: 1, 기본값: %d)</translation>
-    </message>
-    <message>
-        <source>Specify masternode configuration file (default: %s)</source>
-        <translation>마스터노드 설정 파일을 지정합니다. (디폴트: %s)</translation>
-    </message>
-    <message>
-        <source>Specify pid file (default: %s)</source>
-        <translation>pid 파일을 지정합니다. (기본값: %s)</translation>
-    </message>
-    <message>
-        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
-        <translation>거래를 보낼 때 검증되지 않은 잔돈 쓰기 (기본값: %u)</translation>
-    </message>
-    <message>
-        <source>Submitted following entries to masternode: %u / %d</source>
-        <translation>다음의 입력값을 마스터노드에 제출하기: %u / %d</translation>
-    </message>
-    <message>
-        <source>Submitted to masternode, waiting for more entries ( %u / %d ) %s</source>
-        <translation>마스터노드에 제출, 더 많은 입력값을 기다리는 중 (%u / %d ) %s</translation>
     </message>
     <message>
         <source>Submitted to masternode, waiting in queue %s</source>
         <translation>마스터노드에 제출, 대기열에서 기다리는 중 %s</translation>
     </message>
     <message>
-        <source>Synchroning blockchain...</source>
-        <translation>블록체인 동기화 중...</translation>
-    </message>
-    <message>
-        <source>Synchronization failed</source>
-        <translation>동기화에 실패하였습니다.</translation>
-    </message>
-    <message>
         <source>Synchronization finished</source>
         <translation>동기화가 끝났습니다.</translation>
-    </message>
-    <message>
-        <source>Synchronizing masternodes...</source>
-        <translation>마스터노드 동기화 중...</translation>
-    </message>
-    <message>
-        <source>This is not a Masternode.</source>
-        <translation>이는 마스터노드가 아닙니다.</translation>
-    </message>
-    <message>
-        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
-        <translation>비정상적인 피어의 연결을 차단시키기 위한 임계값 (기본값: %u)</translation>
-    </message>
-    <message>
-        <source>Too many %f denominations, removing.</source>
-        <translation>%f 분할 단위가 너무 많습니다. 삭제합니다.</translation>
-    </message>
-    <message>
-        <source>Too many %f denominations, skipping.</source>
-        <translation>%f 분할 단위가 너무 많습니다. 건너뜁니다.</translation>
-    </message>
-    <message>
-        <source>Tor control port password (default: empty)</source>
-        <translation>Tor 관리 포트 암호 (기본값: 공란)</translation>
-    </message>
-    <message>
-        <source>Tor control port to use if onion listening enabled (default: %s)</source>
-        <translation>onion 열림이 활성화시 Tor 관리 포트 사용 (기본값: %s)</translation>
     </message>
     <message>
         <source>Unable to start HTTP server. See debug log for details.</source>
@@ -4464,148 +4340,60 @@
         <translation>지원하지 않는 인수 -tor를 찾았습니다. -onion를 사용해주세요.</translation>
     </message>
     <message>
-        <source>Upgrade wallet to latest format on startup</source>
-        <translation>시작 시 지갑 포맷을 최신으로 업그레이드 합니다</translation>
-    </message>
-    <message>
-        <source>Use KeePass 2 integration using KeePassHttp plugin (default: %u)</source>
-        <translation>KeePassHttp 플러그인을 사용하여 KeePass 2 통합을 사용합니다. (디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>Use UPnP to map the listening port (default: %u)</source>
-        <translation>수신 포트를 맵핑하기 위해 UPnP 사용 (디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>Use the test chain</source>
-        <translation>테스트 체인 사용</translation>
-    </message>
-    <message>
         <source>User Agent comment (%s) contains unsafe characters.</source>
         <translation>사용자 정의 코멘트 (%s)에 안전하지 못한 글자가 포함되어 있습니다.</translation>
+    </message>
+    <message>
+        <source>Verifying wallet(s)...</source>
+        <translation>지갑(들)을 검증 중...</translation>
     </message>
     <message>
         <source>Will retry...</source>
         <translation>다시 시도할 예정입니다...</translation>
     </message>
     <message>
-        <source>Invalid masternodeprivkey. Please see documenation.</source>
-        <translation>유효하지 않은 masternodeprivkey 입니다. 문서를 확인하세요.</translation>
-    </message>
-    <message>
         <source>Can't find random Masternode.</source>
         <translation>임의의 마스터노드를 찾을 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>%s can't be lower than %s</source>
+        <translation>%s는 %s보다 작을 수 없습니다</translation>
+    </message>
+    <message>
+        <source>%s is idle.</source>
+        <translation>%s를 사용되지 않고 있습니다.</translation>
+    </message>
+    <message>
+        <source>%s request incomplete: %s</source>
+        <translation>%s 요청이 완료되지 않았습니다: %s</translation>
     </message>
     <message>
         <source>Can't mix while sync in progress.</source>
         <translation>동기화가 진행되는 동안 믹싱할 수 없습니다.</translation>
     </message>
     <message>
-        <source>Could not parse masternode.conf</source>
-        <translation>masternode.conf 를 분석할 수 없습니다.</translation>
-    </message>
-    <message>
         <source>Invalid netmask specified in -whitelist: '%s'</source>
         <translation>-whitelist: '%s'로 지정된 넷마스크가 유효하지 않습니다. </translation>
-    </message>
-    <message>
-        <source>Invalid port detected in masternode.conf</source>
-        <translation>masternode.conf 에서 유효하지 않은 포트가 감지되었습니다.</translation>
     </message>
     <message>
         <source>Invalid script detected.</source>
         <translation>유효하지 않은 스크립트가 감지되었습니다.</translation>
     </message>
     <message>
-        <source>KeePassHttp id for the established association</source>
-        <translation>설립된 단체를 위한 KeePassHttp 아이디</translation>
-    </message>
-    <message>
-        <source>KeePassHttp key for AES encrypted communication with KeePass</source>
-        <translation>KeePass를 통해 AES 암호화된 의사 소통을 위한 KeePassHttp 키</translation>
-    </message>
-    <message>
-        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
-        <translation>최대 &lt;n&gt;개의 연결할 수 없는 거래를 메모리에 저장 (기본값: %u)</translation>
-    </message>
-    <message>
-        <source>Disable all DMS specific functionality (Masternodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</source>
-        <translation>모든 대시만의 기능(마스터노드, 프라이빗샌드, 인스턴트샌드, 거버넌스)을 비활성화 (0-1, 디폴트: %u)</translation>
-    </message>
-    <message>
         <source>%s file contains all private keys from this wallet. Do not share it with anyone!</source>
         <translation>%s 파일에는이 지갑의 모든 프라이빗키가 들어 있습니다. 절대 공유하지 마십시오!</translation>
     </message>
     <message>
-        <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
-        <translation>자신의 IP 주소를 탐색 (디폴트: 수신하는 경우 및 -externalip 또는 -proxy 가 없는 경우 1)</translation>
-    </message>
-    <message>
-        <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
-        <translation>멤풀에 있는 거래 기록을 &lt;n&gt;시간 후 부터는 유지하지 않기 (디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>Enable InstantSend, show confirmations for locked transactions (0-1, default: %u)</source>
-        <translation>인스턴트샌드를 활성화하고 잠긴 거래를 위한 거래 확인을 보여줍니다. (0-1, 디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>Enable multiple PrivateSend mixing sessions per block, experimental (0-1, default: %u)</source>
-        <translation>실험적으로 블록당 다수의 프라이빗샌드 믹싱 세션을 활성화합니다. (0-1, 디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>Enable use of automated PrivateSend for funds stored in this wallet (0-1, default: %u)</source>
-        <translation>이 지갑에 보관된 자금을 위해 자동화된 프라이빗샌드를 활성화 합니다. (0-1. 디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>Execute command when a wallet InstantSend transaction is successfully locked (%s in cmd is replaced by TxID)</source>
-        <translation>지갑의 인스턴트샌드 거래가 성공적으로 잠기면 명령을 실행합니다. (cmd의 %s가 TxID로 대체됩니다)</translation>
-    </message>
-    <message>
-        <source>Extra transactions to keep in memory for compact block reconstructions (default: %u)</source>
-        <translation>컴팩트 블록 재구성을 위해 메모리에 보관해야 하는 추가 트랜잭션 (default: %u)</translation>
+        <source>-masternode option is deprecated and ignored, specifying -masternodeblsprivkey is enough to start this node as a masternode.</source>
+        <translation>-masternode 옵션은 중요도가 하락하여 무시되고 -masternodeblsprivkey는 마스터노드로서 이 노드를 시작하기에 충분합니다.</translation>
     </message>
     <message>
         <source>Failed to create backup, file already exists! This could happen if you restarted wallet in less than 60 seconds. You can continue if you are ok with this.</source>
         <translation>백업 생성에 실패하였습니다. 파일이 이미 존재합니다! 이는 당신이 60초 내에 지갑을 재시작 하는 경우 발생할 수 있습니다. 이러한 내용을 확인하시고 진행해 주세요. </translation>
     </message>
     <message>
-        <source>Fees (in %s/kB) smaller than this are considered zero fee for relaying, mining and transaction creation (default: %s)</source>
-        <translation>해당 금액(%s/kB) 보다 적은 수수료는 중계, 채굴, 거래 생성에서 수수료 면제로 간주됩니다 (기본값: %s)</translation>
-    </message>
-    <message>
-        <source>Fees (in %s/kB) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>해당 금액(%s/kB) 보다 적은 수수료는 수수료 면제로 간주됩니다.(기본값: %s)</translation>
-    </message>
-    <message>
-        <source>If &lt;category&gt; is not supplied or if &lt;category&gt; = 1, output all debugging information.</source>
-        <translation>&lt;category&gt;가 제공되지 않거나 &lt;category&gt; = 1 인 경우, 모든 디버깅 정보를 출력</translation>
-    </message>
-    <message>
-        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 DMS.</source>
-        <translation>인스턴트샌드는 이와 같은 고액 송금 기능을 아직 지원하지 않습니다. 현재 인스턴트샌드로 보낼 수 있는 최대한의 금액은 %1 DMS로 제한되어 있습니다.</translation>
-    </message>
-    <message>
-        <source>InstantSend requires inputs with at least %d confirmations, you might need to wait a few minutes and try again.</source>
-        <translation>인스턴트샌드는 최소 %d의 확인을 거친 입력값을 필요로 합니다. 몇 분 더 기다리신 후 다시 시도하세요.</translation>
-    </message>
-    <message>
-        <source>Maintain a full address index, used to query for the balance, txids and unspent outputs for addresses (default: %u)</source>
-        <translation>전체 주소 인덱스를 유지, 잔고를 위해 쿼리를 사용, 주소를 위한 txid와 사용되지 않은 출력 (디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>Maintain a full spent index, used to query the spending txid and input index for an outpoint (default: %u)</source>
-        <translation>전체 이용한 인덱스를 유지합니다. 이는 아웃포인트를 위한 이용 txid와 입력 인덱스를 쿼리하는 데 사용됩니다. (디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>Maintain a timestamp index for block hashes, used to query blocks hashes by a range of timestamps (default: %u)</source>
-        <translation>블록 해시를 위한 타임스탬프 인덱스를 유지합니다. 이는 범위 내의 타임스탬프로 블록 해시를 쿼리하는 데 사용됩니다. (디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>Maintain at most &lt;n&gt; connections to peers (temporary service connections excluded) (default: %u)</source>
-        <translation>최대한 &lt;n&gt;개의 피어 연결을 유지합니다. (일시적인 서비스 연결은 제외) (디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>PrivateSend uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.</source>
-        <translation>프라이빗샌드는 송금을 위하여 정확한 분할 단위 금액을 사용합니다. 단순히 더 많은 코인을 익명화함으로써 문제를 해결할 수 있을 지도 모릅니다.</translation>
+        <source>Make sure to encrypt your wallet and delete all non-encrypted backups after you have verified that the wallet works!</source>
+        <translation>해당 지갑이 작동하는 지 여부를 확인한 이후에는 당신의 지갑을 암호화하고, 암호화하지 않은 지갑 백업은 지워야 한다는 점을 주의하세요!</translation>
     </message>
     <message>
         <source>Prune configured below the minimum of %d MiB.  Please use a higher number.</source>
@@ -4616,20 +4404,8 @@
         <translation>블록 축소: 마지막 지갑 동기화가 축소된 데이터보다 오래 되었습니다. -reindex가 필요합니다. (축소된 노드의 경우 모든 블록체인을 재다운로드 하십시오)</translation>
     </message>
     <message>
-        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
-        <translation>매 프록시 연결시 인증 정보를 무작위화 합니다. 이는 Tor 스트림 아이솔레이션 기능을 활성화시킵니다. (디폴트: %u)</translation>
-    </message>
-    <message>
         <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
         <translation>블록 축소 모드에서는 재검색이 불가능 합니다. -reindex 명령을 사용해서 모든 블록체인을 다시 다운로드 해야 합니다.</translation>
-    </message>
-    <message>
-        <source>Specify full path to directory for automatic wallet backups (must exist)</source>
-        <translation>자동 지갑 백업을 위한 디렉토리의 전체 경로를 지정하십시오. (꼭 존재하야 합니다)</translation>
-    </message>
-    <message>
-        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
-        <translation>블룸 필터를 통해 블록과 거래의 필터링을 지원합니다. (기본값: %u)</translation>
     </message>
     <message>
         <source>The block database contains a block which appears to be from the future. This may be due to your computer's date and time being set incorrectly. Only rebuild the block database if you are sure that your computer's date and time are correct</source>
@@ -4644,28 +4420,12 @@
         <translation>네트워크 버전의 총 문자 길이(%i)가 최대 길이(%i)를 초과합니다. UA코멘트의 갯수나 길이를 줄이십시오.</translation>
     </message>
     <message>
-        <source>Transaction index can't be disabled in full mode. Either start with -litemode command line switch or enable transaction index.</source>
-        <translation>전체 모드에서는 트랜잭션 색인을 비활성화 할 수 없습니다. -litemode 명령 행 스위치로 시작하거나 트랜잭션 색인을 사용 가능하게 하십시오.</translation>
-    </message>
-    <message>
-        <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
-        <translation>아웃바운드 트래픽을 설정된 목표치 이하로 유지하기 (24시간당 MiB기준), 0 = 무제한 (기본값: %d)</translation>
-    </message>
-    <message>
-        <source>Unable to locate enough PrivateSend denominated funds for this transaction.</source>
-        <translation>이 거래를 위해 필요한 충분한 프라이빗샌드 분할 단위 자금을 위치할 수 없습니다.</translation>
-    </message>
-    <message>
         <source>Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
         <translation>지원하지 않는 인수 -socks를 찾았습니다. 설정된 SOCKS의 버전은 더이상 사용할 수 없으며, SOCK5 프록시만을 지원합니다.</translation>
     </message>
     <message>
         <source>Unsupported argument -whitelistalwaysrelay ignored, use -whitelistrelay and/or -whitelistforcerelay.</source>
         <translation>지원하지 않는 인수 -whitelistalwaysrelay 는 무시됩니다,  -whitelistrelay 나 -whitelistforcerelay 를 사용해 주세요.</translation>
-    </message>
-    <message>
-        <source>Use UPnP to map the listening port (default: 1 when listening and no -proxy)</source>
-        <translation>수신 포트를 맵핑하기 위해 UPnP 사용 (기본값: 수신하는 경우 및 -proxy가 없는 경우 1)</translation>
     </message>
     <message>
         <source>WARNING! Failed to replenish keypool, please unlock your wallet to do so.</source>
@@ -4680,84 +4440,60 @@
         <translation>경고: 알려지지 않은 버전의 블록이 채굴되었습니다! 알려지지 않은 규칙이 적용되었을 가능성이 있습니다.</translation>
     </message>
     <message>
-        <source>You are starting in lite mode, all DMS-specific functionality is disabled.</source>
-        <translation>라이트 모드로 시작하면 모든 대시 관련 기능이 비활성화됩니다.</translation>
+        <source>You need to rebuild the database using -reindex to change -timestampindex</source>
+        <translation>-timestampindex를 변경하기 위해서는 -reindex 체인 상태를 사용하여 데이터를 재구성해야 합니다.</translation>
     </message>
     <message>
         <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
         <translation>축소 모드를 해제하고 데이터베이스를 재구성 하기 위해 -reindex를 사용해야 합니다. 이 명령은 모든 블록체인을 다시 다운로드 할 것 입니다.</translation>
     </message>
     <message>
-        <source>(%d could be used only on mainnet)</source>
-        <translation>(%d 은/는 오직 메인넷에서만 이용할 수 있습니다)</translation>
-    </message>
-    <message>
-        <source>(default: %u)</source>
-        <translation>(기본값: %u)</translation>
-    </message>
-    <message>
-        <source>(must be %d for mainnet)</source>
-        <translation>(메인넷을 위해서는 %d여야 합니다)</translation>
+        <source>-litemode is deprecated.</source>
+        <translation>-litemode는 앞으로 사라지게 됩니다.</translation>
     </message>
     <message>
         <source>-maxmempool must be at least %d MB</source>
         <translation>-maxmempool은 최소한 %d MB가 필요합니다</translation>
     </message>
     <message>
-        <source>&lt;category&gt; can be:</source>
-        <translation>&lt;category&gt; 지정 가능:</translation>
-    </message>
-    <message>
-        <source>Append comment to the user agent string</source>
-        <translation>사용자 에이전트 문자열에 코멘트 첨부</translation>
-    </message>
-    <message>
         <source>Automatic backups disabled</source>
         <translation>자동 백업 해제</translation>
-    </message>
-    <message>
-        <source>Automatically create Tor hidden service (default: %d)</source>
-        <translation>Tor 숨김 서비스를 자동적으로 생성 (기본값: %d)</translation>
     </message>
     <message>
         <source>ERROR! Failed to create automatic backup</source>
         <translation>오류! 자동 백업 생성에 실패하였습니다.</translation>
     </message>
     <message>
-        <source>Enable publish hash block in &lt;address&gt;</source>
-        <translation>&lt;address&gt;에 대한 해시 블록 공개 활성화</translation>
-    </message>
-    <message>
-        <source>Enable publish hash of governance objects (like proposals) in &lt;address&gt;</source>
-        <translation>&lt;address&gt; 에서 거버넌스 객체(예: 제안서)의 해시 게시 사용</translation>
-    </message>
-    <message>
-        <source>Enable publish hash of governance votes in &lt;address&gt;</source>
-        <translation>&lt;address&gt; 에서 거버넌스 투표의 공개 해시 게시 사용 </translation>
-    </message>
-    <message>
-        <source>Enable publish hash transaction (locked via InstantSend) in &lt;address&gt;</source>
-        <translation>&lt;address&gt;의 공개 해시 거래를 활성화합니다 (인스턴트샌드를 통해 잠김)</translation>
-    </message>
-    <message>
-        <source>Enable publish hash transaction in &lt;address&gt;</source>
-        <translation>&lt;address&gt;의 공개 해시 거래를 활성화합니다.</translation>
-    </message>
-    <message>
-        <source>Enable publish raw block in &lt;address&gt;</source>
-        <translation>&lt;address&gt;의 공개 원시 블록을 활성화합니다.</translation>
-    </message>
-    <message>
-        <source>Enable publish raw transaction (locked via InstantSend) in &lt;address&gt;</source>
-        <translation>&lt;address&gt;의 공개 원시 거래를 활성화합니다. (인스턴트샌드를 통해 잠김)</translation>
-    </message>
-    <message>
-        <source>Enable publish raw transaction in &lt;address&gt;</source>
-        <translation>&lt;address&gt;에 대한 원시 거래 공개 활성화</translation>
+        <source>Error upgrading evo database</source>
+        <translation>에볼루션 데이터베이스 업그레이드 중 오류가 발생했습니다</translation>
     </message>
     <message>
         <source>Error: A fatal internal error occurred, see debug.log for details</source>
         <translation>에러: 치명적인 내부 오류가 발생했습니다, 자세한 내용은 debug.log 를 확인해주세요.</translation>
+    </message>
+    <message>
+        <source>Error: failed to add socket to epollfd (epoll_ctl returned error %s)</source>
+        <translation>오류: epollfd에 소켓을 추가하는 데 실패하였습니다 (epoll_ctl 반환 오류 %s)</translation>
+    </message>
+    <message>
+        <source>Exceeded max tries.</source>
+        <translation>최대 시도 횟수를 초과하였습니다.</translation>
+    </message>
+    <message>
+        <source>Failed to clear fulfilled requests cache at</source>
+        <translation>다음의 수행된 요청 캐시를 비우는 데 실패하였습니다</translation>
+    </message>
+    <message>
+        <source>Failed to clear governance cache at</source>
+        <translation>다음의 거버넌스 캐시를 비우는 데 실패하였습니다</translation>
+    </message>
+    <message>
+        <source>Failed to clear masternode cache at</source>
+        <translation>다음의 마스터노드 캐시를 비우는 데 실패하였습니다</translation>
+    </message>
+    <message>
+        <source>Failed to commit EvoDB</source>
+        <translation>EvoDB를 수행하는 데 실패하였습니다</translation>
     </message>
     <message>
         <source>Failed to create backup %s!</source>
@@ -4772,56 +4508,28 @@
         <translation>백업 삭제에 실패하였습니다. 에러: %s</translation>
     </message>
     <message>
-        <source>Failed to load InstantSend data cache from</source>
-        <translation>인스턴트샌드 데이터 캐시 로딩 실패</translation>
-    </message>
-    <message>
         <source>Failed to load sporks cache from</source>
         <translation>스포크 캐시 로딩 실패</translation>
     </message>
     <message>
-        <source>Failed to parse host:port string</source>
-        <translation>host:post 문자열을 분석하는 데 실패하였습니다.</translation>
-    </message>
-    <message>
-        <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
-        <translation>송금 시 추가되는 수수료 (%s/kB) (기본값: %s)</translation>
-    </message>
-    <message>
-        <source>Imports blocks from external blk000??.dat file on startup</source>
-        <translation>시작 시 외부 blk000??.dat 파일에서 블록을 가져옵니다.</translation>
-    </message>
-    <message>
-        <source>InstantSend options:</source>
-        <translation>인스턴트샌드 옵션:</translation>
+        <source>Failed to rescan the wallet during initialization</source>
+        <translation>초기치 설정 중 지갑을 재 스캔하는 데 실패하였습니다</translation>
     </message>
     <message>
         <source>Invalid amount for -fallbackfee=&lt;amount&gt;: '%s'</source>
         <translation>유효하지 않은 금액 -fallbackfee=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
-        <source>Keep the transaction memory pool below &lt;n&gt; megabytes (default: %u)</source>
-        <translation>거래 메모리 풀의 용량을 &lt;n&gt;메가바이트 아래로 유지하기 (기본값: %u)</translation>
+        <source>Invalid masternodeblsprivkey. Please see documentation.</source>
+        <translation>유효하지 않은 masternodeblsprivkey 입니다. 문서를 확인하세요.</translation>
     </message>
     <message>
-        <source>Last PrivateSend was too recent.</source>
-        <translation>지난 프라이빗샌드가 너무 최신입니다.</translation>
+        <source>It has been replaced by -disablegovernance.</source>
+        <translation>-disablegovernance가 대체하였습니다.</translation>
     </message>
     <message>
-        <source>Last successful PrivateSend action was too recent.</source>
-        <translation>지난 성공적 프라이빗샌드 활동이 너무 최신입니다.</translation>
-    </message>
-    <message>
-        <source>Line: %d</source>
-        <translation>라인: %d</translation>
-    </message>
-    <message>
-        <source>Loading InstantSend data cache...</source>
-        <translation>인스턴트샌드 데이터 캐시로드 중...</translation>
-    </message>
-    <message>
-        <source>Loading addresses...</source>
-        <translation>주소를 불러오는 중...</translation>
+        <source>Its replacement -disablegovernance has been forced instead.</source>
+        <translation>대체한 -disablegovernance가 대신 강제되었습니다.</translation>
     </message>
     <message>
         <source>Loading block index...</source>
@@ -4844,32 +4552,12 @@
         <translation>지갑을 불러오는 중...</translation>
     </message>
     <message>
-        <source>Location of the auth cookie (default: data dir)</source>
-        <translation>인증 쿠키의 위치 (기본값: data dir)</translation>
-    </message>
-    <message>
-        <source>Make the wallet broadcast transactions</source>
-        <translation>지갑 브로드캐스트 거래 생성</translation>
-    </message>
-    <message>
-        <source>Masternode cache is empty, skipping payments and governance cache...</source>
-        <translation>마스터노드 캐시가 비어 있습니다. 지불 및 거버넌스 캐시를 건너뜁니다...</translation>
-    </message>
-    <message>
-        <source>Masternode options:</source>
-        <translation>마스터노드 옵션:</translation>
-    </message>
-    <message>
         <source>Masternode queue is full.</source>
         <translation>마스터노드 대기열이 가득 찼습니다.</translation>
     </message>
     <message>
         <source>Masternode:</source>
         <translation>마스터노드:</translation>
-    </message>
-    <message>
-        <source>Minimum bytes per sigop in transactions we relay and mine (default: %u)</source>
-        <translation>중계 및 채굴 시 거래의 Sigop 당 최소 바이트 (디폴트: %u)</translation>
     </message>
     <message>
         <source>Missing input transaction information.</source>
@@ -4884,14 +4572,6 @@
         <translation>믹싱을 위해 필요한 분할 단위를 찾을 수 없습니다.</translation>
     </message>
     <message>
-        <source>Node relay options:</source>
-        <translation>노드 중계 옵션:</translation>
-    </message>
-    <message>
-        <source>Non-standard public key detected.</source>
-        <translation>규격 외의 공개 키가 감지되었습니다.</translation>
-    </message>
-    <message>
         <source>Not compatible with existing transactions.</source>
         <translation>기존의 거래와 호환 할 수 없습니다.</translation>
     </message>
@@ -4900,44 +4580,12 @@
         <translation>사용 가능한 파일 설명자가 부족합니다.</translation>
     </message>
     <message>
-        <source>Not enough funds to anonymize.</source>
-        <translation>익명화를 진행하기에 잔고가 충분하지 않습니다.</translation>
-    </message>
-    <message>
-        <source>Number of automatic wallet backups (default: %u)</source>
-        <translation>자동 지갑 백업의 수 (디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>Options:</source>
-        <translation>옵션:</translation>
-    </message>
-    <message>
-        <source>Password for JSON-RPC connections</source>
-        <translation>JSON-RPC 연결에 사용할 암호</translation>
-    </message>
-    <message>
-        <source>Print version and exit</source>
-        <translation>버전 출력 후 종료</translation>
-    </message>
-    <message>
-        <source>PrivateSend is idle.</source>
-        <translation>프라이빗샌드가 가동되지 않았습니다.</translation>
-    </message>
-    <message>
-        <source>PrivateSend options:</source>
-        <translation>프라이빗샌드 옵션:</translation>
-    </message>
-    <message>
-        <source>PrivateSend request complete:</source>
-        <translation>프라이빗샌드 요청이 완료되었습니다: </translation>
-    </message>
-    <message>
-        <source>PrivateSend request incomplete:</source>
-        <translation>프라이빗샌드 요청이 완료되지 않았습니다:</translation>
-    </message>
-    <message>
         <source>Prune cannot be configured with a negative value.</source>
         <translation>블록 축소는 음수로 설정할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Prune mode is incompatible with -disablegovernance=false.</source>
+        <translation>블록 축소 모드는 -disablegovernance=false와 호환되지 않습니다.</translation>
     </message>
     <message>
         <source>Prune mode is incompatible with -txindex.</source>
@@ -4948,12 +4596,28 @@
         <translation>블록 데이터를 축소 중입니다..</translation>
     </message>
     <message>
-        <source>Rescan the block chain for missing wallet transactions on startup</source>
-        <translation>시작할 때 블록체인에서 누락된 지갑 거래를 다시 검색합니다. </translation>
+        <source>Specified -walletdir "%s" does not exist</source>
+        <translation>지정된 -walletdir "%s" 은/는 존재하지 않습니다</translation>
+    </message>
+    <message>
+        <source>Specified -walletdir "%s" is a relative path</source>
+        <translation>지정된 -walletdir "%s" 은/는 상대 경로입니다.</translation>
+    </message>
+    <message>
+        <source>Specified -walletdir "%s" is not a directory</source>
+        <translation>지정된 -walletdir "%s" 은/는 디렉토리가 아닙니다.</translation>
+    </message>
+    <message>
+        <source>Synchronizing blockchain...</source>
+        <translation>블록체인 동기화 중...</translation>
     </message>
     <message>
         <source>The wallet will avoid paying less than the minimum relay fee.</source>
         <translation>이 지갑은 최소 중계 수수료보다 적은 수수료를 지불하지 않을 것입니다.</translation>
+    </message>
+    <message>
+        <source>This is expected because you are running a pruned node.</source>
+        <translation>이는 현재의 블록 축소 모드로 인한 것입니다.</translation>
     </message>
     <message>
         <source>This is the minimum transaction fee you pay on every transaction.</source>
@@ -4988,20 +4652,16 @@
         <translation>이 컴퓨터의 %s에 바인딩 할 수 없습니다. %s이 이미 실행 중인 것으로 보입니다.</translation>
     </message>
     <message>
+        <source>Unable to generate initial keys</source>
+        <translation>초기 키를 생성할 수 없습니다.</translation>
+    </message>
+    <message>
         <source>Upgrading UTXO database</source>
         <translation>UTXO 데이터베이스 업그레이드</translation>
     </message>
     <message>
-        <source>Use devnet chain with provided name</source>
-        <translation>제공된 이름으로 개발 네트워크 체인을 사용</translation>
-    </message>
-    <message>
-        <source>Wallet debugging/testing options:</source>
-        <translation>지갑 디버깅/테스트 옵션:</translation>
-    </message>
-    <message>
-        <source>Wallet is not initialized</source>
-        <translation>지갑이 초기화되지 않았습니다.</translation>
+        <source>Wallet %s resides outside wallet directory %s</source>
+        <translation>지갑 %s 이 지갑 디렉토리 %s 외부에 위치합니다.</translation>
     </message>
     <message>
         <source>Wallet needed to be rewritten: restart %s to complete</source>
@@ -5016,16 +4676,20 @@
         <translation>지갑 백업 폴더 %s 를 생성할 수 없었습니다!</translation>
     </message>
     <message>
-        <source>Whether to operate in a blocks only mode (default: %u)</source>
-        <translation>블록 전용 모드로 동작할 지 여부를 결정합니다. (기본값: %u)</translation>
+        <source>You can not start a masternode with wallet enabled.</source>
+        <translation>지갑이 활성화된 상태에서는 마스터노드를 실행할 수 없습니다.</translation>
     </message>
     <message>
-        <source>You can not start a masternode in lite mode.</source>
-        <translation>라이트 모드에서는 마스터 노드를 시작할 수 없습니다.</translation>
+        <source>You need to rebuild the database using -reindex to change -addressindex</source>
+        <translation>-addressindex를 변경하기 위해서는 -reindex 체인 상태를 사용하여 데이터를 재구성해야 합니다.</translation>
     </message>
     <message>
-        <source>ZeroMQ notification options:</source>
-        <translation>ZeroMQ 알림 옵션:</translation>
+        <source>You need to rebuild the database using -reindex to change -spentindex</source>
+        <translation>-spentindex를 변경하기 위해서는 -reindex 체인 상태를 사용하여 데이터를 재구성해야 합니다.</translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex to change -txindex</source>
+        <translation>-txindex를 변경하기 위해서는 -reindex 체인 상태를 사용하여 데이터를 재구성해야 합니다.</translation>
     </message>
     <message>
         <source>no mixing available.</source>
@@ -5036,10 +4700,6 @@
         <translation>세부 사항을 확인하시려면 debug.log를 참조하세요.</translation>
     </message>
     <message>
-        <source>RPC server options:</source>
-        <translation>RPC 서버 설정</translation>
-    </message>
-    <message>
         <source>DMS Core</source>
         <translation>대시 코어</translation>
     </message>
@@ -5048,44 +4708,28 @@
         <translation>%s 개발자</translation>
     </message>
     <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect/-noconnect)</source>
-        <translation>외부로부터의 연결을 허용합니다. (-proxy 가 없는 경우 혹은 -connect/-noconnect 인 경우 디폴트: 1)</translation>
+        <source>%s uses exact denominated amounts to send funds, you might simply need to mix some more coins.</source>
+        <translation>%s는 송금을 위하여 정확한 분할 단위 금액을 사용합니다. 단순히 더 많은 코인을 믹싱함으로써 문제를 해결할 수 있을 지도 모릅니다.</translation>
     </message>
     <message>
         <source>Cannot obtain a lock on data directory %s. %s is probably already running.</source>
         <translation>%s 데이터 디렉토리에 잠금을 설정 할 수 없습니다. %s가 이미 실행 중인 것으로 보입니다.</translation>
     </message>
     <message>
-        <source>Connect only to the specified node(s); -noconnect or -connect=0 alone to disable automatic connections</source>
-        <translation>지정된 노드(들)에만 연결합니다: 자동 연결을 해제하기 위하여 -noconnect 혹은 -connect=0 만을 사용합니다.</translation>
-    </message>
-    <message>
         <source>Distributed under the MIT software license, see the accompanying file %s or %s</source>
         <translation>MIT 소프트웨어 라이센스에 따라 배포 되었습니다. 첨부 파일 %s 또는 %s을 참조하십시오.</translation>
+    </message>
+    <message>
+        <source>Error loading %s: You can't enable HD on an already existing non-HD wallet</source>
+        <translation>%s 로딩 에러: HD 지갑이 아닌 경우 HD를 활성화 할 수 없습니다.</translation>
     </message>
     <message>
         <source>Error reading %s! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
         <translation>%s 불러오기 오류 입니다.  주소 키는 모두 정확하게 읽혔으나 거래 데이터 혹은 주소록에서 누락이나 오류가 존재할 수 있습니다.</translation>
     </message>
     <message>
-        <source>Force relay of transactions from whitelisted peers even if they violate local relay policy (default: %d)</source>
-        <translation>피어들이 로컬 중계 정책을 위반하더라도 화이트 리스트에 포함된 피어인경우 강제로 중계하기 (기본값: %d)</translation>
-    </message>
-    <message>
         <source>Incorrect or no devnet genesis block found. Wrong datadir for devnet specified?</source>
         <translation>올바르지 않거나 개발 네트워크 생성 블록을 찾을 수 없습니다. 개발 네트워크에 지정된 데이터 디렉토리가 잘못된 것일 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Maximum allowed median peer time offset adjustment. Local perspective of time may be influenced by peers forward or backward by this amount. (default: %u seconds)</source>
-        <translation>허용 된 최대 중간 피어 시간 오프셋 조정. 시간에 대한 지역적 전망치는 전방 또는 후방의 피어에 의해 영향을 받을 수 있습니다. (디폴트: %u 초)</translation>
-    </message>
-    <message>
-        <source>Maximum total fees (in %s) to use in a single wallet transaction or raw transaction; setting this too low may abort large transactions (default: %s)</source>
-        <translation>단일 지갑 거래 또는 원시 거래에서 사용할 최대 총 수수료(단위 %s). 이 값을 너무 낮게 설정하면 크기가 큰 거래를 중단시킬 수 있습니다. (기본값: %s)</translation>
-    </message>
-    <message>
-        <source>Override spork address. Only useful for regtest and devnet. Using this on mainnet or testnet will ban you.</source>
-        <translation>스포크 주소를 무시합니다. 이 기능은 오직 회귀 테스트와 개발 네트워크에서 유용합니다. 메인넷이나 테스트넷에서 사용하는 경우에는 금지당할 수 있습니다.</translation>
     </message>
     <message>
         <source>Please check that your computer's date and time are correct! If your clock is wrong, %s will not work properly.</source>
@@ -5096,20 +4740,8 @@
         <translation>%s이/가 유용하다고 생각한다면 프로젝트에 공헌해주세요. 이 소프트웨어에 대한 보다 자세한 정보는 %s를 방문해주십시오.</translation>
     </message>
     <message>
-        <source>Provide liquidity to PrivateSend by infrequently mixing coins on a continual basis (%u-%u, default: %u, 1=very frequent, high fees, %u=very infrequent, low fees)</source>
-        <translation>코인 믹싱을 자주 반복하지 않음으로써 프라이빗샌드에 유동성 제공 (%u-%u, 디폴트: %u, 1=매우 빈번, 높은 수수료, %u=매우 드뭄, 적은 수수료)</translation>
-    </message>
-    <message>
-        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect/-noconnect)</source>
-        <translation>주소가 부족한 경우 DNS 검색을 통해 피어 주소를 요청합니다. (디폴트: -connect/-noconnect가 아닌 한 1) </translation>
-    </message>
-    <message>
-        <source>Reduce storage requirements by enabling pruning (deleting) of old blocks. This allows the pruneblockchain RPC to be called to delete specific blocks, and enables automatic pruning of old blocks if a target size in MiB is provided. This mode is incompatible with -txindex and -rescan. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, 1 = allow manual pruning via RPC, &gt;%u = automatically prune block files to stay under the specified target size in MiB)</source>
-        <translation>오래된 블록을 정리(삭제) 함으로써 스토리지 용량 요구 사항을 줄입니다. 이로써 pruneblockchain RPC를 호출하여 특정 블록을 삭제하고, MiB로 목표 사이즈를 설정하는 경우 오래된 블록을 자동으로 정리합니다. 이 모드는 -txindex와 -rescan과 호환되지 않습니다. 경고: 이 설정을 되돌리기 위해서는 전체 블록체인을 다시 다운로드 해야 합니다. (디폴트: 0 = 블록 정리 기능 해제, 1 = RPC를 통한 수동 블록 정리 허용, &gt;%u = 자동으로 블록 파일을 정리하여 MiB로 지정된 목표 사이즈로 유지)</translation>
-    </message>
-    <message>
-        <source>Set lowest fee rate (in %s/kB) for transactions to be included in block creation. (default: %s)</source>
-        <translation>블록 생성에 포함되기 위한 거래의 최저 수수료 비율(%s/kB)을 설정하십시오. (기본값: %s)</translation>
+        <source>This is the transaction fee you may discard if change is smaller than dust at this level</source>
+        <translation>잔돈이 이 수준의 더스트보다 적은 경우 당신이 버려야 할 수도 있는 거래 수수료입니다</translation>
     </message>
     <message>
         <source>This is the transaction fee you may pay when fee estimates are not available.</source>
@@ -5120,44 +4752,16 @@
         <translation>이 제품에는 OpenSSL Project에 의해 penSSL Toolkit %s용으로 사용하기 위해 개발된 소프트웨어, Eric Young이 작성한 암호화 소프트웨어 및 Thomas Bernard가 작성한 UPnP 소프트웨어가 포함되어 있습니다.</translation>
     </message>
     <message>
-        <source>Unable to locate enough PrivateSend non-denominated funds for this transaction.</source>
-        <translation>이 거래를 수행하는 데 필요한 충분한 프라이빗샌드 단위 분할 금액을 찾을 수 없습니다.  </translation>
-    </message>
-    <message>
-        <source>Use N separate masternodes for each denominated input to mix funds (%u-%u, default: %u)</source>
-        <translation>N개의 마스터노드를 사용하여 분할한 각 입력값을 섞습니다. (%u-%u, 디폴트: %u)</translation>
-    </message>
-    <message>
-        <source>Use hierarchical deterministic key generation (HD) after BIP39/BIP44. Only has effect during wallet creation/first start</source>
-        <translation>BIP39/BIP44 이후 HD 키 생성을 사용하십시오. 지갑 생성/첫 시작에만 시행됩니다.</translation>
-    </message>
-    <message>
-        <source>User defined mnemonic passphrase for HD wallet (BIP39). Only has effect during wallet creation/first start (default: empty string)</source>
-        <translation>HD 지갑을 위해 사용자가 지정한 연상 기호 암호문(BIP39)은 지갑 생성/첫 시작에만 효력이 있습니다. (디폴트: 빈 문자열)</translation>
-    </message>
-    <message>
-        <source>Username and hashed password for JSON-RPC connections. The field &lt;userpw&gt; comes in the format: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. A canonical python script is included in share/rpcuser. The client then connects normally using the rpcuser=&lt;USERNAME&gt;/rpcpassword=&lt;PASSWORD&gt; pair of arguments. This option can be specified multiple times</source>
-        <translation>클라이언트JSON-RPC 연결에 필요한 사용자 이름과 해시화된 암호문.  해당 필드는 &lt;userpw&gt; 다음과 같은 필드로 구성되어 있습니다: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. share/rpcuser에는 표준 파이톤 스크립트가 포함됩니다. 이후 클라이언트는 rpcuser=&lt;USERNAME&gt;/ rpcpassword=&lt;PASSWORD&gt; 쌍의 매개 변수를 이용하여 정상적으로 연결합니다. 이 옵션은 복수로 지정할 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Wallet will not create transactions that violate mempool chain limits (default: %u)</source>
-        <translation>지갑은 멤풀 체인 한계값(기본값: %u)을 넘는 거래를 생성하지 않습니다.</translation>
-    </message>
-    <message>
-        <source>Warning: At least %d of %d masternodes are running on a newer software version. Please check latest releases, you might need to update too.</source>
-        <translation>경고: %d개의 마스터노드 중 최소 %d 개가 새로운 버전의 소프트웨어에서 구동 중입니다. 최신 버전을 확인하세요. 업데이트가 필요할 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Warning: Every masternode (out of %d known ones) is running on a newer software version. Please check latest releases, it's very likely that you missed a major/critical update.</source>
-        <translation>경고: (알려진 %d 중) 모든 마스터노드가 새로운 버전의 소프트웨어에서 구동 중입니다. 최신의 버전을 확인하세요. 중요한 업데이트가 실행되지 않은 것으로 보입니다.</translation>
+        <source>Unable to replay blocks. You will need to rebuild the database using -reindex-chainstate.</source>
+        <translation>블록을 재실행 할 수 없습니다. -reindex-chainstate를 이용해 데이터베이스를 재구성해야 합니다.</translation>
     </message>
     <message>
         <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
         <translation>경고: 지갑 파일이 손상, 데이터가 복구되었습니다! 기존의 %s 파일은 %s에 %s라는 이름으로 저장됩니다. 잔액과 거래 내역이 정확하지 않다면 백업 파일로 복원해야 합니다. </translation>
     </message>
     <message>
-        <source>Whitelist peers connecting from the given IP address (e.g. 1.2.3.4) or CIDR notated network (e.g. 1.2.3.0/24). Can be specified multiple times.</source>
-        <translation>지정된 IP주소 (예 1.2.3.4) 혹은 CIDR로 작성된 네트워크 (예 1.2.3.0/24)로 화이트리스트 피어에 접속합니다. 이는 복수로 지정 할 수 있습니다.</translation>
+        <source>%d of last 100 blocks have unexpected version</source>
+        <translation>지난 100 블록 중 %d가 예상치 못한 버전을 지니고 있습니다</translation>
     </message>
     <message>
         <source>%s corrupt, salvage failed</source>
@@ -5172,10 +4776,6 @@
         <translation>%s가 매우 높게 설정되었습니다!</translation>
     </message>
     <message>
-        <source>(press q to shutdown and continue later)</source>
-        <translation>(q를 눌러 종료하고 나중에 계속하기)</translation>
-    </message>
-    <message>
         <source>-devnet can only be specified once</source>
         <translation>-devnet은 한 번만 지정할 수 있습니다.</translation>
     </message>
@@ -5188,16 +4788,12 @@
         <translation>-devnet과 -server가 지정될 때에는 -rpcport도 지정되어야 합니다.</translation>
     </message>
     <message>
-        <source>Allow RFC1918 addresses to be relayed and connected to (default: %u)</source>
-        <translation>RFC1918 주소가 릴레이되고 (default: %u)에 연결되는 것을 허용합니다.</translation>
-    </message>
-    <message>
-        <source>Attempt to recover private keys from a corrupt wallet on startup</source>
-        <translation>시작 시 오류가 있는 지갑에서 개인 키 복원을 시도합니다.</translation>
-    </message>
-    <message>
         <source>Cannot resolve -%s address: '%s'</source>
         <translation>%s주소: '%s'를 확인할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Cannot write to data directory '%s'; check permissions.</source>
+        <translation>'%s' 데이터 디렉토리를 생성할 수 없습니다: 허용 내역을 확인하십시오.</translation>
     </message>
     <message>
         <source>Change index out of range</source>
@@ -5220,8 +4816,20 @@
         <translation>%s 불러오기 에러: 지갑에 새 버전의 %s이/가 필요합니다</translation>
     </message>
     <message>
+        <source>Error loading %s: You can't disable HD on an already existing HD wallet</source>
+        <translation>%s 로딩 에러: 이미 존재하는 HD 지갑에서 HD를 비활성화 할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Error loading wallet %s. Duplicate -wallet filename specified.</source>
+        <translation>지갑 %s 로딩 중 에러. 설정된 -wallet 파일명을 복사하세요</translation>
+    </message>
+    <message>
         <source>Error upgrading chainstate database</source>
         <translation>체인 상태 데이터베이스 업그레이드 중 오류가 발생했습니다.</translation>
+    </message>
+    <message>
+        <source>Error: failed to add socket to kqueuefd (kevent returned error %s)</source>
+        <translation>오류: kqeuefd에 소켓을 추가하는 데 실패하였습니다 (kevent 반환 오류 %s)</translation>
     </message>
     <message>
         <source>Failed to find mixing queue to join</source>
@@ -5232,8 +4840,24 @@
         <translation>새로운 믹싱 대기열을 시작하는 데 실패하였습니다.</translation>
     </message>
     <message>
+        <source>Incorrect -rescan mode, falling back to default value</source>
+        <translation>잘못된 -rescan 모드, 기본 값으로 돌아갑니다</translation>
+    </message>
+    <message>
         <source>Initialization sanity check failed. %s is shutting down.</source>
         <translation>초기치 설정 정상 여부 검사에 실패하였습니다. %s가 종료됩니다.</translation>
+    </message>
+    <message>
+        <source>Inputs vs outputs size mismatch.</source>
+        <translation>입력값 vs 출력값 사이즈가 일치하지 않습니다.</translation>
+    </message>
+    <message>
+        <source>Invalid -onion address or hostname: '%s'</source>
+        <translation>올바르지 않은 -onion 주소 또는 호스트 이름: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid -proxy address or hostname: '%s'</source>
+        <translation>올바르지 않은 -proxy 주소 또는 호스트 이름: '%s'</translation>
     </message>
     <message>
         <source>Invalid amount for -%s=&lt;amount&gt;: '%s'</source>
@@ -5244,40 +4868,20 @@
         <translation>-sporkaddr로 지정된 스포크 주소가 유효하지 않습니다.</translation>
     </message>
     <message>
-        <source>Keep N DMS anonymized (%u-%u, default: %u)</source>
-        <translation>N 대시를 익명으로 유지합니다(%u-%u, 디폴트: %u).</translation>
-    </message>
-    <message>
-        <source>Print this help message and exit</source>
-        <translation>이 도움말 메시지를 출력 후 종료</translation>
-    </message>
-    <message>
-        <source>Receive and display P2P network alerts (default: %u)</source>
-        <translation>P2P 네트워크 경고를 받고 표시합니다(디폴트: %u).</translation>
+        <source>Loading P2P addresses...</source>
+        <translation>P2P 주소 불러오는 중...</translation>
     </message>
     <message>
         <source>Reducing -maxconnections from %d to %d, because of system limitations.</source>
         <translation>시스템 상 한계로 인하여 -maxconnections를 %d 에서 %d로 줄였습니다.</translation>
     </message>
     <message>
-        <source>Relay and mine data carrier transactions (default: %u)</source>
-        <translation>데이터 캐리어 거래를 릴레이하고 채굴 합니다. (기본값: %u)</translation>
-    </message>
-    <message>
-        <source>Relay non-P2SH multisig (default: %u)</source>
-        <translation>비-P2SH 다중 서명을 릴레이 (기본값: %u)</translation>
+        <source>Replaying blocks...</source>
+        <translation>블록 재실행 중...</translation>
     </message>
     <message>
         <source>Rescanning...</source>
         <translation>다시 스캔 중...</translation>
-    </message>
-    <message>
-        <source>Run in the background as a daemon and accept commands</source>
-        <translation>데몬으로 백그라운드에서 실행하고 명령을 허용</translation>
-    </message>
-    <message>
-        <source>Send trace/debug info to console instead of debug.log file</source>
-        <translation>추적/디버그 정보를 degug.log 파일 대신 콘솔로 보내기</translation>
     </message>
     <message>
         <source>Session not complete!</source>
@@ -5288,56 +4892,28 @@
         <translation>세션이 만료되었습니다.</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
-        <translation>데이터베이스 케시 크기를 메가바이트로 설정(%d 부터 %d, 기본값: %d)</translation>
-    </message>
-    <message>
-        <source>Set maximum block size in bytes (default: %d)</source>
-        <translation>최대 블록 사이즈를 바이트로 설정합니다(디폴트: %d).</translation>
-    </message>
-    <message>
-        <source>Set the masternode private key</source>
-        <translation>마스터노드 개인 키를 설정합니다.</translation>
-    </message>
-    <message>
-        <source>Show all debugging options (usage: --help -help-debug)</source>
-        <translation>모든 디버그 설정 보기(설정: --help -help-debug)</translation>
-    </message>
-    <message>
-        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
-        <translation>클라이언트 시작 시 debug.log 파일 축소 (기본값: -debug 아닌 경우 1)</translation>
-    </message>
-    <message>
         <source>Signing transaction failed</source>
         <translation>거래에 서명하는 데 실패하였습니다.</translation>
     </message>
     <message>
-        <source>Specify data directory</source>
-        <translation>데이터 디렉토리를 지정하십시오.</translation>
+        <source>Specified blocks directory "%s" does not exist.</source>
+        <translation>지정한 데이터 디렉토리 "%s"가 존재하지 않습니다.</translation>
     </message>
     <message>
-        <source>Specify wallet file (within data directory)</source>
-        <translation>(데이터 디렉토리 내의) 지갑 파일을 지정하십시오.</translation>
+        <source>Last queue was created too recently.</source>
+        <translation>지난 큐가 너무 최근 생성되었습니다.</translation>
     </message>
     <message>
-        <source>Specify your own public address</source>
-        <translation>공개 주소를 지정하십시오.</translation>
+        <source>Last successful action was too recent.</source>
+        <translation>지난 성공적 액션이 너무 최신입니다.</translation>
     </message>
     <message>
         <source>Starting network threads...</source>
         <translation>네트워크 스레드 시작중...</translation>
     </message>
     <message>
-        <source>Synchronization pending...</source>
-        <translation>처리 중인 데이터 동기화중...</translation>
-    </message>
-    <message>
         <source>Synchronizing governance objects...</source>
         <translation>거버넌스 객체 동기화중...</translation>
-    </message>
-    <message>
-        <source>Synchronizing masternode payments...</source>
-        <translation>마스터노드 지불 동기화중...</translation>
     </message>
     <message>
         <source>The source code is available from %s.</source>
@@ -5376,6 +4952,14 @@
         <translation>이 컴퓨터의 %s에 바인딩할 수 없습니다 (바인딩 과정에 %s 오류 발생)</translation>
     </message>
     <message>
+        <source>Unable to locate enough mixed funds for this transaction.</source>
+        <translation>이 거래에 필요한 믹싱 자금을 찾을 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Unable to locate enough non-denominated funds for this transaction.</source>
+        <translation>이 거래에 필요한 비 분할단위 자금을 찾을 수 없습니다.</translation>
+    </message>
+    <message>
         <source>Unable to sign spork message, wrong key?</source>
         <translation>스포크 메시지에 사인할 수 없습니다. 키가 잘못된 것일 수 있습니다.</translation>
     </message>
@@ -5388,52 +4972,225 @@
         <translation>알 수 없는 상태: id = %u</translation>
     </message>
     <message>
-        <source>Username for JSON-RPC connections</source>
-        <translation>JSON-RPC 연결에 사용할 사용자 이름</translation>
+        <source>Unsupported logging category %s=%s.</source>
+        <translation>지원되지 않는 로깅 카테고리 %s=%s.</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>
         <translation>블록 검증 중...</translation>
     </message>
     <message>
-        <source>Verifying wallet...</source>
-        <translation>지갑 검증 중...</translation>
-    </message>
-    <message>
         <source>Very low number of keys left: %d</source>
         <translation>매우 적은 숫자의 키가 남았습니다: %d</translation>
-    </message>
-    <message>
-        <source>Wallet %s resides outside data directory %s</source>
-        <translation>지갑 %s 이 데이터 디렉토리 외부에 위치합니다 %s.</translation>
     </message>
     <message>
         <source>Wallet is locked.</source>
         <translation>지갑이 잠금 상태입니다.</translation>
     </message>
     <message>
-        <source>Wallet options:</source>
-        <translation>지갑 옵션:</translation>
-    </message>
-    <message>
-        <source>Wallet window title</source>
-        <translation>지갑 창 제목</translation>
-    </message>
-    <message>
         <source>Warning</source>
         <translation>경고</translation>
+    </message>
+    <message>
+        <source>Warning: %s is deprecated, please use %s instead</source>
+        <translation>경고: %s는 더 이상 사용되지 않습니다. %s를 이용하십시오.</translation>
+    </message>
+    <message>
+        <source>Warning: can't use %s and %s together, will prefer %s</source>
+        <translation>경고: %s와 %s를 함께 사용할 수 ㅇ벗습니다. %s를 우선 사용합니다.</translation>
+    </message>
+    <message>
+        <source>Warning: incorrect parameter %s, path must exist! Using default path.</source>
+        <translation>경고: 잘못된 %s 파라미터입니다. 경로가 필요합니다! 디폴트 경로를 이용합니다.</translation>
+    </message>
+    <message>
+        <source>You are starting with governance validation disabled.</source>
+        <translation>거버넌스 유효성 검사를 해제한 상태로 시작합니다.</translation>
+    </message>
+    <message>
+        <source>You can not disable governance validation on a masternode.</source>
+        <translation>마스터노드에서 거버넌스 유효성 검사를 해제할 수 없습니다.</translation>
     </message>
     <message>
         <source>Your entries added successfully.</source>
         <translation>당신의 입력이 성공적으로 추가되었습니다.</translation>
     </message>
     <message>
-        <source>Your transaction was accepted into the pool!</source>
-        <translation>당신의 거래가 성공적으로 풀에 반영되었습니다!</translation>
-    </message>
-    <message>
         <source>Zapping all transactions from wallet...</source>
         <translation>지갑의 모든 거래 내역 건너뛰는 중...</translation>
+    </message>
+</context>
+<context>
+    <name>DocumentList</name>
+    <message>
+        <location filename="../forms/documentlist.ui"/>
+        <source>Document Revision</source>
+        <translation>Document Revision</translation>
+    </message>
+    <message>
+        <source>&amp;Open</source>
+        <translation>&amp;Open</translation>
+    </message>
+    <message>
+        <source>&amp;Revision</source>
+        <translation>&amp;Revision</translation>
+    </message>
+    <message>
+        <location filename="../documentlist.cpp"/>
+        <source>Select file(s) to append</source>
+        <translation>Select file(s) to append</translation>
+    </message>
+    <message>
+        <source>All Files (*.*)</source>
+        <translation>All Files (*.*)</translation>
+    </message>
+    <message>
+        <source>Document</source>
+        <translation>Document</translation>
+    </message>
+    <message>
+        <source>File hash</source>
+        <translation>File hash</translation>
+    </message>
+    <message>
+        <source>GUID</source>
+        <translation>GUID</translation>
+    </message>
+    <message>
+        <source>Attribute hash</source>
+        <translation>Attribute hash</translation>
+    </message>
+    <message>
+        <source>Blockchain</source>
+        <translation>Blockchain</translation>
+    </message>
+    <message>
+        <source>Document Revision</source>
+        <translation>Document Revision</translation>
+    </message>
+    <message>
+        <source>Execute</source>
+        <translation>Execute</translation>
+    </message>
+    <message>
+        <source>Transaction ID</source>
+        <translation>Transaction ID</translation>
+    </message>
+    <message>
+        <source>Total Amount</source>
+        <translation>Total Amount</translation>
+    </message>
+    <message>
+        <source>Stored</source>
+        <translation>Stored</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to send?</source>
+        <translation>Are you sure you want to send?</translation>
+    </message>
+    <message>
+        <source>Store document information</source>
+        <translation>Store document information</translation>
+    </message>
+    <message>
+        <source>is paid as transaction fee.</source>
+        <translation>is paid as transaction fee.</translation>
+    </message>
+    <message>
+        <source>Send Document</source>
+        <translation>Send Document</translation>
+    </message>
+    <message>
+        <source>File exists</source>
+        <translation>File exists</translation>
+    </message>
+    <message>
+        <source>New file name</source>
+        <translation>New file name</translation>
+    </message>
+    <message>
+        <source>%1 document files</source>
+        <translation>%1 document files</translation>
+    </message>
+</context>
+<context>
+    <name>Document</name>
+    <message>
+        <location filename="../documentlist.cpp"/>
+        <source>Revision successful</source>
+        <translation>Revision successful</translation>
+    </message>
+    <message>
+        <source>Revision with notes</source>
+        <translation>Revision with notes</translation>
+    </message>
+    <message>
+        <source>Revision is not possible yet</source>
+        <translation>Revision is not possible yet</translation>
+    </message>
+    <message>
+        <source>Revision failed</source>
+        <translation>Revision failed</translation>
+    </message>
+    <message>
+        <source>No Transaction stored.</source>
+        <translation>No Transaction stored.</translation>
+    </message>
+    <message>
+        <source>The current file does not match the locally saved hash. This file has been modified.</source>
+        <translation>The current file does not match the locally saved hash. This file has been modified.</translation>
+    </message>
+    <message>
+        <source>Transaction not found.</source>
+        <translation>Transaction not found.</translation>
+    </message>
+    <message>
+        <source>current value \"%1\" differs from value \"%2\" stored in blockchain.</source>
+        <translation>current value \"%1\" differs from value \"%2\" stored in blockchain.</translation>
+    </message>
+    <message>
+        <source>matches the blockchain value.</source>
+        <translation>matches the blockchain value.</translation>
+    </message>
+    <message>
+        <source>There are not enough blockchain confirmations available for revision. Please wait a while.</source>
+        <translation>There are not enough blockchain confirmations available for revision. Please wait a while.</translation>
+    </message>
+    <message>
+        <source>Rejected</source>
+        <translation>Rejected</translation>
+    </message>
+    <message>
+        <source>This file information has already been stored in Documentchain.</source>
+        <translation>This file information has already been stored in Documentchain.</translation>
+    </message>
+    <message>
+        <source>Invalid document description.</source>
+        <translation>Invalid document description.</translation>
+    </message>
+    <message>
+        <source>Signing</source>
+        <translation>Signing</translation>
+    </message>
+    <message>
+        <source>Could not sign transaction.</source>
+        <translation>Could not sign transaction.</translation>
+    </message>
+    <message>
+        <source>RPC Error</source>
+        <translation>RPC Error</translation>
+    </message>
+    <message>
+        <source>Unknown error.</source>
+        <translation>Unknown error.</translation>
+    </message>
+    <message>
+        <source>Blockchain confirmations</source>
+        <translation>Blockchain confirmations</translation>
+    </message>
+    <message>
+        <source>The blockchain confirms that %1this document file%2 exists at least since %3 and has not been modified.</source>
+        <translation>The blockchain confirms that %1this document file%2 exists at least since %3 and has not been modified.</translation>
     </message>
 </context>
 </TS>

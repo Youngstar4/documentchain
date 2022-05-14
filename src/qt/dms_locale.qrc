@@ -13,9 +13,9 @@
         <file alias="nl">locale/dms_nl.qm</file>
         <file alias="pl">locale/dms_pl.qm</file>
         <file alias="pt">locale/dms_pt.qm</file>
+        <file alias="ro">locale/dms_ro.qm</file>
         <file alias="ru">locale/dms_ru.qm</file>
         <file alias="sk">locale/dms_sk.qm</file>
-        <file alias="sv">locale/dms_sv.qm</file>
         <file alias="th">locale/dms_th.qm</file>
         <file alias="tr">locale/dms_tr.qm</file>
         <file alias="vi">locale/dms_vi.qm</file>

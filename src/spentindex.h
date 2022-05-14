@@ -1,15 +1,16 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2020 The Documentchain developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef BITCOIN_SPENTINDEX_H
 #define BITCOIN_SPENTINDEX_H
 
-#include "uint256.h"
-#include "amount.h"
-#include "script/script.h"
+#include <uint256.h>
+#include <amount.h>
+#include <script/script.h>
+#include <serialize.h>
 
 struct CSpentIndexKey {
     uint256 txid;
@@ -95,6 +96,11 @@ struct CSpentIndexKeyCompare
             return a.txid < b.txid;
         }
     }
+};
+
+struct CSpentIndexTxInfo
+{
+    std::map<CSpentIndexKey, CSpentIndexValue, CSpentIndexKeyCompare> mSpentInfo;
 };
 
 struct CTimestampIndexIteratorKey {
@@ -211,7 +217,7 @@ struct CAddressUnspentValue {
     template <typename Stream, typename Operation>
     inline void SerializationOp(Stream& s, Operation ser_action) {
         READWRITE(satoshis);
-        READWRITE(*(CScriptBase*)(&script));
+        READWRITE(script);
         READWRITE(blockHeight);
     }
 

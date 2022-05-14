@@ -1,16 +1,16 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2018-2021 The Documentchain developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef BITCOIN_PRIMITIVES_TRANSACTION_H
 #define BITCOIN_PRIMITIVES_TRANSACTION_H
 
-#include "amount.h"
-#include "script/script.h"
-#include "serialize.h"
-#include "uint256.h"
+#include <amount.h>
+#include <script/script.h>
+#include <serialize.h>
+#include <uint256.h>
 
 /** Transaction types */
 enum {
@@ -30,8 +30,8 @@ public:
     uint256 hash;
     uint32_t n;
 
-    COutPoint() { SetNull(); }
-    COutPoint(uint256 hashIn, uint32_t nIn) { hash = hashIn; n = nIn; }
+    COutPoint(): n((uint32_t) -1) { }
+    COutPoint(const uint256& hashIn, uint32_t nIn): hash(hashIn), n(nIn) { }
 
     ADD_SERIALIZE_METHODS;
 
@@ -115,7 +115,7 @@ public:
     template <typename Stream, typename Operation>
     inline void SerializationOp(Stream& s, Operation ser_action) {
         READWRITE(prevout);
-        READWRITE(*(CScriptBase*)(&scriptSig));
+        READWRITE(scriptSig);
         READWRITE(nSequence);
     }
 
@@ -147,28 +147,26 @@ class CTxOut
 public:
     CAmount nValue;
     CScript scriptPubKey;
-    int nRounds;
 
     CTxOut()
     {
         SetNull();
     }
 
-    CTxOut(const CAmount& nValueIn, CScript scriptPubKeyIn, int nRoundsIn = -10);
+    CTxOut(const CAmount& nValueIn, CScript scriptPubKeyIn);
 
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
     inline void SerializationOp(Stream& s, Operation ser_action) {
         READWRITE(nValue);
-        READWRITE(*(CScriptBase*)(&scriptPubKey));
+        READWRITE(scriptPubKey);
     }
 
     void SetNull()
     {
         nValue = -1;
         scriptPubKey.clear();
-        nRounds = -10; // an initial value, should be no way to get this by calculations
     }
 
     bool IsNull() const
@@ -176,32 +174,10 @@ public:
         return (nValue == -1);
     }
 
-    CAmount GetDustThreshold(const CFeeRate &minRelayTxFee) const
-    {
-        // "Dust" is defined in terms of CTransaction::minRelayTxFee, which has units docz-per-kilobyte (satoshi-per-kilobyte).
-        // If you'd pay more than 1/3 in fees to spend something, then we consider it dust.
-        // A typical spendable txout is 34 bytes big, and will need a CTxIn of at least 148 bytes to spend
-        // i.e. total is 148 + 34 = 182 bytes. Default -minrelaytxfee is 1000 docz per kB
-        // and that means that fee per spendable txout is 182 * 1000 / 1000 = 182 docz.
-        // So dust is a spendable txout less than 546 * minRelayTxFee / 1000 (in docz)
-        // i.e. 182 * 3 = 546 docz with default -minrelaytxfee = minRelayTxFee = 1000 docz per kB.
-        if (scriptPubKey.IsUnspendable())
-            return 0;
-
-        size_t nSize = GetSerializeSize(*this, SER_DISK, 0)+148u;
-        return 3*minRelayTxFee.GetFee(nSize);
-    }
-
-    bool IsDust(const CFeeRate &minRelayTxFee) const
-    {
-        return (nValue < GetDustThreshold(minRelayTxFee));
-    }
-
     friend bool operator==(const CTxOut& a, const CTxOut& b)
     {
         return (a.nValue       == b.nValue &&
-                a.scriptPubKey == b.scriptPubKey &&
-                a.nRounds      == b.nRounds);
+                a.scriptPubKey == b.scriptPubKey);
     }
 
     friend bool operator!=(const CTxOut& a, const CTxOut& b)
@@ -210,7 +186,6 @@ public:
     }
 
     bool GetDocument(std::string& guid, std::string& indexhash, std::string& filehash, std::string& attrhash) const;
-
     std::string ToString() const;
 };
 
@@ -236,10 +211,10 @@ public:
     // actually immutable; deserialization and assignment are implemented,
     // and bypass the constness. This is safe, as they update the entire
     // structure, including the hash.
-    const int16_t nVersion;
-    const int16_t nType;
     const std::vector<CTxIn> vin;
     const std::vector<CTxOut> vout;
+    const int16_t nVersion;
+    const int16_t nType;
     const uint32_t nLockTime;
     const std::vector<uint8_t> vExtraPayload; // only available for special transaction types
 
@@ -286,12 +261,6 @@ public:
     // GetValueIn() is a method on CCoinsViewCache, because
     // inputs must be known to compute value in.
 
-    // Compute priority, given priority of inputs and (optionally) tx size
-    double ComputePriority(double dPriorityInputs, unsigned int nTxSize=0) const;
-
-    // Compute modified tx size for priority calculation (optionally given tx size)
-    unsigned int CalculateModifiedSize(unsigned int nTxSize=0) const;
-
     /**
      * Get the total transaction size in bytes, including witness data.
      * "Total Size" defined in BIP141 and BIP144.
@@ -320,10 +289,10 @@ public:
 /** A mutable version of CTransaction. */
 struct CMutableTransaction
 {
-    int16_t nVersion;
-    int16_t nType;
     std::vector<CTxIn> vin;
     std::vector<CTxOut> vout;
+    int16_t nVersion;
+    int16_t nType;
     uint32_t nLockTime;
     std::vector<uint8_t> vExtraPayload; // only available for special transaction types
 

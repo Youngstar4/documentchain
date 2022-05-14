@@ -1,23 +1,25 @@
 // Copyright (c) 2019-2020 Softwarebuero Krekeler
+// Copyright (c) 2019-2022 The Documentchain developers
 
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "documentlist.h"
-#include "ui_documentlist.h"
+#include <qt/documentlist.h>
+#include <qt/forms/ui_documentlist.h>
 
-#include "sync.h"
-#include "clientmodel.h"
-#include "walletmodel.h"
-#include "wallet/wallet.h"
-#include "init.h"
-#include "amount.h"
-#include "bitcoinunits.h"
-#include "optionsmodel.h"
-#include "util.h"
-#include "guiutil.h"
-#include "rpcconsole.h"
-#include "transactionrecord.h"
+#include <sync.h>
+#include <qt/clientmodel.h>
+#include <qt/walletmodel.h>
+#include <wallet/wallet.h>
+#include <interfaces/node.h>
+#include <init.h>
+#include <amount.h>
+#include <qt/bitcoinunits.h>
+#include <qt/optionsmodel.h>
+#include <util.h>
+#include <qt/guiutil.h>
+#include <qt/rpcconsole.h>
+#include <qt/transactionrecord.h>
 
 #include <QCryptographicHash>
 #include <QDesktopServices>
@@ -40,8 +42,8 @@ namespace {
 const double DOC_TRANSACTION_FEE = 0.1; // DMS
 const int DOC_BLOCKCHAIN_VERS = 2;
 const bool DOC_STORE_GUID = false;
-const int DOC_FILEHASH_ALGO = 35; // Secure Hash Algorithm SHA3-512
-const int DOC_ATTRHASH_ALGO = 32; // 32=SHA3-256, -1=don't store
+const int DOC_FILEHASH_ALGO = 39; // Secure Hash Algorithm SHA3-512
+const int DOC_ATTRHASH_ALGO = 37; // 37=SHA3-256, -1=don't store
 
 /** frequent terms */
 QString trDocument;
@@ -56,6 +58,10 @@ QString trTransID;
 QString trTotalAmount;
 QString trStored;
 
+/** DMS Core 0.13 used Keccak_512 as long file hash
+    DMS Core 0.17 uses Sha3_512 as long file hash
+    note https://bugreports.qt.io/browse/QTBUG-59770 
+*/
 QCryptographicHash::Algorithm getQtAlgo(int algo)
 {
     switch (algo) {
@@ -65,10 +71,14 @@ QCryptographicHash::Algorithm getQtAlgo(int algo)
         case 22: return QCryptographicHash::Sha256;
         case 23: return QCryptographicHash::Sha384;
         case 25: return QCryptographicHash::Sha512;
-        case 31: return QCryptographicHash::Sha3_224;
-        case 32: return QCryptographicHash::Sha3_256;
-        case 33: return QCryptographicHash::Sha3_384;
-        case 35: return QCryptographicHash::Sha3_512;
+        case 31: return QCryptographicHash::Keccak_224;
+        case 32: return QCryptographicHash::Keccak_256;
+        case 33: return QCryptographicHash::Keccak_384;
+        case 35: return QCryptographicHash::Keccak_512;
+        case 36: return QCryptographicHash::Sha3_224;
+        case 37: return QCryptographicHash::Sha3_256;
+        case 38: return QCryptographicHash::Sha3_384;
+        case 39: return QCryptographicHash::Sha3_512;
         default: throw std::runtime_error("Invalid algo");
     }
 }
@@ -195,9 +205,10 @@ QString Document::documentRevision()
             + tr("The current file does not match the locally saved hash. This file has been modified.") + "</p>";
 
     try {
+        auto node = interfaces::MakeNode();
         // 1. get transaction
         // RPC: Post('{"jsonrpc": "1.0", "id":"DMSExposed", "method": "getrawtransaction", "params": ["%1",true] }',
-        RPCConsole::RPCExecuteCommandLine(result, "getrawtransaction " + txid.toStdString() + " true", &filtered);
+        RPCConsole::RPCExecuteCommandLine(*node, result, "getrawtransaction " + txid.toStdString() + " true", &filtered);
 
         QJsonDocument jdoc = QJsonDocument::fromJson(QByteArray::fromStdString(result));
         QJsonObject jobj = jdoc.object();
@@ -210,7 +221,7 @@ QString Document::documentRevision()
 
         bool found = false;
         QJsonArray jary = jobj.value("vout").toArray();
-        BOOST_FOREACH (const QJsonValue & jarval, jary) {
+        for (const QJsonValue & jarval : jary) {
             QJsonObject jvout = jarval.toObject();
             // {"value": 0.00000000,"valueSat": 0,"n": 1,"scriptPubKey": {"asm": "OP_RETURN 48616c6c6f2057656c74","hex": "6a0a48616c6c6f2057656c74","type": "nulldata"}}
             jvout = jvout.value("scriptPubKey").toObject();
@@ -361,10 +372,11 @@ QString Document::writeToBlockchain(const std::string &comprguid, const std::str
 
     // 2. searching the lowest input to pay the fee
     // RPC: Post('{"jsonrpc":"1.0","id":"YourAppName","method":"listunspent"}');
-    RPCConsole::RPCExecuteCommandLine(result, "listunspent", &filtered);
+    auto node = interfaces::MakeNode();
+    RPCConsole::RPCExecuteCommandLine(*node, result, "listunspent", &filtered);
     QJsonDocument jdoc = QJsonDocument::fromJson(QByteArray::fromStdString(result));
     QJsonArray jary = jdoc.array();
-    BOOST_FOREACH (const QJsonValue & jarval, jary) {
+    for (const QJsonValue & jarval : jary) {
         QJsonObject jobj = jarval.toObject();
         tmpamount = jobj.value("amount").toDouble();
         if(jobj.value("spendable").toBool()
@@ -387,7 +399,7 @@ QString Document::writeToBlockchain(const std::string &comprguid, const std::str
     // RPC: Post('{"jsonrpc":"1.0","id":"YourAppName","method":"getrawchangeaddress"}');
     double change = usedamount - DOC_TRANSACTION_FEE;
     if (change > DOC_TRANSACTION_FEE / 100) {  // lower change goes to miner, or us IsDust / GetDustThreshold
-        RPCConsole::RPCExecuteCommandLine(result, "getrawchangeaddress", &filtered);
+        RPCConsole::RPCExecuteCommandLine(*node, result, "getrawchangeaddress", &filtered);
         changetx = strprintf("\\\"%s\\\":%f, ", result, change);
     }
 
@@ -433,12 +445,12 @@ QString Document::writeToBlockchain(const std::string &comprguid, const std::str
     std::string command = strprintf(
         "createrawtransaction \"[{\\\"txid\\\":\\\"%s\\\",\\\"vout\\\":%d}]\" \"{%s\\\"data\\\":\\\"%s\\\"}\"",
         txid, vout, changetx, docrevdata);
-    RPCConsole::RPCExecuteCommandLine(result, command, &filtered);
+    RPCConsole::RPCExecuteCommandLine(*node, result, command, &filtered);
 
     // 6. sign raw transaction
     // RPC: Post('{"jsonrpc":"1.0","id":"YourAppName","method":"signrawtransaction","params":["%1"]}');
-    command = "signrawtransaction " + result;
-    RPCConsole::RPCExecuteCommandLine(result, command, &filtered);
+    command = "signrawtransaction " + result; // TODO : use signrawtransactionwithkey or signrawtransactionwithwallet
+    RPCConsole::RPCExecuteCommandLine(*node, result, command, &filtered);
     jdoc = QJsonDocument::fromJson(QByteArray::fromStdString(result));
     if (!jdoc.object().value("complete").toBool()) {
         throw std::runtime_error("Could not sign transaction.");
@@ -449,7 +461,7 @@ QString Document::writeToBlockchain(const std::string &comprguid, const std::str
     // RPC: Post('{"jsonrpc":"1.0","id":"YourAppName","method":"sendrawtransaction","params":["%1"]});
     // this returns the transaction id, save it together with the document in your document archive
     command = "sendrawtransaction " + signedtrans.toStdString();
-    RPCConsole::RPCExecuteCommandLine(result, command, &filtered);
+    RPCConsole::RPCExecuteCommandLine(*node, result, command, &filtered);
 
     // finished
     return QString::fromStdString(result);
@@ -458,12 +470,11 @@ QString Document::writeToBlockchain(const std::string &comprguid, const std::str
 /** DocumentList
 */
 
-DocumentList::DocumentList(const PlatformStyle *_platformStyle, QWidget *parent) :
+DocumentList::DocumentList(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::DocumentList),
     clientModel(0),
-    walletModel(0),
-    platformStyle(_platformStyle)
+    walletModel(0)
 {
     ui->setupUi(this);
 
