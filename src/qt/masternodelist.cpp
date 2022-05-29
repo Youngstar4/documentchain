@@ -452,7 +452,7 @@ void MasternodeList::on_pushButtonMasternodeAdd_clicked()
         QString txCollateral;
         int idxCollateral = -1;
 
-        // manuel mode, collateral tx was already created
+        // manual mode, collateral tx was already created
         if (!createCollateralTx) {
             txCollateral = QInputDialog::getText(this, tr("Deploy Masternode"), tr("Collateral tx id"), QLineEdit::Normal, "", &ok);
             if (!ok || txCollateral.isEmpty()) return;
@@ -683,6 +683,10 @@ void MasternodeList::sendProtxUpdateService_clicked()
         QMessageBox::Yes | QMessageBox::Cancel, QMessageBox::Yes) != QMessageBox::Yes) return;
 
     try {
+        WalletModel::UnlockContext ctx(walletModel->requestUnlock());
+        if (!ctx.isValid()) 
+            return;
+
         auto node = interfaces::MakeNode();
         RPCConsole::RPCExecuteCommandLine(*node, result, cmd, &filtered);
 
