@@ -451,6 +451,7 @@ void MasternodeList::on_pushButtonMasternodeAdd_clicked()
         QString blsPublic;
         QString txCollateral;
         int idxCollateral = -1;
+        int operatorReward = 0;
 
         // manual mode, collateral tx was already created
         if (!createCollateralTx) {
@@ -462,14 +463,15 @@ void MasternodeList::on_pushButtonMasternodeAdd_clicked()
                 cmd = QString("gettxout %1 %2").arg(txCollateral).arg(i);
                 RPCConsole::RPCExecuteCommandLine(*node, result, cmd.toStdString(), &filtered);
                 jdoc = QJsonDocument::fromJson(QByteArray::fromStdString(result));
-                if (jdoc.isNull())
+                if (jdoc.isNull()) {
                     break;
+                }
                 jobj = jdoc.object();
                 if (jobj.value("value").toInt() == 5000) {
                     idxCollateral = i;
                     jarr = jobj.value("scriptPubKey").toObject().value("addresses").toArray();
                     if (jarr.size() != 1) {
-                        QMessageBox::critical(this, "Unexpected", QString(" %1 addresses in collateral output.").arg(jarr.size()));
+                        QMessageBox::critical(this, "Unexpected", QString("%1 addresses in collateral output.").arg(jarr.size()));
                         return;
                     }
                     addrPayout = jarr.at(0).toString();
@@ -480,11 +482,13 @@ void MasternodeList::on_pushButtonMasternodeAdd_clicked()
                 QMessageBox::critical(this, tr("Deploy Masternode"), tr("No collateral transaction found."));
                 return;
             }
+            operatorReward = QInputDialog::getInt(this, tr("Deploy Masternode"), tr("Operator Reward [0-100%]"), 0, 0, 100, 1, &ok);
+            if (!ok) return;
 
             addrOwner = QInputDialog::getText(this, tr("Deploy Masternode"), tr("Owner Address (optional)"), QLineEdit::Normal, "", &ok);
             if (!ok) return;
             if (addrOwner.isEmpty()) {
-                RPCConsole::RPCExecuteCommandLine(*node, result, "getnewaddress \"" + strIP.toStdString() + " (owner)\"", &filtered);
+                RPCConsole::RPCExecuteCommandLine(*node, result, "getnewaddress \"MN " + strIP.toStdString() + " (owner)\"", &filtered);
                 addrOwner = QString::fromStdString(result);
                 QMessageBox::information(this, "Deploy Masternode", tr("Owner Address %1 created").arg(addrOwner));
              }
@@ -510,14 +514,15 @@ void MasternodeList::on_pushButtonMasternodeAdd_clicked()
             }
 
             // protx register "collateralHash" collateralIndex "ipAndPort" "ownerAddress" "operatorPubKey" "votingAddress" operatorReward "payoutAddress" "feeSourceAddress"
-            cmd = QString("protx register %1 %2 %3 %4 %5 %4 0 %6 %7")
+            cmd = QString("protx register %1 %2 %3 %4 %5 %4 %8 %6 %7")
                           .arg(txCollateral)
                           .arg(idxCollateral)
                           .arg(strIP)
                           .arg(addrOwner)
                           .arg(blsPublic)
                           .arg(addrPayout)
-                          .arg(addrFee);
+                          .arg(addrFee)
+                          .arg(operatorReward);
         }
 
         // automatic mode
@@ -573,6 +578,19 @@ void MasternodeList::on_pushButtonMasternodeAdd_clicked()
         mnk.setValue(strOutpoint, blsSecret);
         mnk.endGroup();
 
+        /* The update_service transaction is usually sent by the operator and 
+           is only possible once the registration transaction has been mined */
+        if (operatorReward > 0) {
+            QInputDialog::getMultiLineText(this, tr("Deploy Masternode"),
+                "Set Operator Reward Address",
+                QString("With the following protx you or the operator can set the operator reward address. ")
+              + QString("Please wait until the registration transaction just sent is mined.\n\n")
+              + QString("protx update_service %1 %2 %3 \"enter-operator-reward-address\" %4")
+                        .arg(proregtx)
+                        .arg(strIP)
+                        .arg(blsSecret)
+                        .arg(addrFee));
+        }
 
         QMessageBox msgPrompt(this);
         msgPrompt.setWindowTitle(tr("Deploy Masternode"));
