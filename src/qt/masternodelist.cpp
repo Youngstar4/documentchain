@@ -458,30 +458,53 @@ void MasternodeList::on_pushButtonMasternodeAdd_clicked()
             txCollateral = QInputDialog::getText(this, tr("Deploy Masternode"), tr("Collateral tx id"), QLineEdit::Normal, "", &ok);
             if (!ok || txCollateral.isEmpty()) return;
 
-            idxCollateral = -1;
-            for (int i = 0; i < 100; i++) {
-                cmd = QString("gettxout %1 %2").arg(txCollateral).arg(i);
+            if (txCollateral.contains(" ")) {
+                idxCollateral = txCollateral.split(" ")[1].toInt();
+                txCollateral = txCollateral.split(" ")[0];
+            }
+            else {
+                for (int i = 0; i < 10; i++) {
+                    cmd = QString("gettxout %1 %2").arg(txCollateral).arg(i);
+                    RPCConsole::RPCExecuteCommandLine(*node, result, cmd.toStdString(), &filtered);
+                    jdoc = QJsonDocument::fromJson(QByteArray::fromStdString(result));
+                    if (jdoc.isNull()) // gettxout returns only unspent outputs
+                        continue;
+                    jobj = jdoc.object();
+                    if (jobj.value("value").toInt() == 5000) {
+                        idxCollateral = i;
+                        jarr = jobj.value("scriptPubKey").toObject().value("addresses").toArray();
+                        if (jarr.size() != 1) {
+                            QMessageBox::critical(this, "Unexpected", QString("%1 addresses in collateral output.").arg(jarr.size()));
+                            return;
+                        }
+                        addrPayout = jarr.at(0).toString();
+                        break;
+                    }
+                }
+            }
+            if (idxCollateral > -1) {
+                cmd = QString("gettxout %1 %2").arg(txCollateral).arg(idxCollateral);
                 RPCConsole::RPCExecuteCommandLine(*node, result, cmd.toStdString(), &filtered);
                 jdoc = QJsonDocument::fromJson(QByteArray::fromStdString(result));
-                if (jdoc.isNull()) {
-                    break;
-                }
-                jobj = jdoc.object();
-                if (jobj.value("value").toInt() == 5000) {
-                    idxCollateral = i;
-                    jarr = jobj.value("scriptPubKey").toObject().value("addresses").toArray();
-                    if (jarr.size() != 1) {
-                        QMessageBox::critical(this, "Unexpected", QString("%1 addresses in collateral output.").arg(jarr.size()));
-                        return;
+                if (jdoc.isNull()) 
+                    idxCollateral = -1;
+                else {
+                    jobj = jdoc.object();
+                    if (jobj.value("value").toInt() == 5000) {
+                        jarr = jobj.value("scriptPubKey").toObject().value("addresses").toArray();
+                        if (jarr.size() != 1) {
+                            QMessageBox::critical(this, "Unexpected", QString("%1 addresses in collateral output.").arg(jarr.size()));
+                            return;
+                        }
+                        addrPayout = jarr.at(0).toString();
                     }
-                    addrPayout = jarr.at(0).toString();
-                    break;
                 }
             }
             if (idxCollateral < 0) {
                 QMessageBox::critical(this, tr("Deploy Masternode"), tr("No collateral transaction found."));
                 return;
             }
+
             operatorReward = QInputDialog::getInt(this, tr("Deploy Masternode"), tr("Operator Reward [0-100%]"), 0, 0, 100, 1, &ok);
             if (!ok) return;
 
