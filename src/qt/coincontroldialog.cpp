@@ -648,6 +648,8 @@ void CoinControlDialog::updateLabels(CCoinControl& m_coin_control, WalletModel *
             l8->setText(ASYMP_UTF8 + l8->text());
     }
 
+    // turn label red if tx probably too large
+    l5->setStyleSheet(nBytes > MAX_STANDARD_TX_SIZE ? "color:red;" : "");
     // turn label red when dust
     l7->setStyleSheet((fDust) ? GUIUtil::getThemedStyleQString(GUIUtil::ThemedStyle::TS_ERROR) : "");
 
@@ -661,6 +663,7 @@ void CoinControlDialog::updateLabels(CCoinControl& m_coin_control, WalletModel *
 
     l3->setToolTip(toolTip4);
     l4->setToolTip(toolTip4);
+    l5->setToolTip(nBytes > MAX_STANDARD_TX_SIZE ? tr("Transaction probably too large") + " (>" + QString::number(MAX_STANDARD_TX_SIZE) + ")" : "");
     l7->setToolTip(toolTipDust);
     l8->setToolTip(toolTip4);
     dialog->findChild<QLabel *>("labelCoinControlFeeText")      ->setToolTip(l3->toolTip());
