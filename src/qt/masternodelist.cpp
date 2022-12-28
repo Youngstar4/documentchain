@@ -101,16 +101,20 @@ MasternodeList::MasternodeList(QWidget* parent) :
 
     QAction* copyProTxHashAction = new QAction(tr("Copy ProTx Hash"), this);
     QAction* copyCollateralOutpointAction = new QAction(tr("Copy Collateral Outpoint"), this);
+    QAction* copyServiceAction = new QAction(tr("Copy Service"), this);
     QAction* sendProtxUpdateServiceAction = new QAction(tr("Provider Update Service Transaction..."), this);
+    copyServiceAction->setStatusTip(tr("Copy IP:Port to clipboard"));
     sendProtxUpdateServiceAction->setStatusTip(tr("Reactivate POSE_BANNED or specify new IP"));
     contextMenuDIP3 = new QMenu(this);
     contextMenuDIP3->addAction(copyProTxHashAction);
     contextMenuDIP3->addAction(copyCollateralOutpointAction);
+    contextMenuDIP3->addAction(copyServiceAction);
     contextMenuDIP3->addAction(sendProtxUpdateServiceAction);
     connect(ui->tableWidgetMasternodesDIP3, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(showContextMenuDIP3(const QPoint&)));
     connect(ui->tableWidgetMasternodesDIP3, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(extraInfoDIP3_clicked()));
     connect(copyProTxHashAction, SIGNAL(triggered()), this, SLOT(copyProTxHash_clicked()));
     connect(copyCollateralOutpointAction, SIGNAL(triggered()), this, SLOT(copyCollateralOutpoint_clicked()));
+    connect(copyServiceAction, SIGNAL(triggered()), this, SLOT(copyService_clicked()));
     connect(sendProtxUpdateServiceAction, SIGNAL(triggered()), this, SLOT(sendProtxUpdateService_clicked()));
 
     timer = new QTimer(this);
@@ -406,6 +410,16 @@ void MasternodeList::copyCollateralOutpoint_clicked()
     }
 
     QApplication::clipboard()->setText(QString::fromStdString(dmn->collateralOutpoint.ToStringShort()));
+}
+
+void MasternodeList::copyService_clicked()
+{
+    auto dmn = GetSelectedDIP3MN();
+    if (!dmn) {
+        return;
+    }
+
+    QApplication::clipboard()->setText(QString::fromStdString(dmn->pdmnState->addr.ToString()));
 }
 
 void MasternodeList::on_pushButtonMasternodeAdd_clicked()
