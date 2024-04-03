@@ -4,7 +4,7 @@ Expectations for DNS Seed operators
 DMS Core attempts to minimize the level of trust in DNS seeds,
 but DNS seeds still pose a small amount of risk for the network.
 As such, DNS seeds must be run by entities which have some minimum
-level of trust within the DMS community.
+level of trust within the Documentchain community.
 
 Other implementations of DMS software may also use the same
 seeds and may be more exposed. In light of this exposure, this
@@ -43,12 +43,11 @@ related to the DNS seed operation.
 
 If these expectations cannot be satisfied the operator should
 discontinue providing services and contact the active DMS
-Core development team as well as posting on
-[bitcoin-dev](https://lists.linuxfoundation.org/mailman/listinfo/bitcoin-dev).
+Core development team.
 
 Behavior outside of these expectations may be reasonable in some
 situations but should be discussed in public in advance.
 
 See also
 ----------
-- [bitcoin-seeder](https://github.com/sipa/bitcoin-seeder) is a reference implementation of a DNS seed.
+- [dash-seeder](https://github.com/nightlydash/dash-seeder) is a reference implementation of a DNS seed.

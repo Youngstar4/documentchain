@@ -1,4 +1,4 @@
-### Gavin's notes on getting gitian builds up and running using KVM
+### Gavin's notes on getting Gitian builds up and running using KVM
 
 These instructions distilled from
 [https://help.ubuntu.com/community/KVM/Installation](https://help.ubuntu.com/community/KVM/Installation).
@@ -26,7 +26,7 @@ Once you've got the right hardware and software:
 
     # Create base images
     cd gitian-builder
-    bin/make-base-vm --suite trusty --arch amd64
+    bin/make-base-vm --suite bionic --arch amd64
     cd ..
 
     # Get inputs (see doc/release-process.md for exact inputs needed and where to get them)
@@ -56,10 +56,10 @@ Here's a description of Gavin's setup on OSX 10.6:
 
 4. Inside the running Ubuntu desktop, install:
 
-	sudo apt-get install debootstrap lxc ruby apache2 git apt-cacher-ng python-vm-builder
+		sudo apt-get install debootstrap lxc ruby apache2 git apt-cacher-ng python-vm-builder
 
 5. Still inside Ubuntu, tell gitian-builder to use LXC, then follow the "Once you've got the right hardware and software" instructions above:
 
-	export USE_LXC=1
-	git clone git://github.com/Krekeler/documentchain.git
-	... etc
+		export USE_LXC=1
+		git clone git://github.com/Krekeler/documentchain.git
+		... etc

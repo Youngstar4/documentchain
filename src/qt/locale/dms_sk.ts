@@ -2,6 +2,10 @@
 <context>
     <name>AddressBookPage</name>
     <message>
+        <source>Enter address or label to search</source>
+        <translation>Pre vyhľadávanie vložte adresu alebo popis</translation>
+    </message>
+    <message>
         <source>Right-click to edit address or label</source>
         <translation>Pre úpravu adresy alebo popisu kliknite pravým tlačidlom myši</translation>
     </message>
@@ -20,6 +24,14 @@
     <message>
         <source>&amp;Copy</source>
         <translation>&amp;Kopírovať</translation>
+    </message>
+    <message>
+        <source>Show QR code for the currently selected address</source>
+        <translation>&amp;Zobraziť QR kód pre zrovna vybrané adresy</translation>
+    </message>
+    <message>
+        <source>&amp;Show QR code</source>
+        <translation>&amp;Zobraziť QR kód</translation>
     </message>
     <message>
         <source>Delete the currently selected address from the list</source>
@@ -63,11 +75,11 @@
     </message>
     <message>
         <source>These are your DMS addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Toto sú Vaše DMS adresy pre posielanie platieb. Pred poslaním mincí vždy overte sumu a doručovaciu adresu.</translation>
+        <translation>Toto sú vaše DMS adresy pre posielanie platieb. Pred poslaním mincí vždy overte sumu a doručovaciu adresu.</translation>
     </message>
     <message>
         <source>These are your DMS addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Toto sú Vaše DMS adresy pre posielanie platieb. Pre každú transakciu sa doporučuje použiť novú doručovaciu adresu.</translation>
+        <translation>Toto sú vaše DMS adresy pre posielanie platieb. Pre každú transakciu sa doporučuje použiť novú doručovaciu adresu.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -80,6 +92,14 @@
     <message>
         <source>&amp;Edit</source>
         <translation>&amp;Upraviť</translation>
+    </message>
+    <message>
+        <source>&amp;Show address QR code</source>
+        <translation>&amp;Zobraziť adresový QR kód</translation>
+    </message>
+    <message>
+        <source>QR code</source>
+        <translation>QR kód</translation>
     </message>
     <message>
         <source>Export Address List</source>
@@ -114,6 +134,45 @@
     </message>
 </context>
 <context>
+    <name>AppearanceWidget</name>
+    <message>
+        <source>Lighter</source>
+        <translation>Užšie</translation>
+    </message>
+    <message>
+        <source>Bolder</source>
+        <translation>Hrubšie</translation>
+    </message>
+    <message>
+        <source>Font Weight Normal:</source>
+        <translation>Normálna váha písma:</translation>
+    </message>
+    <message>
+        <source>Smaller</source>
+        <translation>Menšie</translation>
+    </message>
+    <message>
+        <source>Bigger</source>
+        <translation>Väčšie</translation>
+    </message>
+    <message>
+        <source>Font Scale:</source>
+        <translation>Mierka písma:</translation>
+    </message>
+    <message>
+        <source>Font Family:</source>
+        <translation>Rodina písma:</translation>
+    </message>
+    <message>
+        <source>Theme:</source>
+        <translation>Téma</translation>
+    </message>
+    <message>
+        <source>Font Weight Bold:</source>
+        <translation>Tučná váha písma:</translation>
+    </message>
+</context>
+<context>
     <name>AskPassphraseDialog</name>
     <message>
         <source>Passphrase Dialog</source>
@@ -130,6 +189,10 @@
     <message>
         <source>Repeat new passphrase</source>
         <translation>Zopakujte nové heslo</translation>
+    </message>
+    <message>
+        <source>Show password</source>
+        <translation>Ukázať heslo</translation>
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
@@ -184,10 +247,6 @@
         <translation>Peňaženka zašifrovaná</translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your funds from being stolen by malware infecting your computer.</source>
-        <translation>%1 sa teraz ukončí, aby dokončil proces šifrovania. Nezabudnite, že zašifrovanie vašej peňaženky nemôže plne chrániť Vaše finančné prostriedky pred krádežou škodlivým softvérom, ktorý napadol váš počítač.</translation>
-    </message>
-    <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. Previous backups of the unencrypted wallet file contain the same HD seed and still have full access to all your funds just like the new, encrypted wallet.</source>
         <translation>DÔLEŽITÉ: Všetky doterajšie záložné kópie peňaženky ktoré ste zhotovili by mali byť nahradené novým zašifrovaným súborom s peňaženkou. Predchádzajúce zálohy súboru nezašifrovanej peňaženky obsahujú rovnakú HD frázu a stále majú plný prístup k všetkým vašim finančným prostriedkom rovnako ako nová zašifrovaná peňaženka.</translation>
     </message>
@@ -240,6 +299,13 @@
     </message>
 </context>
 <context>
+    <name>BitcoinAmountField</name>
+    <message>
+        <source>Amount in %1</source>
+        <translation>Suma v %1</translation>
+    </message>
+</context>
+<context>
     <name>BitcoinGUI</name>
     <message>
         <source>A fatal error occurred. DMS Core can no longer continue safely and will quit.</source>
@@ -279,7 +345,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and dms: URIs)</source>
-        <translation>Vyžiadať platby (vygeneruje QR kódy a dms: URI)</translation>
+        <translation>Vyžiadať platby (vygeneruje QR kódy a DMS: URI)</translation>
     </message>
     <message>
         <source>&amp;Transactions</source>
@@ -290,12 +356,59 @@
         <translation>Prechádzať históriu transakcií</translation>
     </message>
     <message>
+        <source>&amp;Documents</source>
+        <translation>&amp;Dokumenty</translation>
+    </message>
+    <message>
+        <source>Document Revision</source>
+        <translation>Revízia dokumentu</translation>
+    </message>
+    <message>
+        <source>&amp;Support Website</source>
+        <translation>&amp;Support Website</translation>
+    </message>
+    <message>
+        <source>Open the %1 support website</source>
+        <translation>Open the %1 support website</translation>
+    </message>
+    <message>
+        <source>&amp;Mining...</source>
+        <translation>&amp;Mining...</translation>
+    </message>
+    <message>
+        <source>Generate coins</source>
+        <translation>Generate coins</translation>
+    </message>
+    <message>
+        <source>Please wait.</source>
+        <translation>Please wait.</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Unlimited Mining&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Unlimited Mining&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Weak &lt;b&gt;Mining&lt;/b&gt;</source>
+        <translation>Weak &lt;b&gt;Mining&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Mining is not active.&lt;br&gt;Click here to generate Coins.</source>
+        <translation>Mining is not active.&lt;br&gt;Click here to generate Coins.</translation>
+    </message>
+    <message numerus="yes">
+        <source>&lt;b&gt;Mining&lt;/b&gt; on %n Thread(s)</source>
+        <translation>
+            <numerusform>&lt;b&gt;Mining&lt;/b&gt; on %n Thread</numerusform>
+            <numerusform>&lt;b&gt;Mining&lt;/b&gt; on %n Threads</numerusform>
+        </translation>
+    </message>
+    <message>
         <source>&amp;Masternodes</source>
-        <translation>&amp;Masternodes</translation>
+        <translation>&amp;Masternódy</translation>
     </message>
     <message>
         <source>Browse masternodes</source>
-        <translation>Prechádzať masternodes</translation>
+        <translation>Prechádzať masternódy</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -324,6 +437,10 @@
     <message>
         <source>&amp;About %1</source>
         <translation>&amp;O %1</translation>
+    </message>
+    <message>
+        <source>Send %1 funds to a DMS address</source>
+        <translation>Poslať zdroje %1 na DMS adresu</translation>
     </message>
     <message>
         <source>Modify configuration options for %1</source>
@@ -379,7 +496,7 @@
     </message>
     <message>
         <source>Sign messages with your DMS addresses to prove you own them</source>
-        <translation>Podpísať správy s Vašimi DMS adresami ako dôkaz že ich vlastníte</translation>
+        <translation>Podpísať správy s vašimi DMS adresami ako dôkaz že ich vlastníte</translation>
     </message>
     <message>
         <source>&amp;Verify message...</source>
@@ -438,14 +555,6 @@
         <translation>Otvoriť konfiguračný súbor </translation>
     </message>
     <message>
-        <source>Open &amp;Masternode Configuration File</source>
-        <translation>Otvoriť konfiguračný súbor &amp;Masternode</translation>
-    </message>
-    <message>
-        <source>Open Masternode configuration file</source>
-        <translation>Otvoriť konfiguračný súbor Masternode</translation>
-    </message>
-    <message>
         <source>Show Automatic &amp;Backups</source>
         <translation>Zobraziť automatické &amp;zálohy</translation>
     </message>
@@ -490,16 +599,26 @@
         <translation>%1 klient</translation>
     </message>
     <message>
-        <source>&amp;PrivateSend information</source>
-        <translation>Informácie o &amp;PrivateSend</translation>
+        <source>Wallet: %1
+</source>
+        <translation>Peňaženka: %1
+</translation>
     </message>
     <message>
-        <source>Show the PrivateSend basic information</source>
-        <translation>Ukázať základné Informácie o PrivateSend</translation>
+        <source>Wallet is &lt;b&gt;unencrypted&lt;/b&gt;</source>
+        <translation>Peňaženka je &lt;b&gt;nezašifrovaná&lt;/b&gt;</translation>
     </message>
     <message>
         <source>&amp;File</source>
         <translation>&amp;Súbor</translation>
+    </message>
+    <message>
+        <source>%1 &amp;information</source>
+        <translation>%1 &amp;Informácie</translation>
+    </message>
+    <message>
+        <source>Show the %1 basic information</source>
+        <translation>Ukázať základné Informácie o %1</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
@@ -518,8 +637,8 @@
         <translation>Lišta záložiek</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to DMS network</source>
-        <translation><numerusform>%n aktívne spojenie so sieťou DMS</numerusform><numerusform>%n aktívne spojenia so sieťou DMS</numerusform><numerusform>%n aktívnych spojení so sieťou DMS</numerusform></translation>
+        <source>%n active connection(s) to Documentchain network</source>
+        <translation><numerusform>%n aktívne spojenie so sieťou Documentchain</numerusform><numerusform>%n aktívne spojenia so sieťou Documentchain</numerusform><numerusform>%n aktívnych spojení so sieťou Documentchain</numerusform><numerusform>%n aktívnych spojení so sieťou Documentchain</numerusform></translation>
     </message>
     <message>
         <source>Network activity disabled</source>
@@ -551,7 +670,7 @@
     </message>
     <message numerus="yes">
         <source>Processed %n block(s) of transaction history.</source>
-        <translation><numerusform>Spracovaný jeden blok transakčnej histórie.</numerusform><numerusform>Spracované %n bloky transakčnej histórie.</numerusform><numerusform>Spracovaných %n blokov transakčnej histórie.</numerusform></translation>
+        <translation><numerusform>Spracovaný jeden blok transakčnej histórie.</numerusform><numerusform>Spracované %n bloky transakčnej histórie.</numerusform><numerusform>Spracovaných %n blokov transakčnej histórie.</numerusform><numerusform>Spracovaných %n blokov transakčnej histórie.</numerusform></translation>
     </message>
     <message>
         <source>%1 behind</source>
@@ -567,7 +686,7 @@
     </message>
     <message>
         <source>Transactions after this will not yet be visible.</source>
-        <translation>Transakcie potom nebudú ešte viditeľné.</translation>
+        <translation>Novšie transakcie nebudú ešte viditeľné.</translation>
     </message>
     <message>
         <source>Up to date</source>
@@ -588,6 +707,30 @@
     <message>
         <source>Information</source>
         <translation>Informácie</translation>
+    </message>
+    <message>
+        <source>Received and sent multiple transactions</source>
+        <translation>Prijaté a odoslané hromadné transakcie</translation>
+    </message>
+    <message>
+        <source>Sent multiple transactions</source>
+        <translation>Odoslané hromadné transakcie</translation>
+    </message>
+    <message>
+        <source>Received multiple transactions</source>
+        <translation>Prijaté hromadné transakcie</translation>
+    </message>
+    <message>
+        <source>Sent Amount: %1
+</source>
+        <translation>Poslaná suma: %1
+</translation>
+    </message>
+    <message>
+        <source>Received Amount: %1
+</source>
+        <translation>Prijatá suma: %1
+</translation>
     </message>
     <message>
         <source>Date: %1
@@ -632,10 +775,6 @@
         <translation>Generovanie HD kľúčov je &lt;b&gt;zapnuté&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>HD key generation is &lt;b&gt;disabled&lt;/b&gt;</source>
-        <translation>Generovanie HD kľúčov je &lt;b&gt;vypnuté&lt;/b&gt;</translation>
-    </message>
-    <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
         <translation>Peňaženka je &lt;b&gt;zašifrovaná&lt;/b&gt; a momentálne &lt;b&gt;odomknutá&lt;/b&gt;</translation>
     </message>
@@ -646,17 +785,6 @@
     <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Peňaženka je &lt;b&gt;zašifrovaná&lt;/b&gt; a momentálne &lt;b&gt;zamknutá&lt;/b&gt;</translation>
-    </message>
-</context>
-<context>
-    <name>ClientModel</name>
-    <message>
-        <source>Total: %1 (PS compatible: %2 / Enabled: %3)</source>
-        <translation>Celkovo: %1 (Kompatibilné s PS: %2 / Zapnuté: %3)</translation>
-    </message>
-    <message>
-        <source>Network Alert</source>
-        <translation>Výstraha siete</translation>
     </message>
 </context>
 <context>
@@ -726,8 +854,8 @@
         <translation>Prijaté s adresou</translation>
     </message>
     <message>
-        <source>PS Rounds</source>
-        <translation>Kôl PS</translation>
+        <source>Mixing Rounds</source>
+        <translation>Miešacie kolá</translation>
     </message>
     <message>
         <source>Date</source>
@@ -762,6 +890,10 @@
         <translation>Uzamknúť neminuté</translation>
     </message>
     <message>
+        <source>Lock permanently</source>
+        <translation>Trvale uzamknite</translation>
+    </message>
+    <message>
         <source>Unlock unspent</source>
         <translation>Odomknúť neminuté</translation>
     </message>
@@ -794,10 +926,6 @@
         <translation>Pre použitie tejto funkcie prepnite na "Zoznamový mód".</translation>
     </message>
     <message>
-        <source>Non-anonymized input selected. &lt;b&gt;PrivateSend will be disabled.&lt;/b&gt;&lt;br&gt;&lt;br&gt;If you still want to use PrivateSend, please deselect all non-nonymized inputs first and then check PrivateSend checkbox again.</source>
-        <translation>Vybratý ne-anonymizovaný vstup. &lt;b&gt;PrivateSend bude vypnutý.&lt;/b&gt;&lt;br&gt;&lt;br&gt;Ak si stále želáte použiť PrivateSend, najskôr odznačte všetky ne-anonymizované vstupy a potom znova zaškrtnite PrivateSend políčko.</translation>
-    </message>
-    <message>
         <source>(%1 locked)</source>
         <translation>(%1 zamknutých)</translation>
     </message>
@@ -818,6 +946,30 @@
         <translation>Môže sa pohybovať +/- %1 docz pre vstup.</translation>
     </message>
     <message>
+        <source>Some coins were unselected because they were spent.</source>
+        <translation>Niektoré mince neboli vybrané, pretože sa už minuli.</translation>
+    </message>
+    <message>
+        <source>Some coins were unselected because they do not have enough mixing rounds.</source>
+        <translation>Niektoré mince neboli vybrané, pretože nemajú dostatok kôl miešania.</translation>
+    </message>
+    <message>
+        <source>Show all coins</source>
+        <translation>Zobraziť všetky mince</translation>
+    </message>
+    <message>
+        <source>Hide %1 coins</source>
+        <translation>Skryť mince %1</translation>
+    </message>
+    <message>
+        <source>Show all %1 coins</source>
+        <translation>Zobraziť všetky mince %1</translation>
+    </message>
+    <message>
+        <source>Show spendable coins only</source>
+        <translation>Zobraziť iba minuteľné mince</translation>
+    </message>
+    <message>
         <source>(no label)</source>
         <translation>(bez popisu)</translation>
     </message>
@@ -832,73 +984,6 @@
     <message>
         <source>n/a</source>
         <translation>nie je k dispozícii</translation>
-    </message>
-</context>
-<context>
-    <name>DarksendConfig</name>
-    <message>
-        <source>Configure PrivateSend</source>
-        <translation>Nastaviť PrivateSend</translation>
-    </message>
-    <message>
-        <source>Basic Privacy</source>
-        <translation>Základné súkromie</translation>
-    </message>
-    <message>
-        <source>High Privacy</source>
-        <translation>Vysoké súkromie</translation>
-    </message>
-    <message>
-        <source>Maximum Privacy</source>
-        <translation>Maximálne súkromie</translation>
-    </message>
-    <message>
-        <source>Please select a privacy level.</source>
-        <translation>Prosím vyberte úroveň súkromia.</translation>
-    </message>
-    <message>
-        <source>Use 2 separate masternodes to mix funds up to 1000 DMS</source>
-        <translation>Použiť 2 rozdielne masternode pre fixovanie prostriedkov až do 1000 DMS</translation>
-    </message>
-    <message>
-        <source>Use 8 separate masternodes to mix funds up to 1000 DMS</source>
-        <translation>Použiť 8 rozdielnych masternode pre fixovanie prostriedkov až do 1000 DMS</translation>
-    </message>
-    <message>
-        <source>Use 16 separate masternodes</source>
-        <translation>Použiť 16 rozdielnych masternode</translation>
-    </message>
-    <message>
-        <source>This option is the quickest and will cost about ~0.025 DMS to anonymize 1000 DMS</source>
-        <translation>Táto možnosť je najrýchlejšia a bude stáť približne 0.025 DMS pre anonimizáciu 1000 DMS</translation>
-    </message>
-    <message>
-        <source>This option is moderately fast and will cost about 0.05 DMS to anonymize 1000 DMS</source>
-        <translation>Táto možnosť je stredne rýchla bude stáť približne 0.05 DMS pre anonimizáciu 1000 DMS</translation>
-    </message>
-    <message>
-        <source>0.1 DMS per 1000 DMS you anonymize.</source>
-        <translation>0.1 DMS za 1000 DMS ktoré spravíte anonymnými.</translation>
-    </message>
-    <message>
-        <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
-        <translation>Toto je najpomalšia a najviac bezpečná možnosť. Použitie maximálnej anonymity bude stáť</translation>
-    </message>
-    <message>
-        <source>PrivateSend Configuration</source>
-        <translation>Nastavenie PrivateSend</translation>
-    </message>
-    <message>
-        <source>PrivateSend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening DMS's configuration screen.</source>
-        <translation>Darksend bol úspešne nastavený na základnú hodnotu (%1 a 2 kolá). Toto nastavenie môžete kedykoľvek zmeniť otvorením konfiguračnej obrazovky DMS.</translation>
-    </message>
-    <message>
-        <source>PrivateSend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening DMS's configuration screen.</source>
-        <translation>PrivateSend bol úspešne nastavený na základnú hodnotu (%1 a 8 kôl). Toto nastavenie môžete kedykoľvek zmeniť otvorením konfiguračnej obrazovky DMS.</translation>
-    </message>
-    <message>
-        <source>PrivateSend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening DMS's configuration screen.</source>
-        <translation>PrivateSend bol úspešne nastavený na maximálnu hodnotu (%1 a 16 kôl). Toto nastavenie môžete kedykoľvek zmeniť otvorením konfiguračnej obrazovky DMS.</translation>
     </message>
 </context>
 <context>
@@ -922,10 +1007,6 @@
     <message>
         <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
         <translation>Adresa spojená s týmto záznamom v adresári. Možné upravovať len pre odosielajúce adresy.</translation>
-    </message>
-    <message>
-        <source>New receiving address</source>
-        <translation>Nová adresa pre prijímanie</translation>
     </message>
     <message>
         <source>New sending address</source>
@@ -998,48 +1079,12 @@
         <translation>Možnosti príkazového riadku</translation>
     </message>
     <message>
-        <source>Usage:</source>
-        <translation>Použitie:</translation>
+        <source>%1 information</source>
+        <translation>%1 Informácie</translation>
     </message>
     <message>
-        <source>command-line options</source>
-        <translation>voľby príkazového riadku</translation>
-    </message>
-    <message>
-        <source>UI Options:</source>
-        <translation>Možnosti používateľského rozhrania:</translation>
-    </message>
-    <message>
-        <source>Choose data directory on startup (default: %u)</source>
-        <translation>Vyberte dátový priečinok pri štarte (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Set language, for example "de_DE" (default: system locale)</source>
-        <translation>Nastaviť jazyk, napríklad "sk_SK" (predvolené: systémový)</translation>
-    </message>
-    <message>
-        <source>Start minimized</source>
-        <translation>Spustiť minimalizované</translation>
-    </message>
-    <message>
-        <source>Set SSL root certificates for payment request (default: -system-)</source>
-        <translation>Nastaviť koreňový certifikát pre výzvy na platbu (prednastavené: -system-)</translation>
-    </message>
-    <message>
-        <source>Show splash screen on startup (default: %u)</source>
-        <translation>Zobraziť uvítaciu obrazovku pri štarte (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Reset all settings changed in the GUI</source>
-        <translation>Zrušiť všetky zmeny v GUI</translation>
-    </message>
-    <message>
-        <source>PrivateSend information</source>
-        <translation>Informácie o PrivateSend</translation>
-    </message>
-    <message>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the DMS in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.01 DMS, 0.1 DMS, 1 DMS and 10 DMS -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more info see &lt;a href="https://dashpay.atlassian.net/wiki/display/DOC/PrivateSend"&gt;https://dashpay.atlassian.net/wiki/display/DOC/PrivateSend&lt;/a&gt;         </source>
-        <translation>&lt;h3&gt;Základy PrivateSend&lt;/h3&gt; PrivateSend Vám poskytuje skutočné finančné súkromie skrývaním pôvodu Vašich zdrojov. Všetky DMS vo vašej peňaženke pozostávajú z rôznych "vstupov", ktoré si môžete predstaviť ako rozdelené, which you can think of as separate, diskrétne mince.&lt;br&gt; PrivateSend používa zdokonalený proces pre miešanie Vašich vstupov so vstupmi iných ľudí bez toho. aby Vaše mince museli opustiť Vašu peňaženku. Počas cele doby máte kontrolu nad Vašimi peniazmi.&lt;hr&gt; &lt;b&gt;Proces PrivateSend funguje nasledovne:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend začne rozdelením Vašich transakčných vstupov na štandardné časti, takzvané denominácie. Tieto denominácie sú 0.01 DMS, 0.1 DMS, 1 DMS a 10 DMS -- v podstate niečo ako papierové peniaze, ktoré používate každý deň.&lt;/li&gt; &lt;li&gt;Vaša peňaženka potom pošle požiadavok špeciálne nastavenému softvérovému uzlu nazvaného "Masternode". Tieto Masternode sú potom informované, že máte záujem miešať určité denominácie. Masternode neobdrží žiadne informácie ktoré by Vás identifikovali, takže niekdy nevedia kto ste.&lt;/li&gt; &lt;li&gt;Keď ďalší dvaja ľudia pošlú podobnú správu hovoriacu o tom že chcú miešať rovnakú denomináciu, začne sa samotné miešanie. Masternode zamieša vstupy a povie peňaženkám všetkých troch používateľov, aby zaplatili teraz už zmiešané vstupy sami sebe. Vaša peňaženka zaplatí tieto denominácie priamo sebe, ale už na inú adresu (nazývanú "meniaca adresa").&lt;/li&gt; &lt;li&gt;Aby boli Vaše zdroje plne zakryté, Vaša peňaženka musí zopakovať tento proces niekoľko krát s každou denomináciou.  Vždy keď je tento proces dokončený, je nazvaný "kolo". Každé kolo PrivateSend exponenciálne sťažuje určiť odkiaľ pochádzajú Vaše zdroje.&lt;/li&gt; &lt;li&gt;Toto miešanie sa deje na pozadí bez nutnosti zásahov z Vašej strany. Keď si prajete uskutočniť transakciu, Vaše zdroje budú už anonýmne. Nie je nutné na nič čakať.&lt;/li&gt; &lt;/ol&gt; DÔLEŽITÉ:&lt;/b&gt; Vaša peňaženka obsahuje iba 1000 týchto "meniacich adries". Vždy keď prebehne miešanie, použije sa maximálne až 9 Vašich adries. To znamená, že týchto 1000 adries vystačí zhruba na 100 miešaní. Keď sa použije 900 adries, Vaša peňaženka musí vytvoriť viac adries. Toto je však možné iba vtedy, keď máte zapnuté automatické zálohovanie.&lt;br&gt; V dôsledku toho, používatelia ktorí majú zálohovanie vypnuté, budú mať vypnutý aj PrivateSend. &lt;hr&gt;Viac informácií nájdete na &lt;a href="https://dashpay.atlassian.net/wiki/display/DOC/PrivateSend"&gt;https://dashpay.atlassian.net/wiki/display/DOC/PrivateSend&lt;/a&gt;         </translation>
+        <source>&lt;h3&gt;%1 Basics&lt;/h3&gt; %1 gives you true financial privacy by obscuring the origins of your funds. All the DMS in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; %1 uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The %1 process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;%1 begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 DMS, 0.01 DMS, 0.1 DMS, 1 DMS and 10 DMS -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of %1 makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have %1 disabled. &lt;hr&gt;For more information, see the &lt;a style="%2" href="%3"&gt;%1 documentation&lt;/a&gt;.</source>
+        <translation>&lt;h3&gt;Základy %1&lt;/h3&gt; %1 vám poskytuje skutočné finančné súkromie skrývaním pôvodu vašich zdrojov. Všetky DMSe vo vašej peňaženke pozostávajú z rôznych "vstupov", ktoré si môžete predstaviť ako rozdelené,  diskrétne mince.&lt;br&gt; %1 používa zdokonalený proces pre miešanie vašich vstupov so vstupmi iných ľudí bez toho, aby vaše mince museli opustiť peňaženku. Počas celej doby máte kontrolu nad vašimi peniazmi.&lt;hr&gt; &lt;b&gt;Proces %1 funguje nasledovne:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;%1 začne rozdelením vašich transakčných vstupov na štandardné časti, takzvané denominácie. Tieto denominácie sú 0.001 DMS, 0.01 DMS, 0.1 DMS, 1 DMS a 10 DMS -- v podstate niečo ako papierové peniaze, ktoré používate každý deň.&lt;/li&gt; &lt;li&gt;Vaša peňaženka potom pošle požiadavok špeciálne nastavenému softvérovému uzlu nazvaného "Masternód". Tieto masternódy sú potom informované, že máte záujem miešať určité denominácie. Masternód neobdrží žiadne informácie ktoré by vás identifikovali, takže nikdy nevie kto ste.&lt;/li&gt; &lt;li&gt;Keď ďalší dvaja ľudia pošlú podobnú správu hovoriacu o tom, že chcú miešať rovnakú denomináciu, začne sa samotné miešanie. Masternód zamieša vstupy a povie peňaženkám všetkých troch používateľov, aby zaplatili teraz už zmiešané vstupy sami sebe. Vaša peňaženka zaplatí tieto denominácie priamo sebe, ale už na inú adresu (nazývanú "meniaca adresa").&lt;/li&gt; &lt;li&gt;Aby boli vaše zdroje plne ukryté, vaša peňaženka musí zopakovať tento proces niekoľko krát s každou denomináciou.  Vždy keď je tento proces dokončený, je nazvaný "kolo". Každé kolo %1 exponenciálne sťažuje určiť, odkiaľ pochádzajú vaše zdroje.&lt;/li&gt; &lt;li&gt;Toto miešanie sa deje na pozadí, bez nutnosti zásahov z vašej strany. Keď si prajete uskutočniť transakciu, vaše zdroje budú už zmiešané. Nie je nutné na nič čakať.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt; &lt;b&gt;DÔLEŽITÉ:&lt;/b&gt; Vaša peňaženka obsahuje iba 1000 takýchto "meniacich adries". Vždy keď prebehne miešanie, použije sa maximálne až 9 vašich adries. To znamená, že týchto 1000 adries vystačí zhruba na 100 miešaní. Keď sa použije 900 adries, vaša peňaženka musí vytvoriť viac adries. Toto je však možné iba vtedy, keď máte zapnuté automatické zálohovanie.&lt;br&gt; V dôsledku toho, používatelia ktorí majú zálohovanie vypnuté, budú mať vypnutý aj %1. &lt;hr&gt;Viac informácií nájdete v &lt;a style="%2" href="%3"&gt;dokumentácií ku %1&lt;/a&gt;.</translation>
     </message>
 </context>
 <context>
@@ -1057,8 +1102,16 @@
         <translation>Keďže toto je prvé spustenie programu, môžete si vybrať, kam %1 bude ukladať vaše údaje.</translation>
     </message>
     <message>
-        <source>%1 will download and store a copy of the DMS block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>%1 stiahne a uloží kópiu reťazca blokov DMS. V tomto adresári bude uložené aspoň %2GB dát a bude časom rásť. Peňaženka bude tiež uložená v tomto adresári.</translation>
+        <source>When you click OK, %1 will begin to download and process the full %4 block chain (%2GB) starting with the earliest transactions in %3 when %4 initially launched.</source>
+        <translation>Keď kliknete na OK tak %1 začne sťahovanie a spracuje celý %4 blockchain (%2GB) počnúc najmladšími transakciami v %3 keď sa %4 prvý krát spustil.</translation>
+    </message>
+    <message>
+        <source>This initial synchronisation is very demanding, and may expose hardware problems with your computer that had previously gone unnoticed. Each time you run %1, it will continue downloading where it left off.</source>
+        <translation>Počiatočná synchronizácia je veľmi náročná a môže odhaliť hardvérové problémy vo vašom počítači o ktorých ste do teraz nevedeli. Vždy keď zapnete %1 tak sa sťahovanie začne presne tam kde bolo pred vypnutím.</translation>
+    </message>
+    <message>
+        <source>If you have chosen to limit block chain storage (pruning), the historical data must still be downloaded and processed, but will be deleted afterward to keep your disk usage low.</source>
+        <translation>Keď ste si vybrali limit na uloženie blockchainu (zmenšenie) tak sa historické dáta budú musieť aj tak stiahnuť a spracovať, ale potom budú zmazané aby sa používanie disku znížilo.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1067,6 +1120,22 @@
     <message>
         <source>Use a custom data directory:</source>
         <translation>Použiť vlastný dátový adresár:</translation>
+    </message>
+    <message>
+        <source>At least %1 GB of data will be stored in this directory, and it will grow over time.</source>
+        <translation>V tomto adresári bude uložené minimálne %1 GB dát, časom sa využité dáta zvýšia.</translation>
+    </message>
+    <message>
+        <source>Approximately %1 GB of data will be stored in this directory.</source>
+        <translation>V tomto adresári bude uložených približne %1 GB dát.</translation>
+    </message>
+    <message>
+        <source>%1 will download and store a copy of the DMS block chain.</source>
+        <translation>%1 stiahne a bude uchovávať kópiu DMS blockchainu.</translation>
+    </message>
+    <message>
+        <source>The wallet will also be stored in this directory.</source>
+        <translation>Peňaženka bude tiež uložená v tomto adresári.</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1092,76 +1161,12 @@
         <translation>Od</translation>
     </message>
     <message>
-        <source>My Masternodes</source>
-        <translation>Moje Masternodes</translation>
-    </message>
-    <message>
-        <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your masternode should be running but you still do not see "ENABLED" in "Status" field.</source>
-        <translation>Poznámka: Stav Vášho Masternode v lokálnej peňaženke môže byť potencionálne trochu nepresný.&lt;br /&gt;Vždy počkajte na peňaženku pokým nestiahne dodatočné dáta a opätovne neoverí y druhého uzlu,&lt;br /&gt;ak by Váš Maternode mal bežať, ale stále nevidíte "Zapnuté" v poli "Stav".</translation>
-    </message>
-    <message>
-        <source>Alias</source>
-        <translation>Alias</translation>
-    </message>
-    <message>
-        <source>Address</source>
-        <translation>Adresa</translation>
-    </message>
-    <message>
-        <source>Protocol</source>
-        <translation>Protokol</translation>
-    </message>
-    <message>
         <source>Status</source>
         <translation>Stav</translation>
     </message>
     <message>
-        <source>Active</source>
-        <translation>Aktívne</translation>
-    </message>
-    <message>
-        <source>Last Seen</source>
-        <translation>Naposledy videné</translation>
-    </message>
-    <message>
-        <source>Payee</source>
-        <translation>Príjemca</translation>
-    </message>
-    <message>
-        <source>S&amp;tart alias</source>
-        <translation>&amp;Začať alias</translation>
-    </message>
-    <message>
-        <source>Start &amp;all</source>
-        <translation>Začať &amp;všetko</translation>
-    </message>
-    <message>
-        <source>Start &amp;MISSING</source>
-        <translation>Začať &amp;CHÝBAJÚCE</translation>
-    </message>
-    <message>
-        <source>&amp;Update status</source>
-        <translation>&amp;Aktualizovať stav</translation>
-    </message>
-    <message>
-        <source>Show additional Masternode information</source>
-        <translation>Zobraziť ďalšie informácie o Masternode</translation>
-    </message>
-    <message>
-        <source>Show &amp;Info...</source>
-        <translation>Zobraziť &amp;informácie...</translation>
-    </message>
-    <message>
-        <source>Status will be updated automatically in (sec):</source>
-        <translation>Stav bude automaticky aktualizovaný za (sekúnd):</translation>
-    </message>
-    <message>
         <source>0</source>
         <translation>0</translation>
-    </message>
-    <message>
-        <source>All Masternodes</source>
-        <translation>Všetky  Masternode</translation>
     </message>
     <message>
         <source>Filter List:</source>
@@ -1169,79 +1174,203 @@
     </message>
     <message>
         <source>Filter masternode list</source>
-        <translation>Filtrovať zoznam Masternode.</translation>
+        <translation>Filtrovať zoznam masternódov</translation>
     </message>
     <message>
         <source>Node Count:</source>
         <translation>Počet uzlov:</translation>
     </message>
     <message>
-        <source>Start alias</source>
-        <translation>Začať alias</translation>
+        <source>Show only masternodes this wallet has keys for.</source>
+        <translation>Zobraziť len masternódy, pre ktoré má táto peňaženka kľúče.</translation>
     </message>
     <message>
-        <source>Confirm masternode start</source>
-        <translation>Potvrdiť spustenie Masternode</translation>
+        <source>My masternodes only</source>
+        <translation>Iba moje masternódy</translation>
     </message>
     <message>
-        <source>Are you sure you want to start masternode %1?</source>
-        <translation>Ste si istý, že chcete spustiť Masternode %1?</translation>
+        <source>Service</source>
+        <translation>Služba</translation>
     </message>
     <message>
-        <source>Confirm all masternodes start</source>
-        <translation>Potvrdiť spustenie všetkých Masternode</translation>
+        <source>PoSe Score</source>
+        <translation>PoSe skóre</translation>
     </message>
     <message>
-        <source>Are you sure you want to start ALL masternodes?</source>
-        <translation>Ste si istý, že chcete spustiť VŠETKY masternodes?</translation>
+        <source>Registered</source>
+        <translation>Zaregistrované</translation>
     </message>
     <message>
-        <source>Command is not available right now</source>
-        <translation>Príkaz je momentálne nedostupný</translation>
+        <source>Last Paid</source>
+        <translation>Posledná platba</translation>
     </message>
     <message>
-        <source>You can't use this command until masternode list is synced</source>
-        <translation>Tento príkaz nemôžete použiť pokým sa nesynchronizuje zoznam Masternode</translation>
+        <source>Next Payment</source>
+        <translation>Ďalšia platba</translation>
     </message>
     <message>
-        <source>Confirm missing masternodes start</source>
-        <translation>Potvrdiť spustenie chýbajúcich Masternode</translation>
+        <source>Payout Address</source>
+        <translation>Výplatná adresa</translation>
     </message>
     <message>
-        <source>Are you sure you want to start MISSING masternodes?</source>
-        <translation>Ste si istý, že chcete spustiť CHÝBAJÚCE Masternodes?</translation>
+        <source>Operator Reward</source>
+        <translation>Odmena operátora</translation>
     </message>
     <message>
-        <source>Additional information for Masternode %1</source>
-        <translation>Ďalšie informácie o Masternode %1</translation>
+        <source>Collateral Address</source>
+        <translation>Zaisťovacia adresa</translation>
     </message>
     <message>
-        <source>Masternode Private Key</source>
-        <translation>Súkromný kľúč Masternode </translation>
+        <source>Owner Address</source>
+        <translation>Adresa vlastníka</translation>
     </message>
     <message>
-        <source>Private Key</source>
-        <translation>Súkromný kľúč</translation>
+        <source>Voting Address</source>
+        <translation>Hlasovacia adresa</translation>
     </message>
     <message>
-        <source>Collateral</source>
-        <translation>Zaistenie</translation>
+        <source>Copy ProTx Hash</source>
+        <translation>Skopírovať ProTx hash</translation>
     </message>
     <message>
-        <source>IP</source>
-        <translation>IP</translation>
+        <source>Copy Collateral Outpoint</source>
+        <translation>Kopírovať zábezpeku Outpoint</translation>
     </message>
     <message>
-        <source>Version</source>
-        <translation>Verzia</translation>
+        <source>Updating...</source>
+        <translation>Aktualizuje sa...</translation>
     </message>
     <message>
-        <source>Unknown</source>
-        <translation>Neznáme</translation>
+        <source>ENABLED</source>
+        <translation>AKTÍVNE</translation>
     </message>
     <message>
-        <source>Sentinel</source>
-        <translation>Strážca</translation>
+        <source>POSE_BANNED</source>
+        <translation>POSE_ZAKÁZANÉ</translation>
+    </message>
+    <message>
+        <source>UNKNOWN</source>
+        <translation>NEZNÁME</translation>
+    </message>
+    <message>
+        <source>to %1</source>
+        <translation>do %1</translation>
+    </message>
+    <message>
+        <source>to UNKNOWN</source>
+        <translation>do NEZNÁME</translation>
+    </message>
+    <message>
+        <source>but not claimed</source>
+        <translation>ale nie nárokované</translation>
+    </message>
+    <message>
+        <source>NONE</source>
+        <translation>ŽIADNE</translation>
+    </message>
+    <message>
+        <source>Filter by any property (e.g. address or protx hash)</source>
+        <translation>Filtrovať podľa ľubovoľnej vlastnosti (napr. adresa alebo protx hash)</translation>
+    </message>
+    <message>
+        <source>Please wait...</source>
+        <translation>Prosím čakajte...</translation>
+    </message>
+    <message>
+        <source>Additional information for DIP3 Masternode %1</source>
+        <translation>Ďalšie informácie pre DIP3 Masternode %1</translation>
+    </message>
+    <message>
+        <source>Deploy Masternode...</source>
+        <translation>Deploy Masternode...</translation>
+    </message>
+    <message>
+        <source>Deploy Masternode</source>
+        <translation>Deploy Masternode</translation>
+    </message>
+    <message>
+        <source>Operating a Documentchain Masternode requires 5,000 DMS as collateral, see also &lt;a href=&quot;https://documentchain.org/support/masternodes/&quot;&gt;instructions&lt;/a&gt; and &lt;a href=&quot;https://documentchain.org/news/shared-masternodes/&quot;&gt;shared masternodes&lt;/a&gt;.</source>
+        <translation>Operating a Documentchain Masternode requires 5,000 DMS as collateral, see also &lt;a href=&quot;https://documentchain.org/support/masternodes/&quot;&gt;instructions&lt;/a&gt; and &lt;a href=&quot;https://documentchain.org/news/shared-masternodes/&quot;&gt;shared masternodes&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>Provider Update Service Transaction...</source>
+        <translation>Provider Update Service Transaction...</translation>
+    </message>
+    <message>
+        <source>Send Provider Registration Transaction?&lt;br&gt;&lt;a href='https://documentchain.org/support/masternodes/'&gt;Please note the instructions&lt;/a&gt;</source>
+        <translation>Send Provider Registration Transaction?&lt;br&gt;&lt;a href='https://documentchain.org/support/masternodes/'&gt;Please note the instructions&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>Create Collateral Transaction</source>
+        <translation>Create Collateral Transaction</translation>
+    </message>
+    <message>
+        <source>Masternode IP:Port</source>
+        <translation>Masternode IP:Port</translation>
+    </message>
+    <message>
+        <source>%1 is not a valid IP:Port.</source>
+        <translation>%1 is not a valid IP:Port.</translation>
+    </message>
+    <message>
+        <source>Collateral tx id</source>
+        <translation>Collateral tx id</translation>
+    </message>
+    <message>
+        <source>No collateral transaction found.</source>
+        <translation>No collateral transaction found.</translation>
+    </message>
+    <message>
+        <source>Owner Address (optional)</source>
+        <translation>Owner Address (optional)</translation>
+    </message>
+    <message>
+        <source>Owner Address %1 created</source>
+        <translation>Owner Address %1 created</translation>
+    </message>
+    <message>
+        <source>Fee Address</source>
+        <translation>Fee Address</translation>
+    </message>
+    <message>
+        <source>BLS Secret (optional)</source>
+        <translation>BLS Secret (optional)</translation>
+    </message>
+    <message>
+        <source>Invalid BLS secret key</source>
+        <translation>Invalid BLS secret key</translation>
+    </message>
+    <message>
+        <source>Fund address to debit</source>
+        <translation>Fund address to debit</translation>
+    </message>
+    <message>
+        <source>The fund address requires a balance of at least 5,000.01 DMS</source>
+        <translation>The fund address requires a balance of at least 5,000.01 DMS</translation>
+    </message>
+    <message>
+        <source>Send protx</source>
+        <translation>Send protx</translation>
+    </message>
+    <message>
+        <source>Done. As soon as the provider register transaction, your masternode is ready.</source>
+        <translation>Done. As soon as the provider register transaction, your masternode is ready.</translation>
+    </message>
+    <message>
+        <source>Show dms.conf suggestion</source>
+        <translation>Show dms.conf suggestion</translation>
+    </message>
+    <message>
+        <source>Update Service</source>
+        <translation>Update Service</translation>
+    </message>
+    <message>
+        <source>BLS Secret</source>
+        <translation>BLS Secret</translation>
+    </message>
+    <message>
+        <source>Couldn't connect to masternode %1</source>
+        <translation>Couldn't connect to masternode %1</translation>
     </message>
 </context>
 <context>
@@ -1251,12 +1380,12 @@
         <translation>Forma</translation>
     </message>
     <message>
-        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the DMS network, as detailed below.</source>
-        <translation>Nedávne transakcie ešte nemusia byť viditeľné, a preto stav Vašej peňaženky nože byť nesprávny. Informácia bude správna hneď ako Vaša peňaženka dokončí synchronizáciu so sieťou DMS. Viac detailov nájdete nižšie.</translation>
+        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Documentchain network, as detailed below.</source>
+        <translation>Nedávne transakcie ešte nemusia byť viditeľné a preto môže byť stav vašej peňaženky nesprávny. Informácia bude správna hneď ako vaša peňaženka dokončí synchronizáciu so sieťou DMS. Viac detailov nájdete nižšie.</translation>
     </message>
     <message>
         <source>Attempting to spend DMS that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
-        <translation>Pokúsiť sa minút DMS, ktoré sú ovplyvnené "ešte nezobrazenými" transakciami, nebudú akceptované sieťou.</translation>
+        <translation>Pokús o minutie DMSov, ktoré sú ovplyvnené "ešte nezobrazenými" transakciami, nebude sieťou akceptovaný.</translation>
     </message>
     <message>
         <source>Number of blocks left</source>
@@ -1284,7 +1413,7 @@
     </message>
     <message>
         <source>Estimated time left until synced</source>
-        <translation>Odhadovaný čas do ukončenia synchronizácie</translation>
+        <translation>Odhad času pre dokončenie synchronizácie</translation>
     </message>
     <message>
         <source>Hide</source>
@@ -1345,76 +1474,108 @@
         <translation>(0 = auto, &lt;0 = nechať toľkoto voľných jadier)</translation>
     </message>
     <message>
-        <source>Amount of DMS to keep anonymized</source>
-        <translation>Suma DMS ktorú držať anonymne </translation>
-    </message>
-    <message>
         <source>W&amp;allet</source>
         <translation>&amp;Peňaženka</translation>
     </message>
     <message>
+        <source>&amp;Appearance</source>
+        <translation>&amp;Vzhľad</translation>
+    </message>
+    <message>
         <source>Show additional tab listing all your masternodes in first sub-tab&lt;br/&gt;and all masternodes on the network in second sub-tab.</source>
-        <translation>Zobraziť dodatočnú záložku, ktorá vypíše všetky Vaše Masternode v prvej pod-zložke&lt;br/&gt;- a všetky Masternode v druhej pod-zložke. </translation>
+        <translation>Zobraziť dodatočnú záložku, ktorá vypíše všetky vaše masternódy v prvej pod-zložke&lt;br/&gt;- a všetky masternódy v druhej pod-zložke. </translation>
     </message>
     <message>
         <source>Show Masternodes Tab</source>
-        <translation>Ukázať záložku Masternodes</translation>
-    </message>
-    <message>
-        <source>Show additional information and buttons for PrivateSend on overview screen.</source>
-        <translation>Na obrazovke s prehľadom zobraziť dodatočné informácie a tlačítka pre PrivateSend,</translation>
-    </message>
-    <message>
-        <source>Enable advanced PrivateSend interface</source>
-        <translation>Zapnúť pokročilé rozhranie PrivateSend</translation>
-    </message>
-    <message>
-        <source>Show warning dialog when PrivateSend detects that wallet has very low number of keys left.</source>
-        <translation>Zobraziť dialóg s upozornením ak PrivateSend zistí, že Vaša peňaženka má veľmi málo zostávajúcich kľúčov.</translation>
-    </message>
-    <message>
-        <source>Warn if PrivateSend is running out of keys</source>
-        <translation>Upozorniť ak PrivateSend dochádzajú kľúče</translation>
-    </message>
-    <message>
-        <source>Whether to use experimental PrivateSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
-        <translation>Použiť alebo nepoužiť experimentálny mód PrivateSend s viacerými miešaniami za jeden block.&lt;br/&gt;Poznámka: Túto funkciu používajte opatrne.&lt;br/&gt;Uistite sa, že vždy máte súčasnú peňaženku zálohovanú na bezpečnom mieste.</translation>
-    </message>
-    <message>
-        <source>Enable PrivateSend &amp;multi-session</source>
-        <translation>Zapnúť &amp;multi-sekciové PrivateSend</translation>
+        <translation>Ukázať záložku masternódov</translation>
     </message>
     <message>
         <source>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</source>
         <translation>Ak vypnete míňanie nepotvrdeného výdavku tak výdavok z transakcie &lt;br&gt;bude možné použiť až keď daná transakcia bude mať aspoň jedno potvrdenie.&lt;br/&gt; Toto má vplyv aj na výpočet vášho zostatku.</translation>
     </message>
     <message>
-        <source>PrivateSend rounds to use</source>
-        <translation>Použiť kôl PrivateSend</translation>
+        <source>Show mixing interface on Overview screen and reveal an additional screen which allows to spend fully mixed coins only.&lt;br/&gt;A new tab with more settings will also appear in this dialog, please make sure to check them before mixing your coins.</source>
+        <translation>Zobraziť mixovacie rozhranie na obrazovke prehľadu a odhaliť ďalšiu obrazovku, ktorá umožňuje minúť iba úplne zmiešané mince.&lt;br/&gt;V tomto dialógovom okne sa tiež zobrazí nová karta s ďalšími nastaveniami. Pred zmiešaním mincí ich prosím nezabudnite skontrolovať.</translation>
     </message>
     <message>
-        <source>This amount acts as a threshold to turn off PrivateSend once it's reached.</source>
-        <translation>Táto suma slúži ako hranica pre vypnutie PrivateSend akonáhle je dosiahnutá.</translation>
+        <source>Show additional information and buttons on overview screen.</source>
+        <translation>Na obrazovke s prehľadom zobraziť dodatočné informácie a tlačítka.</translation>
+    </message>
+    <message>
+        <source>Enable advanced interface</source>
+        <translation>Zapnúť pokročilé rozhranie</translation>
+    </message>
+    <message>
+        <source>Show system popups for mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
+        <translation>Zobraziť vyskakovacie okná pre miešacie transakcie,&lt;br/&gt; tak ako pre ostatné typy transakcií.</translation>
+    </message>
+    <message>
+        <source>Show popups for mixing transactions</source>
+        <translation>Zobraziť vyskakovacie okná pre miešacie transakcie </translation>
+    </message>
+    <message>
+        <source>Show warning dialog when the wallet has very low number of keys left.</source>
+        <translation>Zobraziť dialóg s upozornením ak má vaša peňaženka veľmi málo zostávajúcich kľúčov.</translation>
+    </message>
+    <message>
+        <source>Warn if the wallet is running out of keys</source>
+        <translation>Upozorniť ak peňaženke dochádzajú kľúče</translation>
+    </message>
+    <message>
+        <source>Whether to use experimental mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
+        <translation>Použiť alebo nepoužiť experimentálny mód s viacerými miešaniami za jeden block.&lt;br/&gt;Poznámka: Túto funkciu používajte opatrne.&lt;br/&gt;Uistite sa, že vždy máte súčasnú peňaženku zálohovanú na bezpečnom mieste.</translation>
+    </message>
+    <message>
+        <source>Enable &amp;multi-session</source>
+        <translation>Zapnúť &amp;multi-sekciové</translation>
+    </message>
+    <message>
+        <source>Mixing rounds</source>
+        <translation>Miešacie kolá</translation>
+    </message>
+    <message>
+        <source>This amount acts as a threshold to turn off mixing once it's reached.</source>
+        <translation>Táto suma slúži ako hranica pre vypnutie miešania akonáhle je dosiahnutá.</translation>
+    </message>
+    <message>
+        <source>Target balance</source>
+        <translation>Cieľový zostatok</translation>
     </message>
     <message>
         <source>Automatically open the DMS Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automaticky otvoriť na smerovači port pre DMS Core klient. Toto funguje iba ak Váš smerovač  podporuje UPnP a je povolené</translation>
+        <translation>Automaticky otvoriť na smerovači port pre DMS Core klient. Toto funguje iba ak váš smerovač  podporuje UPnP a je povolené</translation>
     </message>
     <message>
-        <source>Accept connections from outside</source>
-        <translation>Akceptovať pripojenie z vonku</translation>
+        <source>Accept connections from outside.</source>
+        <translation>Prijímať spojenia zvonka.</translation>
     </message>
     <message>
-        <source>Allow incoming connections</source>
-        <translation>Povoliť prichádzajúce spojenia</translation>
+        <source>Allow incomin&amp;g connections</source>
+        <translation>Povoliť pric&amp;hádzajúce spojenia</translation>
     </message>
     <message>
-        <source>Connect to the DMS network through a SOCKS5 proxy.</source>
+        <source>Connect to the Documentchain network through a SOCKS5 proxy.</source>
         <translation>Pripojiť sa do siete DMS cez proxy SOCKS5.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
         <translation>&amp;Pripojiť sa cez SOCKS5 proxy (predvolené proxy):</translation>
+    </message>
+    <message>
+        <source>Shows if the supplied default SOCKS5 proxy is used to reach peers via this network type.</source>
+        <translation>Zobrazuje či je poskytované predvolené SOCKS5 proxy používané pre získavanie peerov cez tento typ siete.</translation>
+    </message>
+    <message>
+        <source>Use separate SOCKS&amp;5 proxy to reach peers via Tor hidden services:</source>
+        <translation>Použiť samostatný SOCKS&amp;5 proxy server na dosiahnutie počítačov cez skryté služby Tor:</translation>
+    </message>
+    <message>
+        <source>Hide the icon from the system tray.</source>
+        <translation>Skryť ikonu zo systémovej lišty.</translation>
+    </message>
+    <message>
+        <source>&amp;Hide tray icon</source>
+        <translation>&amp;Skryť ikonu v oblasti oznámení</translation>
     </message>
     <message>
         <source>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Exit in the menu.</source>
@@ -1425,16 +1586,12 @@
         <translation>URL tretích strán (napr. prehliadač blockchain) ktoré sa zobrazujú v záložke transakcií ako položky kontextového menu.&lt;br/&gt; %s v URL je nahradené hash-om transakcie. Viaceré URL sú oddelené zvislou čiarou |.</translation>
     </message>
     <message>
-        <source>Expert</source>
-        <translation>Expert</translation>
-    </message>
-    <message>
-        <source>This setting determines the amount of individual masternodes that an input will be anonymized through.&lt;br/&gt;More rounds of anonymization gives a higher degree of privacy, but also costs more in fees.</source>
-        <translation>Toto nastavenie určuje množstvo rozličných masternode cez ktoré sa bude anonymizovať vstup.&lt;br/&gt; Viac kôl anonymizácie dáva väčšiu úroveň súkromia, ale tiež stojí viac na poplatkoch.</translation>
+        <source>&amp;Third party transaction URLs</source>
+        <translation>&amp;URL transakcií s tretími stranami</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
-        <translation>Či zobrazovať možnosti "Coin control" alebo nie.</translation>
+        <translation>Či zobrazovať možnosti "Kontroly mincí" alebo nie.</translation>
     </message>
     <message>
         <source>Automatically start %1 after logging in to the system.</source>
@@ -1446,11 +1603,15 @@
     </message>
     <message>
         <source>Enable coin &amp;control features</source>
-        <translation>Povoliť možnosti "&amp;coin control"</translation>
+        <translation>Povoliť možnosti "&amp;kontroly mincí"</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
         <translation>&amp;Minúť nepotvrdený výdavok</translation>
+    </message>
+    <message>
+        <source>This setting determines the amount of individual masternodes that an input will be mixed through.&lt;br/&gt;More rounds of mixing gives a higher degree of privacy, but also costs more in fees.</source>
+        <translation>Toto nastavenie určuje množstvo jednotlivých masternódov cez ktoré sa bude miešať vstup.&lt;br/&gt; Viac kôl miešania poskytuje väčšiu úroveň súkromia, ale tiež stojí viac na poplatkoch.</translation>
     </message>
     <message>
         <source>&amp;Network</source>
@@ -1481,10 +1642,6 @@
         <translation>Použité pre získavanie peerov cez:</translation>
     </message>
     <message>
-        <source>Shows, if the supplied default SOCKS5 proxy is used to reach peers via this network type.</source>
-        <translation>Zobrazuje, či je poskytované predvolené SOCKS5 proxy používané pre získavanie peerov cez tento typ siete.</translation>
-    </message>
-    <message>
         <source>IPv4</source>
         <translation>IPv4</translation>
     </message>
@@ -1497,24 +1654,8 @@
         <translation>Tor</translation>
     </message>
     <message>
-        <source>Connect to the DMS network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <source>Connect to the Documentchain network through a separate SOCKS5 proxy for Tor hidden services.</source>
         <translation>Pripojiť sa do siete DMS cez oddelené SOCKS5 proxy pre skryté služby Tor.</translation>
-    </message>
-    <message>
-        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services:</source>
-        <translation>Použiť samostatný SOCKS5 proxy server na dosiahnutie počítačov cez skryté služby Tor:</translation>
-    </message>
-    <message>
-        <source>&amp;Window</source>
-        <translation>&amp;Okno</translation>
-    </message>
-    <message>
-        <source>&amp;Hide the icon from the system tray.</source>
-        <translation>&amp;Skryť ikonu zo systémovej lišty.</translation>
-    </message>
-    <message>
-        <source>Hide tray icon</source>
-        <translation>Skryť ikonu v oblasti oznámení</translation>
     </message>
     <message>
         <source>Show only a tray icon after minimizing the window.</source>
@@ -1542,13 +1683,9 @@
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/projects/p/dash/</source>
+mail@documentchain.org</source>
         <translation>Chýbajúci alebo nekompletný preklad? Pomôžte nám tu:
-https://www.transifex.com/projects/p/dash/</translation>
-    </message>
-    <message>
-        <source>User Interface Theme:</source>
-        <translation>Motív užívateľského rozhrania:</translation>
+mail@documentchain.org</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -1561,10 +1698,6 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>Decimal digits</source>
         <translation>Decimálne čísla</translation>
-    </message>
-    <message>
-        <source>Third party transaction URLs</source>
-        <translation>URL transakcií s tretími stranami</translation>
     </message>
     <message>
         <source>Active command-line options that override above options:</source>
@@ -1587,12 +1720,12 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>&amp;Zrušiť</translation>
     </message>
     <message>
-        <source>default</source>
-        <translation>predvolené</translation>
+        <source>Enable %1 features</source>
+        <translation>Povoliť možnosti %1</translation>
     </message>
     <message>
-        <source>none</source>
-        <translation>žiadne</translation>
+        <source>default</source>
+        <translation>predvolené</translation>
     </message>
     <message>
         <source>Confirm options reset</source>
@@ -1622,7 +1755,7 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Forma</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DMS network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Documentchain network after a connection is established, but this process has not completed yet.</source>
         <translation>Zobrazené informácie môžu byť zastaralé. Vaša peňaženka sa automaticky zosynchronizuje so sieťou DMS akonáhle nadviaže spojenie, avšak tento proces ešte nebol dokončený.</translation>
     </message>
     <message>
@@ -1686,10 +1819,6 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Použiteľné:</translation>
     </message>
     <message>
-        <source>PrivateSend</source>
-        <translation>PrivateSend</translation>
-    </message>
-    <message>
         <source>Status:</source>
         <translation>Stav:</translation>
     </message>
@@ -1700,22 +1829,6 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>Completion:</source>
         <translation>Dokončenie:</translation>
-    </message>
-    <message>
-        <source>Try to manually submit a PrivateSend request.</source>
-        <translation>Skúsiť manuálne odoslať PrivateSend požiadavku.</translation>
-    </message>
-    <message>
-        <source>Reset the current status of PrivateSend (can interrupt PrivateSend if it's in the process of Mixing, which can cost you money!)</source>
-        <translation>Vynulovať súčasný stav PrivateSend (môže prerušiť PrivateSend ak je v procese miešania, čo Vás môže stáť peniaze!)</translation>
-    </message>
-    <message>
-        <source>Information about PrivateSend and Mixing</source>
-        <translation>Informácie o PrivateSend a miešaní</translation>
-    </message>
-    <message>
-        <source>Info</source>
-        <translation>Informácie</translation>
     </message>
     <message>
         <source>Amount and Rounds:</source>
@@ -1742,24 +1855,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Začať/Zastaviť miešanie</translation>
     </message>
     <message>
-        <source>PrivateSend Balance:</source>
-        <translation>Zostatok PrivateSend:</translation>
-    </message>
-    <message>
         <source>The denominations you submitted to the Masternode.&lt;br&gt;To mix, other users must submit the exact same denominations.</source>
         <translation>Denominácie ktoré ste odoslali na Masternode. &lt;br&gt;Pre miešanie, ostatný používatelia musia odoslať rovnakú sumu denominácií.</translation>
-    </message>
-    <message>
-        <source>(Last Message)</source>
-        <translation>(Posledná správa)</translation>
-    </message>
-    <message>
-        <source>Try Mix</source>
-        <translation>Výskúšať mix</translation>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation>Resetovať</translation>
     </message>
     <message>
         <source>out of sync</source>
@@ -1770,28 +1867,24 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Automatické zálohy sú de-aktivované, miešanie nie je dostupné!</translation>
     </message>
     <message>
-        <source>Start Mixing</source>
-        <translation>Začať miešanie</translation>
-    </message>
-    <message>
-        <source>Stop Mixing</source>
-        <translation>Zastaviť miešanie</translation>
-    </message>
-    <message>
         <source>No inputs detected</source>
         <translation>Žiadne detekované vstupy</translation>
     </message>
+    <message>
+        <source>%1 Balance</source>
+        <translation>%1 Zostatok</translation>
+    </message>
     <message numerus="yes">
         <source>%n Rounds</source>
-        <translation><numerusform>%n kolo</numerusform><numerusform>%n kolá</numerusform><numerusform>%n kôl</numerusform></translation>
+        <translation><numerusform>%n kolo</numerusform><numerusform>%n kolá</numerusform><numerusform>%n kôl</numerusform><numerusform>%n kôl</numerusform></translation>
     </message>
     <message>
-        <source>Found enough compatible inputs to anonymize %1</source>
-        <translation>Nájdený dostatok kompatibilných vstupov na anonymizáciu %1</translation>
+        <source>Found enough compatible inputs to mix %1</source>
+        <translation>Nájdený dostatok kompatibilných vstupov na miešanie %1</translation>
     </message>
     <message>
-        <source>Not enough compatible inputs to anonymize &lt;span style='color:red;'&gt;%1&lt;/span&gt;,&lt;br&gt;will anonymize &lt;span style='color:red;'&gt;%2&lt;/span&gt; instead</source>
-        <translation>Nedostatok kompatibilných vstupov na anonymizáciu &lt;span style='color:red;'&gt;%1&lt;/span&gt;,&lt;br&gt;bude anonymizovaných &lt;span style='color:red;'&gt;%2&lt;/span&gt;</translation>
+        <source>Not enough compatible inputs to mix &lt;span style='%1'&gt;%2&lt;/span&gt;,&lt;br&gt;will mix &lt;span style='%1'&gt;%3&lt;/span&gt; instead</source>
+        <translation>Nedostatok kompatibilných vstupov na miešanie &lt;span style='%1'&gt;%2&lt;/span&gt;, &lt;br&gt; namieša namiesto toho &lt;span style='%1'&gt;%3&lt;/span&gt;</translation>
     </message>
     <message>
         <source>Overall progress</source>
@@ -1802,20 +1895,40 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Denominované </translation>
     </message>
     <message>
+        <source>Partially mixed</source>
+        <translation>Čiastočne zmiešané</translation>
+    </message>
+    <message>
         <source>Mixed</source>
         <translation>Zmiešané</translation>
     </message>
-    <message>
-        <source>Anonymized</source>
-        <translation>Anonymizované</translation>
-    </message>
     <message numerus="yes">
         <source>Denominated inputs have %5 of %n rounds on average</source>
-        <translation><numerusform>Denominované vstup má v priemere %5 z %n kôl</numerusform><numerusform>Denominované vstupy majú v priemere %5 z %n kôl</numerusform><numerusform>Denominované vstupy majú v priemere %5 z %n kôl</numerusform></translation>
+        <translation><numerusform>Denominované vstup má v priemere %5 z %n kôl</numerusform><numerusform>Denominované vstupy majú v priemere %5 z %n kôl</numerusform><numerusform>Denominované vstupy majú v priemere %5 z %n kôl</numerusform><numerusform>Denominované vstupy majú v priemere %5 z %n kôl</numerusform></translation>
     </message>
     <message>
         <source>keys left: %1</source>
         <translation>zostávajúce kľúče: %1</translation>
+    </message>
+    <message>
+        <source>Start %1</source>
+        <translation>Začať %1</translation>
+    </message>
+    <message>
+        <source>If you don't want to see internal %1 fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
+        <translation>Ak nechcete vidieť interné %1 poplatky/transakcie, vyberte "Najčastejšie" ako typ na záložke "Transakcie".</translation>
+    </message>
+    <message>
+        <source>%1 requires at least %2 to use.</source>
+        <translation>Pre použitie vyžaduje %1 aspoň %2.</translation>
+    </message>
+    <message>
+        <source>Wallet is locked and user declined to unlock. Disabling %1.</source>
+        <translation>Peňaženka je zamknutá a používateľ ju odmietol odomknúť. Vypínam %1.</translation>
+    </message>
+    <message>
+        <source>Stop %1</source>
+        <translation>Zastaviť %1</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -1826,8 +1939,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Od poslednej automatickej zálohy zostáva veľmi málo kľúčov!</translation>
     </message>
     <message>
-        <source>We are about to create a new automatic backup for you, however &lt;span style='color:red;'&gt; you should always make sure you have backups saved in some safe place&lt;/span&gt;!</source>
-        <translation>Chystáme sa pre Vás vytvoriť automatickú zálohu, avšak &lt;span style='color:red;'&gt;mali by ste sa uistiť, že máte zálohy uložené na bezpečnom mieste&lt;/span&gt;!</translation>
+        <source>We are about to create a new automatic backup for you, however &lt;span style='%1'&gt; you should always make sure you have backups saved in some safe place&lt;/span&gt;!</source>
+        <translation>Chystáme sa pre Vás vytvoriť automatickú zálohu, avšak &lt;span style='%1'&gt;mali by ste sa uistiť, že máte zálohy uložené na bezpečnom mieste&lt;/span&gt;!</translation>
     </message>
     <message>
         <source>Note: You can turn this message off in options.</source>
@@ -1843,7 +1956,7 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>Mixing is disabled, please close your wallet and fix the issue!</source>
-        <translation>Miešanie je vypnuté. Zatvorte prosím Vašu peňaženku a opravte problém.</translation>
+        <translation>Miešanie je vypnuté. Zatvorte prosím vašu peňaženku a opravte problém.</translation>
     </message>
     <message>
         <source>Enabled</source>
@@ -1855,34 +1968,7 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>WARNING! Failed to replenish keypool, please unlock your wallet to do so.</source>
-        <translation>UPOZORNENIE! Chyba pri doplňovaní zásobníku kľúčov. Pre doplnenie musíte odomknúť Vašu peňaženku.</translation>
-    </message>
-    <message>
-        <source>Last PrivateSend message:
-</source>
-        <translation>Posledná PrivateSend správa:
-
-</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>nie je k dispozícii</translation>
-    </message>
-    <message>
-        <source>PrivateSend was successfully reset.</source>
-        <translation>PrivateSend bol úspešne obnovený</translation>
-    </message>
-    <message>
-        <source>If you don't want to see internal PrivateSend fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
-        <translation>Ak nechcete vidieť interné Darksend poplatky/transakcie, vyberte "Najčastejšie" ako typ na záložke "Transakcie".</translation>
-    </message>
-    <message>
-        <source>PrivateSend requires at least %1 to use.</source>
-        <translation>Pre použitie vyžaduje PrivateSend aspoň %1.</translation>
-    </message>
-    <message>
-        <source>Wallet is locked and user declined to unlock. Disabling PrivateSend.</source>
-        <translation>Peňaženka je zamknutá a používateľ ju odmietol odomknúť. PrivateSend sa vypína.</translation>
+        <translation>UPOZORNENIE! Chyba pri doplňovaní zásobníku kľúčov. Pre doplnenie musíte odomknúť vašu peňaženku.</translation>
     </message>
 </context>
 <context>
@@ -1898,6 +1984,10 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>URI handling</source>
         <translation>Spracovanie URI</translation>
+    </message>
+    <message>
+        <source>'dms://' is not a valid URI. Use 'dms:' instead.</source>
+        <translation>„dms://“ nie je platný URI. Namiesto toho použite „dms:“.</translation>
     </message>
     <message>
         <source>Payment request fetch URL is invalid: %1</source>
@@ -1994,20 +2084,60 @@ https://www.transifex.com/projects/p/dash/</translation>
         <source>Ping</source>
         <translation>Odozva</translation>
     </message>
+    <message>
+        <source>Sent</source>
+        <translation>Odoslané</translation>
+    </message>
+    <message>
+        <source>Received</source>
+        <translation>Prijaté</translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
-        <source>DMS Core</source>
-        <translation>DMS Core</translation>
+        <source>Choose data directory on startup (default: %u)</source>
+        <translation>Vyberte dátový priečinok pri štarte (predvolené: %u)</translation>
+    </message>
+    <message>
+        <source>Set the font family. Possible values: %1. (default: %2)</source>
+        <translation>Nastaviť rodinu písma. Možné hodnoty: %1. (predvolené: %2)</translation>
+    </message>
+    <message>
+        <source>Set a scale factor which gets applied to the base font size. Possible range %1 (smallest fonts) to %2 (largest fonts). (default: %3)</source>
+        <translation>Nastavte mierku, ktorá sa použije na základnú veľkosť písma. Možný rozsah %1 (najmenšie písma) až %2 (najväčšie písma). (predvolené: %3)</translation>
+    </message>
+    <message>
+        <source>Set the font weight for bold texts. Possible range %1 to %2 (default: %3)</source>
+        <translation>Nastavte váhu písma pre tučné texty. Možný rozsah %1 až %2 (predvolené : %3)</translation>
+    </message>
+    <message>
+        <source>Set the font weight for normal texts. Possible range %1 to %2 (default: %3)</source>
+        <translation>Nastavte váhu písma pre normálne texty. Možný rozsah %1 až %2 (predvolené : %3)</translation>
+    </message>
+    <message>
+        <source>Set language, for example "de_DE" (default: system locale)</source>
+        <translation>Nastaviť jazyk, napríklad "sk_SK" (predvolené: systémový)</translation>
+    </message>
+    <message>
+        <source>Start minimized</source>
+        <translation>Spustiť minimalizované</translation>
+    </message>
+    <message>
+        <source>Reset all settings changed in the GUI</source>
+        <translation>Zrušiť všetky zmeny v GUI</translation>
+    </message>
+    <message>
+        <source>Set SSL root certificates for payment request (default: -system-)</source>
+        <translation>Nastaviť koreňový certifikát pre výzvy na platbu (predvolené: -system-)</translation>
+    </message>
+    <message>
+        <source>Show splash screen on startup (default: %u)</source>
+        <translation>Zobraziť uvítaciu obrazovku pri spustení (predvolené: %u)</translation>
     </message>
     <message>
         <source>%1 didn't yet exit safely...</source>
         <translation>%1 nebol ešte bezpečne ukončený...</translation>
-    </message>
-    <message>
-        <source>Error reading masternode configuration file: %1</source>
-        <translation>Chyba pri načítaní konfiguračného súboru Masternode: %1</translation>
     </message>
     <message>
         <source>Amount</source>
@@ -2016,6 +2146,18 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>Enter a DMS address (e.g. %1)</source>
         <translation>Zadajte DMS adresu (e.g. %1)</translation>
+    </message>
+    <message>
+        <source>Appearance Setup</source>
+        <translation>Nastavenie vzhľadu</translation>
+    </message>
+    <message>
+        <source>Please choose your preferred settings for the appearance of %1</source>
+        <translation>Vyberte prosím preferované nastavenia vzhľadu %1</translation>
+    </message>
+    <message>
+        <source>This can also be adjusted later in the "Appearance" tab of the preferences.</source>
+        <translation>Toto je tiež možné upraviť neskôr na karte „Vzhľad“ v predvoľbách.</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2047,31 +2189,47 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message numerus="yes">
         <source>%n second(s)</source>
-        <translation><numerusform>%n sekunda</numerusform><numerusform>%n sekundy</numerusform><numerusform>%n sekúnd</numerusform></translation>
+        <translation><numerusform>%n sekunda</numerusform><numerusform>%n sekundy</numerusform><numerusform>%n sekúnd</numerusform><numerusform>%n sekúnd</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n minute(s)</source>
-        <translation><numerusform>%n minúta</numerusform><numerusform>%n minúty</numerusform><numerusform>%n minút</numerusform></translation>
+        <translation><numerusform>%n minúta</numerusform><numerusform>%n minúty</numerusform><numerusform>%n minút</numerusform><numerusform>%n minút</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n hour(s)</source>
-        <translation><numerusform>%n hodina</numerusform><numerusform>%n hodiny</numerusform><numerusform>%n hodín</numerusform></translation>
+        <translation><numerusform>%n hodina</numerusform><numerusform>%n hodiny</numerusform><numerusform>%n hodín</numerusform><numerusform>%n hodín</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n day(s)</source>
-        <translation><numerusform>%n deň</numerusform><numerusform>%n dni</numerusform><numerusform>%n dní</numerusform></translation>
+        <translation><numerusform>%n deň</numerusform><numerusform>%n dni</numerusform><numerusform>%n dní</numerusform><numerusform>%n dní</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n week(s)</source>
-        <translation><numerusform>%n týždeň</numerusform><numerusform>%n týždne</numerusform><numerusform>%n týždňov</numerusform></translation>
+        <translation><numerusform>%n týždeň</numerusform><numerusform>%n týždne</numerusform><numerusform>%n týždňov</numerusform><numerusform>%n týždňov</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n year(s)</source>
-        <translation><numerusform>%n rok</numerusform><numerusform>%n roky</numerusform><numerusform>%n rokov</numerusform></translation>
+        <translation><numerusform>%n rok</numerusform><numerusform>%n roky</numerusform><numerusform>%n rokov</numerusform><numerusform>%n rokov</numerusform></translation>
     </message>
     <message>
         <source>%1 and %2</source>
         <translation> %1 a  %2</translation>
+    </message>
+    <message>
+        <source>%1 B</source>
+        <translation>%1 B</translation>
+    </message>
+    <message>
+        <source>%1 KB</source>
+        <translation>%1 KB</translation>
+    </message>
+    <message>
+        <source>%1 MB</source>
+        <translation>%1 MB</translation>
+    </message>
+    <message>
+        <source>%1 GB</source>
+        <translation>%1 GB</translation>
     </message>
     <message>
         <source>unknown</source>
@@ -2091,6 +2249,34 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>Error: %1</source>
         <translation>Chyba: %1</translation>
+    </message>
+    <message>
+        <source>Error: Failed to load application fonts.</source>
+        <translation>Chyba: Nepodarilo sa načítať písma aplikácie.</translation>
+    </message>
+    <message>
+        <source>Error: Specified font-family invalid. Valid values: %1.</source>
+        <translation>Chyba: Zadaná rodina fontov je neplatná. Platné hodnoty: %1.</translation>
+    </message>
+    <message>
+        <source>Error: Specified font-weight-normal invalid. Valid range %1 to %2.</source>
+        <translation>Chyba: Zadaná hodnota normálnej váhy fontu je neplatná. Platný rozsah %1 až %2.</translation>
+    </message>
+    <message>
+        <source>Error: Specified font-weight-bold invalid. Valid range %1 to %2.</source>
+        <translation>Chyba: Zadaná hodnota tučnej váhy fontu je neplatná. Platný rozsah %1 až %2.</translation>
+    </message>
+    <message>
+        <source>Error: Specified font-scale invalid. Valid range %1 to %2.</source>
+        <translation>Chyba: Zadaná hodnota škálovania fontu je neplatná. Platný rozsah %1 až %2.</translation>
+    </message>
+    <message>
+        <source>Error: Invalid -custom-css-dir path.</source>
+        <translation>Chyba: Neplatná cesta -custom-css-dir.</translation>
+    </message>
+    <message>
+        <source>Error: %1 CSS file(s) missing in -custom-css-dir path.</source>
+        <translation>Chyba: %1 CSS súbor(ov) chýba v ceste -custom-css-dir.</translation>
     </message>
 </context>
 <context>
@@ -2214,7 +2400,7 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>Number of Masternodes</source>
-        <translation>Počet Mastenode</translation>
+        <translation>Počet masternódov</translation>
     </message>
     <message>
         <source>Memory Pool</source>
@@ -2222,7 +2408,7 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>Current number of transactions</source>
-        <translation>Aktuálny počet tranzakcií</translation>
+        <translation>Aktuálny počet transakcií</translation>
     </message>
     <message>
         <source>Memory usage</source>
@@ -2241,14 +2427,6 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>&amp;Sieťová prevádzka</translation>
     </message>
     <message>
-        <source>&amp;Clear</source>
-        <translation>&amp;Vyčistiť</translation>
-    </message>
-    <message>
-        <source>Totals</source>
-        <translation>Celkovo</translation>
-    </message>
-    <message>
         <source>Received</source>
         <translation>Prijaté</translation>
     </message>
@@ -2259,6 +2437,10 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>&amp;Peers</source>
         <translation>&amp;Partnerské uzly</translation>
+    </message>
+    <message>
+        <source>Wallet:</source>
+        <translation>Peňaženka:</translation>
     </message>
     <message>
         <source>Banned peers</source>
@@ -2293,6 +2475,22 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Synchronizované bloky</translation>
     </message>
     <message>
+        <source>Rescan blockchain files 1</source>
+        <translation>Znova prehľadať blockchain 1</translation>
+    </message>
+    <message>
+        <source>Rescan blockchain files 2</source>
+        <translation>Znova prehľadať blockchain 2</translation>
+    </message>
+    <message>
+        <source>-rescan=1: Rescan the block chain for missing wallet transactions starting from wallet creation time.</source>
+        <translation>-rescan=1: Znova prehľadať reťazec blokov pre nájdenie chýbajúcich transakcií peňaženky od času jej vytvorenia.</translation>
+    </message>
+    <message>
+        <source>-rescan=2: Rescan the block chain for missing wallet transactions starting from genesis block.</source>
+        <translation>-rescan=2: Znova prehľadať reťazec blokov pre nájdenie chýbajúcich transakcií peňaženky od času vytvorenia prvého bloku.</translation>
+    </message>
+    <message>
         <source>Wallet Path</source>
         <translation>Cesta k peňaženke</translation>
     </message>
@@ -2305,8 +2503,20 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Priečinok s dátami</translation>
     </message>
     <message>
+        <source>Last block hash</source>
+        <translation>Hash posledný bloku</translation>
+    </message>
+    <message>
         <source>Open the %1 debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation>Otvoriť %1 ladiaci výpis z aktuálnej zložky. Pri veľkých súboroch to môže chvíľu trvať.</translation>
+    </message>
+    <message>
+        <source>InstantSend locks</source>
+        <translation>Zámky InstantSend</translation>
+    </message>
+    <message>
+        <source>(none)</source>
+        <translation>(žiadne)</translation>
     </message>
     <message>
         <source>Decrease font size</source>
@@ -2315,6 +2525,18 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>Increase font size</source>
         <translation>Zväčšiť písmo</translation>
+    </message>
+    <message>
+        <source>&amp;Reset</source>
+        <translation>&amp;Resetovať</translation>
+    </message>
+    <message>
+        <source>Node Type</source>
+        <translation>Typ uzla</translation>
+    </message>
+    <message>
+        <source>PoSe Score</source>
+        <translation>PoSe skóre</translation>
     </message>
     <message>
         <source>Services</source>
@@ -2365,10 +2587,6 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Záchranná peňaženka</translation>
     </message>
     <message>
-        <source>Rescan blockchain files</source>
-        <translation>Znova prehľadať reťazec blokov</translation>
-    </message>
-    <message>
         <source>Recover transactions 1</source>
         <translation>Znova prehľadať transakcie 1</translation>
     </message>
@@ -2389,16 +2607,12 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>-salvagewallet: Pokus obnoviť súkromné kľúče z poškodeného wallet.dat.</translation>
     </message>
     <message>
-        <source>-rescan: Rescan the block chain for missing wallet transactions.</source>
-        <translation>-rescan: Znova prehľadať reťazec blokov pre nájdenie chýbajúcich transakcií peňaženky.</translation>
-    </message>
-    <message>
         <source>-zapwallettxes=1: Recover transactions from blockchain (keep meta-data, e.g. account owner).</source>
-        <translation>-zapwallettxes=1: Obnoviť transakcie z reťazca blokov (zachovať metaúdaje, napr. vlastníka účtu).</translation>
+        <translation>-zapwallettxes=1: Obnoviť transakcie z blockchainu (zachovať metaúdaje, napr. vlastníka účtu).</translation>
     </message>
     <message>
         <source>-zapwallettxes=2: Recover transactions from blockchain (drop meta-data).</source>
-        <translation>-zapwallettxes=2: Obnoviť transakcie z reťazca blokov (zahodiť metaúdaje).</translation>
+        <translation>-zapwallettxes=2: Obnoviť transakcie z blockchainu (zahodiť metaúdaje).</translation>
     </message>
     <message>
         <source>-upgradewallet: Upgrade wallet to latest format on startup. (Note: this is NOT an update of the wallet itself!)</source>
@@ -2449,16 +2663,20 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Vitajte v %1 RPC konzole</translation>
     </message>
     <message>
-        <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
-        <translation>Použite šipky hore a dole pre navigáciu históriou a &lt;b&gt;Ctrl-L&lt;/b&gt; pre vyčistenie obrazovky.</translation>
+        <source>Use up and down arrows to navigate history, and %1 to clear screen.</source>
+        <translation>Použi šipky hore a dolu pre navigáciu históriou a %1 pre vyčistenie obrazovky.</translation>
     </message>
     <message>
-        <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
-        <translation>Napíšte &lt;b&gt;help&lt;/b&gt; pre prehľad dostupných príkazov.</translation>
+        <source>Type %1 for an overview of available commands.</source>
+        <translation>Zadajte %1 a získate prehľad dostupných príkazov.</translation>
     </message>
     <message>
-        <source>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramification of a command.</source>
-        <translation>UPOZORNENIE: Podvodníci sú aktívni a hovoria používateľom, aby sem zadávali príkazy a kradnú obsah peňaženky. Nepoužívajte túto konzolu bez úplného pochopenia dopadu príkazu.</translation>
+        <source>For more information on using this console type %1.</source>
+        <translation>Ďalšie informácie o používaní tejto konzoly získate zadaním %1.</translation>
+    </message>
+    <message>
+        <source>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramifications of a command.</source>
+        <translation>UPOZORNENIE: Podvodníci sú aktívni a hovoria používateľom, aby sem zadávali príkazy pričom kradnú obsah peňaženky. Nepoužívajte túto konzolu bez úplného pochopenia dopadov takýchto príkazov.</translation>
     </message>
     <message>
         <source>In:</source>
@@ -2473,20 +2691,16 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Sieťová aktivita zakázaná</translation>
     </message>
     <message>
-        <source>%1 B</source>
-        <translation>%1 B</translation>
+        <source>Total: %1 (Enabled: %2)</source>
+        <translation>Celkovo: %1 (Povolené: %2)</translation>
     </message>
     <message>
-        <source>%1 KB</source>
-        <translation>%1 KB</translation>
+        <source>Executing command without any wallet</source>
+        <translation>Vykonávanie príkazu bez akejkoľvek peňaženky</translation>
     </message>
     <message>
-        <source>%1 MB</source>
-        <translation>%1 MB</translation>
-    </message>
-    <message>
-        <source>%1 GB</source>
-        <translation>%1 GB</translation>
+        <source>Executing command using "%1" wallet</source>
+        <translation>Vykonávanie príkazu použitím peňaženky "%1"</translation>
     </message>
     <message>
         <source>(node id: %1)</source>
@@ -2517,6 +2731,18 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Nie</translation>
     </message>
     <message>
+        <source>Regular</source>
+        <translation>Pravidelné</translation>
+    </message>
+    <message>
+        <source>Masternode</source>
+        <translation>Masternode</translation>
+    </message>
+    <message>
+        <source>Verified Masternode</source>
+        <translation>Overený masternód</translation>
+    </message>
+    <message>
         <source>Unknown</source>
         <translation>Neznáme</translation>
     </message>
@@ -2524,15 +2750,7 @@ https://www.transifex.com/projects/p/dash/</translation>
 <context>
     <name>ReceiveCoinsDialog</name>
     <message>
-        <source>Reuse one of the previously used receiving addresses.&lt;br&gt;Reusing addresses has security and privacy issues.&lt;br&gt;Do not use this unless re-generating a payment request made before.</source>
-        <translation>Znovu použiť jednu z už použitých adries pre prijímanie. &lt;br&gt;Znovu používanie adries je problematické v otázke bezpečnosti aj súkromia.&lt;br/&gt; Používajte to len v prípade ak znovu generujete výzvu na zaplatenie, ktorú ste už vytvorili v minulosti.</translation>
-    </message>
-    <message>
-        <source>R&amp;euse an existing receiving address (not recommended)</source>
-        <translation>Z&amp;novu použiť jestvujúcu prijímaciu adresu (neodporúča sa)</translation>
-    </message>
-    <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DMS network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Documentchain network.</source>
         <translation>Pripojiť ku vyžiadanej platbe voliteľnú správu, ktorá sa zobrazí, keď bude žiadosť otvorená. Poznámka: Správa nebude poslaná spolu s platbou cez sieť DMS.</translation>
     </message>
     <message>
@@ -2544,7 +2762,7 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Voliteľný popis ktorý sa pridá k tejto novej prijímajúcej adrese.</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the DMS network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Documentchain network.</source>
         <translation>Pripojiť ku vyžiadanej platbe voliteľnú správu, ktorá sa zobrazí, keď bude žiadosť otvorená. &lt;br&gt;Poznámka: Správa nebude poslaná spolu s platbou cez sieť DMS.</translation>
     </message>
     <message>
@@ -2576,10 +2794,6 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Vyčistiť</translation>
     </message>
     <message>
-        <source>Request InstantSend</source>
-        <translation>Vyžiadať InstantSend</translation>
-    </message>
-    <message>
         <source>Requested payments history</source>
         <translation>História vyžiadaných platieb</translation>
     </message>
@@ -2598,6 +2812,14 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>Remove</source>
         <translation>Odstrániť</translation>
+    </message>
+    <message>
+        <source>Enter a label to associate with the new receiving address</source>
+        <translation>Zadajte štítok, ktorý chcete priradiť k novej prijímacej adrese</translation>
+    </message>
+    <message>
+        <source>Enter a message to attach to the payment request</source>
+        <translation>Zadajte správu, ktorá sa má priložiť k žiadosti o platbu</translation>
     </message>
     <message>
         <source>Copy URI</source>
@@ -2663,16 +2885,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Správa</translation>
     </message>
     <message>
-        <source>InstantSend</source>
-        <translation>InstantSend</translation>
-    </message>
-    <message>
-        <source>Yes</source>
-        <translation>Áno</translation>
-    </message>
-    <message>
-        <source>No</source>
-        <translation>Nie</translation>
+        <source>Wallet</source>
+        <translation>Peňaženka</translation>
     </message>
     <message>
         <source>Resulting URI too long, try to reduce the text for label / message.</source>
@@ -2722,7 +2936,7 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
-        <translation>Možnosti "Coin Control"</translation>
+        <translation>Možnosti "Kontroly mincí"</translation>
     </message>
     <message>
         <source>Inputs...</source>
@@ -2730,7 +2944,7 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>automatically selected</source>
-        <translation>automaticky vybrané</translation>
+        <translation>automaticky vybraté</translation>
     </message>
     <message>
         <source>Insufficient funds!</source>
@@ -2781,14 +2995,6 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Vybrať...</translation>
     </message>
     <message>
-        <source>Using the fallbackfee can result in sending a transaction that will take several hours or days (or never) to confirm. Consider choosing your fee manually or wait until your have validated the complete chain.</source>
-        <translation>Používanie fallbackfee môže mať za následok odoslanie transakcie, ktorá sa bude potvrdzovať niekoľko hodín alebo dní (prípadne nikdy). Zvážte možnosť výberu poplatku ručne alebo počkajte, než potvrdíte kompletný reťazec blokov.</translation>
-    </message>
-    <message>
-        <source>Warning: Fee estimation is currently not possible.</source>
-        <translation>Upozornenie: teraz nie je možné poplatok odhadnúť.</translation>
-    </message>
-    <message>
         <source>collapse fee-settings</source>
         <translation>skryť nastavenia poplatkov</translation>
     </message>
@@ -2797,20 +3003,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Cieľový čas potvrdenia:</translation>
     </message>
     <message>
-        <source>PrivateSend</source>
-        <translation>PrivateSend</translation>
-    </message>
-    <message>
-        <source>InstantSend</source>
-        <translation>InstantSend</translation>
-    </message>
-    <message>
         <source>If the custom fee is set to 1000 docz and the transaction is only 250 bytes, then "per kilobyte" only pays 250 docz in fee,&lt;br /&gt;while "at least" pays 1000 docz. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Ak je vlastný poplatok nastavený na 1000 docz a transakcia je len 250 bytov, v tom prípade "za kilobajt" zaplatí iba 250 docz na poplatkoch, &lt;br /&gt;zatiaľ čo "pri najmenšom" zaplatí 1000 docz. Pre transakcie väčšie ako jeden kilobajt, obe zaplatia rovnako za kilobajt. </translation>
-    </message>
-    <message>
-        <source>If the custom fee is set to 1000 docz and the transaction is only 250 bytes, then "per kilobyte" only pays 250 docz in fee,&lt;br /&gt;while "total at least" pays 1000 docz. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Ak je vlastný poplatok nastavený na 1000 docz a transakcia je len 250 bytov, v tom prípade "za kilobajt" zaplatí iba 250 docz na poplatkoch, &lt;br /&gt;zatiaľ čo "celkovo pri najmenšom" zaplatí 1000 docz. Pre transakcie väčšie ako jeden kilobajt, obe zaplatia rovnako za kilobajt. </translation>
+        <translation>Ak je vlastný poplatok nastavený na 1000 docz a transakcia je len 250 bytov, v tom prípade sa "za kilobajt" zaplatí  na poplatkoch iba 250 docz, &lt;br /&gt;zatiaľ čo "pri najmenšom" zaplatí 1000 docz. Pre transakcie väčšie ako jeden kilobajt, obe zaplatia rovnako za kilobajt. </translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for dms transactions than the network can process.</source>
@@ -2821,12 +3015,16 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>za kilobajt</translation>
     </message>
     <message>
-        <source>Hide</source>
-        <translation>Skryť</translation>
+        <source>Using the fallbackfee can result in sending a transaction that will take several hours or days (or never) to confirm. Consider choosing your fee manually or wait until you have validated the complete chain.</source>
+        <translation>Používanie fallbackfee môže mať za následok odoslanie transakcie, ktorá sa bude potvrdzovať niekoľko hodín alebo dní (prípadne nikdy). Zvážte možnosť výberu poplatku ručne alebo počkajte, než potvrdíte kompletný reťazec blokov.</translation>
     </message>
     <message>
-        <source>total at least</source>
-        <translation>celkovo z prinajmenej</translation>
+        <source>Note: Not enough data for fee estimation, using the fallback fee instead.</source>
+        <translation>Poznámka: Nedostatok údajov na odhad poplatku, použije sa preddefinovaná hodnota.</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>Skryť</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -2843,14 +3041,6 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>(Smart fee not initialized yet. This usually takes a few blocks...)</source>
         <translation>(Inteligentný poplatok nebol ešte inicializovaný. Obvykle to trvá nekoľko blokov...)</translation>
-    </message>
-    <message>
-        <source>normal</source>
-        <translation>normálny</translation>
-    </message>
-    <message>
-        <source>fast</source>
-        <translation>rýchly</translation>
     </message>
     <message>
         <source>Confirm the send action</source>
@@ -2909,24 +3099,16 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Kopírovať zmenu</translation>
     </message>
     <message>
+        <source>%1 (%2 blocks)</source>
+        <translation>%1 (%2 blokov)</translation>
+    </message>
+    <message>
+        <source>from wallet %1</source>
+        <translation>z peňaženky %1</translation>
+    </message>
+    <message>
         <source>using</source>
         <translation>používa</translation>
-    </message>
-    <message>
-        <source>anonymous funds</source>
-        <translation>anonymné zdroje</translation>
-    </message>
-    <message>
-        <source>(privatesend requires this amount to be rounded up to the nearest %1).</source>
-        <translation>(PrivateSend vyžaduje aby bola táto suma zaokrúhlená nahor k najbližšej %1).</translation>
-    </message>
-    <message>
-        <source>any available funds (not anonymous)</source>
-        <translation>akékoľvek dostupné zdroje (nie anonýmne)</translation>
-    </message>
-    <message>
-        <source>and InstantSend</source>
-        <translation>a InstantSend</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -2949,6 +3131,42 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>&lt;b&gt;(%1 z %2 zobrazených položiek)&lt;/b&gt;</translation>
     </message>
     <message>
+        <source>S&amp;end mixed funds</source>
+        <translation>&amp;Posielať zmiešané zdroje</translation>
+    </message>
+    <message>
+        <source>Confirm the %1 send action</source>
+        <translation>Potvrďte akciu pre poslanie %1</translation>
+    </message>
+    <message>
+        <source>%1 funds only</source>
+        <translation>Iba %1 prostriedky</translation>
+    </message>
+    <message>
+        <source>any available funds</source>
+        <translation>akékoľvek dostupné zdroje</translation>
+    </message>
+    <message>
+        <source>(%1 transactions have higher fees usually due to no change output being allowed)</source>
+        <translation>(Transakcie typu %1 majú zvyčajne vyššie poplatky, pretože nie sú povolené žiadne zmeny výstupu)</translation>
+    </message>
+    <message>
+        <source>Transaction size: %1</source>
+        <translation>Veľkosť transakcie: %1</translation>
+    </message>
+    <message>
+        <source>Fee rate: %1</source>
+        <translation>Sadzba poplatku: %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>This transaction will consume %n input(s)</source>
+        <translation><numerusform>Táto transakcia spotrebuje %n vstup</numerusform><numerusform>Táto transakcia spotrebuje %n vstupy</numerusform><numerusform>Táto transakcia spotrebuje %n vstupov</numerusform><numerusform>Táto transakcia spotrebuje %n vstupov</numerusform></translation>
+    </message>
+    <message>
+        <source>Warning: Using %1 with %2 or more inputs can harm your privacy and is not recommended</source>
+        <translation>Varovanie: Použitie %1 s %2 alebo viac vstupmi môže poškodiť vaše súkromie a neodporúča sa</translation>
+    </message>
+    <message>
         <source>Confirm send coins</source>
         <translation>Potvrdiť odoslanie mincí</translation>
     </message>
@@ -2962,11 +3180,11 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>The amount exceeds your balance.</source>
-        <translation>Suma je vyššia ako Váš zostatok.</translation>
+        <translation>Suma je vyššia ako váš zostatok.</translation>
     </message>
     <message>
         <source>The total exceeds your balance when the %1 transaction fee is included.</source>
-        <translation>Celková suma prevyšuje Váš zostatok ak sú započítané %1 transakčné poplatky.</translation>
+        <translation>Celková suma prevyšuje váš zostatok ak sú započítané %1 transakčné poplatky.</translation>
     </message>
     <message>
         <source>Duplicate address found: addresses should only be used once each.</source>
@@ -2988,17 +3206,13 @@ https://www.transifex.com/projects/p/dash/</translation>
         <source>Payment request expired.</source>
         <translation>Vypršala platnosť požiadavky na platbu.</translation>
     </message>
-    <message numerus="yes">
-        <source>%n block(s)</source>
-        <translation><numerusform>%n blok</numerusform><numerusform>%n bloky</numerusform><numerusform>%n blokov</numerusform></translation>
-    </message>
     <message>
         <source>Pay only the required fee of %1</source>
         <translation>Zaplatiť iba požadovaný poplatok %1</translation>
     </message>
     <message numerus="yes">
         <source>Estimated to begin confirmation within %n block(s).</source>
-        <translation><numerusform>Odhad pre začiatok potvrdzovania je %n blok.</numerusform><numerusform>Odhad pre začiatok potvrdzovania sú %n bloky.</numerusform><numerusform>Odhad pre začiatok potvrdzovania je %n blokov.</numerusform></translation>
+        <translation><numerusform>Odhad pre začiatok potvrdzovania je %n blok.</numerusform><numerusform>Odhad pre začiatok potvrdzovania sú %n bloky.</numerusform><numerusform>Odhad pre začiatok potvrdzovania je %n blokov.</numerusform><numerusform>Odhad pre začiatok potvrdzovania je %n blokov.</numerusform></translation>
     </message>
     <message>
         <source>Warning: Invalid DMS address</source>
@@ -3076,12 +3290,16 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Odpočítať poplatok od s&amp;umy</translation>
     </message>
     <message>
+        <source>Use available balance</source>
+        <translation>Použite dostupný zostatok</translation>
+    </message>
+    <message>
         <source>Message:</source>
         <translation>Správa:</translation>
     </message>
     <message>
-        <source>A message that was attached to the dms: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the network.</source>
-        <translation>Správa ktorá bola pripojená ku dms: URI ktorá sa uchová spolu s transakciou pre Vašu referenciu. Poznámka: Táto správa nebude poslaná cez sieť.</translation>
+        <source>A message that was attached to the dms: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Documentchain network.</source>
+        <translation>Správa ktorá bola pripojená ku dms: URI ktorá sa uchová spolu s transakciou pre vašu referenciu. Poznámka: Táto správa nebude poslaná cez sieť DMS.</translation>
     </message>
     <message>
         <source>This is an unauthenticated payment request.</source>
@@ -3134,7 +3352,7 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>You can sign messages/agreements with your addresses to prove you can receive DMS sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Môžete podpísať správy/dohody svojou adresou aby ste dokázali, že na ňu prijať DMS. Buďte opatrní a nepodpisuje nič vágne alebo náhodné, nakoľko útoky typu "phishing" Vás môžu lákať k ich podpísaniu Vašej identity. Podpisujte iba vyhlásenia s úplnými detailami s ktorými súhlasíte.</translation>
+        <translation>Môžete podpísať správy/dohody svojou adresou aby ste dokázali, že na ňu prijať DMS. Buďte opatrní a nepodpisuje nič vágne alebo náhodné, nakoľko útoky typu "phishing" vás môžu lákať k ich podpísaniu vašej identity. Podpisujte iba vyhlásenia s úplnými detailami s ktorými súhlasíte.</translation>
     </message>
     <message>
         <source>The DMS address to sign the message with</source>
@@ -3209,8 +3427,20 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Vynulovať všetky polia overenia správy</translation>
     </message>
     <message>
+        <source>Enter a message to be signed</source>
+        <translation>Zadajte správu na podpis</translation>
+    </message>
+    <message>
         <source>Click "Sign Message" to generate signature</source>
         <translation>Pre získanie podpisu kliknite na "Podpísať Správu"</translation>
+    </message>
+    <message>
+        <source>Enter a message to be verified</source>
+        <translation>Zadajte správu na overenie</translation>
+    </message>
+    <message>
+        <source>Enter a signature for the message to be verified</source>
+        <translation>Zadajte podpis správy, ktorá sa má overiť</translation>
     </message>
     <message>
         <source>The entered address is invalid.</source>
@@ -3267,10 +3497,6 @@ https://www.transifex.com/projects/p/dash/</translation>
         <source>[testnet]</source>
         <translation>[testovacia sieť]</translation>
     </message>
-    <message>
-        <source>Version %1</source>
-        <translation>Verzia %1</translation>
-    </message>
 </context>
 <context>
     <name>TrafficGraphWidget</name>
@@ -3278,12 +3504,24 @@ https://www.transifex.com/projects/p/dash/</translation>
         <source>KB/s</source>
         <translation>KB/s</translation>
     </message>
+    <message>
+        <source>Total</source>
+        <translation>Celkovo</translation>
+    </message>
+    <message>
+        <source>Received</source>
+        <translation>Prijaté</translation>
+    </message>
+    <message>
+        <source>Sent</source>
+        <translation>Odoslané</translation>
+    </message>
 </context>
 <context>
     <name>TransactionDesc</name>
     <message numerus="yes">
         <source>Open for %n more block(s)</source>
-        <translation><numerusform>Otvoriť pre %n ďalší blok</numerusform><numerusform>Otvoriť pre %n ďalšie bloky</numerusform><numerusform>Otvoriť pre %n ďalších blokov</numerusform></translation>
+        <translation><numerusform>Otvoriť pre %n ďalší blok</numerusform><numerusform>Otvoriť pre %n ďalšie bloky</numerusform><numerusform>Otvoriť pre %n ďalších blokov</numerusform><numerusform>Otvoriť pre %n ďalších blokov</numerusform></translation>
     </message>
     <message>
         <source>Open until %1</source>
@@ -3292,10 +3530,6 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>conflicted</source>
         <translation>sporné</translation>
-    </message>
-    <message>
-        <source>%1/offline</source>
-        <translation>%1/offline</translation>
     </message>
     <message>
         <source>0/unconfirmed, %1</source>
@@ -3322,28 +3556,16 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>%1 potvrdení</translation>
     </message>
     <message>
+        <source>locked via ChainLocks</source>
+        <translation>zamknuté pomocou ChainLocks</translation>
+    </message>
+    <message>
         <source>verified via InstantSend</source>
         <translation>overené cez InstantSend</translation>
     </message>
     <message>
-        <source>InstantSend verification in progress - %1 of %2 signatures</source>
-        <translation>Prebieha overovanie InstantSend - %1 z %2 podpisov</translation>
-    </message>
-    <message>
-        <source>InstantSend verification failed</source>
-        <translation>Overenie InstantSend zlyhalo</translation>
-    </message>
-    <message>
         <source>Status</source>
         <translation>Stav</translation>
-    </message>
-    <message>
-        <source>, has not been successfully broadcast yet</source>
-        <translation>, ešte nebola úspešne odoslaná</translation>
-    </message>
-    <message numerus="yes">
-        <source>, broadcast through %n node(s)</source>
-        <translation><numerusform>, vysielaný cez %n uzol</numerusform><numerusform>, vysielaný cez %n uzle</numerusform><numerusform>, vysielaný cez %n uzlov</numerusform></translation>
     </message>
     <message>
         <source>Date</source>
@@ -3387,7 +3609,7 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message numerus="yes">
         <source>matures in %n more block(s)</source>
-        <translation><numerusform>dozreje za %n ďalší blok</numerusform><numerusform>dozreje za %n ďalšie bloky</numerusform><numerusform>dozreje za %n ďalších blokov</numerusform></translation>
+        <translation><numerusform>dozreje za %n ďalší blok</numerusform><numerusform>dozreje za %n ďalšie bloky</numerusform><numerusform>dozreje za %n ďalších blokov</numerusform><numerusform>dozreje za %n ďalších blokov</numerusform></translation>
     </message>
     <message>
         <source>not accepted</source>
@@ -3493,15 +3715,11 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message numerus="yes">
         <source>Open for %n more block(s)</source>
-        <translation><numerusform>Otvoriť pre %n ďalší blok</numerusform><numerusform>Otvoriť pre %n ďalšie bloky</numerusform><numerusform>Otvoriť pre %n ďalších blokov</numerusform></translation>
+        <translation><numerusform>Otvoriť pre %n ďalší blok</numerusform><numerusform>Otvoriť pre %n ďalšie bloky</numerusform><numerusform>Otvoriť pre %n ďalších blokov</numerusform><numerusform>Otvoriť pre %n ďalších blokov</numerusform></translation>
     </message>
     <message>
         <source>Open until %1</source>
         <translation>Otvorené do %1</translation>
-    </message>
-    <message>
-        <source>Offline</source>
-        <translation>Offline</translation>
     </message>
     <message>
         <source>Unconfirmed</source>
@@ -3528,12 +3746,16 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Nezrelé (%1 potvrdení, bude k dispozícii po %2)</translation>
     </message>
     <message>
-        <source>This block was not received by any other nodes and will probably not be accepted!</source>
-        <translation>Ten blok nebol prijatý žiadnou inou nódou a pravdepodobne nebude akceptovaný!</translation>
-    </message>
-    <message>
         <source>Generated but not accepted</source>
         <translation>Vypočítané ale neakceptované</translation>
+    </message>
+    <message>
+        <source>verified via InstantSend</source>
+        <translation>overené cez InstantSend</translation>
+    </message>
+    <message>
+        <source>locked via ChainLocks</source>
+        <translation>zamknuté pomocou ChainLocks</translation>
     </message>
     <message>
         <source>Received with</source>
@@ -3544,12 +3766,16 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Prijaté od:</translation>
     </message>
     <message>
-        <source>Received via PrivateSend</source>
-        <translation>Prijaté cez PrivateSend</translation>
+        <source>Received via %1</source>
+        <translation>Prijaté cez %1</translation>
     </message>
     <message>
         <source>Sent to</source>
         <translation>Odoslané na</translation>
+    </message>
+    <message>
+        <source>Document Revision</source>
+        <translation>Revízia dokumentu</translation>
     </message>
     <message>
         <source>Payment to yourself</source>
@@ -3560,24 +3786,24 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Vyťažené</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
-        <translation>Denominácia PrivateSend</translation>
+        <source>%1 Mixing</source>
+        <translation>%1 miešanie</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
-        <translation>Zaisťovacia PrivateSend platba</translation>
+        <source>%1 Collateral Payment</source>
+        <translation>Zaisťovacia %1 platba</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
-        <translation>Uskutočnené zaisťovacie PrivateSend vstupy</translation>
+        <source>%1 Make Collateral Inputs</source>
+        <translation>Uskutočnené zaisťovacie %1 vstupy</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
-        <translation>Vytvorené denominácie PrivateSend</translation>
+        <source>%1 Create Denominations</source>
+        <translation>Vytvorené denominácie %1</translation>
     </message>
     <message>
-        <source>PrivateSend</source>
-        <translation>PrivateSend</translation>
+        <source>%1 Send</source>
+        <translation>%1 poslať</translation>
     </message>
     <message>
         <source>watch-only</source>
@@ -3659,24 +3885,28 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Odoslané na</translation>
     </message>
     <message>
-        <source>PrivateSend</source>
-        <translation>PrivateSend</translation>
+        <source>Document Revision</source>
+        <translation>Revízia dokumentu</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
-        <translation>Uskutočnené zaisťovacie PrivateSend vstupy</translation>
+        <source>%1 Send</source>
+        <translation>%1 poslať</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
-        <translation>Vytvorené denominácie PrivateSend</translation>
+        <source>%1 Make Collateral Inputs</source>
+        <translation>Uskutočnené zaisťovacie %1 vstupy</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
-        <translation>Denominácia PrivateSend</translation>
+        <source>%1 Create Denominations</source>
+        <translation>Vytvorené denominácie %1</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
-        <translation>Zaisťovacia PrivateSend platba</translation>
+        <source>%1 Mixing</source>
+        <translation>%1 miešanie</translation>
+    </message>
+    <message>
+        <source>%1 Collateral Payment</source>
+        <translation>Zaisťovacia %1 platba</translation>
     </message>
     <message>
         <source>To yourself</source>
@@ -3691,12 +3921,12 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Iné</translation>
     </message>
     <message>
-        <source>Enter address or label to search</source>
-        <translation>Pre vyhľadávanie vložte adresu alebo popis</translation>
+        <source>Enter address, transaction id, or label to search</source>
+        <translation>Ak chcete vyhľadávať, zadajte adresu, ID transakcie alebo štítok</translation>
     </message>
     <message>
         <source>Min amount</source>
-        <translation>Min množstvo</translation>
+        <translation>Minimálna suma</translation>
     </message>
     <message>
         <source>Abandon transaction</source>
@@ -3733,6 +3963,10 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>Show transaction details</source>
         <translation>Zobraziť podrobnosti transakcie</translation>
+    </message>
+    <message>
+        <source>Show address QR code</source>
+        <translation>Zobraziť adresový QR kód</translation>
     </message>
     <message>
         <source>Export Transaction History</source>
@@ -3787,6 +4021,10 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>História transakciá bola úspešne uložená do %1.</translation>
     </message>
     <message>
+        <source>QR code</source>
+        <translation>QR kód</translation>
+    </message>
+    <message>
         <source>Range:</source>
         <translation>Rozsah:</translation>
     </message>
@@ -3814,14 +4052,6 @@ https://www.transifex.com/projects/p/dash/</translation>
     <message>
         <source>Send Coins</source>
         <translation>Poslať Mince</translation>
-    </message>
-    <message>
-        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 DMS.</source>
-        <translation>InstantSend zatiaľ nepodporuje posielanie takto vysokých čiastok. Transakcie sú limitované na %1 DMS.</translation>
-    </message>
-    <message>
-        <source>Used way too many inputs (&gt;%1) for this InstantSend transaction, fees could be huge.</source>
-        <translation>Pre InstantSend transakciu bolo použitých príliš veľa vstupov (&gt;%1), poplatok by mohol byť obrovský. </translation>
     </message>
 </context>
 <context>
@@ -3862,40 +4092,16 @@ https://www.transifex.com/projects/p/dash/</translation>
         <source>The wallet data was successfully saved to %1.</source>
         <translation>Dáta peňaženky boli úspešne uložené do %1.</translation>
     </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Zrušiť</translation>
+    </message>
 </context>
 <context>
     <name>dms-core</name>
     <message>
-        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
-        <translation>Spojiť s danou adresou a vždy na nej počúvať. Použite zápis [host]:port pre IPv6</translation>
-    </message>
-    <message>
         <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
         <translation>Chyba: Počúvanie prichádzajúcich spojení zlyhalo (vrátená chyba je %s)</translation>
-    </message>
-    <message>
-        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
-        <translation>Vykonať príkaz po prijatí patričného varovania alebo uvidíme veľmi dlhé rozdvojenie siete (%s v cmd je nahradené správou)</translation>
-    </message>
-    <message>
-        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
-        <translation>Spustiť príkaz ak sa zmení transakcia v peňaženke (%s v cmd sa nahrádza TxID)</translation>
-    </message>
-    <message>
-        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
-        <translation>Vykonaj príkaz, ak zmeny v najlepšom bloku (%s v príkaze nahradí blok hash)</translation>
-    </message>
-    <message>
-        <source>Name to construct url for KeePass entry that stores the wallet passphrase</source>
-        <translation>Meno pre vytvorenie url pre položku KeePass, ktorá uchová heslo peňženky</translation>
-    </message>
-    <message>
-        <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
-        <translation>Nastavte maximálnu veľkosť vysoko-prioritných/nízko-poplatkových transakcií v bajtoch (predvolené: %d)</translation>
-    </message>
-    <message>
-        <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
-        <translation>Nastaviť počeť vlákien overujúcich skripty (%u až %d, 0 = auto, &lt;0 = nechať toľkoto jadier voľných, prednastavené: %d)</translation>
     </message>
     <message>
         <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
@@ -3910,60 +4116,20 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Upozornenie: Zjavne sa úplne nezhodujeme s našimi peer-mi! Možno potrebujete prejsť na novšiu verziu alebo ostatné uzly potrebujú vyššiu verziu.</translation>
     </message>
     <message>
-        <source>You must specify a masternodeprivkey in the configuration. Please see documentation for help.</source>
-        <translation>V konfigurácii musíte špecifikovať masternodeprivkey. Pre pomoc sa prosím pozrite do dokumentácie.</translation>
-    </message>
-    <message>
-        <source>Accept command line and JSON-RPC commands</source>
-        <translation>Prijímať príkazy z príkazového riadku a JSON-RPC</translation>
-    </message>
-    <message>
-        <source>Add a node to connect to and attempt to keep the connection open</source>
-        <translation>Pridať uzol pre pripojenie a pokúsiť sa udržať otvorené pripojenie</translation>
-    </message>
-    <message>
-        <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
-        <translation>Povoliť vyhľadávania DNS pre -addnode, -seenode a -connect</translation>
-    </message>
-    <message>
         <source>Already have that input.</source>
         <translation>Tento vstup už máme.</translation>
-    </message>
-    <message>
-        <source>Block creation options:</source>
-        <translation>Možnosti vytvorenia bloku:</translation>
     </message>
     <message>
         <source>Cannot downgrade wallet</source>
         <translation>Nie je možné prejsť na staršiu verziu peňaženky</translation>
     </message>
     <message>
-        <source>Cannot write default address</source>
-        <translation>Nie je možné zapísať predvolenú adresu</translation>
-    </message>
-    <message>
         <source>Collateral not valid.</source>
         <translation>Zaistenie je neplatné.</translation>
     </message>
     <message>
-        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
-        <translation>Pre načítanie peer adresy sa pripojte k uzlu, a odpojte</translation>
-    </message>
-    <message>
-        <source>Connection options:</source>
-        <translation>Možnosti pripojenia:</translation>
-    </message>
-    <message>
         <source>Corrupted block database detected</source>
         <translation>Zistený poškodený blok databázy</translation>
-    </message>
-    <message>
-        <source>Debugging/Testing options:</source>
-        <translation>Možnosti Ladenia/Testovania:</translation>
-    </message>
-    <message>
-        <source>Do not load the wallet and disable wallet RPC calls</source>
-        <translation>Nenačítať peňaženku a vypnúť RPC volania peňaženky</translation>
     </message>
     <message>
         <source>Do you want to rebuild the block database now?</source>
@@ -4010,144 +4176,36 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Nepodarilo sa počúvať na žiadnom porte. Použite -listen=0 ak to takto chcete.</translation>
     </message>
     <message>
-        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
-        <translation>(1 = zachovať metaúdaje tx napr. vlastníka účtu a informácie o platobných príkazoch, 2 = zahodiť metaúdaje tx)</translation>
-    </message>
-    <message>
         <source>-maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
         <translation>-maxtxfee je nastavené veľmi vysoko! Takto vysoký poplatok môže byť zaplatebý v jednej transakcii.</translation>
     </message>
     <message>
-        <source>A fee rate (in %s/kB) that will be used when fee estimation has insufficient data (default: %s)</source>
-        <translation>Sadzba poplatku (v %s/kB), ktorá sa použije, ak nebude k dispozícii dostatok dát pre automatický odhad poplatku (predvolené: %s)</translation>
-    </message>
-    <message>
-        <source>Accept relayed transactions received from whitelisted peers even when not relaying transactions (default: %d)</source>
-        <translation>Akceptovať postúpené transakcie od povolených partnerov aj keď normálne nepostupujete transakcie (predvolené: %d)</translation>
-    </message>
-    <message>
-        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
-        <translation>Povoliť JSON-RPC pripojenia zo zadaného zdroja. Pre &lt;ip&gt; sú platné jednoduché IP (napr. 1.2.3.4), sieť/netmask (napr. 1.2.3.4/255.255.255.0) alebo sieť/CIDR (napr. 1.2.3.4/24). Táto možnosť môže byť zadaná niekoľko krát</translation>
-    </message>
-    <message>
-        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
-        <translation>Spojiť s danou adresou a povolenými partnerskými zariadeniami ktoré sa tam pripájajú. Použite zápis [host]:port pre IPv6</translation>
-    </message>
-    <message>
-        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
-        <translation>Spojiť s danou adresou pre počúvanie JSON-RPC spojení. Použite zápis [host]:port pre IPv6. Táto možnosť môže byt zadaná niekoľko krát (predvolené: spojiť so všetkými rozhraniami)</translation>
-    </message>
-    <message>
-        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
-        <translation>Vytvoriť nové súbory z predvolenými systémovými právami, namiesto umask 077 (funguje iba z vypnutou funkcionalitou peňaženky)</translation>
-    </message>
-    <message>
-        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
-        <translation>Vymazať všetky transakcie z peňaženky a pri spustení znova získať z reťazca blokov iba tie získané pomocou -rescan</translation>
-    </message>
-    <message>
-        <source>Error loading %s: You can't enable HD on a already existing non-HD wallet</source>
-        <translation>Chyba pri načítaní %s: Nemôžete zapnúť HD na už existujúcej nie-HD peňaženke</translation>
+        <source>Cannot provide specific connections and have addrman find outgoing connections at the same.</source>
+        <translation>Nedajú sa poskytnúť konkrétne spojenia a nechať súčasne addrman nájsť odchádzajúce spojenia.</translation>
     </message>
     <message>
         <source>Found unconfirmed denominated outputs, will wait till they confirm to continue.</source>
         <translation>Nájdené nepotvrdené denominované výstupy, pre pokračovanie sa čaká kým sa nepotvrdia.</translation>
     </message>
     <message>
-        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
-        <translation>Ako dôkladné je -checkblocks overenie blokov (0-4, predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
-        <translation>Ak nie je nastavené paytxfee, pridať dostatočný poplatok aby sa transakcia začala potvrdzovať priemerne v rámci bloku (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>If this block is in the chain assume that it and its ancestors are valid and potentially skip their script verification (0 to verify all, default: %s, testnet: %s)</source>
-        <translation>Pokiaľ je tento blok v reťazci blokov, tak predpokladať, že on i jeho následníci sú platní, a potenciálne preskočiť overovanie ich skriptov (0 = overovať všetko, predvolené: %s, testnet: %s)</translation>
+        <source>Invalid -socketevents ('%s') specified. Only these modes are supported: %s</source>
+        <translation>Zadané neplatné -socketevents ('%s'). Podporované sú iba tieto režimy: %s</translation>
     </message>
     <message>
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s' (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
         <translation>Neplatná suma pre -maxtxfee=&lt;amount&gt;: '%s' (aby sa transakcia nezasekla, minimálny prenosový poplatok musí byť aspoň %s)</translation>
     </message>
     <message>
-        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
-        <translation>Udržiavať kompletný transakčný index, využíva getrawtransaction rpc volanie (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Make sure to encrypt your wallet and delete all non-encrypted backups after you verified that wallet works!</source>
-        <translation>Uistite sa, že máte´Vašu peňaženku zašifrovanú a zmazané všetky nezašifrované zálohy potom, ako overíte, že peňaženka funguje! </translation>
-    </message>
-    <message>
-        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
-        <translation>Maximálna veľkosť dát v transakciách nosných dát, ktoré prenášame a ťažíme (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
-        <translation>Počet sekúnd, počas ktorých nepripájať zle správajúce sa uzle (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
-        <translation>Výstupné ladiace informácie (predvolené: %u, dodanie &lt;category&gt; je voliteľné)</translation>
-    </message>
-    <message>
-        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
-        <translation>Použiť samostatný SOCKS5 proxy server na dosiahnutie počítačov cez skryté služby Tor (predvolené: %s)</translation>
-    </message>
-    <message>
-        <source>User defined mnemonic for HD wallet (bip39). Only has effect during wallet creation/first start (default: randomly generated)</source>
-        <translation>Používateľom definovaná zapamätaná fráza pre HD peňaženku (bip39). Má vplyv iba počas vytvárania peňaženky/prvého štartu (predvolené: náhodne generované)</translation>
-    </message>
-    <message>
-        <source>User defined seed for HD wallet (should be in hex). Only has effect during wallet creation/first start (default: randomly generated)</source>
-        <translation>Používateľom definovaná úvodná fráza pre HD peňaženku (malo by byť v tvare hex). Má vplyv iba počas vytvárania peňaženky/prvého štartu (predvolené: náhodne generované)</translation>
-    </message>
-    <message>
-        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
-        <translation>Uzle na zoznam povolených nemôžu byť DoS zakázané a ich transakcie vždy postúpené ďalej, aj v prípade, ak sú už pamäťovej fronte. Užitočné napr. pre brány</translation>
-    </message>
-    <message>
-        <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
-        <translation>Potrebujete prebudovať databázu použitím -reindex-chainstate pre zmenu -txindex</translation>
-    </message>
-    <message>
-        <source>(default: %s)</source>
-        <translation>(predvolené: %s)</translation>
-    </message>
-    <message>
-        <source>Accept public REST requests (default: %u)</source>
-        <translation>Akceptovať verejné REST žiadosti (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
-        <translation>Vždy sa dotazovať adresy partnerských uzlov cez vyhľadávanie DNS (predvolené: %u)</translation>
+        <source>Transaction index can't be disabled with governance validation enabled. Either start with -disablegovernance command line switch or enable transaction index.</source>
+        <translation>Transakčný index nie je možné zakázať, ak je povolené overenie riadenia. Začnite buď prepínačom príkazového riadku -disablegovernance, alebo povolte index transakcií.</translation>
     </message>
     <message>
         <source>Can't mix: no compatible inputs found!</source>
         <translation>Nedá sa miešať: nezostávajú žiadne kompatibilné zdroje.</translation>
     </message>
     <message>
-        <source>Chain selection options:</source>
-        <translation>Možnosti výberu reťzca blokov:</translation>
-    </message>
-    <message>
-        <source>Connect through SOCKS5 proxy</source>
-        <translation>Pripojiť sa cez SOCKS5 proxy</translation>
-    </message>
-    <message>
-        <source>Connect to KeePassHttp on port &lt;port&gt; (default: %u)</source>
-        <translation>Pripojiť ku KeePassHttp na porte &lt;port&gt; (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Enable the client to act as a masternode (0-1, default: %u)</source>
-        <translation>Povoliť klientovi aby vystupoval ako masternode (0-1, predvolené: %u)</translation>
-    </message>
-    <message>
         <source>Entry exceeds maximum size.</source>
         <translation>Vstup prekračuje maximálnu veľkosť.</translation>
-    </message>
-    <message>
-        <source>Error loading %s: You can't disable HD on a already existing HD wallet</source>
-        <translation>Chyba pri načítaní %s: Nemôžete vypnúť HD na už existujúcej HD peňaženke</translation>
     </message>
     <message>
         <source>Failed to load fulfilled requests cache from</source>
@@ -4155,15 +4213,11 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>Failed to load governance cache from</source>
-        <translation>Chyba pri načítaní vyrovnávajúcej pamäti dozoru z</translation>
+        <translation>Chyba pri načítaní vyrovnávajúcej pamäti správy z</translation>
     </message>
     <message>
         <source>Failed to load masternode cache from</source>
-        <translation>Chyba pri načítaní vyrovnávajúcej pamäti Masternode z</translation>
-    </message>
-    <message>
-        <source>Failed to load masternode payments cache from</source>
-        <translation>Chyba pri načítaní vyrovnávajúcej pamäti platieb Masternode z</translation>
+        <translation>Chyba pri načítaní vyrovnávajúcej pamäti masternode z</translation>
     </message>
     <message>
         <source>Found enough users, signing ( waiting %s )</source>
@@ -4174,16 +4228,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Nájdený dostatok používateľov, pospisuje sa ...</translation>
     </message>
     <message>
-        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
-        <translation>Koľko blokov overiť pri spustení (predvolené: %u, 0 = všetky)</translation>
-    </message>
-    <message>
         <source>Importing...</source>
         <translation>Importuje sa...</translation>
-    </message>
-    <message>
-        <source>Include IP addresses in debug output (default: %u)</source>
-        <translation>Zahrnúť IP adresy v ladiacom výstupe (predvolené: %u)</translation>
     </message>
     <message>
         <source>Incompatible mode.</source>
@@ -4210,28 +4256,20 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Nedostatok prostriedkov.</translation>
     </message>
     <message>
-        <source>Invalid -onion address: '%s'</source>
-        <translation>Neplatná -onion adresa: '%s'</translation>
-    </message>
-    <message>
-        <source>Invalid -proxy address: '%s'</source>
-        <translation>Neplatná -proxy adresa: '%s'</translation>
+        <source>Invalid amount for -discardfee=&lt;amount&gt;: '%s'</source>
+        <translation>Neplatná suma pre -discardfee=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
         <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s' (must be at least %s)</source>
         <translation>Neplatná suma pre -paytxfee=&lt;amount&gt;: '%s' (musí byť aspoň %s)</translation>
     </message>
     <message>
+        <source>Invalid minimum number of spork signers specified with -minsporkkeys</source>
+        <translation>Neplatný minimálny počet spork podpisovateľov určených pomocou -minsporkkeys</translation>
+    </message>
+    <message>
         <source>Keypool ran out, please call keypoolrefill first</source>
         <translation>Vyčerpal sa zásobník kľúčov, zavolať najskôr keypoolrefill</translation>
-    </message>
-    <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation>Počúvať JSON-RPC pripojenia na &lt;port&gt; (predvolené: %u alebo testovacia sieť: %u)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation>Počúvať pripojenia na &lt;port&gt; (predvolené: %u alebo testovacia sieť: %u)</translation>
     </message>
     <message>
         <source>Loading banlist...</source>
@@ -4246,32 +4284,12 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Načíta sa vyrovnávacia pamäť masternode...</translation>
     </message>
     <message>
-        <source>Loading masternode payment cache...</source>
-        <translation>Načíta sa vyrovnávacia pamäť platieb masternode...</translation>
-    </message>
-    <message>
         <source>Lock is already in place.</source>
         <translation>Zámok je už na mieste.</translation>
     </message>
     <message>
-        <source>Lock masternodes from masternode configuration file (default: %u)</source>
-        <translation>Zamknúť masternody z konfiguračného súboru masternode (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation>Maximálna prijímajúca medzipamäť pre pripojenie, &lt;n&gt;*1000 bajtov (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation>Maximálna odosielajúca medzipamäť pre pripojenie, &lt;n&gt;*1000 bajtov (predvolené: %u)</translation>
-    </message>
-    <message>
         <source>Mixing in progress...</source>
         <translation>Prebieha miešanie...</translation>
-    </message>
-    <message>
-        <source>Mnemonic passphrase is too long, must be at most 256 characters</source>
-        <translation>Mnemotechnické heslo je príliš dlhé a môže byť dlhé maximálne 256 znakov</translation>
     </message>
     <message>
         <source>Need to specify a port with -whitebind: '%s'</source>
@@ -4286,112 +4304,20 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Nekompatibilný Masternode zdroj.</translation>
     </message>
     <message>
+        <source>Not enough funds to mix.</source>
+        <translation>Nedostatok zdrojov pre miešanie.</translation>
+    </message>
+    <message>
         <source>Not in the Masternode list.</source>
         <translation>Nie je v zozname Masternode.</translation>
-    </message>
-    <message>
-        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
-        <translation>Pripojiť iba k uzlom v sieti &lt;net&gt; (ipv4, ipv6, alebo onion)</translation>
-    </message>
-    <message>
-        <source>Port: %d</source>
-        <translation>Port: %d</translation>
-    </message>
-    <message>
-        <source>Prepend debug output with timestamp (default: %u)</source>
-        <translation>Na začiatok pripojiť časovú známku k ladiacemu výstupu (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Rebuild chain state and block index from the blk*.dat files on disk</source>
-        <translation>Obnoviť stav reťazca a index blokov zo súborov blk*.dat na disku.</translation>
-    </message>
-    <message>
-        <source>Rebuild chain state from the currently indexed blocks</source>
-        <translation>Obnoviť stav reťazca z aktuálne indexovaných blokov.</translation>
-    </message>
-    <message>
-        <source>Send trace/debug info to debug.log file (default: %u)</source>
-        <translation>Poslať sledovacie/ladiace informácie do debug.log súboru (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
-        <translation>Poslať ako transakcie bez poplatku, ak je to možné (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
-        <translation>Nastaviť veľkosť kľúča fronty na &lt;n&gt; (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Set the number of threads to service RPC calls (default: %d)</source>
-        <translation>Nastaviť počet vlákien na obsluhu RPC volaní (predvolené: %d)</translation>
-    </message>
-    <message>
-        <source>Specify configuration file (default: %s)</source>
-        <translation>Zadať konfiguračný súbor (predvolené: %s)</translation>
-    </message>
-    <message>
-        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
-        <translation>Zadajte časový limit pripojenia v milisekundách (minimum: 1, predvolené: %d)</translation>
-    </message>
-    <message>
-        <source>Specify masternode configuration file (default: %s)</source>
-        <translation>Zadať konfiguračný súbor masternode (predvolené: %s)</translation>
-    </message>
-    <message>
-        <source>Specify pid file (default: %s)</source>
-        <translation>Zadať pid súbor (predvolené: %s)</translation>
-    </message>
-    <message>
-        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
-        <translation>Minúť nepotvrdené zmenu pri posielaní transakcií (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Submitted following entries to masternode: %u / %d</source>
-        <translation>Položky odoslané na masternode: %u / %d</translation>
-    </message>
-    <message>
-        <source>Submitted to masternode, waiting for more entries ( %u / %d ) %s</source>
-        <translation>Odoslané na masternode, čaká na viac položiek ( %u / %d ) %s</translation>
     </message>
     <message>
         <source>Submitted to masternode, waiting in queue %s</source>
         <translation>Odoslané na masternode, čaká vo fronte %s</translation>
     </message>
     <message>
-        <source>Synchroning blockchain...</source>
-        <translation>Synchronizuje sa reťazec blokov...</translation>
-    </message>
-    <message>
-        <source>Synchronization failed</source>
-        <translation>Synchronizácia zlyhala</translation>
-    </message>
-    <message>
         <source>Synchronization finished</source>
         <translation>Synchronizácia dokončená</translation>
-    </message>
-    <message>
-        <source>Synchronizing masternodes...</source>
-        <translation>Synchronizujú sa masternode...</translation>
-    </message>
-    <message>
-        <source>This is not a Masternode.</source>
-        <translation>Toto nie je Masternode.</translation>
-    </message>
-    <message>
-        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
-        <translation>Hranica pre odpájanie zle sa správajúcim partnerským uzlom (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Too many %f denominations, removing.</source>
-        <translation>Príliš mnoho %f denominácií, maže sa.</translation>
-    </message>
-    <message>
-        <source>Tor control port password (default: empty)</source>
-        <translation>Heslo na kontrolu portu pre Tor (predvolené: žiadne)</translation>
-    </message>
-    <message>
-        <source>Tor control port to use if onion listening enabled (default: %s)</source>
-        <translation>Ovládací port Toru, ak je zapnuté onion počúvanie (predvolené: %s)</translation>
     </message>
     <message>
         <source>Unable to start HTTP server. See debug log for details.</source>
@@ -4414,164 +4340,72 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Nepodporovaný argument -tor, použite -onion.</translation>
     </message>
     <message>
-        <source>Upgrade wallet to latest format on startup</source>
-        <translation>Pri spustení inovovať peňaženku na posledný formát</translation>
-    </message>
-    <message>
-        <source>Use KeePass 2 integration using KeePassHttp plugin (default: %u)</source>
-        <translation>Použiť integráciu KeePass 2 s využitím doplnku KeePassHttp (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Use UPnP to map the listening port (default: %u)</source>
-        <translation>Použiť UPnP pre mapovanie počúvajúceho portu (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Use the test chain</source>
-        <translation>Použiť testovaciu sieť</translation>
-    </message>
-    <message>
         <source>User Agent comment (%s) contains unsafe characters.</source>
         <translation>Komentár u typu klienta (%s) obsahuje riskantné znaky.</translation>
+    </message>
+    <message>
+        <source>Verifying wallet(s)...</source>
+        <translation>Overuje sa peňaženka(y)...</translation>
     </message>
     <message>
         <source>Will retry...</source>
         <translation>Skúsime znovu...</translation>
     </message>
     <message>
-        <source>Invalid masternodeprivkey. Please see documenation.</source>
-        <translation>Neplatný masternodeprivkey. Prosím pozrite do dokumentácie.</translation>
-    </message>
-    <message>
         <source>Can't find random Masternode.</source>
         <translation>Nedá sa nájsť náhodný Masternode.</translation>
+    </message>
+    <message>
+        <source>%s can't be lower than %s</source>
+        <translation>%s nemôže byť nižšia ako %s</translation>
+    </message>
+    <message>
+        <source>%s is idle.</source>
+        <translation>%s je nečinný.</translation>
+    </message>
+    <message>
+        <source>%s request incomplete: %s</source>
+        <translation>%s požiadavok nedokončený: %s</translation>
     </message>
     <message>
         <source>Can't mix while sync in progress.</source>
         <translation>Miešanie nefunguje počas synchronizácie.</translation>
     </message>
     <message>
-        <source>Could not parse masternode.conf</source>
-        <translation>Nedá sa analyzovať masternode.conf</translation>
-    </message>
-    <message>
         <source>Invalid netmask specified in -whitelist: '%s'</source>
         <translation>Nadaná neplatná netmask vo -whitelist: '%s'</translation>
-    </message>
-    <message>
-        <source>Invalid port detected in masternode.conf</source>
-        <translation>Zistený neplatný port v masternode.conf</translation>
     </message>
     <message>
         <source>Invalid script detected.</source>
         <translation>Zistený neplatný skript.</translation>
     </message>
     <message>
-        <source>KeePassHttp id for the established association</source>
-        <translation>Identifikátor KeePassHttp pre zavedené priradenie</translation>
+        <source>%s file contains all private keys from this wallet. Do not share it with anyone!</source>
+        <translation>Súbor %s obsahuje všetky súkromné kľúče z tejto peňaženky. Nezdieľajte s nikým!</translation>
     </message>
     <message>
-        <source>KeePassHttp key for AES encrypted communication with KeePass</source>
-        <translation>Kľúč KeePassHttp pre šifrovanú AES komunikáciu s KeePass</translation>
-    </message>
-    <message>
-        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
-        <translation>V pamäti udržiavať najviac &lt;n&gt; nepotvrdených transakcií (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Disable all DMS specific functionality (Masternodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</source>
-        <translation>Vypnúť všetky funkcie špecifické pre DMS (Masternodes, PrivateSend, InstantSend, Vláda) (0-1, predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
-        <translation>Zisti vlastnú IP adresu (predvolené: 1 pre listen a -externalip alebo -proxy)</translation>
-    </message>
-    <message>
-        <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
-        <translation>Nedržať transakcie v zásobníku dlhšie ako &lt;n&gt; hodín (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Enable InstantSend, show confirmations for locked transactions (0-1, default: %u)</source>
-        <translation>Zapnúť InstantSend, ukázať potvrdenia pre zamknuté transakcie (0-1, predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Enable multiple PrivateSend mixing sessions per block, experimental (0-1, default: %u)</source>
-        <translation>Zapnúť viac PrivateSend miešaní za jeden blok, experimentálne (0-1, predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Enable use of automated PrivateSend for funds stored in this wallet (0-1, default: %u)</source>
-        <translation>Povoliť používanie automatického PrivateSend pre zdroje uložené v tejto peňaženke (0-1, predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Execute command when a wallet InstantSend transaction is successfully locked (%s in cmd is replaced by TxID)</source>
-        <translation>Spustiť príkaz keď je InstantSend zmení úspešne zamknutá (%s v cmd sa nahrádza TxID)</translation>
+        <source>-masternode option is deprecated and ignored, specifying -masternodeblsprivkey is enough to start this node as a masternode.</source>
+        <translation>Podpora -masternode príkazu bola ukončená a je ignorovaná, na spustenie tohto uzla ako masternódu stačí zadanie -masternodeblsprivkey.</translation>
     </message>
     <message>
         <source>Failed to create backup, file already exists! This could happen if you restarted wallet in less than 60 seconds. You can continue if you are ok with this.</source>
         <translation>Chyba pri vytváraní zálohy, lebo súbor už existuje! Toto môže nastať v prípade, ak ste reštartovali peňaženku za menej ako 60 sekúnd. Ak Vám to nevadí, môžete pokračovať.</translation>
     </message>
     <message>
-        <source>Fees (in %s/kB) smaller than this are considered zero fee for relaying, mining and transaction creation (default: %s)</source>
-        <translation>Poplatky (v %s/kB) menšie ako toto, sú považované za nulový transakčný poplatok (predvolené: %s)</translation>
-    </message>
-    <message>
-        <source>Fees (in %s/kB) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Poplatky (v %s/kB) menšie ako toto, sú považované za nulový transakčný poplatok (predvolené: %s)</translation>
-    </message>
-    <message>
-        <source>If &lt;category&gt; is not supplied or if &lt;category&gt; = 1, output all debugging information.</source>
-        <translation>Pokiaľ &lt;category&gt; nie je nastavená, alebo &lt;category&gt; = 1, vypíš všetky informácie pre ladenie.</translation>
-    </message>
-    <message>
-        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 DMS.</source>
-        <translation>InstantSend zatiaľ nepodporuje posielanie takto vysokých čiastok. Transakcie sú limitované na %1 DMS.</translation>
-    </message>
-    <message>
-        <source>InstantSend requires inputs with at least %d confirmations, you might need to wait a few minutes and try again.</source>
-        <translation>InstantSend vyžaduje vstupy s aspoň %d potvrdeniami, môžete počkať pár minút a skúsiť znova.</translation>
-    </message>
-    <message>
-        <source>Maintain a full address index, used to query for the balance, txids and unspent outputs for addresses (default: %u)</source>
-        <translation>Udržiavať kompletný index adries, používaný pre zisťovanie zostatku a neminutých vstupov pre adresy (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Maintain a full spent index, used to query the spending txid and input index for an outpoint (default: %u)</source>
-        <translation>Udržiavať kompletný index minutí, používaný pre zisťovanie minutých txid a vstupných indexov pre outpoint (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Maintain a timestamp index for block hashes, used to query blocks hashes by a range of timestamps (default: %u)</source>
-        <translation>Udržiavať časový index pre transformácie blokov, používaný pre zisťovanie transformácií blokov zadaním časového rozsahu (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Maintain at most &lt;n&gt; connections to peers (temporary service connections excluded) (default: %u)</source>
-        <translation>Udržiavať najviac &lt;n&gt; spojení s inými počítačmi (dočasné servisné spojenia nie sú zahrnuté) (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>PrivateSend uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.</source>
-        <translation>Pre poslanie zdrojov používa PrivateSend presné sumy, potrebujete jednoducho anonymizovať viac mincí. </translation>
+        <source>Make sure to encrypt your wallet and delete all non-encrypted backups after you have verified that the wallet works!</source>
+        <translation>Uistite sa, že máte vašu peňaženku zašifrovanú a zmazané všetky nezašifrované zálohy potom ako ste overili, že peňaženka funguje!</translation>
     </message>
     <message>
         <source>Prune configured below the minimum of %d MiB.  Please use a higher number.</source>
-        <translation>Redukcia nastavená pod minimálnu hodnotu %d MiB. Prosím použite vyššiu hodnotu.</translation>
+        <translation>Orezanie nastavené pod minimálnu hodnotu %d MiB. Prosím použite vyššiu hodnotu.</translation>
     </message>
     <message>
         <source>Prune: last wallet synchronisation goes beyond pruned data. You need to -reindex (download the whole blockchain again in case of pruned node)</source>
-        <translation>Prerezávanie: posledná synchronizácia peňaženky prebehla pred už prerezanými dátami. Je treba previesť -reindex (v prípade prerezávacieho režimu stiahne znovu celý reťazec blokov)</translation>
-    </message>
-    <message>
-        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
-        <translation>Použít náhodné údaje pro každé proxy spojení. To umožní izolovat nesouvisející datové toky v Toru (predvolené: %u)</translation>
+        <translation>Orezávanie: posledná synchronizácia peňaženky prebehla už pred orezanými dátami. Je treba spustiť -reindex (stiahne znovu celý blockchain v prípade orezaného uzlu)</translation>
     </message>
     <message>
         <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
-        <translation>V prerezávaciom režime nie je možné reťazec blokov preskenovať. Musíte vykonať -reindex, čo znova stiahne celý reťaec blokov.</translation>
-    </message>
-    <message>
-        <source>Specify full path to directory for automatic wallet backups (must exist)</source>
-        <translation>Zadajte celú cestu ku zložke pre automatické zálohy peňaženky (cesta musí existovať)</translation>
-    </message>
-    <message>
-        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
-        <translation>Umožniť filtrovanie blokov a transakcií pomocou Bloom filtra (predvolené: %u)</translation>
+        <translation>V orezanom režime nie je možné reťazec blokov pre-skenovať. Musíte vykonať -reindex, čo znova stiahne celý blockchain.</translation>
     </message>
     <message>
         <source>The block database contains a block which appears to be from the future. This may be due to your computer's date and time being set incorrectly. Only rebuild the block database if you are sure that your computer's date and time are correct</source>
@@ -4579,19 +4413,11 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>The transaction amount is too small to send after the fee has been deducted</source>
-        <translation>Suma je príliš malá pre odoslanie tranzakcie</translation>
+        <translation>Po odpočítaní poplatku je suma transakcie príliš malá pre odoslanie</translation>
     </message>
     <message>
         <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
         <translation>Celková dĺžka verzie sieťového reťazca (%i) prekračuje maximálnu dĺžku (%i). Znížte počet a veľkosť parametra  uacomments.</translation>
-    </message>
-    <message>
-        <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
-        <translation>Sa snaží držať odchádzajúce prevádzku v rámci daného cieľa (v MB za 24h), 0 = žiadny limit (predvolený: %d)</translation>
-    </message>
-    <message>
-        <source>Unable to locate enough PrivateSend denominated funds for this transaction.</source>
-        <translation>Nedá sa nájsť dostatok denominácií PrivateSend pre túto transakciu. </translation>
     </message>
     <message>
         <source>Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
@@ -4602,92 +4428,72 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Nepodporovaný argument -whitelistalwaysrelay ignorovaný, použite -whitelistrelay a/alebo -whitelistforcerelay.</translation>
     </message>
     <message>
-        <source>Use UPnP to map the listening port (default: 1 when listening and no -proxy)</source>
-        <translation>Skúsiť použiť UPnP pre mapovanie počúvajúceho portu (predvolené: 1 počas počúvania a bez -proxy)</translation>
-    </message>
-    <message>
         <source>WARNING! Failed to replenish keypool, please unlock your wallet to do so.</source>
-        <translation>UPOZORNENIE! Chyba pri doplňovaní zásobníku kľúčov. Pre doplnenie musíte odomknúť Vašu peňaženku.</translation>
+        <translation>UPOZORNENIE! Chyba pri doplňovaní zásobníku kľúčov. Pre doplnenie musíte odomknúť vašu peňaženku.</translation>
     </message>
     <message>
         <source>Wallet is locked, can't replenish keypool! Automatic backups and mixing are disabled, please unlock your wallet to replenish keypool.</source>
-        <translation>Peňaženka je zamknutá takže sa nedá doplniť zásobník kľúčov. Automatické zálohy a miešanie sú vypnuté. Pre doplnenie musíte odomknúť Vašu peňaženku.</translation>
+        <translation>Peňaženka je zamknutá takže sa nedá doplniť zásobník kľúčov. Automatické zálohy a miešanie sú vypnuté. Pre doplnenie musíte odomknúť vašu peňaženku.</translation>
     </message>
     <message>
         <source>Warning: Unknown block versions being mined! It's possible unknown rules are in effect</source>
         <translation>Upozornenie: Ťaží sa neznáma verzia blokov! Je možné, že sú v platnosti neznáme pravidlá</translation>
     </message>
     <message>
+        <source>You need to rebuild the database using -reindex to change -timestampindex</source>
+        <translation>Potrebujete prebudovať databázu použitím -reindex zmeniť -timestampindex</translation>
+    </message>
+    <message>
         <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
-        <translation>K návratu k neprerezávaciemu režimu je treba prestavať databázu použitím -reindex. Tiež sa znova stiahne celý reťazec blokov</translation>
+        <translation>K návratu k neorezanému režimu je treba prestavať databázu použitím -reindex. Tiež sa znova stiahne celý blockchain</translation>
     </message>
     <message>
-        <source>(%d could be used only on mainnet)</source>
-        <translation>(%d môže byť použité iba pre hlavnú sieť)</translation>
-    </message>
-    <message>
-        <source>(default: %u)</source>
-        <translation>(predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>(must be %d for mainnet)</source>
-        <translation>(pre hlavnú sieť musí byť %d)</translation>
+        <source>-litemode is deprecated.</source>
+        <translation>-litemode je už nepodporovaný.</translation>
     </message>
     <message>
         <source>-maxmempool must be at least %d MB</source>
         <translation>-maxmempool musí byť najmenej %d MB</translation>
     </message>
     <message>
-        <source>&lt;category&gt; can be:</source>
-        <translation>&lt;category&gt; môže byť:</translation>
-    </message>
-    <message>
-        <source>Append comment to the user agent string</source>
-        <translation>Pripojiť komentár k typu klienta</translation>
-    </message>
-    <message>
         <source>Automatic backups disabled</source>
         <translation>Automatické zálohy sú deaktivované</translation>
-    </message>
-    <message>
-        <source>Automatically create Tor hidden service (default: %d)</source>
-        <translation>Automaticky vytvoriť skrytú službu Tor (predvolené: %d)</translation>
     </message>
     <message>
         <source>ERROR! Failed to create automatic backup</source>
         <translation>CHYBA! Nepodarilo sa vytvoriť automatickú zálohu</translation>
     </message>
     <message>
-        <source>Enable publish hash block in &lt;address&gt;</source>
-        <translation>Povoliť zverejneneie hash blokov pre &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish hash transaction (locked via InstantSend) in &lt;address&gt;</source>
-        <translation>Povoliť publikovanie transformačných transakcií (zamknutých cez InstantSend) v &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish hash transaction in &lt;address&gt;</source>
-        <translation>Povoliť zverejnenie hash tranzakcií pre &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish raw block in &lt;address&gt;</source>
-        <translation>Povoliť zverejnenie raw bloku pre &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish raw transaction (locked via InstantSend) in &lt;address&gt;</source>
-        <translation>Povoliť publikovanie nespracovaných transakcií (zamknutých cez InstantSend) v &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish raw transaction in &lt;address&gt;</source>
-        <translation>Povoliť publikovať hrubý prevod v &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable transaction replacement in the memory pool (default: %u)</source>
-        <translation>Povoliť výmenu transakcií v transakčnom zásobníku (predvolené: %u)</translation>
+        <source>Error upgrading evo database</source>
+        <translation>Chyba pri aktualizácii databázy evo</translation>
     </message>
     <message>
         <source>Error: A fatal internal error occurred, see debug.log for details</source>
         <translation>Chyba: Vyskytla sa interná chyba, pre viac informácií zobrazte debug.log</translation>
+    </message>
+    <message>
+        <source>Error: failed to add socket to epollfd (epoll_ctl returned error %s)</source>
+        <translation>Chyba: Nepodaril sa pridať soket do epollfd (epoll_ctl vrátil chybu %s)</translation>
+    </message>
+    <message>
+        <source>Exceeded max tries.</source>
+        <translation>Prekročený maximálny počet pokusov.</translation>
+    </message>
+    <message>
+        <source>Failed to clear fulfilled requests cache at</source>
+        <translation>Vymazanie vyrovnávacej pamäte splnených požiadaviek sa nepodarilo o</translation>
+    </message>
+    <message>
+        <source>Failed to clear governance cache at</source>
+        <translation>Vymazanie medzipamäte riadenia sa nepodarilo o</translation>
+    </message>
+    <message>
+        <source>Failed to clear masternode cache at</source>
+        <translation>Vymazanie vyrovnávacej pamäte masternode sa nepodarilo o</translation>
+    </message>
+    <message>
+        <source>Failed to commit EvoDB</source>
+        <translation>Nepodarilo sa vykonať EvoDB</translation>
     </message>
     <message>
         <source>Failed to create backup %s!</source>
@@ -4702,44 +4508,28 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Nepodarilo sa vymazať zálohu, chyba: %s</translation>
     </message>
     <message>
-        <source>Failed to parse host:port string</source>
-        <translation>Chyba pri načítaní reťazca host:port</translation>
+        <source>Failed to load sporks cache from</source>
+        <translation>Chyba pri načítaní vyrovnávajúcej pamäti sporks z</translation>
     </message>
     <message>
-        <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
-        <translation>Poplatok (za %s/kB) pridaný do tranzakcie, ktorú posielate (predvolené: %s)</translation>
-    </message>
-    <message>
-        <source>Imports blocks from external blk000??.dat file on startup</source>
-        <translation>Importovať bloky z externého súboru blk000??.dat pri štarte</translation>
-    </message>
-    <message>
-        <source>InstantSend options:</source>
-        <translation>Možnosti InstantSend:</translation>
+        <source>Failed to rescan the wallet during initialization</source>
+        <translation>Počas inicializácie sa nepodarilo znova naskenovať peňaženku</translation>
     </message>
     <message>
         <source>Invalid amount for -fallbackfee=&lt;amount&gt;: '%s'</source>
         <translation>Neplatná suma pre -fallbackfee=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
-        <source>Keep the transaction memory pool below &lt;n&gt; megabytes (default: %u)</source>
-        <translation>Udržovať zasobník transakcií menší než &lt;n&gt; megabajtov (predvolené: %u)</translation>
+        <source>Invalid masternodeblsprivkey. Please see documentation.</source>
+        <translation>Neplatný masternodeblsprivkey. Pozrite si dokumentáciu.</translation>
     </message>
     <message>
-        <source>Last PrivateSend was too recent.</source>
-        <translation>Posledný PrivateSend bol uskutočnený pred príliš krátkou chvíľou.</translation>
+        <source>It has been replaced by -disablegovernance.</source>
+        <translation>Bol nahradený -disablegovernance.</translation>
     </message>
     <message>
-        <source>Last successful PrivateSend action was too recent.</source>
-        <translation>Posledná úspešná PrivateSend akcia bola uskutočnená pred príliš krátkou chvíľou.</translation>
-    </message>
-    <message>
-        <source>Line: %d</source>
-        <translation>Riadok: %d</translation>
-    </message>
-    <message>
-        <source>Loading addresses...</source>
-        <translation>Načítavanie adries...</translation>
+        <source>Its replacement -disablegovernance has been forced instead.</source>
+        <translation>Namiesto toho bola vynútená jeho náhrada -disablegovernance.</translation>
     </message>
     <message>
         <source>Loading block index...</source>
@@ -4747,7 +4537,11 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>Loading governance cache...</source>
-        <translation>Načíta sa vyrovnávacia pamäť dozoru...</translation>
+        <translation>Načíta sa vyrovnávacia pamäť správy...</translation>
+    </message>
+    <message>
+        <source>Loading sporks cache...</source>
+        <translation>Načíta sa vyrovnávacia pamäť sporks...</translation>
     </message>
     <message>
         <source>Loading wallet... (%3.2f %%)</source>
@@ -4758,32 +4552,12 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Načítavanie peňaženky...</translation>
     </message>
     <message>
-        <source>Location of the auth cookie (default: data dir)</source>
-        <translation>Umiestnenie overovacieho cookie súboru (predvolená: Priečinok s dátami)</translation>
-    </message>
-    <message>
-        <source>Make the wallet broadcast transactions</source>
-        <translation>Vysielať transakcie z peňaženky</translation>
-    </message>
-    <message>
-        <source>Masternode cache is empty, skipping payments and governance cache...</source>
-        <translation>Vyrovnávacia pamäť Masternode je prázdna, vynechávajú sa platby a vyrovnávacia pamäť dozoru...</translation>
-    </message>
-    <message>
-        <source>Masternode options:</source>
-        <translation>Možnosti Masternode:</translation>
-    </message>
-    <message>
         <source>Masternode queue is full.</source>
         <translation>Fronta Masternode je plná</translation>
     </message>
     <message>
         <source>Masternode:</source>
         <translation>Masternode:</translation>
-    </message>
-    <message>
-        <source>Minimum bytes per sigop in transactions we relay and mine (default: %u)</source>
-        <translation>Maximum bytov za sigop v transakciách, ktoré prenášame a ťažíme (predvolené: %u)</translation>
     </message>
     <message>
         <source>Missing input transaction information.</source>
@@ -4798,14 +4572,6 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Nenájdené zhodné denominované zdroje pre miešanie.</translation>
     </message>
     <message>
-        <source>Node relay options:</source>
-        <translation>Prenosové možnosti uzla:</translation>
-    </message>
-    <message>
-        <source>Non-standard public key detected.</source>
-        <translation>Detekovaný neštandardný verejný kľúč.</translation>
-    </message>
-    <message>
         <source>Not compatible with existing transactions.</source>
         <translation>Nie je kompatibilné s existujúcou transakciou.</translation>
     </message>
@@ -4814,60 +4580,44 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Nedostatok kľúčových slov súboru.</translation>
     </message>
     <message>
-        <source>Not enough funds to anonymize.</source>
-        <translation>Nedostatok zdrojov na anonymizáciu.</translation>
-    </message>
-    <message>
-        <source>Number of automatic wallet backups (default: %u)</source>
-        <translation>Počet automatických záloh peňaženky (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Options:</source>
-        <translation>Možnosti:</translation>
-    </message>
-    <message>
-        <source>Password for JSON-RPC connections</source>
-        <translation>Heslo pre JSON-rPC spojenia</translation>
-    </message>
-    <message>
-        <source>Print version and exit</source>
-        <translation>Vytlačiť verziu a ukončiť</translation>
-    </message>
-    <message>
-        <source>PrivateSend is idle.</source>
-        <translation>PrivateSend je nečinný.</translation>
-    </message>
-    <message>
-        <source>PrivateSend options:</source>
-        <translation>Možnosti PrivateSend:</translation>
-    </message>
-    <message>
-        <source>PrivateSend request complete:</source>
-        <translation>Dokončené PrivateSend požiadavky:</translation>
-    </message>
-    <message>
-        <source>PrivateSend request incomplete:</source>
-        <translation>Nedokončené PrivateSend požiadavky:</translation>
-    </message>
-    <message>
         <source>Prune cannot be configured with a negative value.</source>
-        <translation>Redukovanie nemôže byť nastavené na zápornú hodnotu.</translation>
+        <translation>Orezanie nemôže byť nastavené na zápornú hodnotu.</translation>
+    </message>
+    <message>
+        <source>Prune mode is incompatible with -disablegovernance=false.</source>
+        <translation>Orezávanie nie je kompatibilné s -disablegovernance=false.</translation>
     </message>
     <message>
         <source>Prune mode is incompatible with -txindex.</source>
-        <translation>Redukovanie je nekompatibilné s -txindex.</translation>
+        <translation>Orezávanie nie je kompatibilné s -txindex.</translation>
     </message>
     <message>
         <source>Pruning blockstore...</source>
         <translation>Redukovanie blockstore...</translation>
     </message>
     <message>
-        <source>Rescan the block chain for missing wallet transactions on startup</source>
-        <translation>Pri spustení skontrolovať reťaz blokov pre chýbajúce transakcie peňaženky</translation>
+        <source>Specified -walletdir "%s" does not exist</source>
+        <translation>Zadaný -walletdir "%s" neexistuje</translation>
+    </message>
+    <message>
+        <source>Specified -walletdir "%s" is a relative path</source>
+        <translation>Zadaný -walletdir "%s" je relatívna cesta</translation>
+    </message>
+    <message>
+        <source>Specified -walletdir "%s" is not a directory</source>
+        <translation>Zadaný -walletdir "%s" nie je adresár</translation>
+    </message>
+    <message>
+        <source>Synchronizing blockchain...</source>
+        <translation>Synchronizuje sa blockchain...</translation>
     </message>
     <message>
         <source>The wallet will avoid paying less than the minimum relay fee.</source>
         <translation>Peňaženka zabráni zaplateniu menšej sumy ako je minimálny poplatok.</translation>
+    </message>
+    <message>
+        <source>This is expected because you are running a pruned node.</source>
+        <translation>Tot je očakávané, pretože používate orezaný uzol.</translation>
     </message>
     <message>
         <source>This is the minimum transaction fee you pay on every transaction.</source>
@@ -4890,6 +4640,10 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Transakcia musí mať aspoň jedného príjemcu</translation>
     </message>
     <message>
+        <source>Transaction too large</source>
+        <translation>Transakcia je príliš veľká</translation>
+    </message>
+    <message>
         <source>Trying to connect...</source>
         <translation>Pokúšame sa pripojiť...</translation>
     </message>
@@ -4898,16 +4652,16 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Nedá sa pripojiť k %s na tomto počítači. %s už pravdepodobne beží.</translation>
     </message>
     <message>
+        <source>Unable to generate initial keys</source>
+        <translation>Nie je možné vygenerovať počiatočné kľúče</translation>
+    </message>
+    <message>
         <source>Upgrading UTXO database</source>
         <translation>Vylepšuje sa databáza neminutých výstupov (UTXO)</translation>
     </message>
     <message>
-        <source>Use devnet chain with provided name</source>
-        <translation>Použiť devnet reťazec s poskytnutým názvom</translation>
-    </message>
-    <message>
-        <source>Wallet debugging/testing options:</source>
-        <translation>Ladiace / testovacie možnosti peňaženky.</translation>
+        <source>Wallet %s resides outside wallet directory %s</source>
+        <translation>Peňaženka %s sa nachádza mimo adresára peňaženky %s</translation>
     </message>
     <message>
         <source>Wallet needed to be rewritten: restart %s to complete</source>
@@ -4922,12 +4676,20 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Nepodarilo sa vytvorenie priečinku pre zálohu %s!</translation>
     </message>
     <message>
-        <source>Whether to operate in a blocks only mode (default: %u)</source>
-        <translation>Či fungovat iba v čistom blokovom režime (predvolené: %u)</translation>
+        <source>You can not start a masternode with wallet enabled.</source>
+        <translation>Nie je možné spustiť masternód s povolenou peňaženkou.</translation>
     </message>
     <message>
-        <source>ZeroMQ notification options:</source>
-        <translation>Možnosti pripojenia ZeroMQ:</translation>
+        <source>You need to rebuild the database using -reindex to change -addressindex</source>
+        <translation>Potrebujete prebudovať databázu použitím -reindex zmeniť -addressindex</translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex to change -spentindex</source>
+        <translation>Potrebujete prebudovať databázu použitím -reindex zmeniť -spentindex</translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex to change -txindex</source>
+        <translation>Potrebujete prebudovať databázu použitím -reindex zmeniť -txindex</translation>
     </message>
     <message>
         <source>no mixing available.</source>
@@ -4938,10 +4700,6 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>podrobnosti nájdete v debug.log.</translation>
     </message>
     <message>
-        <source>RPC server options:</source>
-        <translation>Možnosti servra RPC:</translation>
-    </message>
-    <message>
         <source>DMS Core</source>
         <translation>DMS Core</translation>
     </message>
@@ -4950,44 +4708,28 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Vývojári %s</translation>
     </message>
     <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect/-noconnect)</source>
-        <translation>Prijímať pripojenie z vonku (predvolené: 1, ak nie -proxy alebo -connect/-noconnect)</translation>
+        <source>%s uses exact denominated amounts to send funds, you might simply need to mix some more coins.</source>
+        <translation>Pre poslanie zdrojov používa %s presné denominované sumy, možno iba potrebujete zmiešať viac mincí. </translation>
     </message>
     <message>
         <source>Cannot obtain a lock on data directory %s. %s is probably already running.</source>
         <translation>Nedá sa uzamknúť zložka %s. %s pravdepodobne už beží.</translation>
     </message>
     <message>
-        <source>Connect only to the specified node(s); -noconnect or -connect=0 alone to disable automatic connections</source>
-        <translation>Pripojiť iba k zadanému uzlu(-om); -noconnect alebo -connect=0, aby ste zakázali automatické pripojenia</translation>
-    </message>
-    <message>
         <source>Distributed under the MIT software license, see the accompanying file %s or %s</source>
         <translation>Distribuované pod softvérovou licenciou MIT, viď sprievodný súbor %s alebo %s</translation>
+    </message>
+    <message>
+        <source>Error loading %s: You can't enable HD on an already existing non-HD wallet</source>
+        <translation>Chyba pri načítaní %s: Nemôžete zapnúť HD na už existujúcej nie-HD peňaženke</translation>
     </message>
     <message>
         <source>Error reading %s! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
         <translation>Nastala chyba pri čítaní súboru %s! Všetky kľúče sa prečítali správne, ale dáta o transakciách alebo záznamy v adresári môžu chýbať alebo byť nesprávne.</translation>
     </message>
     <message>
-        <source>Force relay of transactions from whitelisted peers even if they violate local relay policy (default: %d)</source>
-        <translation>Vynútiť preposíelanie transakcií od vždy vítaných peerov, aj keď porušujú míestne zásady pre preposielanie (predvolené: %d)</translation>
-    </message>
-    <message>
         <source>Incorrect or no devnet genesis block found. Wrong datadir for devnet specified?</source>
         <translation>Nebol nájdený správny, prípadne žiadny základný blok. Nezadali ste nesprávny dátový priečinok alebo vývojársku sieť?</translation>
-    </message>
-    <message>
-        <source>Maximum allowed median peer time offset adjustment. Local perspective of time may be influenced by peers forward or backward by this amount. (default: %u seconds)</source>
-        <translation>Maximálne povolené upravovanie času mediánom časov peerov. Miestne vnímanie času môže byť ovplivnené peerami, a to dopredu alebo dozadu až o toto množstvo. (predvolené: %u sekund)</translation>
-    </message>
-    <message>
-        <source>Maximum total fees (in %s) to use in a single wallet transaction or raw transaction; setting this too low may abort large transactions (default: %s)</source>
-        <translation>Horná hranica pre celkový poplatok (v %s) za jednu transakciu z peňaženky alebo jednu nespracovanú transakciu. Príliš nízká hodnota môže zmariť velké transakcie (predvolené: %s)</translation>
-    </message>
-    <message>
-        <source>Override spork address. Only useful for regtest and devnet. Using this on mainnet or testnet will ban you.</source>
-        <translation>Prepísať spork adresu. Použiteľné iba pre regtest a devnet. Použitie tejto funkcie na hlavnej alebo testovacej vás zablokuje.</translation>
     </message>
     <message>
         <source>Please check that your computer's date and time are correct! If your clock is wrong, %s will not work properly.</source>
@@ -4998,24 +4740,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Keď si myslíte, že %s je užitočný, podporte nás. Pre viac informácií o software navštívte %s.</translation>
     </message>
     <message>
-        <source>Provide liquidity to PrivateSend by infrequently mixing coins on a continual basis (%u-%u, default: %u, 1=very frequent, high fees, %u=very infrequent, low fees)</source>
-        <translation>Poskytnúť likviditu PrivateSend tým, že občas miešať mince na priebežnej báze (%u-%u, predvolené: %u, 1=veľmi často, vysoké poplatky, %u=veľmi zriedkavo, nízke poplatky)</translation>
-    </message>
-    <message>
-        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect/-noconnect)</source>
-        <translation>Dotaz pre uzlové adresy cez vyhľadávanie DNS, ak je nodostatok adries (predvolené: 1 okrem -connect/-noconnect)</translation>
-    </message>
-    <message>
-        <source>Reduce storage requirements by enabling pruning (deleting) of old blocks. This allows the pruneblockchain RPC to be called to delete specific blocks, and enables automatic pruning of old blocks if a target size in MiB is provided. This mode is incompatible with -txindex and -rescan. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, 1 = allow manual pruning via RPC, &gt;%u = automatically prune block files to stay under the specified target size in MiB)</source>
-        <translation>Obmedziť nároky na úložný priestor prerezáváním (mazaním) starých blokov. Táto volba tiež umožní použiť RPC volanie pruneblockchain na zmazanie konkrétnych blokov a ďalej automatické prerezávanie starých blokov, ak je zadána cieľová velikosť súborov z blokmi v MiB. Tento režim nie je zlúčiteľný s -txindex ani -rescan. Upozornenie: opätovná zmena tohoto nastavenia bude vyžadovať nové stiahnutie celého reťazca blokov. (predvolené: 0 = bloky neprerezávať, 1 = povoliť ručné prerezávanie cez RPC, &gt;%u = automatické prerezávanie blokov tak, aby bola udržaná cieľová velikosť súborov s blokmi v MiB)</translation>
-    </message>
-    <message>
-        <source>Set lowest fee rate (in %s/kB) for transactions to be included in block creation. (default: %s)</source>
-        <translation>Nastaviť nejnižší akceptovateľný poplatok (v %s/kB) pre transakcie, ktoré majú byť zahrnutý do nových blokov. (predvolené: %s)</translation>
-    </message>
-    <message>
-        <source>Show N confirmations for a successfully locked transaction (%u-%u, default: %u)</source>
-        <translation>Zobraziť N potvrdení pre úspešne uzamknuté transakcie (%u-%u, predvolené: %u)</translation>
+        <source>This is the transaction fee you may discard if change is smaller than dust at this level</source>
+        <translation>Toto je transakčný poplatok, ktorý môžete zahodiť, ak je výdavok menší ako prach pri tejto úrovni</translation>
     </message>
     <message>
         <source>This is the transaction fee you may pay when fee estimates are not available.</source>
@@ -5026,44 +4752,16 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Tento produkt zahrňuje programy vyvinuté projektom OpenSSL pre použití v OpenSSL Toolkite %s a kryptografický program od Erika Younga a program UPnP od Thomasa Bernarda.</translation>
     </message>
     <message>
-        <source>Unable to locate enough PrivateSend non-denominated funds for this transaction.</source>
-        <translation>Pre túto transakciu nie je možné nájsť dostatok neverejnených prostriedkov PrivateSend.</translation>
-    </message>
-    <message>
-        <source>Use N separate masternodes for each denominated input to mix funds (%u-%u, default: %u)</source>
-        <translation>Použiť N oddelených masternode pre každý denominovaný vstup na zmiešanie prostriedkov (%u-%u, predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Use hierarchical deterministic key generation (HD) after BIP39/BIP44. Only has effect during wallet creation/first start</source>
-        <translation>Použiť hierarchicko-deterministické generovanie kľúčov (HD) po BIP39/BIP44. Platí iba počas vytvárania peňaženky/prvého spustenia</translation>
-    </message>
-    <message>
-        <source>User defined mnemonic passphrase for HD wallet (BIP39). Only has effect during wallet creation/first start (default: empty string)</source>
-        <translation>Užívateľsky definovaná zapamätaná prístupová fráza pre HD peňaženku (BIP39). Platí iba počas vytvárania peňaženky/prvého spustenia (predvolené: prázdny reťazec)</translation>
-    </message>
-    <message>
-        <source>Username and hashed password for JSON-RPC connections. The field &lt;userpw&gt; comes in the format: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. A canonical python script is included in share/rpcuser. The client then connects normally using the rpcuser=&lt;USERNAME&gt;/rpcpassword=&lt;PASSWORD&gt; pair of arguments. This option can be specified multiple times</source>
-        <translation>Užívateľské meno a zahašované heslo pre JSON-RPC spojenie. Pole &lt;userpw&gt;  má formát: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. Pomocný python skript je priložený v share/rpcuser. Klient sa potom už pripojuje normálne pomocou páru argumentov rpcuser=&lt;USERNAME&gt;/rpcpassword=&lt;PASSWORD&gt;. Túto voľbu môžete použiť i viackrát</translation>
-    </message>
-    <message>
-        <source>Wallet will not create transactions that violate mempool chain limits (default: %u)</source>
-        <translation>Peňaženka nebude vytvárať transakcie, ktoré by porušovali limity transakčného zásobníku reťazcov (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Warning: At least %d of %d masternodes are running on a newer software version. Please check latest releases, you might need to update too.</source>
-        <translation>Upozornenie: Aspoň %d z %d masternode beží na novšej verzii softvéru. Skontrolujte najnovšie verzie, možno budete musieť tiež aktualizovať.</translation>
-    </message>
-    <message>
-        <source>Warning: Every masternode (out of %d known ones) is running on a newer software version. Please check latest releases, it's very likely that you missed a major/critical update.</source>
-        <translation>Upozornenie: Každý masternode (z %d známych) beží na novšej verzii softvéru. Skontrolujte najnovšie verzie, je veľmi pravdepodobné, že ste vynechali hlavnú/kritickú aktualizáciu.</translation>
+        <source>Unable to replay blocks. You will need to rebuild the database using -reindex-chainstate.</source>
+        <translation>Bloky nie je možné prehrať. Potrebujete prebudovať databázu použitím -reindex-chainstate.</translation>
     </message>
     <message>
         <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
         <translation>Varovanie: Peňaženka poškodená, dáta boli zachránené! Originálna %s ako %s v %s; ak váš zostatok alebo transakcie sú nesprávne, mali by ste obnoviť zálohu.</translation>
     </message>
     <message>
-        <source>Whitelist peers connecting from the given IP address (e.g. 1.2.3.4) or CIDR notated network (e.g. 1.2.3.0/24). Can be specified multiple times.</source>
-        <translation>Povoliť partnerov pripájajúcich sa z danej IP adresy (napr. 1.2.3.4) alebo zo siete vo formáte CIDR (napr. 1.2.3.0/24). Môže byť zadané viackrát.</translation>
+        <source>%d of last 100 blocks have unexpected version</source>
+        <translation>%d z posledných 100 blokov má neočakávanú verziu</translation>
     </message>
     <message>
         <source>%s corrupt, salvage failed</source>
@@ -5078,10 +4776,6 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Hodnota %s je nastavená veľmi vysoko!</translation>
     </message>
     <message>
-        <source>(press q to shutdown and continue later)</source>
-        <translation>(stlačením tlačidla q vypnúť a pokračovať neskôr)</translation>
-    </message>
-    <message>
         <source>-devnet can only be specified once</source>
         <translation>-devnet môže byť zadaný iba raz</translation>
     </message>
@@ -5094,16 +4788,12 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>-rpcport musí byť zadaný, keď sú špecifikované -devnet a -server</translation>
     </message>
     <message>
-        <source>Allow RFC1918 addresses to be relayed and connected to (default: %u)</source>
-        <translation>Pre prenos a pripojenie povoliť adresy RFC1918 (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Attempt to recover private keys from a corrupt wallet on startup</source>
-        <translation>Pokúsiť sa o obnovenie privátnych kľúčov z poškodenej peňaženky pri spustení</translation>
-    </message>
-    <message>
         <source>Cannot resolve -%s address: '%s'</source>
         <translation>Nedá preložiť -%s adresu: '%s'</translation>
+    </message>
+    <message>
+        <source>Cannot write to data directory '%s'; check permissions.</source>
+        <translation>Nie je možné zapisovať do dátového adresára '%s'. Skontrolujte povolenia.</translation>
     </message>
     <message>
         <source>Change index out of range</source>
@@ -5126,8 +4816,20 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Chyba načítania %s: Peňaženka vyžaduje novšiu verziu %s</translation>
     </message>
     <message>
+        <source>Error loading %s: You can't disable HD on an already existing HD wallet</source>
+        <translation>Chyba pri načítaní %s: Nemôžete vypnúť HD na už existujúcej HD peňaženke</translation>
+    </message>
+    <message>
+        <source>Error loading wallet %s. Duplicate -wallet filename specified.</source>
+        <translation>Chyba pri načítaní peňaženky %s. Bol špecifikovaný duplikáty parameter -wallet.</translation>
+    </message>
+    <message>
         <source>Error upgrading chainstate database</source>
         <translation>Chyba pri vylepšení databáze reťzcov blokov</translation>
+    </message>
+    <message>
+        <source>Error: failed to add socket to kqueuefd (kevent returned error %s)</source>
+        <translation>Chyba: Nepodaril sa pridať soket do kqueuefd (kevent vrátil chybu %s)</translation>
     </message>
     <message>
         <source>Failed to find mixing queue to join</source>
@@ -5138,8 +4840,24 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Nepodarilo sa spustiť novú frontu miešania</translation>
     </message>
     <message>
+        <source>Incorrect -rescan mode, falling back to default value</source>
+        <translation>Nesprávny -rescan režim, vracia sa späť k predvolenej hodnote</translation>
+    </message>
+    <message>
         <source>Initialization sanity check failed. %s is shutting down.</source>
         <translation>Kontrola čistoty pri inicializácií zlyhala. %s sa vypína.</translation>
+    </message>
+    <message>
+        <source>Inputs vs outputs size mismatch.</source>
+        <translation>Nesúlad veľkosti vstupov a výstupov.</translation>
+    </message>
+    <message>
+        <source>Invalid -onion address or hostname: '%s'</source>
+        <translation>Neplatná -onion adresa alebo hostiteľ: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid -proxy address or hostname: '%s'</source>
+        <translation>Neplatná -proxy adresa alebo hostiteľ: '%s'</translation>
     </message>
     <message>
         <source>Invalid amount for -%s=&lt;amount&gt;: '%s'</source>
@@ -5150,40 +4868,20 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Neplatná spork adresa určená pomocou -sporkaddr</translation>
     </message>
     <message>
-        <source>Keep N DMS anonymized (%u-%u, default: %u)</source>
-        <translation>Udržujte N DMS anonymizovaných (%u-%u, predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Print this help message and exit</source>
-        <translation>Vytlačiť túto pomocnú správu a ukončiť</translation>
-    </message>
-    <message>
-        <source>Receive and display P2P network alerts (default: %u)</source>
-        <translation>Obdržať a zobraziť sieťové P2P varovania (predvolené: %u)</translation>
+        <source>Loading P2P addresses...</source>
+        <translation>Načítavam P2P adresy…</translation>
     </message>
     <message>
         <source>Reducing -maxconnections from %d to %d, because of system limitations.</source>
         <translation>Obmedzuje sa -maxconnections z %d na %d kvôli systémovým obmedzeniam.</translation>
     </message>
     <message>
-        <source>Relay and mine data carrier transactions (default: %u)</source>
-        <translation>Prenášať a ťažiť transakcie nosných dát (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Relay non-P2SH multisig (default: %u)</source>
-        <translation>Prenášať non-P2SH multi-podpis (predvolené: %u)</translation>
+        <source>Replaying blocks...</source>
+        <translation>Prebieha nahratie blokov ...</translation>
     </message>
     <message>
         <source>Rescanning...</source>
         <translation>Znova prehľadávam...</translation>
-    </message>
-    <message>
-        <source>Run in the background as a daemon and accept commands</source>
-        <translation>Bežať na pozadí ako démon a prijímať príkazy</translation>
-    </message>
-    <message>
-        <source>Send trace/debug info to console instead of debug.log file</source>
-        <translation>Odoslať trace/debug informácie na konzolu namiesto debug.info žurnálu</translation>
     </message>
     <message>
         <source>Session not complete!</source>
@@ -5194,56 +4892,28 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Relácia vypršala.</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
-        <translation>Nastaviť veľkosť pomocnej pamäti databázy v megabajtoch (%d do %d, prednastavené: %d)</translation>
-    </message>
-    <message>
-        <source>Set maximum block size in bytes (default: %d)</source>
-        <translation>Nastaviť maximálnu veľkosť v bajtoch (predvolené: %d)</translation>
-    </message>
-    <message>
-        <source>Set the masternode private key</source>
-        <translation>Nastaviť súkromný kľúč masternode</translation>
-    </message>
-    <message>
-        <source>Show all debugging options (usage: --help -help-debug)</source>
-        <translation>Zobraziť všetky možnosti ladenia (použitie: --help --help-debug)</translation>
-    </message>
-    <message>
-        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
-        <translation>Stlačiť debug.log súbor na spustenie klienta (predvolené: 1, keď nie -debug)</translation>
-    </message>
-    <message>
         <source>Signing transaction failed</source>
         <translation>Podpisovanie transakcie zlyhalo</translation>
     </message>
     <message>
-        <source>Specify data directory</source>
-        <translation>Zadať dátový adresár</translation>
+        <source>Specified blocks directory "%s" does not exist.</source>
+        <translation>Zadaný adresár s blokmi "%s" neexistuje.</translation>
     </message>
     <message>
-        <source>Specify wallet file (within data directory)</source>
-        <translation>Zadajte súbor peňaženky (vrámci dátovej zložky)</translation>
+        <source>Last queue was created too recently.</source>
+        <translation>Posledný dotaz bol vytvorený príliš nedávno.</translation>
     </message>
     <message>
-        <source>Specify your own public address</source>
-        <translation>Zadajte Vašu vlastnú verejnú adresu</translation>
+        <source>Last successful action was too recent.</source>
+        <translation>Posledná akcia bola pred chvíľou.</translation>
     </message>
     <message>
         <source>Starting network threads...</source>
         <translation>Spúšťajú sa sieťové vlákna...</translation>
     </message>
     <message>
-        <source>Synchronization pending...</source>
-        <translation>Synchronizácia čaká...</translation>
-    </message>
-    <message>
         <source>Synchronizing governance objects...</source>
         <translation>Synchronizujú sa objekty správy...</translation>
-    </message>
-    <message>
-        <source>Synchronizing masternode payments...</source>
-        <translation>Synchronizujú sa masternode platby...</translation>
     </message>
     <message>
         <source>The source code is available from %s.</source>
@@ -5282,6 +4952,14 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Na tomto počítači sa nedá vytvoriť väzba %s (vytvorenie väzby vrátilo chybu %s)</translation>
     </message>
     <message>
+        <source>Unable to locate enough mixed funds for this transaction.</source>
+        <translation>Pre túto transakciu sa nepodarilo nájsť dostatok zmiešaných prostriedkov.</translation>
+    </message>
+    <message>
+        <source>Unable to locate enough non-denominated funds for this transaction.</source>
+        <translation>Pre túto transakciu sa nepodarilo nájsť dostatok ne-denominovaných finančných prostriedkov.</translation>
+    </message>
+    <message>
         <source>Unable to sign spork message, wrong key?</source>
         <translation>Nedá sa podpísať spork správa, žeby zlý kľúč?</translation>
     </message>
@@ -5294,52 +4972,225 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Neznámy stav: id = %u</translation>
     </message>
     <message>
-        <source>Username for JSON-RPC connections</source>
-        <translation>Užívateľské meno pre JSON-RPC spojenia</translation>
+        <source>Unsupported logging category %s=%s.</source>
+        <translation>Nepodporovaná záznamová kategória %s =%s.</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>
         <translation>Overovanie blokov...</translation>
     </message>
     <message>
-        <source>Verifying wallet...</source>
-        <translation>Overuje sa peňaženka...</translation>
-    </message>
-    <message>
         <source>Very low number of keys left: %d</source>
         <translation>Zostáva veľmi málo kľúčov: %d</translation>
-    </message>
-    <message>
-        <source>Wallet %s resides outside data directory %s</source>
-        <translation>Peňaženka %s je umiestnená mimo dátový adresár %s.</translation>
     </message>
     <message>
         <source>Wallet is locked.</source>
         <translation>Peňaženka je zamknutá.</translation>
     </message>
     <message>
-        <source>Wallet options:</source>
-        <translation>Možnosti peňaženky:</translation>
-    </message>
-    <message>
-        <source>Wallet window title</source>
-        <translation>Nadpis okna peňaženky</translation>
-    </message>
-    <message>
         <source>Warning</source>
         <translation>Upozornenie</translation>
+    </message>
+    <message>
+        <source>Warning: %s is deprecated, please use %s instead</source>
+        <translation>Upozornenie: Podpora %s je ukončená, použite radšej %s</translation>
+    </message>
+    <message>
+        <source>Warning: can't use %s and %s together, will prefer %s</source>
+        <translation>Upozornenie: Nemôžete používať %s a %s súčasne, bude sa preferovať %s</translation>
+    </message>
+    <message>
+        <source>Warning: incorrect parameter %s, path must exist! Using default path.</source>
+        <translation>Upozornenie: nesprávny parameter %s, cesta musí existovať! Použije sa predvolené cesta.</translation>
+    </message>
+    <message>
+        <source>You are starting with governance validation disabled.</source>
+        <translation>Začínate s deaktivovaným overením riadenia.</translation>
+    </message>
+    <message>
+        <source>You can not disable governance validation on a masternode.</source>
+        <translation>Overenie riadenia nemôžete na masternóde deaktivovať.</translation>
     </message>
     <message>
         <source>Your entries added successfully.</source>
         <translation>Vaše položky boli úspešne pridané.</translation>
     </message>
     <message>
-        <source>Your transaction was accepted into the pool!</source>
-        <translation>Vaša transakcia bola pridaná do fronty!</translation>
-    </message>
-    <message>
         <source>Zapping all transactions from wallet...</source>
         <translation>Vymazať všetky transakcie z peňaženky...</translation>
+    </message>
+</context>
+<context>
+    <name>DocumentList</name>
+    <message>
+        <location filename="../forms/documentlist.ui"/>
+        <source>Document Revision</source>
+        <translation>Revízia dokumentu</translation>
+    </message>
+    <message>
+        <source>&amp;Open</source>
+        <translation>&amp;Open</translation>
+    </message>
+    <message>
+        <source>&amp;Revision</source>
+        <translation>&amp;Revision</translation>
+    </message>
+    <message>
+        <location filename="../documentlist.cpp"/>
+        <source>Select file(s) to append</source>
+        <translation>Select file(s) to append</translation>
+    </message>
+    <message>
+        <source>All Files (*.*)</source>
+        <translation>All Files (*.*)</translation>
+    </message>
+    <message>
+        <source>Document</source>
+        <translation>Document</translation>
+    </message>
+    <message>
+        <source>File hash</source>
+        <translation>File hash</translation>
+    </message>
+    <message>
+        <source>GUID</source>
+        <translation>GUID</translation>
+    </message>
+    <message>
+        <source>Attribute hash</source>
+        <translation>Attribute hash</translation>
+    </message>
+    <message>
+        <source>Blockchain</source>
+        <translation>Blockchain</translation>
+    </message>
+    <message>
+        <source>Document Revision</source>
+        <translation>Revízia dokumentu</translation>
+    </message>
+    <message>
+        <source>Execute</source>
+        <translation>Execute</translation>
+    </message>
+    <message>
+        <source>Transaction ID</source>
+        <translation>Transaction ID</translation>
+    </message>
+    <message>
+        <source>Total Amount</source>
+        <translation>Total Amount</translation>
+    </message>
+    <message>
+        <source>Stored</source>
+        <translation>Stored</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to send?</source>
+        <translation>Are you sure you want to send?</translation>
+    </message>
+    <message>
+        <source>Store document information</source>
+        <translation>Store document information</translation>
+    </message>
+    <message>
+        <source>is paid as transaction fee.</source>
+        <translation>is paid as transaction fee.</translation>
+    </message>
+    <message>
+        <source>Send Document</source>
+        <translation>Send Document</translation>
+    </message>
+    <message>
+        <source>File exists</source>
+        <translation>File exists</translation>
+    </message>
+    <message>
+        <source>New file name</source>
+        <translation>New file name</translation>
+    </message>
+    <message>
+        <source>%1 document files</source>
+        <translation>%1 document files</translation>
+    </message>
+</context>
+<context>
+    <name>Document</name>
+    <message>
+        <location filename="../documentlist.cpp"/>
+        <source>Revision successful</source>
+        <translation>Revision successful</translation>
+    </message>
+    <message>
+        <source>Revision with notes</source>
+        <translation>Revision with notes</translation>
+    </message>
+    <message>
+        <source>Revision is not possible yet</source>
+        <translation>Revision is not possible yet</translation>
+    </message>
+    <message>
+        <source>Revision failed</source>
+        <translation>Revision failed</translation>
+    </message>
+    <message>
+        <source>No Transaction stored.</source>
+        <translation>No Transaction stored.</translation>
+    </message>
+    <message>
+        <source>The current file does not match the locally saved hash. This file has been modified.</source>
+        <translation>The current file does not match the locally saved hash. This file has been modified.</translation>
+    </message>
+    <message>
+        <source>Transaction not found.</source>
+        <translation>Transaction not found.</translation>
+    </message>
+    <message>
+        <source>current value \"%1\" differs from value \"%2\" stored in blockchain.</source>
+        <translation>current value \"%1\" differs from value \"%2\" stored in blockchain.</translation>
+    </message>
+    <message>
+        <source>matches the blockchain value.</source>
+        <translation>matches the blockchain value.</translation>
+    </message>
+    <message>
+        <source>There are not enough blockchain confirmations available for revision. Please wait a while.</source>
+        <translation>There are not enough blockchain confirmations available for revision. Please wait a while.</translation>
+    </message>
+    <message>
+        <source>Rejected</source>
+        <translation>Rejected</translation>
+    </message>
+    <message>
+        <source>This file information has already been stored in Documentchain.</source>
+        <translation>This file information has already been stored in Documentchain.</translation>
+    </message>
+    <message>
+        <source>Invalid document description.</source>
+        <translation>Invalid document description.</translation>
+    </message>
+    <message>
+        <source>Signing</source>
+        <translation>Signing</translation>
+    </message>
+    <message>
+        <source>Could not sign transaction.</source>
+        <translation>Could not sign transaction.</translation>
+    </message>
+    <message>
+        <source>RPC Error</source>
+        <translation>RPC Error</translation>
+    </message>
+    <message>
+        <source>Unknown error.</source>
+        <translation>Unknown error.</translation>
+    </message>
+    <message>
+        <source>Blockchain confirmations</source>
+        <translation>Blockchain confirmations</translation>
+    </message>
+    <message>
+        <source>The blockchain confirms that %1this document file%2 exists at least since %3 and has not been modified.</source>
+        <translation>The blockchain confirms that %1this document file%2 exists at least since %3 and has not been modified.</translation>
     </message>
 </context>
 </TS>

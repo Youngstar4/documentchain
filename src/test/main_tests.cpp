@@ -1,12 +1,10 @@
 // Copyright (c) 2014-2015 The Bitcoin Core developers
-// Copyright (c) 2018 The Documentchain developers
-
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "net.h"
+#include <net.h>
 
-#include "test/test_dms.h"
+#include <test/test_dms.h>
 
 #include <boost/signals2/signal.hpp>
 #include <boost/test/unit_test.hpp>

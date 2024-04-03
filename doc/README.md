@@ -1,11 +1,11 @@
-DMS Core 0.12.9
-=====================
+DMS Core
+==========
 
-This is the official reference wallet for DMS digital currency and comprises the backbone of the Documentchain peer-to-peer network. You can [download DMS Core](https://github.com/Krekeler/documentchain/releases) or [build it yourself](#building) using the guides below.
+This is the official reference wallet for Documentchain's blockchain solution and the digital currency "DMS". It comprises the backbone of the peer-to-peer network. You can [download DMS Core](https://github.com/Krekeler/documentchain/releases) or [build it yourself](#building) using the guides below.
 
 Running
 ---------------------
-The following are some helpful notes on how to run DMS on your native platform.
+The following are some helpful notes on how to run DMS Core on your native platform.
 
 ### Unix
 
@@ -24,8 +24,10 @@ Drag DMS-Qt to your applications folder, and then run DMS-Qt.
 
 ### Need Help?
 
-* See the [Dash documentation](https://dashpay.atlassian.net/wiki/display/DOC)
-for help and more information. DMS is forked from Dash 0.12.3
+* See the [support website](https://documentchain.org/start-now/)
+for help and more information.
+* Ask your questions in a chat. Links to chat rooms and social media 
+can be found in the [website footer](https://documentchain.org/start-now/).
 
 Building
 ---------------------
@@ -42,22 +44,15 @@ Development
 The DMS Core repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
-- Release Notes
+- [Release Notes](release-notes.md)
 - [Release Process](release-process.md)
-- [Translation Process](translation_process.md)
-- [Translation Strings Policy](translation_strings_policy.md)
-- [Travis CI](travis-ci.md)
-- [Unauthenticated REST Interface](REST-interface.md)
-- [Shared Libraries](shared-libraries.md)
-- [BIPS](bips.md)
-- [Dnsseed Policy](dnsseed-policy.md)
-- [Benchmarking](benchmarking.md)
+- [Document Revision](/dms-docs/document-revision-data.md)
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)
 - [Files](files.md)
+- [Fuzz-testing](fuzzing.md)
 - [Reduce Traffic](reduce-traffic.md)
-- [Tor Support](tor.md)
 - [Init Scripts (systemd/upstart/openrc)](init.md)
 - [ZMQ](zmq.md)
 

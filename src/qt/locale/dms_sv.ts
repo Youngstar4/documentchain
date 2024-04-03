@@ -176,7 +176,7 @@
         <translation>Plånbok krypterad</translation>
     </message>
     <message>
-        <source>DMS will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your DMS from being stolen by malware infecting your computer.</source>
+        <source>DMS will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your dmss from being stolen by malware infecting your computer.</source>
         <translation>DMS kommer nu att färdigställa krypteringsprocessen. Kom ihåg att krypteringen av din plånbok inte kan skydda dig helt och hållet från att dina DMS stjäls av skadeprogram som har infekterat din dator.</translation>
     </message>
     <message>
@@ -253,7 +253,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and dms: URIs)</source>
-        <translation>Begär betalningar (genererar QR-koder och dms:-URI:s)</translation>
+        <translation>Begär betalningar (genererar QR-koder och DMS:-URI:s)</translation>
     </message>
     <message>
         <source>&amp;Transactions</source>
@@ -1105,12 +1105,6 @@ Adress: %4
         <translation>Användargränssnittspråket kan ställas in här. Denna inställning träder i kraft efter att DMS startats om.</translation>
     </message>
     <message>
-        <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/projects/p/dash/</source>
-        <translation>Fattas språk eller är det en ofullständig översättning? Hjälp till att bidra med översättningar här:
-https://www.transifex.com/projects/p/dash/</translation>
-    </message>
-    <message>
         <source>&amp;Unit to show amounts in:</source>
         <translation>&amp;Enhet att visa mängder i: </translation>
     </message>
@@ -1182,7 +1176,7 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Formulär</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DMS network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Documentchain network after a connection is established, but this process has not completed yet.</source>
         <translation>Den visade informationen kan vara utdaterad. Din plånbok synkroniseras automatiskt med DMS-nätverket efter att en anslutning har etablerats men denna process har ännu inte slutförts.</translation>
     </message>
     <message>
@@ -1436,7 +1430,7 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>Open the DMS debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Öppna DMS avsökningsloggfil från den nuvarande datakatalogen. Detta kan ta ett par sekunder för stora loggfiler.</translation>
+        <translation>Öppna DMSs avsökningsloggfil från den nuvarande datakatalogen. Detta kan ta ett par sekunder för stora loggfiler.</translation>
     </message>
     <message>
         <source>&amp;Open</source>
@@ -1508,7 +1502,7 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>Welcome to the DMS RPC console.</source>
-        <translation>Välkommen till DMS RPC-konsol.</translation>
+        <translation>Välkommen till DMSs RPC-konsol.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1542,7 +1536,7 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Åt&amp;eranvänd en befintlig mottagaradress (rekommenderas inte)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DMS network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Documentchain network.</source>
         <translation>Ett valfritt meddelande att bifoga betalningsbegärandet vilket kommer att visas när begärandet öppnas. Observera: Meddelandet kommer inte att skickas med betalningen över DMS-nätverket.</translation>
     </message>
     <message>
@@ -1958,8 +1952,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Meddelande:</translation>
     </message>
     <message>
-        <source>A message that was attached to the dms: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the network.</source>
-        <translation>Ett meddelande som bifogades till dms: URI vilket kommer att lagras med transaktionen så att du vet. Observera: Meddelandet kommer inte att skickas över nätverket.</translation>
+        <source>A message that was attached to the dms: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Documentchain network.</source>
+        <translation>Ett meddelande som bifogades till DMS: URI vilket kommer att lagras med transaktionen så att du vet. Observera: Meddelandet kommer inte att skickas över DMS-nätverket.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
@@ -2140,7 +2134,7 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Bitcoin Core-utvecklarna</translation>
     </message>
     <message>
-        <source>The DMS Core developers</source>
+        <source>The Dash Core developers</source>
         <translation>DMS Core-utvecklarna</translation>
     </message>
     <message>

@@ -10,14 +10,14 @@ can be found in the contrib/init folder.
     contrib/init/dmsd.conf:       Upstart service configuration file
     contrib/init/dmsd.init:       CentOS compatible SysV style init script
 
-1. Service User
+Service User
 ---------------------------------
 
 All three Linux startup configurations assume the existence of a "dmscore" user
 and group.  They must be created before attempting to use these scripts.
 The OS X configuration assumes dmsd will be set up for the current user.
 
-2. Configuration
+Configuration
 ---------------------------------
 
 At a bare minimum, dmsd requires that the rpcpassword setting be set
@@ -46,10 +46,10 @@ relative to the data directory. `wallet` *only* supports relative paths.
 For an example configuration file that describes the configuration settings,
 see `contrib/debian/examples/dms.conf`.
 
-3. Paths
+Paths
 ---------------------------------
 
-3a) Linux
+### Linux
 
 All three configurations assume several paths that might need to be adjusted.
 
@@ -65,17 +65,17 @@ reasons to make the configuration file and data directory only readable by the
 dmscore user and group.  Access to dms-cli and other dmsd rpc clients
 can then be controlled by group membership.
 
-3b) Mac OS X
+### Mac OS X
 
 Binary:              `/usr/local/bin/dmsd`  
 Configuration file:  `~/Library/Application Support/DMSCore/dms.conf`  
-Data directory:      `~/Library/Application Support/DMSCore`
-Lock file:           `~/Library/Application Support/DMSCore/.lock`
+Data directory:      `~/Library/Application Support/DMSCore`  
+Lock file:           `~/Library/Application Support/DMSCore/.lock`  
 
-4. Installing Service Configuration
+Installing Service Configuration
 -----------------------------------
 
-4a) systemd
+### systemd
 
 Installing this .service file consists of just copying it to
 /usr/lib/systemd/system directory, followed by the command
@@ -84,14 +84,18 @@ Installing this .service file consists of just copying it to
 To test, run `systemctl start dmsd` and to enable for system startup run
 `systemctl enable dmsd`
 
-4b) OpenRC
+NOTE: When installing for systemd in Debian/Ubuntu the .service file needs to be copied to the /lib/systemd/system directory instead.
+
+### OpenRC
 
 Rename dmsd.openrc to dmsd and drop it in /etc/init.d.  Double
 check ownership and permissions and make it executable.  Test it with
 `/etc/init.d/dmsd start` and configure it to run on startup with
 `rc-update add dmsd`
 
-4c) Upstart (for Debian/Ubuntu based distributions)
+### Upstart (for Debian/Ubuntu based distributions)
+
+Upstart is the default init system for Debian/Ubuntu versions older than 15.04. If you are using version 15.04 or newer and haven't manually configured upstart you should follow the systemd instructions instead.
 
 Drop dmsd.conf in /etc/init.  Test by running `service dmsd start`
 it will automatically start on reboot.
@@ -99,15 +103,15 @@ it will automatically start on reboot.
 NOTE: This script is incompatible with CentOS 5 and Amazon Linux 2014 as they
 use old versions of Upstart and do not supply the start-stop-daemon utility.
 
-4d) CentOS
+### CentOS
 
 Copy dmsd.init to /etc/init.d/dmsd. Test by running `service dmsd start`.
 
 Using this script, you can adjust the path and flags to the dmsd program by
-setting the dmsd and FLAGS environment variables in the file
+setting the DMSD and FLAGS environment variables in the file
 /etc/sysconfig/dmsd. You can also use the DAEMONOPTS environment variable here.
 
-4e) Mac OS X
+### Mac OS X
 
 Copy org.dms.dmsd.plist into ~/Library/LaunchAgents. Load the launch agent by
 running `launchctl load ~/Library/LaunchAgents/org.dms.dmsd.plist`.
@@ -118,7 +122,7 @@ NOTE: This approach is intended for those wanting to run dmsd as the current use
 You will need to modify org.dms.dmsd.plist if you intend to use it as a
 Launch Daemon with a dedicated dmscore user.
 
-5. Auto-respawn
+Auto-respawn
 -----------------------------------
 
 Auto respawning is currently only configured for Upstart and systemd.

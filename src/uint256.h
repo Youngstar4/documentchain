@@ -1,8 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2018 The Documentchain developers
-
+// Copyright (c) 2014-2020 The Dash Core developers
+// Copyright (c) 2018-2022 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -15,14 +14,14 @@
 #include <stdint.h>
 #include <string>
 #include <vector>
-#include "crypto/common.h"
+#include <crypto/common.h>
 
 /** Template base class for fixed-sized opaque blobs. */
 template<unsigned int BITS>
 class base_blob
 {
 protected:
-    enum { WIDTH=BITS/8 };
+    static constexpr int WIDTH = BITS / 8;
     uint8_t data[WIDTH];
 public:
     base_blob()
@@ -107,6 +106,17 @@ public:
     }
 };
 
+/** 128-bit opaque blob, used for document index key.
+ * @note This type is called uint160 for historical reasons only. It is an opaque
+ * blob of 128 bits and has no integer operations.
+ */
+class uint128 : public base_blob<128> {
+public:
+    uint128() {}
+    uint128(const base_blob<128>& b) : base_blob<128>(b) {}
+    explicit uint128(const std::vector<unsigned char>& vch) : base_blob<128>(vch) {}
+};
+
 /** 160-bit opaque blob.
  * @note This type is called uint160 for historical reasons only. It is an opaque
  * blob of 160 bits and has no integer operations.
@@ -114,7 +124,6 @@ public:
 class uint160 : public base_blob<160> {
 public:
     uint160() {}
-    uint160(const base_blob<160>& b) : base_blob<160>(b) {}
     explicit uint160(const std::vector<unsigned char>& vch) : base_blob<160>(vch) {}
 };
 
@@ -126,7 +135,6 @@ public:
 class uint256 : public base_blob<256> {
 public:
     uint256() {}
-    uint256(const base_blob<256>& b) : base_blob<256>(b) {}
     explicit uint256(const std::vector<unsigned char>& vch) : base_blob<256>(vch) {}
 
     /** A cheap hash function that just returns 64 bits from the result, it can be
@@ -176,5 +184,15 @@ public:
     }
 };
 
+namespace std {
+    template <>
+    struct hash<uint256>
+    {
+        std::size_t operator()(const uint256& k) const
+        {
+            return (std::size_t)k.GetCheapHash();
+        }
+    };
+}
 
 #endif // BITCOIN_UINT256_H

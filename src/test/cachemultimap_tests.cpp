@@ -1,10 +1,8 @@
-// Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2018 The Documentchain developers
+// Copyright (c) 2014-2020 The Dash Core developers
 
+#include <cachemultimap.h>
 
-#include "cachemultimap.h"
-
-#include "test/test_dms.h"
+#include <test/test_dms.h>
 
 #include <algorithm>
 #include <iostream>

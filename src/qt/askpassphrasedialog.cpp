@@ -1,21 +1,20 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2018 The Documentchain developers
-
+// Copyright (c) 2014-2020 The Dash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/dms-config.h"
+#include <config/dms-config.h>
 #endif
 
-#include "askpassphrasedialog.h"
-#include "ui_askpassphrasedialog.h"
+#include <qt/askpassphrasedialog.h>
+#include <qt/forms/ui_askpassphrasedialog.h>
 
-#include "guiconstants.h"
-#include "walletmodel.h"
+#include <qt/guiconstants.h>
+#include <qt/guiutil.h>
+#include <qt/walletmodel.h>
 
-#include "support/allocators/secure.h"
+#include <support/allocators/secure.h>
 
 #include <QKeyEvent>
 #include <QMessageBox>
@@ -29,6 +28,12 @@ AskPassphraseDialog::AskPassphraseDialog(Mode _mode, QWidget *parent) :
     fCapsLock(false)
 {
     ui->setupUi(this);
+
+    GUIUtil::setFont({ui->capsLabel}, GUIUtil::FontWeight::Bold);
+
+    GUIUtil::updateFonts();
+
+    GUIUtil::disableMacFocusRect(this);
 
     ui->passEdit1->setMinimumSize(ui->passEdit1->sizeHint());
     ui->passEdit2->setMinimumSize(ui->passEdit2->sizeHint());
@@ -81,6 +86,7 @@ AskPassphraseDialog::AskPassphraseDialog(Mode _mode, QWidget *parent) :
             break;
     }
     textChanged();
+    connect(ui->toggleShowPasswordButton, SIGNAL(toggled(bool)), this, SLOT(toggleShowPassword(bool)));
     connect(ui->passEdit1, SIGNAL(textChanged(QString)), this, SLOT(textChanged()));
     connect(ui->passEdit2, SIGNAL(textChanged(QString)), this, SLOT(textChanged()));
     connect(ui->passEdit3, SIGNAL(textChanged(QString)), this, SLOT(textChanged()));
@@ -131,12 +137,12 @@ void AskPassphraseDialog::accept()
             {
                 if(model->setWalletEncrypted(true, newpass1))
                 {
-                    if (model->hdEnabled()) {
+                    if (model->wallet().hdEnabled()) {
                         QMessageBox::warning(this, tr("Wallet encrypted"),
                                          "<qt>" +
-                                         tr("%1 will close now to finish the encryption process. "
+                                         tr("Your wallet is now encrypted. "
                                          "Remember that encrypting your wallet cannot fully protect "
-                                         "your funds from being stolen by malware infecting your computer.").arg(tr(PACKAGE_NAME)) +
+                                         "your funds from being stolen by malware infecting your computer.") +
                                          "<br><br><b>" +
                                          tr("IMPORTANT: Any previous backups you have made of your wallet file "
                                          "should be replaced with the newly generated, encrypted wallet file. "
@@ -146,9 +152,9 @@ void AskPassphraseDialog::accept()
                     } else {
                         QMessageBox::warning(this, tr("Wallet encrypted"),
                                          "<qt>" +
-                                         tr("%1 will close now to finish the encryption process. "
+                                         tr("Your wallet is now encrypted. "
                                          "Remember that encrypting your wallet cannot fully protect "
-                                         "your funds from being stolen by malware infecting your computer.").arg(tr(PACKAGE_NAME)) +
+                                         "your funds from being stolen by malware infecting your computer.") +
                                          "<br><br><b>" +
                                          tr("IMPORTANT: Any previous backups you have made of your wallet file "
                                          "should be replaced with the newly generated, encrypted wallet file. "
@@ -156,7 +162,6 @@ void AskPassphraseDialog::accept()
                                          "will become useless as soon as you start using the new, encrypted wallet.") +
                                          "</b></qt>");
                     }
-                    QApplication::quit();
                 }
                 else
                 {
@@ -259,6 +264,15 @@ bool AskPassphraseDialog::event(QEvent *event)
         }
     }
     return QWidget::event(event);
+}
+
+void AskPassphraseDialog::toggleShowPassword(bool show)
+{
+    ui->toggleShowPasswordButton->setDown(show);
+    const auto mode = show ? QLineEdit::Normal : QLineEdit::Password;
+    ui->passEdit1->setEchoMode(mode);
+    ui->passEdit2->setEchoMode(mode);
+    ui->passEdit3->setEchoMode(mode);
 }
 
 bool AskPassphraseDialog::eventFilter(QObject *object, QEvent *event)

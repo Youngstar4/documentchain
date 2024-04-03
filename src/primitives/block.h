@@ -6,9 +6,9 @@
 #ifndef BITCOIN_PRIMITIVES_BLOCK_H
 #define BITCOIN_PRIMITIVES_BLOCK_H
 
-#include "primitives/transaction.h"
-#include "serialize.h"
-#include "uint256.h"
+#include <primitives/transaction.h>
+#include <serialize.h>
+#include <uint256.h>
 
 /** Nodes collect new transactions into a block, hash them into a hash tree,
  * and scan through nonce values to make the block's hash satisfy proof-of-work
@@ -76,8 +76,6 @@ public:
     std::vector<CTransactionRef> vtx;
 
     // memory only
-    mutable CTxOut txoutMasternode; // masternode payment
-    mutable std::vector<CTxOut> voutSuperblock; // superblock payment
     mutable bool fChecked;
 
     CBlock()
@@ -88,14 +86,14 @@ public:
     CBlock(const CBlockHeader &header)
     {
         SetNull();
-        *((CBlockHeader*)this) = header;
+        *(static_cast<CBlockHeader*>(this)) = header;
     }
 
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
     inline void SerializationOp(Stream& s, Operation ser_action) {
-        READWRITE(*(CBlockHeader*)this);
+        READWRITEAS(CBlockHeader, *this);
         READWRITE(vtx);
     }
 
@@ -103,8 +101,6 @@ public:
     {
         CBlockHeader::SetNull();
         vtx.clear();
-        txoutMasternode = CTxOut();
-        voutSuperblock.clear();
         fChecked = false;
     }
 
@@ -134,10 +130,7 @@ struct CBlockLocator
 
     CBlockLocator() {}
 
-    CBlockLocator(const std::vector<uint256>& vHaveIn)
-    {
-        vHave = vHaveIn;
-    }
+    explicit CBlockLocator(const std::vector<uint256>& vHaveIn) : vHave(vHaveIn) {}
 
     ADD_SERIALIZE_METHODS;
 

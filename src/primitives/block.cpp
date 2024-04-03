@@ -1,21 +1,30 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2018 The Documentchain developers
+// Copyright (c) 2018-2021 The Documentchain developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "primitives/block.h"
+#include <primitives/block.h>
 
-#include "hash.h"
-#include "tinyformat.h"
-#include "utilstrencodings.h"
-#include "crypto/common.h"
+#include <hash.h>
+#include <streams.h>
+#include <tinyformat.h>
+#include <utilstrencodings.h>
+#include <crypto/common.h>
 
 uint256 CBlockHeader::GetHash() const
 {
-	// return SerializeHash(*this);  // Bitcoin
-	// return HashX11(BEGIN(nVersion), END(nNonce));  // Dash
-	return SerializeHashYescrypt(*this);  // Yescrypt test
+    /** Bitcoin
+    return SerializeHash(*this);
+	*/
+    /** Dash
+    std::vector<unsigned char> vch(80);
+    CVectorWriter ss(SER_GETHASH, PROTOCOL_VERSION, vch, 0);
+    ss << *this;
+    return HashX11((const char *)vch.data(), (const char *)vch.data() + vch.size());
+    */
+    /** Documentchain */
+    return SerializeHashYescrypt(*this);
 }
 
 std::string CBlock::ToString() const
@@ -28,9 +37,8 @@ std::string CBlock::ToString() const
         hashMerkleRoot.ToString(),
         nTime, nBits, nNonce,
         vtx.size());
-    for (unsigned int i = 0; i < vtx.size(); i++)
-    {
-        s << "  " << vtx[i]->ToString() << "\n";
+    for (const auto& tx : vtx) {
+        s << "  " << tx->ToString() << "\n";
     }
     return s.str();
 }
