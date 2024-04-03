@@ -372,6 +372,10 @@
         <translation>Öffnet die %1 support Webseite</translation>
     </message>
     <message>
+        <source>https://documentchain.org/start-now/#howto</source>
+        <translation>https://de.documentchain.org/jetzt-starten/#howto</translation>
+    </message>
+    <message>
         <source>&amp;Mining...</source>
         <translation>Minin&amp;g...</translation>
     </message>
